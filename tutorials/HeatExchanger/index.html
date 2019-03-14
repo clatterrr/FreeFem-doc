@@ -1396,9 +1396,8 @@
 <p><strong>Summary:</strong> <em>Here we shall learn more about geometry input and triangulation files, as well as read and write operations.</em></p>
 <p><strong>The problem</strong>
 Let <span><span class="MathJax_Preview">\{C_{i}\}_{1,2}</span><script type="math/tex">\{C_{i}\}_{1,2}</script></span>, be 2 thermal conductors within an enclosure <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span>.</p>
-<!-- Add image -->
-
-<p>The first one is held at a constant temperature <span><span class="MathJax_Preview">{u} _{1}</span><script type="math/tex">{u} _{1}</script></span> the other one has a given thermal conductivity <span><span class="MathJax_Preview">\kappa_2</span><script type="math/tex">\kappa_2</script></span> 5 times larger than the one of <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span>.</p>
+<p><img alt="Heat Exchanger Th" src="../images/heat_exchangerGeo.svg" /></p>
+<p>The first one is held at a constant temperature <span><span class="MathJax_Preview">{u} _{1}</span><script type="math/tex">{u} _{1}</script></span> the other one has a given thermal conductivity <span><span class="MathJax_Preview">\kappa_2</span><script type="math/tex">\kappa_2</script></span> 3 times larger than the one of <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span>.</p>
 <p>We assume that the border of enclosure <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> is held at temperature <span><span class="MathJax_Preview">20^\circ C</span><script type="math/tex">20^\circ C</script></span> and that we have waited long enough for thermal equilibrium.</p>
 <p>In order to know <span><span class="MathJax_Preview">{u} (x)</span><script type="math/tex">{u} (x)</script></span> at any point <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> of the domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, we must solve</p>
 <div>
@@ -1411,8 +1410,7 @@ Let <span><span class="MathJax_Preview">\{C_{i}\}_{1,2}</span><script type="math
 \quad {u}_{|\Gamma} = g
 </script>
 </div>
-<p>where <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the interior of <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> minus the conductor <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> and <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> is the boundary of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, that is <span><span class="MathJax_Preview">C_0\cup C_1</span><script type="math/tex">C_0\cup C_1</script></span>.
-<!-- Check with image --></p>
+<p>where <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the interior of <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> minus the conductor <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> and <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span> is the boundary of <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>, that is <span><span class="MathJax_Preview">C_0\cup C_1</span><script type="math/tex">C_0\cup C_1</script></span>.</p>
 <p>Here <span><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is any function of <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> equal to <span><span class="MathJax_Preview">{u}_i</span><script type="math/tex">{u}_i</script></span> on <span><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>.</p>
 <p>The second equation is a reduced form for:</p>
 <div>
@@ -1424,10 +1422,15 @@ Let <span><span class="MathJax_Preview">\{C_{i}\}_{1,2}</span><script type="math
 </script>
 </div>
 <p>The variational formulation for this problem is in the subspace <span><span class="MathJax_Preview">H^1_0(\Omega) \subset H^1(\Omega)</span><script type="math/tex">H^1_0(\Omega) \subset H^1(\Omega)</script></span> of functions which have zero traces on <span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span>.</p>
-<p>$
+<div>
+<div class="MathJax_Preview">
 u-g\in H^1_0(\Omega) : \int_\Omega\n u\n v =0 \forall v\in H^1_0(\Omega)
-$</p>
-<p>Let us assume that <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> is a circle of radius 5 centered at the origin, <span><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span> are rectangles, <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> being at the constant temperature <span><span class="MathJax_Preview">u_1=60^\circ C</span><script type="math/tex">u_1=60^\circ C</script></span>.</p>
+</div>
+<script type="math/tex; mode=display">
+u-g\in H^1_0(\Omega) : \int_\Omega\n u\n v =0 \forall v\in H^1_0(\Omega)
+</script>
+</div>
+<p>Let us assume that <span><span class="MathJax_Preview">C_0</span><script type="math/tex">C_0</script></span> is a circle of radius 5 centered at the origin, <span><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span> are rectangles, <span><span class="MathJax_Preview">C_1</span><script type="math/tex">C_1</script></span> being at the constant temperature <span><span class="MathJax_Preview">u_1=60^\circ C</span><script type="math/tex">u_1=60^\circ C</script></span> (so we can only consider its boundary).</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
