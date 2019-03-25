@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.3.25)  25 MAR 2019 13:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.3.25)  25 MAR 2019 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,12 +927,12 @@ LaTeX Warning: Label `documentation/finiteElement:FiniteElement' multiply defin
 ed.
 
 
-LaTeX Warning: Label `model/elasticity:CrackAndPrincipalStress' multiply define
-d.
+LaTeX Warning: Label `models/elasticity:CrackAndPrincipalStress' multiply defin
+ed.
 
 
-LaTeX Warning: Label `model/domainDecomposition:DomainDecomposition_Schwarz' mu
-ltiply defined.
+LaTeX Warning: Label `models/domainDecomposition:DomainDecomposition_Schwarz' m
+ultiply defined.
 
 )
 \openout1 = `FreeFEM.aux'.
@@ -3188,25 +3188,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.5.5.
 <to be read again> 
                    \relax 
 l.33482 \begin{equation}
-                        \label{equation:model/evolutionProblems:eqn::conv}pdfTe
-X warning (ext4): destination with the same identifier (name{equation.5.5.8}) h
-as been already used, duplicate ignored
+                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
+eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33482 \begin{equation}
-                        \label{equation:model/evolutionProblems:eqn::conv}pdfTe
-X warning (ext4): destination with the same identifier (name{equation.5.5.8}) h
-as been already used, duplicate ignored
+                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
+eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33482 \begin{equation}
-                        \label{equation:model/evolutionProblems:eqn::conv}pdfTe
-X warning (ext4): destination with the same identifier (name{equation.5.5.8}) h
-as been already used, duplicate ignored
+                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
+eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
+has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33482 \begin{equation}
-                        \label{equation:model/evolutionProblems:eqn::conv}
+                        \label{equation:models/evolutionProblems:eqn::conv}
 [502 <./EvolutionProblems_TimeDifference.png>] [503]
 <EvolutionProblem_Convect.png, id=5167, 513.92pt x 380.42125pt>
 File: EvolutionProblem_Convect.png Graphic file (type png)
@@ -4071,8 +4071,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40738.
  ) 
 Here is how much of TeX's memory you used:
  20775 strings out of 495028
- 371586 string characters out of 6181497
- 945592 words of memory out of 5000000
+ 373495 string characters out of 6181497
+ 945647 words of memory out of 5000000
  20981 multiletter control sequences out of 15000+600000
  81569 words of font info for 120 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
@@ -4110,7 +4110,7 @@ are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive
 ts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on FreeFEM.pdf (639 pages, 34823885 bytes).
+Output written on FreeFEM.pdf (639 pages, 34823937 bytes).
 PDF statistics:
  6617 PDF objects out of 7423 (max. 8388607)
  5425 compressed objects within 55 object streams
