@@ -4,28 +4,28 @@ let rootPath = ''
 const LUNR_LIMIT = 10
 
 function initSearch(path) {
-   rootPath = path
+  rootPath = path
 }
 
 function search(event) {
-   searchClean()
+  searchClean()
 
-   if (!event.target)
-      return
+  if (!event.target)
+    return
 
-   if (!event.target.value)
-      return
+  if (!event.target.value)
+    return
 
-   const text = event.target.value
+  const text = event.target.value
 
-   if (text === '')
-      return
-   else
-      searchLunr(text)
+  if (text === '')
+    return
+  else
+    searchLunr(text)
 }
 
 function searchClean() {
-   searchResults.innerHTML = ''
+  searchResults.innerHTML = ''
 }
 
 function searchLunr(text) {
@@ -82,8 +82,11 @@ function searchLunr(text) {
 
          searchResults.appendChild(div)
       }
-      searchResults.style.display = 'block'
-   }
+
+      searchResults.appendChild(div)
+    }
+    searchResults.style.display = 'block'
+  }
 }
 
 function parseLunrResults(results, resultsi, text) {
@@ -134,15 +137,17 @@ function parseLunrResults(results, resultsi, text) {
 }
 
 searchInput.addEventListener('input', function(event) {
-   search(event)
+  search(event)
 })
 
 searchInput.addEventListener('focus', function(event) {
-   if (!searchResults.children.length)
-     return
+  document.getElementById("search-overlay").style.display = "block";
 
-   event.stopPropagation()
-   searchResults.style.display = 'block'
+  if (!searchResults.children.length)
+    return
+
+  event.stopPropagation()
+  searchResults.style.display = 'block'
 })
 
 function removeOverlay() {
