@@ -2102,7 +2102,7 @@ and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restric
 <span class="n">ffddmbuildrhs</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">,</span> <span class="n">bi</span><span class="p">[]</span> <span class="p">)</span>
 
 <span class="n">ui</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PBA</span><span class="p">(</span><span class="n">bi</span><span class="p">[]);</span>
-<span class="n">ffddmplot</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;A*b&quot;</span><span class="p">)</span>
+<span class="n">ffddmplot</span><span class="p">(</span><span class="n">FE</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;A*b&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -2168,7 +2168,7 @@ and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restric
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Solve the problem using the direct parallel solver MUMPS</span>
 <span class="n">ui</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PBdirectsolve</span><span class="p">(</span><span class="n">bi</span><span class="p">[]);</span>
-<span class="n">ffddmplot</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
+<span class="n">ffddmplot</span><span class="p">(</span><span class="n">FE</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -2260,7 +2260,7 @@ and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restric
 <span class="n">FEVhi</span> <span class="n">x0i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">ui</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PBfGMRES</span><span class="p">(</span><span class="n">x0i</span><span class="p">[],</span> <span class="n">bi</span><span class="p">[],</span> <span class="mf">1.e-6</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">);</span>
 
-<span class="n">ffddmplot</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
+<span class="n">ffddmplot</span><span class="p">(</span><span class="n">FE</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
 <span class="n">PBwritesummary</span>
 </pre></div>
 </td></tr></table></div>
