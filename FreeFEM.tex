@@ -146,7 +146,7 @@
 
         \sphinxmaketitle
         \clearpage
-        \Huge{In collaboration with:}
+        In collaboration with:
         \vfill
         \begin{minipage}{.49\linewidth}
             \centering
@@ -20207,7 +20207,7 @@ only true because \(D_i R_i A = D_i A_i R_i\) due to the fact that \(D_i\) vanis
 \PYG{n}{ffddmbuildrhs}\PYG{p}{(} \PYG{n}{PB} \PYG{p}{,} \PYG{n}{Varf} \PYG{p}{,} \PYG{n}{bi}\PYG{p}{[}\PYG{p}{]} \PYG{p}{)}
 
 \PYG{n}{ui}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{n}{PBA}\PYG{p}{(}\PYG{n}{bi}\PYG{p}{[}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{PB}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{A*b}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{FE}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{A*b}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 
@@ -20283,7 +20283,7 @@ We have \(A\) and \(b\) in distributed form, we can solve the linear system \(A 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{c+c1}{// Solve the problem using the direct parallel solver MUMPS}
 \PYG{n}{ui}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{n}{PBdirectsolve}\PYG{p}{(}\PYG{n}{bi}\PYG{p}{[}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{PB}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{FE}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 
@@ -20373,7 +20373,7 @@ solve \(A M^{-1} y = b\)
 \PYG{n}{FEVhi} \PYG{n}{x0i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{n}{ui}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{n}{PBfGMRES}\PYG{p}{(}\PYG{n}{x0i}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{bi}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{l+m+mf}{1.e\PYGZhy{}6}\PYG{p}{,} \PYG{l+m+mi}{200}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{right}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
 
-\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{PB}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ffddmplot}\PYG{p}{(}\PYG{n}{FE}\PYG{p}{,} \PYG{n}{ui}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{u}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
 \PYG{n}{PBwritesummary}
 \end{sphinxVerbatim}
 
