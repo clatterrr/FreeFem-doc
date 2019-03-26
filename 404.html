@@ -1799,9 +1799,10 @@
 <h1>something goes wrong<a class="headerlink" href="#something-goes-wrong" title="Permalink to this headline"> </a></h1>
 <p>I will redirect you to the introduction soon</p>
 <script>
-        header("Status: 301 Moved Permanently", false, 301);
-        header("Location: /introduction/index.html");
-        exit();
+        header('Status: 301 Moved Permanently', false, 301)
+        header('Location: /introduction/index.html')
+        window.location.href = '/introduction/index.html'
+        exit()
 </script></div>
 
 
