@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1798,7 +1798,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1833,9 +1833,9 @@ Some algorithms like the Schwarz’ domain decomposition method also requires da
 <li>Problem description (real or complex valued) by their variational formulations, with access to the internal vectors and matrices if needed.</li>
 <li>Multi-variables, multi-equations, bi-dimensional and three-dimensional static or time dependent, linear or nonlinear coupled systems; however the user is required to describe the iterative procedures which reduce the problem to a set of linear problems.</li>
 <li>Easy geometric input by analytic description of boundaries by pieces; however this part is not a CAD system; for instance when two boundaries intersect, the user must specify the intersection points.</li>
-<li>Automatic mesh generator, based on the Delaunay-Voronoi algorithm; the inner point density is proportional to the density of points on the boundaries <a class="reference internal" href="../references.html#george1996" id="id1">[GEORGE1996]</a>.</li>
+<li>Automatic mesh generator, based on the Delaunay-Voronoi algorithm; the inner point density is proportional to the density of points on the boundaries <a class="reference internal" href="../bibliography.html#george1996" id="id1">[GEORGE1996]</a>.</li>
 <li>Metric-based anisotropic mesh adaptation.
-The metric can be computed automatically from the Hessian of any <strong>FreeFEM</strong> function <a class="reference internal" href="../references.html#hecht1998" id="id2">[HECHT1998]</a>.</li>
+The metric can be computed automatically from the Hessian of any <strong>FreeFEM</strong> function <a class="reference internal" href="../bibliography.html#hecht1998" id="id2">[HECHT1998]</a>.</li>
 <li>High level user friendly typed input language with an algebra of analytic and finite element functions.</li>
 <li>Multiple finite element meshes within one application with automatic interpolation of data on different meshes and possible storage of the interpolation matrices.</li>
 <li>A large variety of triangular finite elements: linear, quadratic Lagrangian elements and more, discontinuous P1 and Raviart-Thomas elements, elements of a non-scalar type, the mini-element,… (but no quadrangles).</li>
@@ -1851,14 +1851,14 @@ The metric can be computed automatically from the Hessian of any <strong>FreeFEM
 The first C version lead to <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span> <span class="mf">3.4</span></code>; it offered mesh adaptivity on a single mesh only.</p>
 <p>A thorough rewriting in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code> led to <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span><span class="o">+</span></code> (<code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span><span class="o">+</span></code> 1.2.10 was its last release), which included interpolation over multiple meshes (functions defined on one mesh can be used on any other mesh); this software is no longer maintained but is still in use because it handles a problem description using the strong form of the PDEs.
 Implementing the interpolation from one unstructured mesh to another was not easy because it had to be fast and non-diffusive; for each point, one had to find the containing triangle.
-This is one of the basic problems of computational geometry (see <a class="reference internal" href="../references.html#preparata1985" id="id3">[PREPARATA1985]</a> for example).
+This is one of the basic problems of computational geometry (see <a class="reference internal" href="../bibliography.html#preparata1985" id="id3">[PREPARATA1985]</a> for example).
 Doing it in a minimum number of operations was the challenge.
 Our implementation is <span class="math notranslate nohighlight">\(\mathcal{O}(n log n)\)</span> and based on a quadtree.
 This version also grew out of hand because of the evolution of the template syntax in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>.</p>
 <p>We have been working for a few years now on <strong>FreeFEM</strong> , entirely re-written again in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code> with a thorough usage of template and generic programming for coupled systems of unknown size at compile time.
 Like all versions of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span></code>, it has a high level user friendly input language which is not too far from the mathematical writing of the problems.</p>
 <p>The <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span></code> language allows for a quick specification of any partial differential system of equations.
-The language syntax of <strong>FreeFEM</strong> is the result of a new design which makes use of the STL <a class="reference internal" href="../references.html#stroustrup2000" id="id4">[STROUSTRUP2000]</a>, templates, and bison for its implementation; more details can be found in <a class="reference internal" href="../references.html#hecht2002" id="id5">[HECHT2002]</a>.
+The language syntax of <strong>FreeFEM</strong> is the result of a new design which makes use of the STL <a class="reference internal" href="../bibliography.html#stroustrup2000" id="id4">[STROUSTRUP2000]</a>, templates, and bison for its implementation; more details can be found in <a class="reference internal" href="../bibliography.html#hecht2002" id="id5">[HECHT2002]</a>.
 The outcome is a versatile software in which any new finite elements can be included in a few hours; but a recompilation is then necessary.
 Therefore the library of finite elements available in <strong>FreeFEM</strong> will grow with the version number and with the number of users who program more new elements.
 So far we have discontinuous <span class="math notranslate nohighlight">\(P_0\)</span> elements,linear <span class="math notranslate nohighlight">\(P_1\)</span> and quadratic <span class="math notranslate nohighlight">\(P_2\)</span> Lagrangian elements, discontinuous <span class="math notranslate nohighlight">\(P_1\)</span> and Raviart-Thomas elements and a few others like bubble elements.</p>

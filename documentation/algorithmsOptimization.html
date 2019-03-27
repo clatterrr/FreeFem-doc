@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1807,7 +1807,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -2028,7 +2028,7 @@ In this case, we can use the function <code class="code freefem docutils literal
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nf">AffineGMRES</span><span class="p">(</span><span class="n">dJ</span><span class="p">,</span> <span class="kr">x</span><span class="p">,</span> <span class="kp">precon</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="kp">nbiter</span><span class="o">=</span><span class="kr">imax</span><span class="p">,</span> <span class="kp">eps</span><span class="o">=</span><span class="n">epsilon</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<p>For the details of these algorithms, refer to <a class="reference internal" href="../references.html#pironneau1998" id="id1">[PIRONNEAU1998]</a>, Chapter IV, 1.3.</p>
+<p>For the details of these algorithms, refer to <a class="reference internal" href="../bibliography.html#pironneau1998" id="id1">[PIRONNEAU1998]</a>, Chapter IV, 1.3.</p>
 </div>
 <div class="section" id="algorithms-for-unconstrained-optimization">
 <h2>Algorithms for Unconstrained Optimization<a class="headerlink" href="#algorithms-for-unconstrained-optimization" title="Permalink to this headline"> </a></h2>
@@ -2140,7 +2140,7 @@ Note that the parameters passed to the CMAES function in the <strong>FreeFEM</st
 </div>
 <div class="section" id="ipopt">
 <h2>IPOPT<a class="headerlink" href="#ipopt" title="Permalink to this headline"> </a></h2>
-<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ff</span><span class="o">-</span><span class="n">Ipopt</span></code> package is an interface for the <a class="reference external" href="https://projects.coin-or.org/Ipopt">IPOPT</a> <a class="reference internal" href="../references.html#wachter2006" id="id2">[WÄCHTER2006]</a> optimizer.
+<p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ff</span><span class="o">-</span><span class="n">Ipopt</span></code> package is an interface for the <a class="reference external" href="https://projects.coin-or.org/Ipopt">IPOPT</a> <a class="reference internal" href="../bibliography.html#wachter2006" id="id2">[WÄCHTER2006]</a> optimizer.
 IPOPT is a software library for large scale, non-linear, constrained optimization.
 It implements a primal-dual interior point method along with filter method based line searches.</p>
 <p>IPOPT needs a direct sparse symmetric linear solver.
@@ -2149,7 +2149,7 @@ An alternative to MUMPS would be to download the HSL subroutines (see <a class="
 <div class="section" id="short-description-of-the-algorithm">
 <h3>Short description of the algorithm<a class="headerlink" href="#short-description-of-the-algorithm" title="Permalink to this headline"> </a></h3>
 <p>In this section, we give a very brief glimpse at the underlying mathematics of IPOPT.
-For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult <a class="reference internal" href="../references.html#forsgren2002" id="id3">[FORSGREN2002]</a>, or <a class="reference internal" href="../references.html#wachter2006" id="id4">[WÄCHTER2006]</a> for more IPOPT specific elements.
+For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult <a class="reference internal" href="../bibliography.html#forsgren2002" id="id3">[FORSGREN2002]</a>, or <a class="reference internal" href="../bibliography.html#wachter2006" id="id4">[WÄCHTER2006]</a> for more IPOPT specific elements.
 IPOPT is designed to perform optimization for both equality and inequality constrained problems.
 However, nonlinear inequalities are rearranged before the beginning of the optimization process in order to restrict the panel of nonlinear constraints to those of the equality kind.
 Each nonlinear inequality is transformed into a pair of simple bound inequalities and nonlinear equality constraints by the introduction of as many slack variables as is needed : <span class="math notranslate nohighlight">\(c_{i}(x)\leq 0\)</span> becomes <span class="math notranslate nohighlight">\(c_{i}(x) + s_{i} = 0\)</span> and <span class="math notranslate nohighlight">\(s_{i}\leq 0\)</span>, where <span class="math notranslate nohighlight">\(s_{i}\)</span> is added to the initial variables of the problems <span class="math notranslate nohighlight">\(x_{i}\)</span>.
@@ -2178,9 +2178,9 @@ c(x_{\mu}) &amp;= 0\end{split}\]</div>
 <p>If we respectively call <span class="math notranslate nohighlight">\(z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x_{u,n}-x_{n})\right)\)</span> and <span class="math notranslate nohighlight">\(z_{l}(x,\mu)\)</span> the other vector appearing in the above equation, then the optimum <span class="math notranslate nohighlight">\((x_{\mu},\lambda_{\mu})\)</span> satisfies:</p>
 <div class="math notranslate nohighlight" id="equation-muproblemlambda">
 <span class="eqno">(28)<a class="headerlink" href="#equation-muproblemlambda" title="Permalink to this equation"> </a></span>\[\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0\]</div>
-<p>In this equation, the <span class="math notranslate nohighlight">\(z_l\)</span> and <span class="math notranslate nohighlight">\(z_u\)</span> vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when <span class="math notranslate nohighlight">\(\mu\rightarrow 0\)</span>, they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see <a class="reference internal" href="../references.html#forsgren2002" id="id5">[FORSGREN2002]</a>).</p>
+<p>In this equation, the <span class="math notranslate nohighlight">\(z_l\)</span> and <span class="math notranslate nohighlight">\(z_u\)</span> vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when <span class="math notranslate nohighlight">\(\mu\rightarrow 0\)</span>, they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see <a class="reference internal" href="../bibliography.html#forsgren2002" id="id5">[FORSGREN2002]</a>).</p>
 <p>Equation <a class="reference internal" href="#equation-muproblemlambda">(28)</a> is solved by performing a Newton method in order to find a solution of <a class="reference internal" href="#equation-muproblem">(27)</a> for each of the decreasing values of <span class="math notranslate nohighlight">\(\mu\)</span>.
-Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see <a class="reference internal" href="../references.html#forsgren2002" id="id6">[FORSGREN2002]</a> for details about them.
+Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see <a class="reference internal" href="../bibliography.html#forsgren2002" id="id6">[FORSGREN2002]</a> for details about them.
 In the most classic IP algorithms, the Newton method is directly applied to <a class="reference internal" href="#equation-muproblem">(27)</a>.
 This is in most case inefficient due to frequent computation of infeasible points.
 These difficulties are avoided in Primal-Dual interior point methods where <a class="reference internal" href="#equation-muproblem">(27)</a> is transformed into an extended system where <span class="math notranslate nohighlight">\(z_u\)</span> and <span class="math notranslate nohighlight">\(z_l\)</span> are treated as unknowns and the barrier problems are finding <span class="math notranslate nohighlight">\((x,\lambda,z_u,z_l)\in\mathbb{R}^n\times\mathbb{R}^m\times\mathbb{R}^n\times\mathbb{R}^n\)</span> such that:</p>
@@ -2195,10 +2195,10 @@ These difficulties are avoided in Primal-Dual interior point methods where <a cl
 \right.\end{split}\]</div>
 <p>Where if <span class="math notranslate nohighlight">\(a\)</span> is a vector of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> denotes the diagonal matrix <span class="math notranslate nohighlight">\(A=(a_i \delta_{ij})_{1\leq i,j\leq n}\)</span> and <span class="math notranslate nohighlight">\(e\in\mathbb{R}^{n} = (1,1,\dots,1)\)</span>.
 Solving this nonlinear system by the Newton method is known as being the <em>primal-dual</em> interior point method.
-Here again, more details are available in <a class="reference internal" href="../references.html#forsgren2002" id="id7">[FORSGREN2002]</a>.
+Here again, more details are available in <a class="reference internal" href="../bibliography.html#forsgren2002" id="id7">[FORSGREN2002]</a>.
 Most actual implementations introduce features in order to globalize the convergence capability of the method, essentially by adding some line-search steps to the Newton algorithm, or by using trust regions.
-For the purpose of IPOPT, this is achieved by a <em>filter line search</em> methods, the details of which can be found in <a class="reference internal" href="../references.html#wachter2006" id="id8">[WÄCHTER2006]</a>.</p>
-<p>More IPOPT specific features or implementation details can be found in <a class="reference internal" href="../references.html#wachter2006" id="id9">[WÄCHTER2006]</a>.
+For the purpose of IPOPT, this is achieved by a <em>filter line search</em> methods, the details of which can be found in <a class="reference internal" href="../bibliography.html#wachter2006" id="id8">[WÄCHTER2006]</a>.</p>
+<p>More IPOPT specific features or implementation details can be found in <a class="reference internal" href="../bibliography.html#wachter2006" id="id9">[WÄCHTER2006]</a>.
 We will just retain that IPOPT is a smart Newton method for solving constrained optimization problems, with global convergence capabilities due to a robust line search method (in the sense that the algorithm will converge no matter the initializer).
 Due to the underlying Newton method, the optimization process requires expressions of all derivatives up to the order 2 of the fitness function as well as those of the constraints.
 For problems whose Hessian matrices are difficult to compute or lead to high dimensional dense matrices, it is possible to use a BFGS approximation of these objects at the cost of a much slower convergence rate.</p>

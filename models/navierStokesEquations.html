@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1807,7 +1807,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1826,7 +1826,7 @@
 \end{array}\right\}\quad \hbox{ in }\Omega\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{u}=(u_1,u_2)\)</span> is the velocity vector and <span class="math notranslate nohighlight">\(p\)</span> the pressure.
 For simplicity, let us choose Dirichlet boundary conditions on the velocity, <span class="math notranslate nohighlight">\(\mathbf{u}=\mathbf{u}_{\Gamma}\)</span> on <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
-<p>In <a class="reference internal" href="../references.html#temam1977" id="id1">[TEMAM1977]</a>, Theorem 2.2, there is a weak form of <a class="reference internal" href="#equation-eqn-stokes">(56)</a>:</p>
+<p>In <a class="reference internal" href="../bibliography.html#temam1977" id="id1">[TEMAM1977]</a>, Theorem 2.2, there is a weak form of <a class="reference internal" href="#equation-eqn-stokes">(56)</a>:</p>
 <p>Find <span class="math notranslate nohighlight">\(\mathbf{v}=(v_1,v_2)\in \mathbf{V}(\Omega)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{V}(\Omega)=\{\mathbf{w}\in H^1_0(\Omega)^2|\; \textrm{div}\mathbf{w}=0\}\]</div>
@@ -1901,7 +1901,7 @@ W=\left\{q\in L^2(\Omega)\left|\; \int_{\Omega}q=0\right.\right\}\]</div>
 \le C\left(
 \inf_{\mathbf{v}_h\in \mathbf{V}_h}\| u-v_h\|_{1,\Omega}
 +\inf_{q_h\in W_h}\| p-q_h\|_{0,\Omega}\right)\]</div>
-<p>with a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span> (see e.g. <a class="reference internal" href="../references.html#roberts1993" id="id2">[ROBERTS1993]</a>, Theorem 10.4).</p>
+<p>with a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span> (see e.g. <a class="reference internal" href="../bibliography.html#roberts1993" id="id2">[ROBERTS1993]</a>, Theorem 10.4).</p>
 </div></blockquote>
 </li>
 </ol>
@@ -2010,7 +2010,7 @@ There is a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span>
 <div class="math notranslate nohighlight">
 \[\|\mathbf{u}_h-\mathbf{u}_h^\epsilon\|_{1,\Omega}+
 \|p_h-p_h^{\epsilon}\|_{0,\Omega}\le C\epsilon\]</div>
-<p class="last">(see e.g. <a class="reference internal" href="../references.html#roberts1993" id="id3">[ROBERTS1993]</a>, 17.2)</p>
+<p class="last">(see e.g. <a class="reference internal" href="../bibliography.html#roberts1993" id="id3">[ROBERTS1993]</a>, 17.2)</p>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -2189,7 +2189,7 @@ The test function for the velocity is <span class="math notranslate nohighlight"
 <div class="section" id="uzawa-algorithm-and-conjugate-gradients">
 <span id="navierstokesuzawaconjugategradients"></span><h2>Uzawa Algorithm and Conjugate Gradients<a class="headerlink" href="#uzawa-algorithm-and-conjugate-gradients" title="Permalink to this headline"> </a></h2>
 <p>We solve Stokes problem without penalty.
-The classical iterative method of Uzawa is described by the algorithm (see e.g. <a class="reference internal" href="../references.html#roberts1993" id="id4">[ROBERTS1993]</a>, 17.3, <a class="reference internal" href="../references.html#glowinski1979" id="id5">[GLOWINSKI1979]</a>, 13 or <a class="reference internal" href="../references.html#glowinski1985" id="id6">[GLOWINSKI1985]</a>, 13):</p>
+The classical iterative method of Uzawa is described by the algorithm (see e.g. <a class="reference internal" href="../bibliography.html#roberts1993" id="id4">[ROBERTS1993]</a>, 17.3, <a class="reference internal" href="../bibliography.html#glowinski1979" id="id5">[GLOWINSKI1979]</a>, 13 or <a class="reference internal" href="../bibliography.html#glowinski1985" id="id6">[GLOWINSKI1985]</a>, 13):</p>
 <ul>
 <li><p class="first"><strong>Initialize:</strong> Let <span class="math notranslate nohighlight">\(p_h^0\)</span> be an arbitrary chosen element of <span class="math notranslate nohighlight">\(L^2(\Omega)\)</span>.</p>
 </li>
@@ -2337,7 +2337,7 @@ So <span class="math notranslate nohighlight">\(X_{h}\)</span> is the velocity s
 </div>
 <div class="section" id="nsuzawacahouetchabart-edp">
 <h2>NSUzawaCahouetChabart.edp<a class="headerlink" href="#nsuzawacahouetchabart-edp" title="Permalink to this headline"> </a></h2>
-<p>In this example we solve the Navier-Stokes equation past a cylinder with the Uzawa algorithm preconditioned by the Cahouet-Chabart method (see <a class="reference internal" href="../references.html#glowinski2003" id="id7">[GLOWINSKI2003]</a> for all the details).</p>
+<p>In this example we solve the Navier-Stokes equation past a cylinder with the Uzawa algorithm preconditioned by the Cahouet-Chabart method (see <a class="reference internal" href="../bibliography.html#glowinski2003" id="id7">[GLOWINSKI2003]</a> for all the details).</p>
 <p>The idea of the preconditioner is that in a periodic domain, all differential operators commute and the Uzawa algorithm comes to solving the linear operator <span class="math notranslate nohighlight">\(\nabla. ( (\alpha Id + \nu \Delta)^{-1} \nabla\)</span>, where <span class="math notranslate nohighlight">\(Id\)</span> is the identity operator.
 So the preconditioner suggested is <span class="math notranslate nohighlight">\(\alpha \Delta^{-1} + \nu Id\)</span>.</p>
 <p>To implement this, we do:</p>

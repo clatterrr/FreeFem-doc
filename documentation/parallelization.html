@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1802,7 +1802,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -2526,7 +2526,7 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 </td></tr></table></div>
 <p>We have all ingredient to solve in parallel if we have et the partitions of the unity.
 To build this partition we do:</p>
-<p>The initial step on process <span class="math notranslate nohighlight">\(1\)</span> to build a coarse mesh, <span class="math notranslate nohighlight">\({\mathcal{T}_h}^*\)</span> of the full domain, and build the partition <span class="math notranslate nohighlight">\(\pi\)</span> function constant equal to <span class="math notranslate nohighlight">\(i\)</span> on each sub domain <span class="math notranslate nohighlight">\(\mathcal{O}_i, i =1 ,.., N_p\)</span>, of the grid with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">metis</span></code> graph partitioner <a class="reference internal" href="../references.html#karypis1995" id="id1">[KARYPIS1995]</a> and on each process <span class="math notranslate nohighlight">\(i\)</span> in <span class="math notranslate nohighlight">\(1..,N_p\)</span> do</p>
+<p>The initial step on process <span class="math notranslate nohighlight">\(1\)</span> to build a coarse mesh, <span class="math notranslate nohighlight">\({\mathcal{T}_h}^*\)</span> of the full domain, and build the partition <span class="math notranslate nohighlight">\(\pi\)</span> function constant equal to <span class="math notranslate nohighlight">\(i\)</span> on each sub domain <span class="math notranslate nohighlight">\(\mathcal{O}_i, i =1 ,.., N_p\)</span>, of the grid with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">metis</span></code> graph partitioner <a class="reference internal" href="../bibliography.html#karypis1995" id="id1">[KARYPIS1995]</a> and on each process <span class="math notranslate nohighlight">\(i\)</span> in <span class="math notranslate nohighlight">\(1..,N_p\)</span> do</p>
 <ol class="arabic">
 <li><p class="first">Broadcast from process <span class="math notranslate nohighlight">\(1\)</span>, the mesh <span class="math notranslate nohighlight">\({\mathcal{T}_h}^*\)</span> (call <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Thii</span></code> in <strong>FreeFEM</strong> script), and <span class="math notranslate nohighlight">\(\pi\)</span> function,</p>
 </li>
@@ -3385,7 +3385,7 @@ This file is obtained with the example file <code class="docutils literal highli
 <h3>Parallel sparse iterative solver<a class="headerlink" href="#parallel-sparse-iterative-solver" title="Permalink to this headline"> </a></h3>
 <p>Concerning iterative solvers, we have chosen <a class="reference external" href="https://www-users.cs.umn.edu/~saad/software/pARMS/">pARMS</a>, <a class="reference external" href="http://hips.gforge.inria.fr/">HIPS</a> and <a class="reference external" href="https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods">Hypre</a>.</p>
 <p>Each software implements a different type of parallel preconditioner.</p>
-<p>So, pARMS implements algebraic domain decomposition preconditioner type such as additive Schwartz <a class="reference internal" href="../references.html#cai1989" id="id2">[CAI1989]</a> and interface method; while HIPS implement hierarchical incomplete factorization and finally HYPRE implements multilevel preconditioner are AMG(Algebraic MultiGrid) and parallel approximated inverse.</p>
+<p>So, pARMS implements algebraic domain decomposition preconditioner type such as additive Schwartz <a class="reference internal" href="../bibliography.html#cai1989" id="id2">[CAI1989]</a> and interface method; while HIPS implement hierarchical incomplete factorization and finally HYPRE implements multilevel preconditioner are AMG(Algebraic MultiGrid) and parallel approximated inverse.</p>
 <p>To use one of these programs in <strong>FreeFEM</strong>, you have to install it independently of <strong>FreeFEM</strong>.
 It is also necessary to install the MPI communication library which is essential for communication between the processors and, in some cases, software partitioning graphs like <a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/metis/metis/overview">METIS</a> or <a class="reference external" href="http://www.labri.fr/perso/pelegrin/scotch/">Scotch</a>.</p>
 <p>All this preconditioners are used with Krylov subspace methods accelerators.</p>
@@ -3398,12 +3398,12 @@ In the rest of this chapter, when we talk about Krylov subspace methods we mean 
 <p><a class="reference external" href="https://www-users.cs.umn.edu/~saad/software/pARMS/">pARMS</a> (parallel Algebraic Multilevel Solver) is a software developed by Youssef Saad and al at University of Minnesota.</p>
 <p>This software is specialized in the resolution of large sparse non symmetric linear systems of equation.
 Solvers developed in pARMS are of type “Krylov’s subspace”.</p>
-<p>It consists of variants of GMRES like FGMRES (Flexible GMRES), DGMRES (Deflated GMRES) <a class="reference internal" href="../references.html#saad2003" id="id3">[SAAD2003]</a> and BICGSTAB.
-pARMS also implements parallel preconditioner like RAS (Restricted Additive Schwarz) <a class="reference internal" href="../references.html#cai1989" id="id4">[CAI1989]</a> and Schur Complement type preconditioner.</p>
+<p>It consists of variants of GMRES like FGMRES (Flexible GMRES), DGMRES (Deflated GMRES) <a class="reference internal" href="../bibliography.html#saad2003" id="id3">[SAAD2003]</a> and BICGSTAB.
+pARMS also implements parallel preconditioner like RAS (Restricted Additive Schwarz) <a class="reference internal" href="../bibliography.html#cai1989" id="id4">[CAI1989]</a> and Schur Complement type preconditioner.</p>
 <p>All these parallel preconditioners are based on the principle of domain decomposition.
 Thus, the matrix <span class="math notranslate nohighlight">\(A\)</span> is partitioned into sub matrices <span class="math notranslate nohighlight">\(A_i\)</span>(<span class="math notranslate nohighlight">\(i=1,...,p\)</span>) where p represents the number of partitions one needs.
 The union of <span class="math notranslate nohighlight">\(A_i\)</span> forms the original matrix.
-The solution of the overall system is obtained by solving the local systems on <span class="math notranslate nohighlight">\(A_i\)</span> (see <a class="reference internal" href="../references.html#smith1996" id="id5">[SMITH1996]</a>).
+The solution of the overall system is obtained by solving the local systems on <span class="math notranslate nohighlight">\(A_i\)</span> (see <a class="reference internal" href="../bibliography.html#smith1996" id="id5">[SMITH1996]</a>).
 Therefore, a distinction is made between iterations on <span class="math notranslate nohighlight">\(A\)</span> and the local iterations on <span class="math notranslate nohighlight">\(A_i\)</span>.</p>
 <p>To solve the local problem on <span class="math notranslate nohighlight">\(A_i\)</span> there are several preconditioners as <strong>ilut</strong> (Incomplete LU with threshold), <strong>iluk</strong> (Incomplete LU with level of fill in) and <strong>ARMS</strong> (Algebraic Recursive Multilevel Solver).</p>
 <div class="admonition tip">
@@ -3482,9 +3482,9 @@ After this, in line 15 we specify that the bilinear form will be solved by the l
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Krylov</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">30</span></code>,</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Maximum</span> <span class="n">of</span> <span class="n">Krylov</span><span class="o">=</span><span class="mi">1000</span></code>,</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Tolerance</span> <span class="k">for</span> <span class="n">convergence</span><span class="o">=</span><span class="mf">1e-08</span></code> (see book
-<a class="reference internal" href="../references.html#saad2003" id="id6">[SAAD2003]</a> to understand all this parameters),</li>
+<a class="reference internal" href="../bibliography.html#saad2003" id="id6">[SAAD2003]</a> to understand all this parameters),</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">preconditionner</span><span class="o">=</span><span class="n">Restricted</span> <span class="n">Additif</span> <span class="n">Schwarz</span></code>
-<a class="reference internal" href="../references.html#cai1989" id="id7">[CAI1989]</a>,</li>
+<a class="reference internal" href="../bibliography.html#cai1989" id="id7">[CAI1989]</a>,</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Inner</span> <span class="n">Krylov</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span></code>,</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Maximum</span> <span class="n">of</span> <span class="n">inner</span> <span class="n">Krylov</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">5</span></code>,</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Inner</span> <span class="n">preconditionner</span><span class="o">=</span><span class="n">ILUK</span></code>.</li>
@@ -4217,7 +4217,7 @@ After solving this coarse equation, the solution is then interpolated in fine gr
 The quality of AMG depends on the choice of coarsening and interpolating operators.</p>
 <p>The <em>sparse approximate inverse</em> approximates the inverse of a matrix <span class="math notranslate nohighlight">\(A\)</span> by a sparse matrix <span class="math notranslate nohighlight">\(M\)</span>.
 A technical idea to construct matrix <span class="math notranslate nohighlight">\(M\)</span> is to minimize the Frobenuis norm of the residual matrix <span class="math notranslate nohighlight">\(I-MA\)</span>.
-For more details on this preconditioner technics see <a class="reference internal" href="../references.html#chow1997" id="id8">[CHOW1997]</a>.</p>
+For more details on this preconditioner technics see <a class="reference internal" href="../bibliography.html#chow1997" id="id8">[CHOW1997]</a>.</p>
 <p>HYPRE implement three Krylov subspace solvers: GMRES, PCG and BiCGStab.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>

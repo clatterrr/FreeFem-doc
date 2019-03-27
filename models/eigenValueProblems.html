@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1803,7 +1803,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1823,7 +1823,7 @@ This tool is available in <strong>FreeFEM</strong> if the word eigenvalue appear
  Load: lg_fem lg_mesh eigenvalue
 </pre></div>
 </td></tr></table></div>
-<p>This tool is based on <a class="reference external" href="http://www.caam.rice.edu/software/ARPACK/">arpack++</a>, the object-oriented version of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code> eigenvalue package <a class="reference internal" href="../references.html#lehoucq1998" id="id1">[LEHOUCQ1998]</a>.</p>
+<p>This tool is based on <a class="reference external" href="http://www.caam.rice.edu/software/ARPACK/">arpack++</a>, the object-oriented version of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code> eigenvalue package <a class="reference internal" href="../bibliography.html#lehoucq1998" id="id1">[LEHOUCQ1998]</a>.</p>
 <p>The function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">EigenValue</span></code> computes the generalized eigenvalue of <span class="math notranslate nohighlight">\(A u = \lambda B u\)</span>.
 The Shift-invert method is used by default, with sigma =<span class="math notranslate nohighlight">\(\sigma\)</span> the shift of the method.</p>
 <p>The matrix <span class="math notranslate nohighlight">\(OP\)</span> is defined with <span class="math notranslate nohighlight">\(A - \sigma B\)</span>.</p>
@@ -1844,7 +1844,7 @@ The Shift-invert method is used by default, with sigma =<span class="math notran
 <span class="kt">func</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">FB</span><span class="p">(</span><span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">u</span><span class="p">){</span> <span class="kt">real</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">Au</span> <span class="o">=</span> <span class="kp">B</span><span class="o">*</span><span class="n">u</span><span class="p">;</span> <span class="k">return</span> <span class="n">Au</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>If you want finer control over the method employed in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code>, you can specify which mode <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code> will work with (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">mode</span><span class="o">=</span></code> , see ARPACK documentation <a class="reference internal" href="../references.html#lehoucq1998" id="id2">[LEHOUCQ1998]</a>). The operators necessary for the chosen mode can be passed through the optional parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">A</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">A1</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B1</span><span class="o">=</span></code>, (see below).</p>
+<p>If you want finer control over the method employed in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code>, you can specify which mode <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ARPACK</span></code> will work with (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">mode</span><span class="o">=</span></code> , see ARPACK documentation <a class="reference internal" href="../bibliography.html#lehoucq1998" id="id2">[LEHOUCQ1998]</a>). The operators necessary for the chosen mode can be passed through the optional parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">A</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">A1</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B</span><span class="o">=</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">B1</span><span class="o">=</span></code>, (see below).</p>
 <ul>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">mode</span><span class="o">=</span><span class="mi">1</span></code>: Regular mode for solving <span class="math notranslate nohighlight">\(A u = \lambda u\)</span></p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nf">EigenValue</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span> <span class="kp">A</span><span class="o">=</span><span class="n">FOP</span><span class="p">,</span> <span class="kp">mode</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nev</span><span class="o">=</span><span class="n">Nev</span><span class="p">);</span>

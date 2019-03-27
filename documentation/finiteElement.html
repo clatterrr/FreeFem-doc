@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1814,7 +1814,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -2059,14 +2059,14 @@ The functions <span class="math notranslate nohighlight">\(\phi_k(x,y)\)</span> 
 <div class="math notranslate nohighlight">
 \[\P^{HCT}_{h} = \left\{ v \in C^1(\Omega) \left|\; \forall K \in \mathcal{T}^\triangle_{h}, \ v_{|K} \in P_{3} \right.\right\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(P_{3}\)</span> is the set of polynomials of <span class="math notranslate nohighlight">\(\R^{2}\)</span> of degrees <span class="math notranslate nohighlight">\(\le 3\)</span>.</p>
-<p>The degrees of freedom are the values of the normal derivative at the mid-point of each edge <a class="reference internal" href="../references.html#bernadou1980" id="id1">[BERNADOU1980]</a>.</p>
+<p>The degrees of freedom are the values of the normal derivative at the mid-point of each edge <a class="reference internal" href="../bibliography.html#bernadou1980" id="id1">[BERNADOU1980]</a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">To build the interplant of a function <span class="math notranslate nohighlight">\(u\)</span> (scalar) for this finite element, we need the function and 2 partial derivatives <span class="math notranslate nohighlight">\((u,u_x, u_y)\)</span>, creating this vectorial finite element with 3 components <span class="math notranslate nohighlight">\((u,u_x,u_y)\)</span> like in previous finite element.</p>
 </div>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[</span><span class="nc">P2BR</span><span class="p">]</span></code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="cp">load</span> <span class="s">&quot;BernadiRaugel&quot;</span></code>) the Bernadi Raugel Finite Element is a Vectorial element (2d) with 2 components, see <a class="reference internal" href="../references.html#bernardi1985" id="id2">[BERNARDI1985]</a>.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[</span><span class="nc">P2BR</span><span class="p">]</span></code> (needs <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="cp">load</span> <span class="s">&quot;BernadiRaugel&quot;</span></code>) the Bernadi Raugel Finite Element is a Vectorial element (2d) with 2 components, see <a class="reference internal" href="../bibliography.html#bernardi1985" id="id2">[BERNARDI1985]</a>.</p>
 <blockquote>
 <div><p>It is a 2D coupled Finite Element, where the Polynomial space is <span class="math notranslate nohighlight">\(P_1^2\)</span> with 3 normal bubble edge functions <span class="math notranslate nohighlight">\((P_2)\)</span>.
 There are 9 degrees of freedom:</p>
@@ -2398,7 +2398,7 @@ The basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> 
 </div>
 <div class="section" id="p1-nonconforming-element">
 <span id="FiniteElement"></span><h2>P1 Nonconforming Element<a class="headerlink" href="#p1-nonconforming-element" title="Permalink to this headline"> </a></h2>
-<p>Refer to <a class="reference internal" href="../references.html#thomasset2012" id="id3">[THOMASSET2012]</a> for details; briefly, we now consider non-continuous approximations so we will lose the property:</p>
+<p>Refer to <a class="reference internal" href="../bibliography.html#thomasset2012" id="id3">[THOMASSET2012]</a> for details; briefly, we now consider non-continuous approximations so we will lose the property:</p>
 <div class="math notranslate nohighlight">
 \[w_h\in V_h\subset H^1(\Omega)\]</div>
 <p>If we write:</p>
@@ -2415,7 +2415,7 @@ The basis function <span class="math notranslate nohighlight">\(\phi_i\)</span> 
 \phi_i(m^i) &amp;= 1,\quad \phi_i(m^j)=0\textrm{ if }i\neq j\end{split}\]</div>
 <p>Strictly speaking <span class="math notranslate nohighlight">\(\p \phi_i/\p x,\, \p \phi_i/\p y\)</span> contain Dirac distribution <span class="math notranslate nohighlight">\(\rho \delta_{\p T_k}\)</span>.</p>
 <p>The numerical calculations will automatically <em>ignore</em> them.
-In <a class="reference internal" href="../references.html#thomasset2012" id="id4">[THOMASSET2012]</a>, there is a proof of the estimation</p>
+In <a class="reference internal" href="../bibliography.html#thomasset2012" id="id4">[THOMASSET2012]</a>, there is a proof of the estimation</p>
 <div class="math notranslate nohighlight">
 \[\left(\sum_{k=1}^{n_v}\int_{T_k}|\nabla w-\nabla w_h|^2\d x\d y\right)^{1/2} =O(h)\]</div>
 <p>The basis functions <span class="math notranslate nohighlight">\(\phi_k\)</span> have the following properties.</p>
@@ -3073,7 +3073,7 @@ But if the holes are triangulated too (doted line) then the problem does not ari
 <p>For an arbitrary polynomial <span class="math notranslate nohighlight">\(f\)</span> of degree <span class="math notranslate nohighlight">\(r\)</span>, if we can find particular (quadrature) points <span class="math notranslate nohighlight">\(\mathbf{\xi}_j,\, j=1,\cdots,J\)</span> in <span class="math notranslate nohighlight">\(D\)</span> and (quadrature) constants <span class="math notranslate nohighlight">\(\omega_j\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[\int_{D}f(\mathbf{x}) = \sum_{\ell =1}^L c_\ell f(\mathbf{\xi}_\ell)\]</div>
-<p>then we have an error estimate (see <a class="reference internal" href="../references.html#crouzeix1984" id="id5">[CROUZEIX1984]</a>), and then there exists a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span> such that</p>
+<p>then we have an error estimate (see <a class="reference internal" href="../bibliography.html#crouzeix1984" id="id5">[CROUZEIX1984]</a>), and then there exists a constant <span class="math notranslate nohighlight">\(C&gt;0\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[\left|\int_{D}f(\mathbf{x}) - \sum_{\ell =1}^L \omega_\ell
 f(\mathbf{\xi}_\ell )\right|
@@ -3318,14 +3318,14 @@ D_3=\left|
 <tr class="row-even"><td>15</td>
 <td><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">qf7pT</span></code></td>
 <td>8</td>
-<td>See <a class="reference internal" href="../references.html#taylor2005" id="id6">[TAYLOR2005]</a> for detail</td>
+<td>See <a class="reference internal" href="../bibliography.html#taylor2005" id="id6">[TAYLOR2005]</a> for detail</td>
 <td>&#160;</td>
 <td>7</td>
 </tr>
 <tr class="row-odd"><td>21</td>
 <td><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">qf9pT</span></code></td>
 <td>10</td>
-<td>See <a class="reference internal" href="../references.html#taylor2005" id="id7">[TAYLOR2005]</a> for detail</td>
+<td>See <a class="reference internal" href="../bibliography.html#taylor2005" id="id7">[TAYLOR2005]</a> for detail</td>
 <td>&#160;</td>
 <td>9</td>
 </tr>

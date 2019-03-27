@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1808,7 +1808,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1990,7 +1990,7 @@ For the discretization, we put <span class="math notranslate nohighlight">\(u^n 
 +\tau\left\{\theta f^{n+1}+(1-\theta)f^n\right\}\\
 M=(m_{ij}),\quad m_{ij}=(\phi_j,\phi_i),\qquad
 A=(a_{ij}),\quad a_{ij}=a(\phi_j,\phi_i)\nonumber\end{split}\]</div>
-<p>Refer <a class="reference internal" href="../references.html#tabata1994" id="id1">[TABATA1994]</a>, pp.70–75 for solvability of <a class="reference internal" href="#equation-eqn-evolution-1">(51)</a>. The stability of <a class="reference internal" href="#equation-eqn-evolution-1">(51)</a> is in <a class="reference internal" href="../references.html#tabata1994" id="id2">[TABATA1994]</a>, Theorem 2.13:</p>
+<p>Refer <a class="reference internal" href="../bibliography.html#tabata1994" id="id1">[TABATA1994]</a>, pp.70–75 for solvability of <a class="reference internal" href="#equation-eqn-evolution-1">(51)</a>. The stability of <a class="reference internal" href="#equation-eqn-evolution-1">(51)</a> is in <a class="reference internal" href="../bibliography.html#tabata1994" id="id2">[TABATA1994]</a>, Theorem 2.13:</p>
 <p>Let <span class="math notranslate nohighlight">\(\{\mathcal{T}_h\}_{h\downarrow 0}\)</span> be regular triangulations (see <a class="reference internal" href="../documentation/meshGeneration.html#meshregulartriangulation"><span class="std std-ref">Regular Triangulation</span></a>).
 Then there is a number <span class="math notranslate nohighlight">\(c_0&gt;0\)</span> independent of <span class="math notranslate nohighlight">\(h\)</span> such that,</p>
 <div class="math notranslate nohighlight">
@@ -2225,7 +2225,7 @@ From <a class="reference internal" href="#equation-eqn-conv1">(55)</a>, it follo
 <p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">convect</span></code><span class="math notranslate nohighlight">\(\left( {\mathbf{\alpha},-\tau ,u^m } \right)\approx u^m \left(x - \mathbf{\alpha}^m\tau \right)\)</span></p>
 <p>we can get the approximation</p>
 <p><span class="math notranslate nohighlight">\(u^m \left( {X^m( x )} \right) \approx\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">convect</span></code> <span class="math notranslate nohighlight">\(\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)\)</span> by <span class="math notranslate nohighlight">\(X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]\)</span></p>
-<p>A classical convection problem is that of the “rotating bell” (quoted from <a class="reference internal" href="../references.html#lucquin1998" id="id3">[LUCQUIN1998]</a>, p.16).</p>
+<p>A classical convection problem is that of the “rotating bell” (quoted from <a class="reference internal" href="../bibliography.html#lucquin1998" id="id3">[LUCQUIN1998]</a>, p.16).</p>
 <p>Let <span class="math notranslate nohighlight">\(\Omega\)</span> be the unit disk centered at 0, with its center rotating with speed <span class="math notranslate nohighlight">\(\alpha_1 = y,\, \alpha_2 = -x\)</span>.
 We consider the problem <a class="reference internal" href="#equation-eqn-conv">(52)</a> with <span class="math notranslate nohighlight">\(f=0\)</span> and the initial condition <span class="math notranslate nohighlight">\(u(x,0)=u^0(x)\)</span>, that is, from <a class="reference internal" href="#equation-eqn-charac">(54)</a></p>
 <p><span class="math notranslate nohighlight">\(u^{m + 1}(x) = u^m(X^m(x))\approx\)</span> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">convect</span></code><span class="math notranslate nohighlight">\((\mathbf{\alpha},-\tau ,u^m)\)</span></p>
@@ -2311,7 +2311,7 @@ The program consists in solving the equation until <span class="math notranslate
 </div>
 <div class="section" id="d-black-scholes-equation-for-an-european-put-option">
 <span id="EvolutionProblem_Convect"></span><h2>2D Black-Scholes equation for an European Put option<a class="headerlink" href="#d-black-scholes-equation-for-an-european-put-option" title="Permalink to this headline"> </a></h2>
-<p>In mathematical finance, an option on two assets is modeled by a Black-Scholes equations in two space variables, (see for example <a class="reference internal" href="../references.html#wilmott1995" id="id4">[WILMOTT1995]</a> or <a class="reference internal" href="../references.html#achdou2005" id="id5">[ACHDOU2005]</a>).</p>
+<p>In mathematical finance, an option on two assets is modeled by a Black-Scholes equations in two space variables, (see for example <a class="reference internal" href="../bibliography.html#wilmott1995" id="id4">[WILMOTT1995]</a> or <a class="reference internal" href="../bibliography.html#achdou2005" id="id5">[ACHDOU2005]</a>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
     \p _t u &amp;+&amp; \frac{{\left( {\sigma _1 x } \right)^2 }}{2}\frac{{\p ^2 u}}{{\p x^2 }} + \frac{{\left( {\sigma _2 y } \right)^2 }}{2}\frac{{\p ^2 u}}{{\p y^2 }} \\

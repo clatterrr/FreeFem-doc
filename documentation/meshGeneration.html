@@ -1595,7 +1595,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -1814,7 +1814,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
 	</div>
@@ -2172,7 +2172,7 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 </table>
 <p>In <strong>FreeFEM</strong> there are many mesh file formats available for communication with other tools such as <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">emc2</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">modulef</span></code>, … (see <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh format chapter</span></a> ).</p>
 <p>The extension of a file implies its format.
-More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” <a class="reference internal" href="../references.html#hecht1998-2" id="id1">[HECHT1998_2]</a>.</p>
+More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” <a class="reference internal" href="../bibliography.html#hecht1998-2" id="id1">[HECHT1998_2]</a>.</p>
 <p>A mesh file can be read into <strong>FreeFEM</strong> except that the names of the borders are lost and only their reference numbers are kept.
 So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">label</span></code>. Here are some examples:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -3326,7 +3326,7 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 <p>To speed up the adaptation, the default parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">err</span></code> of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span></code> is changed by hand; it specifies the required precision, so as to make the new mesh finer or coarser.</p>
 <p>The problem is coercive and symmetric, so the linear system can be solved with the conjugate gradient method (parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">solver</span><span class="o">=</span><span class="kr">CG</span></code>) with the stopping criteria on the residual, here <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">eps</span><span class="o">=</span><span class="mf">1.e-6</span></code>).</p>
 <p>By <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">adaptmesh</span></code>, the slope of the final solution is correctly computed near the point of intersection of <span class="math notranslate nohighlight">\(bc\)</span> and <span class="math notranslate nohighlight">\(bd\)</span> as in <a class="reference internal" href="#adaptmesh3"><span class="std std-numref">Fig. 72</span></a>.</p>
-<p>This method is described in detail in <a class="reference internal" href="../references.html#hecht1998" id="id2">[HECHT1998]</a>.
+<p>This method is described in detail in <a class="reference internal" href="../bibliography.html#hecht1998" id="id2">[HECHT1998]</a>.
 It has a number of default parameters which can be modified.</p>
 <p>If <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span></code> are functions and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">thold</span><span class="p">,</span> <span class="n">Thnew</span></code> are meshes:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -4200,14 +4200,14 @@ Vertex1 Vertex2 Vertex3 Vertex4 Label
 <div class="section" id="tetgen-a-tetrahedral-mesh-generator">
 <h2>TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permalink to this headline"> </a></h2>
 <p><strong>TetGen</strong></p>
-<p>TetGen is a software developed by Dr.&nbsp;Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a class="reference internal" href="../references.html#hang2006" id="id3">[HANG2006]</a>.
+<p>TetGen is a software developed by Dr.&nbsp;Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a class="reference internal" href="../bibliography.html#hang2006" id="id3">[HANG2006]</a>.
 TetGen is free for research and non-commercial use.
 For any commercial license utilization, a commercial license is available upon request to Hang Si.</p>
 <p>This software is a tetrahedral mesh generator of a three dimensional domain defined by its boundary.
 The input domain takes into account a polyhedral or a piecewise linear complex.
 This tetrahedralization is a constrained Delaunay tetrahedralization.</p>
-<p>The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk <a class="reference internal" href="../references.html#shewchuk1998" id="id4">[SHEWCHUK1998]</a>.
-The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 <a class="reference internal" href="../references.html#hang2006" id="id5">[HANG2006]</a> for more details).
+<p>The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk <a class="reference internal" href="../bibliography.html#shewchuk1998" id="id4">[SHEWCHUK1998]</a>.
+The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 <a class="reference internal" href="../bibliography.html#hang2006" id="id5">[HANG2006]</a> for more details).
 A theoretical bound of this ratio of the Shewchuk algorithm is obtained for a given complex of vertices, constrained segments and facets of surface mesh, with no input angle less than 90 degrees.
 This theoretical bound is 2.0.</p>
 <p>The launch of TetGen is done with the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetg</span></code>.
@@ -4223,14 +4223,14 @@ The parameters of this command line is:</p>
 </li>
 <li><dl class="first docutils">
 <dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code> A string expression.</dt>
-<dd><p class="first last">This string corresponds to the command line switch of TetGen see Section 3.2 of <a class="reference internal" href="../references.html#hang2006" id="id6">[HANG2006]</a>.</p>
+<dd><p class="first last">This string corresponds to the command line switch of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id6">[HANG2006]</a>.</p>
 </dd>
 </dl>
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofholes</span><span class="o">=</span></code> Number of holes (default value: “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> / 3”).</p>
 </li>
 <li><dl class="first docutils">
-<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> of TetGenio data structure <a class="reference internal" href="../references.html#hang2006" id="id7">[HANG2006]</a>.</dt>
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id7">[HANG2006]</a>.</dt>
 <dd><p class="first last">A real vector of size <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="mi">3</span> <span class="o">*</span> <span class="kp">nbofholes</span></code>.
 In TetGen, each hole is associated with a point inside this domain.
 This vector is <span class="math notranslate nohighlight">\(x_{1}^{h}, y_{1}^{h}, z_{1}^{h}, x_{2}^{h}, y_{2}^{h}, z_{2}^{h}, \cdots,\)</span> where <span class="math notranslate nohighlight">\(x_{i}^{h},y_{i}^{h},z_{i}^{h}\)</span> is the associated point with the <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> hole.</p>
@@ -4239,14 +4239,14 @@ This vector is <span class="math notranslate nohighlight">\(x_{1}^{h}, y_{1}^{h}
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span><span class="o">=</span></code> Number of regions (default value: “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> / 5”).</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> of TetGenio data structure <a class="reference internal" href="../references.html#hang2006" id="id8">[HANG2006]</a>.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id8">[HANG2006]</a>.</p>
 <p>The attribute and the volume constraint of region are given in this real vector of size <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="mi">5</span> <span class="o">*</span> <span class="kp">nbofregions</span></code>.
 The <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> region is described by five elements: <span class="math notranslate nohighlight">\(x-\)</span>coordinate, <span class="math notranslate nohighlight">\(y-\)</span>coordinate and <span class="math notranslate nohighlight">\(z-\)</span>coordinate of a point inside this domain (<span class="math notranslate nohighlight">\(x_{i},y_{i},z_{i}\)</span>); the attribute (<span class="math notranslate nohighlight">\(at_{i}\)</span>) and the maximum volume for tetrahedra (<span class="math notranslate nohighlight">\(mvol_{i}\)</span>) for this region.</p>
 <p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> vector is: <span class="math notranslate nohighlight">\(x_{1}, y_{1}, z_{1}, at_{1}, mvol_{1}, x_{2}, y_{2}, z_{2}, at_{2}, mvol_{2}, \cdots\)</span>.</p>
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nboffacetcl</span><span class="o">=</span></code> Number of facets constraints “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> / 2”).</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">facetconstraintlist</span></code> of TetGenio data structure <a class="reference internal" href="../references.html#hang2006" id="id9">[HANG2006]</a>.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">facetconstraintlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id9">[HANG2006]</a>.</p>
 <p>The <span class="math notranslate nohighlight">\(i^{th}\)</span> facet constraint is defined by the facet marker <span class="math notranslate nohighlight">\(Ref_{i}^{fc}\)</span> and the maximum area for faces <span class="math notranslate nohighlight">\(marea_{i}^{fc}\)</span>.
 The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> array is: <span class="math notranslate nohighlight">\(Ref_{1}^{fc}, marea_{1}^{fc}, Ref_{2}^{fc}, marea_{2}^{fc}, \cdots\)</span>.</p>
 <p>This parameters has no effect if switch <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">q</span></code> is not selected.</p>
@@ -4504,7 +4504,7 @@ x_{n_v} &amp; y_{n_v} &amp; z_{n_v}
 <ul class="simple">
 <li><dl class="first docutils">
 <dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code> A string expression.</dt>
-<dd>This string corresponds to the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code> of TetGen see Section 3.2 of <a class="reference internal" href="../references.html#hang2006" id="id10">[HANG2006]</a>.</dd>
+<dd>This string corresponds to the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code> of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id10">[HANG2006]</a>.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
@@ -4543,7 +4543,7 @@ x_{n_v} &amp; y_{n_v} &amp; z_{n_v}
 </ul>
 <p>The parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nboffacetcl</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> of the command line which call TetGen (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetg</span></code>) is used for <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">tetgrefine</span></code>.</p>
 <p>In the parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code>, the character <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> should be used without the character <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">p</span></code>.</p>
-<p>For instance, see the manual of TetGen <a class="reference internal" href="../references.html#hang2006" id="id11">[HANG2006]</a> for effect of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> to other character.</p>
+<p>For instance, see the manual of TetGen <a class="reference internal" href="../bibliography.html#hang2006" id="id11">[HANG2006]</a> for effect of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> to other character.</p>
 <p>The parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> defines a new volume constraint in the region.
 The label in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> will be the previous label of region.</p>
 <p>This parameter and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span></code> can’t be used with the parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">sizeofvolume</span></code>.</p>
@@ -4757,7 +4757,7 @@ This value is called the number of layers (if <span class="math notranslate nohi
 </ul>
 <p>The elements with merged points are called degenerate elements.
 To obtain a mesh with tetrahedra, we decompose the pyramid into two tetrahedra and the prism into three tetrahedra.
-These tetrahedra are obtained by cutting the quadrilateral face of pyramid and prism with the diagonal which have the vertex with the maximum index (see <a class="reference internal" href="../references.html#hecht1992" id="id12">[HECHT1992]</a> for the reason of this choice).</p>
+These tetrahedra are obtained by cutting the quadrilateral face of pyramid and prism with the diagonal which have the vertex with the maximum index (see <a class="reference internal" href="../bibliography.html#hecht1992" id="id12">[HECHT1992]</a> for the reason of this choice).</p>
 <p>The triangles on the middle surface obtained with the decomposition of the volume prismatic elements are the triangles generated by the edges on the border of the two dimensional mesh.
 The label of triangles on the border elements and tetrahedra are defined with the label of these associated elements.</p>
 <p>The arguments of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildlayers</span></code> is a two dimensional mesh and the number of layers <span class="math notranslate nohighlight">\(M\)</span>.</p>
