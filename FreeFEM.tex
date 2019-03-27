@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Mar 26, 2019}
+\date{Mar 27, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2769,7 +2769,7 @@ it may diverge in rare cases when \(|\mathbf{u}|\) is too small due to quadratur
 \label{\detokenize{tutorials/rotatingHill:solution-by-discontinuous-galerkin-fem}}
 Discontinuous Galerkin methods take advantage of the discontinuities of \(c\) at the edges to build upwinding.
 There are may formulations possible.
-We shall implement here the so-called dual-\(P_1^{DC}\) formulation (see \sphinxcite{references:ern2006}):
+We shall implement here the so-called dual-\(P_1^{DC}\) formulation (see \sphinxcite{bibliography:ern2006}):
 \begin{equation*}
 \begin{split}\int_\Omega(\frac{c^{n+1}-c^n}{\delta t} +u\cdot\nabla c)w
 +\int_E(\alpha|n\cdot u|-\frac 12 n\cdot u)[c]w
@@ -5111,11 +5111,11 @@ Multi-variables, multi-equations, bi-dimensional and three-dimensional static or
 Easy geometric input by analytic description of boundaries by pieces; however this part is not a CAD system; for instance when two boundaries intersect, the user must specify the intersection points.
 
 \item {} 
-Automatic mesh generator, based on the Delaunay-Voronoi algorithm; the inner point density is proportional to the density of points on the boundaries \sphinxcite{references:george1996}.
+Automatic mesh generator, based on the Delaunay-Voronoi algorithm; the inner point density is proportional to the density of points on the boundaries \sphinxcite{bibliography:george1996}.
 
 \item {} 
 Metric-based anisotropic mesh adaptation.
-The metric can be computed automatically from the Hessian of any \sphinxstylestrong{FreeFEM} function \sphinxcite{references:hecht1998}.
+The metric can be computed automatically from the Hessian of any \sphinxstylestrong{FreeFEM} function \sphinxcite{bibliography:hecht1998}.
 
 \item {} 
 High level user friendly typed input language with an algebra of analytic and finite element functions.
@@ -5153,7 +5153,7 @@ The first C version lead to \sphinxcode{\sphinxupquote{freefem 3.4}}; it offered
 
 A thorough rewriting in \sphinxcode{\sphinxupquote{C++}} led to \sphinxcode{\sphinxupquote{freefem+}} (\sphinxcode{\sphinxupquote{freefem+}} 1.2.10 was its last release), which included interpolation over multiple meshes (functions defined on one mesh can be used on any other mesh); this software is no longer maintained but is still in use because it handles a problem description using the strong form of the PDEs.
 Implementing the interpolation from one unstructured mesh to another was not easy because it had to be fast and non-diffusive; for each point, one had to find the containing triangle.
-This is one of the basic problems of computational geometry (see \sphinxcite{references:preparata1985} for example).
+This is one of the basic problems of computational geometry (see \sphinxcite{bibliography:preparata1985} for example).
 Doing it in a minimum number of operations was the challenge.
 Our implementation is \(\mathcal{O}(n log n)\) and based on a quadtree.
 This version also grew out of hand because of the evolution of the template syntax in \sphinxcode{\sphinxupquote{C++}}.
@@ -5162,7 +5162,7 @@ We have been working for a few years now on \sphinxstylestrong{FreeFEM} , entire
 Like all versions of \sphinxcode{\sphinxupquote{freefem}}, it has a high level user friendly input language which is not too far from the mathematical writing of the problems.
 
 The \sphinxcode{\sphinxupquote{freefem}} language allows for a quick specification of any partial differential system of equations.
-The language syntax of \sphinxstylestrong{FreeFEM} is the result of a new design which makes use of the STL \sphinxcite{references:stroustrup2000}, templates, and bison for its implementation; more details can be found in \sphinxcite{references:hecht2002}.
+The language syntax of \sphinxstylestrong{FreeFEM} is the result of a new design which makes use of the STL \sphinxcite{bibliography:stroustrup2000}, templates, and bison for its implementation; more details can be found in \sphinxcite{bibliography:hecht2002}.
 The outcome is a versatile software in which any new finite elements can be included in a few hours; but a recompilation is then necessary.
 Therefore the library of finite elements available in \sphinxstylestrong{FreeFEM} will grow with the version number and with the number of users who program more new elements.
 So far we have discontinuous \(P_0\) elements,linear \(P_1\) and quadratic \(P_2\) Lagrangian elements, discontinuous \(P_1\) and Raviart-Thomas elements and a few others like bubble elements.
@@ -5784,7 +5784,7 @@ Explanation
 In \sphinxstylestrong{FreeFEM} there are many mesh file formats available for communication with other tools such as \sphinxcode{\sphinxupquote{emc2}}, \sphinxcode{\sphinxupquote{modulef}}, … (see {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh format chapter}}}} ).
 
 The extension of a file implies its format.
-More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” \sphinxcite{references:hecht1998-2}.
+More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” \sphinxcite{bibliography:hecht1998-2}.
 
 A mesh file can be read into \sphinxstylestrong{FreeFEM} except that the names of the borders are lost and only their reference numbers are kept.
 So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword \sphinxcode{\sphinxupquote{label}}. Here are some examples:
@@ -6555,7 +6555,7 @@ The problem is coercive and symmetric, so the linear system can be solved with t
 
 By \sphinxcode{\sphinxupquote{adaptmesh}}, the slope of the final solution is correctly computed near the point of intersection of \(bc\) and \(bd\) as in \hyperref[\detokenize{documentation/meshGeneration:adaptmesh3}]{Fig.\@ \ref{\detokenize{documentation/meshGeneration:adaptmesh3}}}.
 
-This method is described in detail in \sphinxcite{references:hecht1998}.
+This method is described in detail in \sphinxcite{bibliography:hecht1998}.
 It has a number of default parameters which can be modified.
 
 If \sphinxcode{\sphinxupquote{f1,f2}} are functions and \sphinxcode{\sphinxupquote{thold, Thnew}} are meshes:
@@ -7352,7 +7352,7 @@ This field is express with the notation of {\hyperref[\detokenize{documentation/
 \label{\detokenize{documentation/meshGeneration:tetgen-a-tetrahedral-mesh-generator}}
 \sphinxstylestrong{TetGen}
 
-TetGen is a software developed by Dr. Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany \sphinxcite{references:hang2006}.
+TetGen is a software developed by Dr. Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany \sphinxcite{bibliography:hang2006}.
 TetGen is free for research and non-commercial use.
 For any commercial license utilization, a commercial license is available upon request to Hang Si.
 
@@ -7360,8 +7360,8 @@ This software is a tetrahedral mesh generator of a three dimensional domain defi
 The input domain takes into account a polyhedral or a piecewise linear complex.
 This tetrahedralization is a constrained Delaunay tetrahedralization.
 
-The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk \sphinxcite{references:shewchuk1998}.
-The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 \sphinxcite{references:hang2006} for more details).
+The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk \sphinxcite{bibliography:shewchuk1998}.
+The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 \sphinxcite{bibliography:hang2006} for more details).
 A theoretical bound of this ratio of the Shewchuk algorithm is obtained for a given complex of vertices, constrained segments and facets of surface mesh, with no input angle less than 90 degrees.
 This theoretical bound is 2.0.
 
@@ -7379,7 +7379,7 @@ This parameter is initialized as a label for the keyword {\hyperref[\detokenize{
 
 \item {} \begin{description}
 \item[{\sphinxcode{\sphinxupquote{switch=}} A string expression.}] \leavevmode
-This string corresponds to the command line switch of TetGen see Section 3.2 of \sphinxcite{references:hang2006}.
+This string corresponds to the command line switch of TetGen see Section 3.2 of \sphinxcite{bibliography:hang2006}.
 
 \end{description}
 
@@ -7387,7 +7387,7 @@ This string corresponds to the command line switch of TetGen see Section 3.2 of 
 \sphinxcode{\sphinxupquote{nbofholes=}} Number of holes (default value: “size of \sphinxcode{\sphinxupquote{holelist}} / 3”).
 
 \item {} \begin{description}
-\item[{\sphinxcode{\sphinxupquote{holelist=}} This array corresponds to \sphinxcode{\sphinxupquote{holelist}} of TetGenio data structure \sphinxcite{references:hang2006}.}] \leavevmode
+\item[{\sphinxcode{\sphinxupquote{holelist=}} This array corresponds to \sphinxcode{\sphinxupquote{holelist}} of TetGenio data structure \sphinxcite{bibliography:hang2006}.}] \leavevmode
 A real vector of size \sphinxcode{\sphinxupquote{3 * nbofholes}}.
 In TetGen, each hole is associated with a point inside this domain.
 This vector is \(x_{1}^{h}, y_{1}^{h}, z_{1}^{h}, x_{2}^{h}, y_{2}^{h}, z_{2}^{h}, \cdots,\) where \(x_{i}^{h},y_{i}^{h},z_{i}^{h}\) is the associated point with the \(i^{\mathrm{th}}\) hole.
@@ -7398,7 +7398,7 @@ This vector is \(x_{1}^{h}, y_{1}^{h}, z_{1}^{h}, x_{2}^{h}, y_{2}^{h}, z_{2}^{h
 \sphinxcode{\sphinxupquote{nbofregions=}} Number of regions (default value: “size of \sphinxcode{\sphinxupquote{regionlist}} / 5”).
 
 \item {} 
-\sphinxcode{\sphinxupquote{regionlist=}} This array corresponds to \sphinxcode{\sphinxupquote{regionlist}} of TetGenio data structure \sphinxcite{references:hang2006}.
+\sphinxcode{\sphinxupquote{regionlist=}} This array corresponds to \sphinxcode{\sphinxupquote{regionlist}} of TetGenio data structure \sphinxcite{bibliography:hang2006}.
 
 The attribute and the volume constraint of region are given in this real vector of size \sphinxcode{\sphinxupquote{5 * nbofregions}}.
 The \(i^{\mathrm{th}}\) region is described by five elements: \(x-\)coordinate, \(y-\)coordinate and \(z-\)coordinate of a point inside this domain (\(x_{i},y_{i},z_{i}\)); the attribute (\(at_{i}\)) and the maximum volume for tetrahedra (\(mvol_{i}\)) for this region.
@@ -7409,7 +7409,7 @@ The \sphinxcode{\sphinxupquote{regionlist}} vector is: \(x_{1}, y_{1}, z_{1}, at
 \sphinxcode{\sphinxupquote{nboffacetcl=}} Number of facets constraints “size of \sphinxcode{\sphinxupquote{facetcl}} / 2”).
 
 \item {} 
-\sphinxcode{\sphinxupquote{facetcl=}} This array corresponds to \sphinxcode{\sphinxupquote{facetconstraintlist}} of TetGenio data structure \sphinxcite{references:hang2006}.
+\sphinxcode{\sphinxupquote{facetcl=}} This array corresponds to \sphinxcode{\sphinxupquote{facetconstraintlist}} of TetGenio data structure \sphinxcite{bibliography:hang2006}.
 
 The \(i^{th}\) facet constraint is defined by the facet marker \(Ref_{i}^{fc}\) and the maximum area for faces \(marea_{i}^{fc}\).
 The \sphinxcode{\sphinxupquote{facetcl}} array is: \(Ref_{1}^{fc}, marea_{1}^{fc}, Ref_{2}^{fc}, marea_{2}^{fc}, \cdots\).
@@ -7641,7 +7641,7 @@ The parameters of this command line are :
 \begin{itemize}
 \item {} \begin{description}
 \item[{\sphinxcode{\sphinxupquote{switch=}} A string expression.}] \leavevmode
-This string corresponds to the command line \sphinxcode{\sphinxupquote{switch}} of TetGen see Section 3.2 of \sphinxcite{references:hang2006}.
+This string corresponds to the command line \sphinxcode{\sphinxupquote{switch}} of TetGen see Section 3.2 of \sphinxcite{bibliography:hang2006}.
 
 \end{description}
 
@@ -7692,7 +7692,7 @@ The parameters \sphinxcode{\sphinxupquote{switch}}, \sphinxcode{\sphinxupquote{n
 
 In the parameter \sphinxcode{\sphinxupquote{switch=}}, the character \sphinxcode{\sphinxupquote{r}} should be used without the character \sphinxcode{\sphinxupquote{p}}.
 
-For instance, see the manual of TetGen \sphinxcite{references:hang2006} for effect of \sphinxcode{\sphinxupquote{r}} to other character.
+For instance, see the manual of TetGen \sphinxcite{bibliography:hang2006} for effect of \sphinxcode{\sphinxupquote{r}} to other character.
 
 The parameter \sphinxcode{\sphinxupquote{regionlist}} defines a new volume constraint in the region.
 The label in the \sphinxcode{\sphinxupquote{regionlist}} will be the previous label of region.
@@ -7881,7 +7881,7 @@ Theses volume elements can have some merged point:
 
 The elements with merged points are called degenerate elements.
 To obtain a mesh with tetrahedra, we decompose the pyramid into two tetrahedra and the prism into three tetrahedra.
-These tetrahedra are obtained by cutting the quadrilateral face of pyramid and prism with the diagonal which have the vertex with the maximum index (see \sphinxcite{references:hecht1992} for the reason of this choice).
+These tetrahedra are obtained by cutting the quadrilateral face of pyramid and prism with the diagonal which have the vertex with the maximum index (see \sphinxcite{bibliography:hecht1992} for the reason of this choice).
 
 The triangles on the middle surface obtained with the decomposition of the volume prismatic elements are the triangles generated by the edges on the border of the two dimensional mesh.
 The label of triangles on the border elements and tetrahedra are defined with the label of these associated elements.
@@ -9573,7 +9573,7 @@ Lets call \(\mathcal{T}^\triangle_{h}\) the sub mesh of \(\mathcal{T}_{h}\) wher
 \end{equation*}
 where \(P_{3}\) is the set of polynomials of \(\R^{2}\) of degrees \(\le 3\).
 
-The degrees of freedom are the values of the normal derivative at the mid-point of each edge \sphinxcite{references:bernadou1980}.
+The degrees of freedom are the values of the normal derivative at the mid-point of each edge \sphinxcite{bibliography:bernadou1980}.
 
 \begin{sphinxadmonition}{warning}{Warning:}
 To build the interplant of a function \(u\) (scalar) for this finite element, we need the function and 2 partial derivatives \((u,u_x, u_y)\), creating this vectorial finite element with 3 components \((u,u_x,u_y)\) like in previous finite element.
@@ -9581,7 +9581,7 @@ To build the interplant of a function \(u\) (scalar) for this finite element, we
 \end{quote}
 
 \item {} 
-\sphinxcode{\sphinxupquote{{[}P2BR{]}}} (needs \sphinxcode{\sphinxupquote{load "BernadiRaugel"}}) the Bernadi Raugel Finite Element is a Vectorial element (2d) with 2 components, see \sphinxcite{references:bernardi1985}.
+\sphinxcode{\sphinxupquote{{[}P2BR{]}}} (needs \sphinxcode{\sphinxupquote{load "BernadiRaugel"}}) the Bernadi Raugel Finite Element is a Vectorial element (2d) with 2 components, see \sphinxcite{bibliography:bernardi1985}.
 \begin{quote}
 
 It is a 2D coupled Finite Element, where the Polynomial space is \(P_1^2\) with 3 normal bubble edge functions \((P_2)\).
@@ -9983,7 +9983,7 @@ See {\hyperref[\detokenize{documentation/finiteElement:finiteelementprojp2}]{\sp
 
 \subsection{P1 Nonconforming Element}
 \label{\detokenize{documentation/finiteElement:p1-nonconforming-element}}\label{\detokenize{documentation/finiteElement:FiniteElement}}
-Refer to \sphinxcite{references:thomasset2012} for details; briefly, we now consider non-continuous approximations so we will lose the property:
+Refer to \sphinxcite{bibliography:thomasset2012} for details; briefly, we now consider non-continuous approximations so we will lose the property:
 \begin{equation*}
 \begin{split}w_h\in V_h\subset H^1(\Omega)\end{split}
 \end{equation*}
@@ -10006,7 +10006,7 @@ Here the basis function \(\phi_i\) associated with the mid-point \(m^i=(q^{k_i}+
 Strictly speaking \(\p \phi_i/\p x,\, \p \phi_i/\p y\) contain Dirac distribution \(\rho \delta_{\p T_k}\).
 
 The numerical calculations will automatically \sphinxstyleemphasis{ignore} them.
-In \sphinxcite{references:thomasset2012}, there is a proof of the estimation
+In \sphinxcite{bibliography:thomasset2012}, there is a proof of the estimation
 \begin{equation*}
 \begin{split}\left(\sum_{k=1}^{n_v}\int_{T_k}|\nabla w-\nabla w_h|^2\d x\d y\right)^{1/2} =O(h)\end{split}
 \end{equation*}
@@ -10849,7 +10849,7 @@ For an arbitrary polynomial \(f\) of degree \(r\), if we can find particular (qu
 \begin{equation*}
 \begin{split}\int_{D}f(\mathbf{x}) = \sum_{\ell =1}^L c_\ell f(\mathbf{\xi}_\ell)\end{split}
 \end{equation*}
-then we have an error estimate (see \sphinxcite{references:crouzeix1984}), and then there exists a constant \(C>0\) such that
+then we have an error estimate (see \sphinxcite{bibliography:crouzeix1984}), and then there exists a constant \(C>0\) such that
 \begin{equation*}
 \begin{split}\left|\int_{D}f(\mathbf{x}) - \sum_{\ell =1}^L \omega_\ell
 f(\mathbf{\xi}_\ell )\right|
@@ -11215,7 +11215,7 @@ Exact on \(P_k,\ k=\)
 &
 8
 &
-See \sphinxcite{references:taylor2005} for detail
+See \sphinxcite{bibliography:taylor2005} for detail
 &&
 7
 \\
@@ -11226,7 +11226,7 @@ See \sphinxcite{references:taylor2005} for detail
 &
 10
 &
-See \sphinxcite{references:taylor2005} for detail
+See \sphinxcite{bibliography:taylor2005} for detail
 &&
 9
 \\
@@ -12609,7 +12609,7 @@ Also, we can use the non-linear version of GMRES algorithm (the function \(J\) i
 \PYG{n+nf}{AffineGMRES}\PYG{p}{(}\PYG{n}{dJ}\PYG{p}{,} \PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kp}{precon}\PYG{o}{=}\PYG{n}{M}\PYG{p}{,} \PYG{k+kp}{nbiter}\PYG{o}{=}\PYG{k+kr}{imax}\PYG{p}{,} \PYG{k+kp}{eps}\PYG{o}{=}\PYG{n}{epsilon}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
-For the details of these algorithms, refer to \sphinxcite{references:pironneau1998}, Chapter IV, 1.3.
+For the details of these algorithms, refer to \sphinxcite{bibliography:pironneau1998}, Chapter IV, 1.3.
 
 
 \subsection{Algorithms for Unconstrained Optimization}
@@ -12719,7 +12719,7 @@ Note that the parameters passed to the CMAES function in the \sphinxstylestrong{
 
 \subsection{IPOPT}
 \label{\detokenize{documentation/algorithmsOptimization:ipopt}}
-The \sphinxcode{\sphinxupquote{ff-Ipopt}} package is an interface for the \sphinxhref{https://projects.coin-or.org/Ipopt}{IPOPT} \sphinxcite{references:wachter2006} optimizer.
+The \sphinxcode{\sphinxupquote{ff-Ipopt}} package is an interface for the \sphinxhref{https://projects.coin-or.org/Ipopt}{IPOPT} \sphinxcite{bibliography:wachter2006} optimizer.
 IPOPT is a software library for large scale, non-linear, constrained optimization.
 It implements a primal-dual interior point method along with filter method based line searches.
 
@@ -12731,7 +12731,7 @@ An alternative to MUMPS would be to download the HSL subroutines (see \sphinxhre
 \subsubsection{Short description of the algorithm}
 \label{\detokenize{documentation/algorithmsOptimization:short-description-of-the-algorithm}}
 In this section, we give a very brief glimpse at the underlying mathematics of IPOPT.
-For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult \sphinxcite{references:forsgren2002}, or \sphinxcite{references:wachter2006} for more IPOPT specific elements.
+For a deeper introduction on interior methods for nonlinear smooth optimization, one may consult \sphinxcite{bibliography:forsgren2002}, or \sphinxcite{bibliography:wachter2006} for more IPOPT specific elements.
 IPOPT is designed to perform optimization for both equality and inequality constrained problems.
 However, nonlinear inequalities are rearranged before the beginning of the optimization process in order to restrict the panel of nonlinear constraints to those of the equality kind.
 Each nonlinear inequality is transformed into a pair of simple bound inequalities and nonlinear equality constraints by the introduction of as many slack variables as is needed : \(c_{i}(x)\leq 0\) becomes \(c_{i}(x) + s_{i} = 0\) and \(s_{i}\leq 0\), where \(s_{i}\) is added to the initial variables of the problems \(x_{i}\).
@@ -12767,10 +12767,10 @@ If we respectively call \(z_{u}(x,\mu) = \left(\mu/(x_{u,1}-x_{1}),\dots, \mu/(x
 \begin{equation}\label{equation:documentation/algorithmsOptimization:muproblemlambda}
 \begin{split}\nabla f(x_{\mu}) + J_{c}(x_{\mu})^{T}\lambda_{\mu}+ z_{u}(x_{\mu},\mu) - z_{l}(x_{\mu},\mu) = 0 \quad \text{and} \quad c(x_{\mu}) = 0\end{split}
 \end{equation}
-In this equation, the \(z_l\) and \(z_u\) vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when \(\mu\rightarrow 0\), they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see \sphinxcite{references:forsgren2002}).
+In this equation, the \(z_l\) and \(z_u\) vectors seem to play the role of Lagrange multipliers for the simple bound inequalities, and indeed, when \(\mu\rightarrow 0\), they converge toward some suitable Lagrange multipliers for the KKT conditions, provided some technical assumptions are fulfilled (see \sphinxcite{bibliography:forsgren2002}).
 
 Equation \eqref{equation:documentation/algorithmsOptimization:muproblemlambda} is solved by performing a Newton method in order to find a solution of \eqref{equation:documentation/algorithmsOptimization:muproblem} for each of the decreasing values of \(\mu\).
-Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see \sphinxcite{references:forsgren2002} for details about them.
+Some order 2 conditions are also taken into account to avoid convergence to local maximizers, see \sphinxcite{bibliography:forsgren2002} for details about them.
 In the most classic IP algorithms, the Newton method is directly applied to \eqref{equation:documentation/algorithmsOptimization:muproblem}.
 This is in most case inefficient due to frequent computation of infeasible points.
 These difficulties are avoided in Primal-Dual interior point methods where \eqref{equation:documentation/algorithmsOptimization:muproblem} is transformed into an extended system where \(z_u\) and \(z_l\) are treated as unknowns and the barrier problems are finding \((x,\lambda,z_u,z_l)\in\mathbb{R}^n\times\mathbb{R}^m\times\mathbb{R}^n\times\mathbb{R}^n\) such that:
@@ -12786,11 +12786,11 @@ These difficulties are avoided in Primal-Dual interior point methods where \eqre
 \end{equation}
 Where if \(a\) is a vector of \(\mathbb{R}^n\), \(A\) denotes the diagonal matrix \(A=(a_i \delta_{ij})_{1\leq i,j\leq n}\) and \(e\in\mathbb{R}^{n} = (1,1,\dots,1)\).
 Solving this nonlinear system by the Newton method is known as being the \sphinxstyleemphasis{primal-dual} interior point method.
-Here again, more details are available in \sphinxcite{references:forsgren2002}.
+Here again, more details are available in \sphinxcite{bibliography:forsgren2002}.
 Most actual implementations introduce features in order to globalize the convergence capability of the method, essentially by adding some line-search steps to the Newton algorithm, or by using trust regions.
-For the purpose of IPOPT, this is achieved by a \sphinxstyleemphasis{filter line search} methods, the details of which can be found in \sphinxcite{references:wachter2006}.
+For the purpose of IPOPT, this is achieved by a \sphinxstyleemphasis{filter line search} methods, the details of which can be found in \sphinxcite{bibliography:wachter2006}.
 
-More IPOPT specific features or implementation details can be found in \sphinxcite{references:wachter2006}.
+More IPOPT specific features or implementation details can be found in \sphinxcite{bibliography:wachter2006}.
 We will just retain that IPOPT is a smart Newton method for solving constrained optimization problems, with global convergence capabilities due to a robust line search method (in the sense that the algorithm will converge no matter the initializer).
 Due to the underlying Newton method, the optimization process requires expressions of all derivatives up to the order 2 of the fitness function as well as those of the constraints.
 For problems whose Hessian matrices are difficult to compute or lead to high dimensional dense matrices, it is possible to use a BFGS approximation of these objects at the cost of a much slower convergence rate.
@@ -14581,7 +14581,7 @@ The code of the 4 algorithms:
 We have all ingredient to solve in parallel if we have et the partitions of the unity.
 To build this partition we do:
 
-The initial step on process \(1\) to build a coarse mesh, \({\mathcal{T}_h}^*\) of the full domain, and build the partition \(\pi\) function constant equal to \(i\) on each sub domain \(\mathcal{O}_i, i =1 ,.., N_p\), of the grid with the \sphinxcode{\sphinxupquote{metis}} graph partitioner \sphinxcite{references:karypis1995} and on each process \(i\) in \(1..,N_p\) do
+The initial step on process \(1\) to build a coarse mesh, \({\mathcal{T}_h}^*\) of the full domain, and build the partition \(\pi\) function constant equal to \(i\) on each sub domain \(\mathcal{O}_i, i =1 ,.., N_p\), of the grid with the \sphinxcode{\sphinxupquote{metis}} graph partitioner \sphinxcite{bibliography:karypis1995} and on each process \(i\) in \(1..,N_p\) do
 \begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
@@ -15481,7 +15481,7 @@ Concerning iterative solvers, we have chosen \sphinxhref{https://www-users.cs.um
 
 Each software implements a different type of parallel preconditioner.
 
-So, pARMS implements algebraic domain decomposition preconditioner type such as additive Schwartz \sphinxcite{references:cai1989} and interface method; while HIPS implement hierarchical incomplete factorization and finally HYPRE implements multilevel preconditioner are AMG(Algebraic MultiGrid) and parallel approximated inverse.
+So, pARMS implements algebraic domain decomposition preconditioner type such as additive Schwartz \sphinxcite{bibliography:cai1989} and interface method; while HIPS implement hierarchical incomplete factorization and finally HYPRE implements multilevel preconditioner are AMG(Algebraic MultiGrid) and parallel approximated inverse.
 
 To use one of these programs in \sphinxstylestrong{FreeFEM}, you have to install it independently of \sphinxstylestrong{FreeFEM}.
 It is also necessary to install the MPI communication library which is essential for communication between the processors and, in some cases, software partitioning graphs like \sphinxhref{http://glaros.dtc.umn.edu/gkhome/metis/metis/overview}{METIS} or \sphinxhref{http://www.labri.fr/perso/pelegrin/scotch/}{Scotch}.
@@ -15502,13 +15502,13 @@ In the rest of this chapter, when we talk about Krylov subspace methods we mean 
 This software is specialized in the resolution of large sparse non symmetric linear systems of equation.
 Solvers developed in pARMS are of type “Krylov’s subspace”.
 
-It consists of variants of GMRES like FGMRES (Flexible GMRES), DGMRES (Deflated GMRES) \sphinxcite{references:saad2003} and BICGSTAB.
-pARMS also implements parallel preconditioner like RAS (Restricted Additive Schwarz) \sphinxcite{references:cai1989} and Schur Complement type preconditioner.
+It consists of variants of GMRES like FGMRES (Flexible GMRES), DGMRES (Deflated GMRES) \sphinxcite{bibliography:saad2003} and BICGSTAB.
+pARMS also implements parallel preconditioner like RAS (Restricted Additive Schwarz) \sphinxcite{bibliography:cai1989} and Schur Complement type preconditioner.
 
 All these parallel preconditioners are based on the principle of domain decomposition.
 Thus, the matrix \(A\) is partitioned into sub matrices \(A_i\)(\(i=1,...,p\)) where p represents the number of partitions one needs.
 The union of \(A_i\) forms the original matrix.
-The solution of the overall system is obtained by solving the local systems on \(A_i\) (see \sphinxcite{references:smith1996}).
+The solution of the overall system is obtained by solving the local systems on \(A_i\) (see \sphinxcite{bibliography:smith1996}).
 Therefore, a distinction is made between iterations on \(A\) and the local iterations on \(A_i\).
 
 To solve the local problem on \(A_i\) there are several preconditioners as \sphinxstylestrong{ilut} (Incomplete LU with threshold), \sphinxstylestrong{iluk} (Incomplete LU with level of fill in) and \sphinxstylestrong{ARMS} (Algebraic Recursive Multilevel Solver).
@@ -15571,11 +15571,11 @@ Here are some default parameters:
 
 \item {} 
 \sphinxcode{\sphinxupquote{Tolerance for convergence=1e-08}} (see book
-\sphinxcite{references:saad2003} to understand all this parameters),
+\sphinxcite{bibliography:saad2003} to understand all this parameters),
 
 \item {} 
 \sphinxcode{\sphinxupquote{preconditionner=Restricted Additif Schwarz}}
-\sphinxcite{references:cai1989},
+\sphinxcite{bibliography:cai1989},
 
 \item {} 
 \sphinxcode{\sphinxupquote{Inner Krylov dimension=5}},
@@ -16441,7 +16441,7 @@ The quality of AMG depends on the choice of coarsening and interpolating operato
 
 The \sphinxstyleemphasis{sparse approximate inverse} approximates the inverse of a matrix \(A\) by a sparse matrix \(M\).
 A technical idea to construct matrix \(M\) is to minimize the Frobenuis norm of the residual matrix \(I-MA\).
-For more details on this preconditioner technics see \sphinxcite{references:chow1997}.
+For more details on this preconditioner technics see \sphinxcite{bibliography:chow1997}.
 
 HYPRE implement three Krylov subspace solvers: GMRES, PCG and BiCGStab.
 
@@ -18750,7 +18750,7 @@ The following defines a new function call \sphinxcode{\sphinxupquote{myfunction}
 Now the Problem is to build the link with \sphinxstylestrong{FreeFEM}, to do that we need two classes, one to call the function \sphinxcode{\sphinxupquote{myfunction}}.
 
 All \sphinxstylestrong{FreeFEM} evaluable expression must be a \sphinxcode{\sphinxupquote{C++}} \sphinxcode{\sphinxupquote{struct}}/\sphinxcode{\sphinxupquote{class}} which derivate from \sphinxcode{\sphinxupquote{E\_F0}}.
-By default this expression does not depend of the mesh position, but if they derivate from \sphinxcode{\sphinxupquote{E\_F0mps}} the expression depends of the mesh position, and for more details see \sphinxcite{references:hecht2002}.
+By default this expression does not depend of the mesh position, but if they derivate from \sphinxcode{\sphinxupquote{E\_F0mps}} the expression depends of the mesh position, and for more details see \sphinxcite{bibliography:hecht2002}.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 //A class build the link with FreeFEM
@@ -32351,7 +32351,7 @@ We now calculate the ratio between two segments:
 \left(|\mathbf{u}(\mathbf{x}+\tau\Delta\mathbf{x})
 -\mathbf{u}(\mathbf{x})+\tau\Delta\mathbf{x}|-\tau|\Delta\mathbf{x}|\right)\end{split}
 \end{equation*}
-then we have (see e.g. \sphinxcite{references:necas2017}, p.32)
+then we have (see e.g. \sphinxcite{bibliography:necas2017}, p.32)
 \begin{equation*}
 \begin{split}\lim_{\tau\to 0}\eta(\tau)=(1+2e_{ij}\nu_i\nu_j)^{1/2}-1,
 \quad 2e_{ij}=\frac{\partial u_k}{\partial x_i}\frac{\partial u_k}{\partial x_j}+\left(\frac{\partial u_i}{\partial x_j}+
@@ -32383,7 +32383,7 @@ with the symmetry \(c_{ijkl}=c_{jikl}, c_{ijkl}=c_{ijlk}, c_{ijkl}=c_{klij}\).
 If Hooke’s tensor \(c_{ijkl}(\mathbf{x})\) do not depend on the choice of coordinate system, the material is called \sphinxstyleemphasis{isotropic} at \(\mathbf{x}\).
 
 If \(c_{ijkl}\) is constant, the material is called \sphinxstyleemphasis{homogeneous}.
-In homogeneous isotropic case, there is \sphinxstyleemphasis{Lamé constants} \(\lambda, \mu\) (see e.g. \sphinxcite{references:necas2017}, p.43) satisfying
+In homogeneous isotropic case, there is \sphinxstyleemphasis{Lamé constants} \(\lambda, \mu\) (see e.g. \sphinxcite{bibliography:necas2017}, p.43) satisfying
 \begin{equation*}
 \begin{split}\sigma_{ij}=\lambda\delta_{ij}\textrm{div}\mathbf{u}+2\mu \varepsilon_{ij}\end{split}
 \end{equation*}
@@ -32597,7 +32597,7 @@ where \(w(x,\mathbf{v})=\sigma_{ij}(\mathbf{v})\varepsilon_{ij}(\mathbf{v})/2\),
 \partial v_j/\partial x_i)/2,
 \qquad (C_{ijkl}:\quad \hbox{Hooke's tensor}).\end{split}
 \end{equation*}
-If the elasticity is homogeneous isotropic, then the displacement \(\mathbf{u}(x)\) is decomposed in an open neighborhood \(U_k\) of \(\gamma_k\) as in (see e.g. \sphinxcite{references:ohtsuka2000})
+If the elasticity is homogeneous isotropic, then the displacement \(\mathbf{u}(x)\) is decomposed in an open neighborhood \(U_k\) of \(\gamma_k\) as in (see e.g. \sphinxcite{bibliography:ohtsuka2000})
 \begin{equation}\label{equation:models/elasticity:eqn::SIF}
 \begin{split}\mathbf{u}(x) =
 \sum_{l=1}^2 K_l(\gamma_k) r_k^{1/2} S^C_{kl}(\theta_k)
@@ -33005,7 +33005,7 @@ This tool is available in \sphinxstylestrong{FreeFEM} if the word eigenvalue app
  Load: lg\PYGZus{}fem lg\PYGZus{}mesh eigenvalue
 \end{sphinxVerbatim}
 
-This tool is based on \sphinxhref{http://www.caam.rice.edu/software/ARPACK/}{arpack++}, the object-oriented version of \sphinxcode{\sphinxupquote{ARPACK}} eigenvalue package \sphinxcite{references:lehoucq1998}.
+This tool is based on \sphinxhref{http://www.caam.rice.edu/software/ARPACK/}{arpack++}, the object-oriented version of \sphinxcode{\sphinxupquote{ARPACK}} eigenvalue package \sphinxcite{bibliography:lehoucq1998}.
 
 The function \sphinxcode{\sphinxupquote{EigenValue}} computes the generalized eigenvalue of \(A u = \lambda B u\).
 The Shift-invert method is used by default, with sigma =\(\sigma\) the shift of the method.
@@ -33034,7 +33034,7 @@ where \(n\) is the size of the problem, and the operators are now defined throug
 \PYG{k+kt}{func} \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{FB}\PYG{p}{(}\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n}{u}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{Au} \PYG{o}{=} \PYG{k+kp}{B}\PYG{o}{*}\PYG{n}{u}\PYG{p}{;} \PYG{k}{return} \PYG{n}{Au}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
-If you want finer control over the method employed in \sphinxcode{\sphinxupquote{ARPACK}}, you can specify which mode \sphinxcode{\sphinxupquote{ARPACK}} will work with (\sphinxcode{\sphinxupquote{mode=}} , see ARPACK documentation \sphinxcite{references:lehoucq1998}). The operators necessary for the chosen mode can be passed through the optional parameters \sphinxcode{\sphinxupquote{A=}}, \sphinxcode{\sphinxupquote{A1=}}, \sphinxcode{\sphinxupquote{B=}}, \sphinxcode{\sphinxupquote{B1=}}, (see below).
+If you want finer control over the method employed in \sphinxcode{\sphinxupquote{ARPACK}}, you can specify which mode \sphinxcode{\sphinxupquote{ARPACK}} will work with (\sphinxcode{\sphinxupquote{mode=}} , see ARPACK documentation \sphinxcite{bibliography:lehoucq1998}). The operators necessary for the chosen mode can be passed through the optional parameters \sphinxcode{\sphinxupquote{A=}}, \sphinxcode{\sphinxupquote{A1=}}, \sphinxcode{\sphinxupquote{B=}}, \sphinxcode{\sphinxupquote{B1=}}, (see below).
 \begin{itemize}
 \item {} 
 \sphinxcode{\sphinxupquote{mode=1}}: Regular mode for solving \(A u = \lambda u\)
@@ -33390,7 +33390,7 @@ are obtained from solving the matrix
 M=(m_{ij}),\quad m_{ij}=(\phi_j,\phi_i),\qquad
 A=(a_{ij}),\quad a_{ij}=a(\phi_j,\phi_i)\nonumber\end{split}
 \end{equation}
-Refer \sphinxcite{references:tabata1994}, pp.70\textendash{}75 for solvability of \eqref{equation:models/evolutionProblems:eqn::Evolution-1}. The stability of \eqref{equation:models/evolutionProblems:eqn::Evolution-1} is in \sphinxcite{references:tabata1994}, Theorem 2.13:
+Refer \sphinxcite{bibliography:tabata1994}, pp.70\textendash{}75 for solvability of \eqref{equation:models/evolutionProblems:eqn::Evolution-1}. The stability of \eqref{equation:models/evolutionProblems:eqn::Evolution-1} is in \sphinxcite{bibliography:tabata1994}, Theorem 2.13:
 
 Let \(\{\mathcal{T}_h\}_{h\downarrow 0}\) be regular triangulations (see {\hyperref[\detokenize{documentation/meshGeneration:meshregulartriangulation}]{\sphinxcrossref{\DUrole{std,std-ref}{Regular Triangulation}}}}).
 Then there is a number \(c_0>0\) independent of \(h\) such that,
@@ -33591,7 +33591,7 @@ we can get the approximation
 
 \(u^m \left( {X^m( x )} \right) \approx\) \sphinxcode{\sphinxupquote{convect}} \(\left( {[a_1^m ,a_2^m],-\tau ,u^m } \right)\) by \(X^m \approx x \mapsto x- \tau [a_1^m(x) ,a_2^m(x)]\)
 
-A classical convection problem is that of the “rotating bell” (quoted from \sphinxcite{references:lucquin1998}, p.16).
+A classical convection problem is that of the “rotating bell” (quoted from \sphinxcite{bibliography:lucquin1998}, p.16).
 
 Let \(\Omega\) be the unit disk centered at 0, with its center rotating with speed \(\alpha_1 = y,\, \alpha_2 = -x\).
 We consider the problem \eqref{equation:models/evolutionProblems:eqn::conv} with \(f=0\) and the initial condition \(u(x,0)=u^0(x)\), that is, from \eqref{equation:models/evolutionProblems:eqn::Charac}
@@ -33665,7 +33665,7 @@ The scheme \sphinxcode{\sphinxupquote{convect}} is unconditionally stable, then 
 
 \subsection{2D Black-Scholes equation for an European Put option}
 \label{\detokenize{models/evolutionProblems:d-black-scholes-equation-for-an-european-put-option}}\label{\detokenize{models/evolutionProblems:EvolutionProblem_Convect}}
-In mathematical finance, an option on two assets is modeled by a Black-Scholes equations in two space variables, (see for example \sphinxcite{references:wilmott1995} or \sphinxcite{references:achdou2005}).
+In mathematical finance, an option on two assets is modeled by a Black-Scholes equations in two space variables, (see for example \sphinxcite{bibliography:wilmott1995} or \sphinxcite{bibliography:achdou2005}).
 \begin{equation*}
 \begin{split}\begin{array}{rcl}
     \p _t u &+& \frac{{\left( {\sigma _1 x } \right)^2 }}{2}\frac{{\p ^2 u}}{{\p x^2 }} + \frac{{\left( {\sigma _2 y } \right)^2 }}{2}\frac{{\p ^2 u}}{{\p y^2 }} \\
@@ -33779,7 +33779,7 @@ The Stokes equations are: for a given \(\mathbf{f}\in L^2(\Omega)^2\):
 where \(\mathbf{u}=(u_1,u_2)\) is the velocity vector and \(p\) the pressure.
 For simplicity, let us choose Dirichlet boundary conditions on the velocity, \(\mathbf{u}=\mathbf{u}_{\Gamma}\) on \(\Gamma\).
 
-In \sphinxcite{references:temam1977}, Theorem 2.2, there is a weak form of \eqref{equation:models/navierStokesEquations:eqn::Stokes}:
+In \sphinxcite{bibliography:temam1977}, Theorem 2.2, there is a weak form of \eqref{equation:models/navierStokesEquations:eqn::Stokes}:
 
 Find \(\mathbf{v}=(v_1,v_2)\in \mathbf{V}(\Omega)\):
 \begin{equation*}
@@ -33872,7 +33872,7 @@ Then we have an unique solution \((\mathbf{u}_h,p_h)\) of \eqref{equation:models
 \inf_{\mathbf{v}_h\in \mathbf{V}_h}\| u-v_h\|_{1,\Omega}
 +\inf_{q_h\in W_h}\| p-q_h\|_{0,\Omega}\right)\end{split}
 \end{equation*}
-with a constant \(C>0\) (see e.g. \sphinxcite{references:roberts1993}, Theorem 10.4).
+with a constant \(C>0\) (see e.g. \sphinxcite{bibliography:roberts1993}, Theorem 10.4).
 \end{quote}
 
 \end{enumerate}
@@ -33990,7 +33990,7 @@ There is a constant \(C>0\) independent of \(\epsilon\) such that:
 \begin{split}\|\mathbf{u}_h-\mathbf{u}_h^\epsilon\|_{1,\Omega}+
 \|p_h-p_h^{\epsilon}\|_{0,\Omega}\le C\epsilon\end{split}
 \end{equation*}
-(see e.g. \sphinxcite{references:roberts1993}, 17.2)
+(see e.g. \sphinxcite{bibliography:roberts1993}, 17.2)
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{tip}{Tip:}
@@ -34130,7 +34130,7 @@ The complete script is available in {\hyperref[\detokenize{examples/misc:example
 \subsection{Uzawa Algorithm and Conjugate Gradients}
 \label{\detokenize{models/navierStokesEquations:uzawa-algorithm-and-conjugate-gradients}}\label{\detokenize{models/navierStokesEquations:navierstokesuzawaconjugategradients}}
 We solve Stokes problem without penalty.
-The classical iterative method of Uzawa is described by the algorithm (see e.g. \sphinxcite{references:roberts1993}, 17.3, \sphinxcite{references:glowinski1979}, 13 or \sphinxcite{references:glowinski1985}, 13):
+The classical iterative method of Uzawa is described by the algorithm (see e.g. \sphinxcite{bibliography:roberts1993}, 17.3, \sphinxcite{bibliography:glowinski1979}, 13 or \sphinxcite{bibliography:glowinski1985}, 13):
 \begin{itemize}
 \item {} 
 \sphinxstylestrong{Initialize:} Let \(p_h^0\) be an arbitrary chosen element of \(L^2(\Omega)\).
@@ -34226,7 +34226,7 @@ Stokes Uzawa
 
 \subsection{NSUzawaCahouetChabart.edp}
 \label{\detokenize{models/navierStokesEquations:nsuzawacahouetchabart-edp}}
-In this example we solve the Navier-Stokes equation past a cylinder with the Uzawa algorithm preconditioned by the Cahouet-Chabart method (see \sphinxcite{references:glowinski2003} for all the details).
+In this example we solve the Navier-Stokes equation past a cylinder with the Uzawa algorithm preconditioned by the Cahouet-Chabart method (see \sphinxcite{bibliography:glowinski2003} for all the details).
 
 The idea of the preconditioner is that in a periodic domain, all differential operators commute and the Uzawa algorithm comes to solving the linear operator \(\nabla. ( (\alpha Id + \nu \Delta)^{-1} \nabla\), where \(Id\) is the identity operator.
 So the preconditioner suggested is \(\alpha \Delta^{-1} + \nu Id\).
@@ -34476,7 +34476,7 @@ where \(<,>\) is the duality bracket between \(H^{1}_0(\Omega)\) and \(H^{-1}(\O
 
 \end{enumerate}
 
-You can find all the mathematics about this algorithm in \sphinxcite{references:ito2003}.
+You can find all the mathematics about this algorithm in \sphinxcite{bibliography:ito2003}.
 
 Now how to do that in \sphinxstylestrong{FreeFEM}? The full example is:
 
@@ -35768,8 +35768,8 @@ which allows an integral over \(\Omega\) involving the Cauchy stress \(\bT\) to 
 
 \subsection{Recommended References}
 \label{\detokenize{models/compressibleNeoHookeanMaterials:recommended-references}}
-For an exposition of nonlinear elasticity and of the underlying linear and tensor algebra, see \sphinxcite{references:ogden1984}.
-For an advanced mathematical analysis of the Finite Element Method, see \sphinxcite{references:raviart1998}.
+For an exposition of nonlinear elasticity and of the underlying linear and tensor algebra, see \sphinxcite{bibliography:ogden1984}.
+For an advanced mathematical analysis of the Finite Element Method, see \sphinxcite{bibliography:raviart1998}.
 
 
 \subsection{A Neo-Hookean Compressible Material}
@@ -35780,7 +35780,7 @@ The strain energy density function is given by:
 \begin{equation*}
 \begin{split}W = {\mu \over 2}(I_1 - \tr \Id - 2 \ln J)\end{split}
 \end{equation*}
-(see \sphinxcite{references:horgan2004}, formula (12)).
+(see \sphinxcite{bibliography:horgan2004}, formula (12)).
 
 The corresponding 2nd Piola-Kirchoff stress tensor is given by:
 \begin{equation*}
@@ -36333,7 +36333,7 @@ Since resonator dimensions are typically much larger than optical wavelength, di
 It’s possible to solve the vectorial wave equation by reducing it to a two dimensional case by taking axial symmetry into account.
 
 Such reduction leads to a system of 3 equations to be solved in a 2D “\(\rho-z\)” section of a resonator.
-Please refer to \sphinxcite{references:oxborrow2007} for a detailed derivation and to \sphinxcite{references:grudinin2012} for an example of using \sphinxstylestrong{FreeFEM} to compute WGMs.
+Please refer to \sphinxcite{bibliography:oxborrow2007} for a detailed derivation and to \sphinxcite{bibliography:grudinin2012} for an example of using \sphinxstylestrong{FreeFEM} to compute WGMs.
 
 
 \subsection{Wave equation for the WGMs}
@@ -40681,87 +40681,87 @@ cholesky line:
 \end{sphinxVerbatim}
 
 \begin{sphinxthebibliography}{STROUSTR}
-\bibitem[PIRONNEAU1998]{references:pironneau1998}
+\bibitem[PIRONNEAU1998]{bibliography:pironneau1998}
 PIRONNEAU, Olivier and LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.
-\bibitem[WÄCHTER2006]{references:wachter2006}
+\bibitem[WÄCHTER2006]{bibliography:wachter2006}
 WÄCHTER, Andreas and BIEGLER, Lorenz T. On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 2006, vol. 106, no 1, p. 25-57.
-\bibitem[FORSGREN2002]{references:forsgren2002}
+\bibitem[FORSGREN2002]{bibliography:forsgren2002}
 FORSGREN, Anders, GILL, Philip E., and WRIGHT, Margaret H. Interior methods for nonlinear optimization. SIAM review, 2002, vol. 44, no 4, p. 525-597.
-\bibitem[GEORGE1996]{references:george1996}
+\bibitem[GEORGE1996]{bibliography:george1996}
 GEORGE, P. L. and BOROUCHAKI, H. Automatic triangulation. 1996.
-\bibitem[HECHT1998]{references:hecht1998}
+\bibitem[HECHT1998]{bibliography:hecht1998}
 HECHT, F. The mesh adapting software: bamg. INRIA report, 1998, vol. 250, p. 252.
-\bibitem[PREPARATA1985]{references:preparata1985}
+\bibitem[PREPARATA1985]{bibliography:preparata1985}
 PREPARATA, F. P. and SHAMOS, M. I. Computational Geometry Springer-Verlag. New York, 1985.
-\bibitem[STROUSTRUP2000]{references:stroustrup2000}
+\bibitem[STROUSTRUP2000]{bibliography:stroustrup2000}
 STROUSTRUP, Bjarne. The C++ programming language. Pearson Education India, 2000.
-\bibitem[HECHT2002]{references:hecht2002}
+\bibitem[HECHT2002]{bibliography:hecht2002}
 HECHT, Frédéric. C++ Tools to construct our user-level language. ESAIM: Mathematical Modelling and Numerical Analysis, 2002, vol. 36, no 5, p. 809-836.
-\bibitem[HANG2006]{references:hang2006}
+\bibitem[HANG2006]{bibliography:hang2006}
 SI, Hang. TetGen Users’ guide: A quality tetrahedral mesh generator and three-dimensional delaunay triangulator. 2006
-\bibitem[SHEWCHUK1998]{references:shewchuk1998}
+\bibitem[SHEWCHUK1998]{bibliography:shewchuk1998}
 SHEWCHUK, Jonathan Richard. Tetrahedral mesh generation by Delaunay refinement. In : Proceedings of the fourteenth annual symposium on Computational geometry. ACM, 1998. p. 86-95.
-\bibitem[HECHT1992]{references:hecht1992}
+\bibitem[HECHT1992]{bibliography:hecht1992}
 HECHT, F. Outils et algorithmes pour la méthode des éléments finis. HdR, Université Pierre et Marie Curie, France, 1992.
-\bibitem[HECHT1998\_2]{references:hecht1998-2}
+\bibitem[HECHT1998\_2]{bibliography:hecht1998-2}
 HECHT, Frédéric. BAMG: bidimensional anisotropic mesh generator. User Guide. INRIA, Rocquencourt, 1998.
-\bibitem[KARYPIS1995]{references:karypis1995}
+\bibitem[KARYPIS1995]{bibliography:karypis1995}
 KARYPIS, George and KUMAR, Vipin. METIS\textendash{}unstructured graph partitioning and sparse matrix ordering system, version 2.0. 1995.
-\bibitem[CAI1989]{references:cai1989}
+\bibitem[CAI1989]{bibliography:cai1989}
 CAI, Xiao-Chuan. Some domain decomposition algorithms for nonselfadjoint elliptic and parabolic partial differential equations. 1989.
-\bibitem[SAAD2003]{references:saad2003}
+\bibitem[SAAD2003]{bibliography:saad2003}
 SAAD, Yousef. Iterative methods for sparse linear systems. siam, 2003.
-\bibitem[SMITH1996]{references:smith1996}
+\bibitem[SMITH1996]{bibliography:smith1996}
 SMITH, B. P. Bj rstad and W. Gropp, Domain Decomposition. 1996.
-\bibitem[OGDEN1984]{references:ogden1984}
+\bibitem[OGDEN1984]{bibliography:ogden1984}
 OGDEN, Ray W. Non-linear elastic deformations. 1984.
-\bibitem[RAVIART1998]{references:raviart1998}
+\bibitem[RAVIART1998]{bibliography:raviart1998}
 RAVIART, Pierre-Arnaud, THOMAS, Jean-Marie, CIARLET, Philippe G., et al. Introduction à l’analyse numérique des équations aux dérivées partielles. Paris : Dunod, 1998.
-\bibitem[HORGAN2004]{references:horgan2004}
+\bibitem[HORGAN2004]{bibliography:horgan2004}
 HORGAN, Cornelius O. and SACCOMANDI, Giuseppe. Constitutive models for compressible nonlinearly elastic materials with limiting chain extensibility. Journal of Elasticity, 2004, vol. 77, no 2, p. 123-138.
-\bibitem[LEHOUCQ1998]{references:lehoucq1998}
+\bibitem[LEHOUCQ1998]{bibliography:lehoucq1998}
 LEHOUCQ, Richard B., SORENSEN, Danny C., and YANG, Chao. ARPACK users’ guide: solution of large-scale eigenvalue problems with implicitly restarted Arnoldi methods. Siam, 1998.
-\bibitem[NECAS2017]{references:necas2017}
+\bibitem[NECAS2017]{bibliography:necas2017}
 NECAS, Jindrich and HLAVÁCEK, Ivan. Mathematical theory of elastic and elasto-plastic bodies: an introduction. Elsevier, 2017.
-\bibitem[OHTSUKA2000]{references:ohtsuka2000}
+\bibitem[OHTSUKA2000]{bibliography:ohtsuka2000}
 OHTSUKA, K. Theoretical and Numerical analysis of energy release rate in 2D fracture. INFORMATION, 2000, vol. 3, p. 303-315.
-\bibitem[TABATA1994]{references:tabata1994}
+\bibitem[TABATA1994]{bibliography:tabata1994}
 TABATA, M. Numerical solutions of partial differential equations II. Iwanami Applied Math, 1994.
-\bibitem[LUCQUIN1998]{references:lucquin1998}
+\bibitem[LUCQUIN1998]{bibliography:lucquin1998}
 PIRONNEAU, O. and LUCQUIN-DESREUX, B. Introduction to scientific computing. Wiley, 1998.
-\bibitem[WILMOTT1995]{references:wilmott1995}
+\bibitem[WILMOTT1995]{bibliography:wilmott1995}
 WILMOTT, Paul, HOWISON, Sam and DEWYNNE, Jeff. A student introduction to mathematical finance. 1995.
-\bibitem[ACHDOU2005]{references:achdou2005}
+\bibitem[ACHDOU2005]{bibliography:achdou2005}
 ACHDOU, Yves and PIRONNEAU, Olivier. Computational methods for option pricing. Siam, 2005.
-\bibitem[TEMAM1977]{references:temam1977}
+\bibitem[TEMAM1977]{bibliography:temam1977}
 TEMAM, Roger. Navier-Stokes equations: theory and numerical analysis. 1977.
-\bibitem[ROBERTS1993]{references:roberts1993}
+\bibitem[ROBERTS1993]{bibliography:roberts1993}
 ROBERTS, J. E. and THOMAS, J. M. Mixed and Hybrid Methods, Handbook of Numerical Anaysis, Vol. II. North-Holland, 1993, vol. 183, p. 184.
-\bibitem[GLOWINSKI1979]{references:glowinski1979}
+\bibitem[GLOWINSKI1979]{bibliography:glowinski1979}
 GLOWINSKI, R. and PIRONNEAU, O. On numerical methods for the Stokes problem. In: Energy methods in finite element analysis.(A79-53076 24-39) Chichester, Sussex, England, Wiley-Interscience, 1979, p. 243-264., 1979, p. 243-264.
-\bibitem[GLOWINSKI1985]{references:glowinski1985}
+\bibitem[GLOWINSKI1985]{bibliography:glowinski1985}
 GLOWINSKI, Roland and ODEN, J. Tinsley. Numerical methods for nonlinear variational problems. Journal of Applied Mechanics, 1985, vol. 52, p. 739.
-\bibitem[GLOWINSKI2003]{references:glowinski2003}
+\bibitem[GLOWINSKI2003]{bibliography:glowinski2003}
 GLOWINSKI, Roland. Finite element methods for incompressible viscous flow. Handbook of numerical analysis, 2003, vol. 9, p. 3-1176.
-\bibitem[ITO2003]{references:ito2003}
+\bibitem[ITO2003]{bibliography:ito2003}
 ITO, Kazufumi and KUNISCH, Karl. Semi\textendash{}smooth Newton methods for variational inequalities of the first kind. ESAIM: Mathematical Modelling and Numerical Analysis, 2003, vol. 37, no 1, p. 41-62.
-\bibitem[OXBORROW2007]{references:oxborrow2007}
+\bibitem[OXBORROW2007]{bibliography:oxborrow2007}
 OXBORROW, Mark. Traceable 2-D finite-element simulation of the whispering-gallery modes of axisymmetric electromagnetic resonators. IEEE Transactions on Microwave Theory and Techniques, 2007, vol. 55, no 6, p. 1209-1218.
-\bibitem[GRUDININ2012]{references:grudinin2012}
+\bibitem[GRUDININ2012]{bibliography:grudinin2012}
 GRUDININ, Ivan S. and YU, Nan. Finite-element modeling of coupled optical microdisk resonators for displacement sensing. JOSA B, 2012, vol. 29, no 11, p. 3010-3014.
-\bibitem[ERN2006]{references:ern2006}
+\bibitem[ERN2006]{bibliography:ern2006}
 ERN, A. and GUERMOND, J. L. Discontinuous Galerkin methods for Friedrichs’ symmetric systems. I. General theory. SIAM J. Numer. Anal.
-\bibitem[BERNADOU1980]{references:bernadou1980}
+\bibitem[BERNADOU1980]{bibliography:bernadou1980}
 BERNADOU, Michel, BOISSERIE, Jean-Marie and HASSAN, Kamal. Sur l’implémentation des éléments finis de Hsieh-Clough-Tocher complet et réduit. 1980. Thèse de doctorat. INRIA.
-\bibitem[BERNARDI1985]{references:bernardi1985}
+\bibitem[BERNARDI1985]{bibliography:bernardi1985}
 BERNARDI, Christine and RAUGEL, Genevieve. Analysis of some finite elements for the Stokes problem. Mathematics of Computation, 1985, p. 71-79.
-\bibitem[THOMASSET2012]{references:thomasset2012}
+\bibitem[THOMASSET2012]{bibliography:thomasset2012}
 THOMASSET, François. Implementation of finite element methods for Navier-Stokes equations. Springer Science \& Business Media, 2012.
-\bibitem[CROUZEIX1984]{references:crouzeix1984}
+\bibitem[CROUZEIX1984]{bibliography:crouzeix1984}
 CROUZEIX, Michel and MIGNOT, Alain L. Analyse numérique des équations différentielles. Masson, 1984.
-\bibitem[TAYLOR2005]{references:taylor2005}
+\bibitem[TAYLOR2005]{bibliography:taylor2005}
 TAYLOR, Mark A., WINGATE, Beth A. and BOS, Len P. Several new quadrature formulas for polynomial integration in the triangle. arXiv preprint math/0501496, 2005.
-\bibitem[CHOW1997]{references:chow1997}
+\bibitem[CHOW1997]{bibliography:chow1997}
 CHOW, Edmond and SAAD, Yousef. Parallel Approximate Inverse Preconditioners. In : PPSC. 1997.
 \end{sphinxthebibliography}
 
