@@ -203,7 +203,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#freeyams">FreeYams</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mmg3d">mmg3d</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#build-a-2d-mesh-from-a-isoline">Build a 2d mesh from a isoline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
 </ul>
 </li>
 </ul>
@@ -6361,8 +6361,8 @@ It is a vector of size 3 <span class="math notranslate nohighlight">\(nv\)</span
 </td></tr></table></div>
 </div>
 </div>
-<div class="section" id="build-a-2d-mesh-from-a-isoline">
-<h3>Build a 2d mesh from a isoline<a class="headerlink" href="#build-a-2d-mesh-from-a-isoline" title="Permalink to this headline"> </a></h3>
+<div class="section" id="build-a-2d-mesh-from-an-isoline">
+<h3>Build a 2d mesh from an isoline<a class="headerlink" href="#build-a-2d-mesh-from-an-isoline" title="Permalink to this headline"> </a></h3>
 <p>The idea is to get the discretization of an isoline of fluid meshes, this tool can be useful to construct meshes from image.
 First, we give an example of the isovalue meshes <span class="math notranslate nohighlight">\(0.2\)</span> of analytical function <span class="math notranslate nohighlight">\(\sqrt{(x-1/2)^2 +(y-1/2)^2}\)</span>, on unit square.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -6397,11 +6397,7 @@ The list of named parameter are :</p>
 <ul class="simple">
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">iso</span><span class="o">=</span></code> value of the isoline to compute (0 is the default value)</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">close</span><span class="o">=</span></code> close the isoline with the border (default <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">true</span></code>), we add the part of the mesh border such the value is less than the isovalue</li>
-<li><dl class="first docutils">
-<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">smoothing</span><span class="o">=</span></code> number of smoothing process is the <span class="math notranslate nohighlight">\({l} ^{r} {s}\)</span> where <span class="math notranslate nohighlight">\(l\)</span> is the length of the current line component, <span class="math notranslate nohighlight">\(r\)</span> the ratio, <span class="math notranslate nohighlight">\(s\)</span> is smoothing value.</dt>
-<dd>The smoothing default value is 0.</dd>
-</dl>
-</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">smoothing</span><span class="o">=</span></code> number of smoothing process is the <span class="math notranslate nohighlight">\({l} ^{r} {s}\)</span> where <span class="math notranslate nohighlight">\(l\)</span> is the length of the current line component, <span class="math notranslate nohighlight">\(r\)</span> the ratio, <span class="math notranslate nohighlight">\(s\)</span> is smoothing value. The smoothing default value is 0.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">ratio</span><span class="o">=</span></code> the ratio (1 by default).</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">eps</span><span class="o">=</span></code> relative <span class="math notranslate nohighlight">\(\varepsilon\)</span> (default 1e-10)</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">beginend</span><span class="o">=</span></code> array to get begin, end couple of each of sub line (resize automatically)</li>
@@ -6623,7 +6619,7 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#freeyams">FreeYams</a></li>
 <li><a class="reference internal" href="#mmg3d">mmg3d</a></li>
 <li><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
-<li><a class="reference internal" href="#build-a-2d-mesh-from-a-isoline">Build a 2d mesh from a isoline</a></li>
+<li><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
 </ul>
 </li>
 </ul>
