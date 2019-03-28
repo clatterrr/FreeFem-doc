@@ -11504,7 +11504,7 @@ Now, to build the right hand size we need 4 vectors.
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-The boundary condition is implemented by penalization and vector \sphinxcode{\sphinxupquote{bcn}} contains the contribution of the boundary condition \(u=1\), so to change the boundary condition, we have just to multiply the vector \sphinxcode{\sphinxupquote{bc{[}{]}}} by the current value \sphinxcode{\sphinxupquote{f}} of the new boundary condition term by term with the operator \sphinxcode{\sphinxupquote{.*}}.
+The boundary condition is implemented by penalization and vector \sphinxcode{\sphinxupquote{bcn}} contains the contribution of the boundary condition \(u=1\), so to change the boundary condition, we have just to multiply the vector \sphinxcode{\sphinxupquote{bcn{[}{]}}} by the current value \sphinxcode{\sphinxupquote{f}} of the new boundary condition term by term with the operator \sphinxcode{\sphinxupquote{.*}}.
 
 {\hyperref[\detokenize{models/navierStokesEquations:navierstokesuzawaconjugategradients}]{\sphinxcrossref{\DUrole{std,std-ref}{Uzawa model}}}} gives a real example of using all this features.
 \end{sphinxadmonition}
@@ -34473,7 +34473,7 @@ where \(<,>\) is the duality bracket between \(H^{1}_0(\Omega)\) and \(H^{-1}(\O
 
 \end{enumerate}
 
-You can find all the mathematics about this algorithm in \sphinxcite{bibliography:ito2003}.
+You can find all the mathematics about this algorithm in \sphinxcite{bibliography:hintermuller2002}.
 
 Now how to do that in \sphinxstylestrong{FreeFEM}? The full example is:
 
@@ -40677,7 +40677,7 @@ cholesky line:
  Catch cholesky PB
 \end{sphinxVerbatim}
 
-\begin{sphinxthebibliography}{STROUSTR}
+\begin{sphinxthebibliography}{HINTERMU}
 \bibitem[PIRONNEAU1998]{bibliography:pironneau1998}
 PIRONNEAU, Olivier and LUCQUIN-DESREUX, Brigitte. Introduction to scientific computing. Wiley, 1998.
 \bibitem[WÄCHTER2006]{bibliography:wachter2006}
@@ -40742,6 +40742,8 @@ GLOWINSKI, Roland and ODEN, J. Tinsley. Numerical methods for nonlinear variatio
 GLOWINSKI, Roland. Finite element methods for incompressible viscous flow. Handbook of numerical analysis, 2003, vol. 9, p. 3-1176.
 \bibitem[ITO2003]{bibliography:ito2003}
 ITO, Kazufumi and KUNISCH, Karl. Semi\textendash{}smooth Newton methods for variational inequalities of the first kind. ESAIM: Mathematical Modelling and Numerical Analysis, 2003, vol. 37, no 1, p. 41-62.
+\bibitem[HINTERMULLER2002]{bibliography:hintermuller2002}
+HINTERMÜLLER, Michael, ITO, Kazufumi, et KUNISCH, Karl. The primal-dual active set strategy as a semismooth Newton method. SIAM Journal on Optimization, 2002, vol. 13, no 3, p. 865-888.
 \bibitem[OXBORROW2007]{bibliography:oxborrow2007}
 OXBORROW, Mark. Traceable 2-D finite-element simulation of the whispering-gallery modes of axisymmetric electromagnetic resonators. IEEE Transactions on Microwave Theory and Techniques, 2007, vol. 55, no 6, p. 1209-1218.
 \bibitem[GRUDININ2012]{bibliography:grudinin2012}
