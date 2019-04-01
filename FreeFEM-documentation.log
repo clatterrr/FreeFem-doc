@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.4.1)  1 APR 2019 13:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.4.1)  1 APR 2019 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -915,24 +915,24 @@ Package caption Info: wrapfig package is loaded.
 Writing index file FreeFEM-documentation.idx
 (./FreeFEM-documentation.aux
 
-LaTeX Warning: Label `documentation/finiteElement:FiniteElement' multiply defin
-ed.
+LaTeX Warning: Label `documentation/finite-element:FiniteElement' multiply defi
+ned.
 
 
-LaTeX Warning: Label `documentation/finiteElement:FiniteElement' multiply defin
-ed.
+LaTeX Warning: Label `documentation/finite-element:FiniteElement' multiply defi
+ned.
 
 
-LaTeX Warning: Label `documentation/finiteElement:FiniteElement' multiply defin
-ed.
+LaTeX Warning: Label `documentation/finite-element:FiniteElement' multiply defi
+ned.
 
 
 LaTeX Warning: Label `models/elasticity:CrackAndPrincipalStress' multiply defin
 ed.
 
 
-LaTeX Warning: Label `models/domainDecomposition:DomainDecomposition_Schwarz' m
-ultiply defined.
+LaTeX Warning: Label `models/domain-decomposition:DomainDecomposition_Schwarz' 
+multiply defined.
 
 )
 \openout1 = `FreeFEM-documentation.aux'.
@@ -3223,25 +3223,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.5.5.
 <to be read again> 
                    \relax 
 l.33513 \begin{equation}
-                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
-eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
-has been already used, duplicate ignored
+                        \label{equation:models/evolution-problems:eqn::conv}pdf
+TeX warning (ext4): destination with the same identifier (name{equation.5.5.8})
+ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33513 \begin{equation}
-                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
-eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
-has been already used, duplicate ignored
+                        \label{equation:models/evolution-problems:eqn::conv}pdf
+TeX warning (ext4): destination with the same identifier (name{equation.5.5.8})
+ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33513 \begin{equation}
-                        \label{equation:models/evolutionProblems:eqn::conv}pdfT
-eX warning (ext4): destination with the same identifier (name{equation.5.5.8}) 
-has been already used, duplicate ignored
+                        \label{equation:models/evolution-problems:eqn::conv}pdf
+TeX warning (ext4): destination with the same identifier (name{equation.5.5.8})
+ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33513 \begin{equation}
-                        \label{equation:models/evolutionProblems:eqn::conv}
+                        \label{equation:models/evolution-problems:eqn::conv}
 [502 <./EvolutionProblems_TimeDifference.png>] [503]
 <EvolutionProblem_Convect.png, id=5187, 513.92pt x 380.42125pt>
 File: EvolutionProblem_Convect.png Graphic file (type png)
@@ -4106,8 +4106,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40771.
  ) 
 Here is how much of TeX's memory you used:
  20810 strings out of 495028
- 374453 string characters out of 6181498
- 946145 words of memory out of 5000000
+ 377207 string characters out of 6181498
+ 946167 words of memory out of 5000000
  21006 multiletter control sequences out of 15000+600000
  81569 words of font info for 120 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
@@ -4145,7 +4145,7 @@ are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive
 ts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on FreeFEM-documentation.pdf (641 pages, 34963094 bytes).
+Output written on FreeFEM-documentation.pdf (641 pages, 34963068 bytes).
 PDF statistics:
  6638 PDF objects out of 7423 (max. 8388607)
  5432 compressed objects within 55 object streams
