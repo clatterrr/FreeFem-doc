@@ -2060,8 +2060,8 @@ autoreconf -i
 <p class="last">To see all the options, type <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">--</span><span class="n">help</span></code></p>
 </div>
 </li>
-<li><p class="first">Download the packages</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./download/getall -a
+<li><p class="first">Download the 3rd party packages</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./3rdparty/getall -a
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2069,10 +2069,10 @@ autoreconf -i
 <p class="last">All the third party packages have their own licence</p>
 </div>
 </li>
-<li><p class="first">Download and compile petsc &amp; slepc</p>
+<li><p class="first">Compile petsc &amp; slepc</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> download/ff-petsc
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
 make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <span class="nb">cd</span> -
 </pre></div>
@@ -2151,7 +2151,7 @@ autoreconf -i
 </div>
 </li>
 <li><p class="first">Download the packages</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./download/getall -a
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./3rdparty/getall -a
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2159,10 +2159,10 @@ autoreconf -i
 <p class="last">All the third party packages have their own licence</p>
 </div>
 </li>
-<li><p class="first">Download and compile petsc &amp; slepc</p>
+<li><p class="first">Compile petsc &amp; slepc</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> download/ff-petsc
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
 make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <span class="nb">cd</span> -
 </pre></div>
@@ -2264,7 +2264,7 @@ perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzc
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
 ./configure --enable-download --disable-pastix --disable-hips
-./download/getall -a
+./3rdparty/getall -a
 make -j4
 make check
 make install
