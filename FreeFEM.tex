@@ -612,10 +612,10 @@ To see all the options, type \sphinxcode{\sphinxupquote{./configure -{-}help}}
 \end{sphinxadmonition}
 
 \item {} 
-Download the packages
+Download the 3rd party packages
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./download/getall \PYGZhy{}a
+./3rdparty/getall \PYGZhy{}a
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -623,10 +623,10 @@ All the third party packages have their own licence
 \end{sphinxadmonition}
 
 \item {} 
-Download and compile petsc \& slepc
+Compile petsc \& slepc
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{cd} download/ff\PYGZhy{}petsc
+\PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
 make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
 \PYG{n+nb}{cd} \PYGZhy{}
 \end{sphinxVerbatim}
@@ -718,7 +718,7 @@ To see all the options, type \sphinxcode{\sphinxupquote{./configure -{-}help}}
 Download the packages
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./download/getall \PYGZhy{}a
+./3rdparty/getall \PYGZhy{}a
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -726,10 +726,10 @@ All the third party packages have their own licence
 \end{sphinxadmonition}
 
 \item {} 
-Download and compile petsc \& slepc
+Compile petsc \& slepc
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{cd} download/ff\PYGZhy{}petsc
+\PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
 make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
 \PYG{n+nb}{cd} \PYGZhy{}
 \end{sphinxVerbatim}
@@ -830,7 +830,7 @@ git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources
 \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
 autoreconf \PYGZhy{}i
 ./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}pastix \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
-./download/getall \PYGZhy{}a
+./3rdparty/getall \PYGZhy{}a
 make \PYGZhy{}j4
 make check
 make install
