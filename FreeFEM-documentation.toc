@@ -360,44 +360,45 @@
 \contentsline {subsection}{\numberline {4.4.8}Comparison operator !=}{340}{subsection.4.4.8}
 \contentsline {subsection}{\numberline {4.4.9}Comparison operator \textless {}, \textless {}=}{341}{subsection.4.4.9}
 \contentsline {subsection}{\numberline {4.4.10}Comparison operator \textgreater {}, \textgreater {}=}{341}{subsection.4.4.10}
-\contentsline {subsection}{\numberline {4.4.11}Term by term multiplication .*}{341}{subsection.4.4.11}
-\contentsline {subsection}{\numberline {4.4.12}Division operator /}{341}{subsection.4.4.12}
-\contentsline {subsection}{\numberline {4.4.13}Term by term division ./}{341}{subsection.4.4.13}
-\contentsline {subsection}{\numberline {4.4.14}Remainder from the division \%}{341}{subsection.4.4.14}
-\contentsline {subsection}{\numberline {4.4.15}Power operator \textasciicircum {}}{341}{subsection.4.4.15}
-\contentsline {subsection}{\numberline {4.4.16}Inverse of a matrix \textasciicircum {}-1}{342}{subsection.4.4.16}
-\contentsline {subsection}{\numberline {4.4.17}Transpose operator \IeC {\textquoteleft }}{342}{subsection.4.4.17}
-\contentsline {subsection}{\numberline {4.4.18}Tensor scalar product :}{342}{subsection.4.4.18}
-\contentsline {subsection}{\numberline {4.4.19}C++ arithmetical if expression ? :}{342}{subsection.4.4.19}
+\contentsline {subsection}{\numberline {4.4.11}Compound operator +=, -=, {\color {red}\bfseries {}*}=, /=}{341}{subsection.4.4.11}
+\contentsline {subsection}{\numberline {4.4.12}Term by term multiplication .*}{341}{subsection.4.4.12}
+\contentsline {subsection}{\numberline {4.4.13}Division operator /}{341}{subsection.4.4.13}
+\contentsline {subsection}{\numberline {4.4.14}Term by term division ./}{341}{subsection.4.4.14}
+\contentsline {subsection}{\numberline {4.4.15}Remainder from the division \%}{341}{subsection.4.4.15}
+\contentsline {subsection}{\numberline {4.4.16}Power operator \textasciicircum {}}{342}{subsection.4.4.16}
+\contentsline {subsection}{\numberline {4.4.17}Inverse of a matrix \textasciicircum {}-1}{342}{subsection.4.4.17}
+\contentsline {subsection}{\numberline {4.4.18}Transpose operator \IeC {\textquoteleft }}{342}{subsection.4.4.18}
+\contentsline {subsection}{\numberline {4.4.19}Tensor scalar product :}{342}{subsection.4.4.19}
+\contentsline {subsection}{\numberline {4.4.20}C++ arithmetical if expression ? :}{342}{subsection.4.4.20}
 \contentsline {section}{\numberline {4.5}Loops}{343}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}for}{343}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}if}{343}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}else}{343}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.3}else}{344}{subsection.4.5.3}
 \contentsline {subsection}{\numberline {4.5.4}while}{344}{subsection.4.5.4}
 \contentsline {subsection}{\numberline {4.5.5}continue}{344}{subsection.4.5.5}
 \contentsline {subsection}{\numberline {4.5.6}break}{344}{subsection.4.5.6}
 \contentsline {subsection}{\numberline {4.5.7}try}{344}{subsection.4.5.7}
-\contentsline {subsection}{\numberline {4.5.8}catch}{344}{subsection.4.5.8}
-\contentsline {subsection}{\numberline {4.5.9}Implicit loop}{344}{subsection.4.5.9}
+\contentsline {subsection}{\numberline {4.5.8}catch}{345}{subsection.4.5.8}
+\contentsline {subsection}{\numberline {4.5.9}Implicit loop}{345}{subsection.4.5.9}
 \contentsline {section}{\numberline {4.6}I/O}{345}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}cout}{345}{subsection.4.6.1}
 \contentsline {subsection}{\numberline {4.6.2}cin}{345}{subsection.4.6.2}
 \contentsline {subsection}{\numberline {4.6.3}endl}{345}{subsection.4.6.3}
 \contentsline {subsection}{\numberline {4.6.4}ifstream}{345}{subsection.4.6.4}
-\contentsline {subsection}{\numberline {4.6.5}ofstream}{345}{subsection.4.6.5}
+\contentsline {subsection}{\numberline {4.6.5}ofstream}{346}{subsection.4.6.5}
 \contentsline {subsection}{\numberline {4.6.6}append}{346}{subsection.4.6.6}
 \contentsline {subsection}{\numberline {4.6.7}binary}{346}{subsection.4.6.7}
 \contentsline {subsection}{\numberline {4.6.8}seekg}{346}{subsection.4.6.8}
 \contentsline {subsection}{\numberline {4.6.9}tellg}{346}{subsection.4.6.9}
 \contentsline {subsection}{\numberline {4.6.10}flush}{346}{subsection.4.6.10}
-\contentsline {subsection}{\numberline {4.6.11}getline}{346}{subsection.4.6.11}
+\contentsline {subsection}{\numberline {4.6.11}getline}{347}{subsection.4.6.11}
 \contentsline {subsection}{\numberline {4.6.12}Output format}{347}{subsection.4.6.12}
 \contentsline {subsubsection}{precision}{347}{subsubsection*.382}
 \contentsline {subsubsection}{scientific}{347}{subsubsection*.383}
 \contentsline {subsubsection}{fixed}{347}{subsubsection*.384}
 \contentsline {subsubsection}{showbase}{347}{subsubsection*.385}
 \contentsline {subsubsection}{noshowbase}{347}{subsubsection*.386}
-\contentsline {subsubsection}{showpos}{347}{subsubsection*.387}
+\contentsline {subsubsection}{showpos}{348}{subsubsection*.387}
 \contentsline {subsubsection}{noshowpos}{348}{subsubsection*.388}
 \contentsline {subsubsection}{default}{348}{subsubsection*.389}
 \contentsline {subsubsection}{setw}{348}{subsubsection*.390}
@@ -405,7 +406,7 @@
 \contentsline {subsection}{\numberline {4.7.1}abs}{348}{subsection.4.7.1}
 \contentsline {subsection}{\numberline {4.7.2}acos}{348}{subsection.4.7.2}
 \contentsline {subsection}{\numberline {4.7.3}acosh}{349}{subsection.4.7.3}
-\contentsline {subsection}{\numberline {4.7.4}adaptmesh}{349}{subsection.4.7.4}
+\contentsline {subsection}{\numberline {4.7.4}adaptmesh}{350}{subsection.4.7.4}
 \contentsline {subsection}{\numberline {4.7.5}adj}{351}{subsection.4.7.5}
 \contentsline {subsection}{\numberline {4.7.6}AffineCG}{351}{subsection.4.7.6}
 \contentsline {subsection}{\numberline {4.7.7}AffineGMRES}{351}{subsection.4.7.7}
