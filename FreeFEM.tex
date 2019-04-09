@@ -197,6 +197,9 @@ Problems involving partial differential equations from several branches of physi
 \noindent{\hspace*{\fill}\sphinxincludegraphics[width=0.650\linewidth]{{Logo}.png}\hspace*{\fill}}
 
 
+\section{New features}
+\label{\detokenize{introduction/new-features:new-features}}\label{\detokenize{introduction/new-features::doc}}
+
 \section{Download FreeFEM}
 \label{\detokenize{introduction/download:download-freefem}}\label{\detokenize{introduction/download:download}}\label{\detokenize{introduction/download::doc}}
 
@@ -25110,6 +25113,29 @@ Output:
 \end{itemize}
 
 
+\subsection{ltime}
+\label{\detokenize{references/functions:ltime}}
+Return the current time since \sphinxstyleemphasis{the Epcoh}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{k+kp}{t} \PYG{o}{=} \PYG{n}{ltime}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Parameter:
+\begin{itemize}
+\item {} 
+None
+
+\end{itemize}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{t}} (\sphinxcode{\sphinxupquote{int}})
+
+\end{itemize}
+
+
 \subsection{min}
 \label{\detokenize{references/functions:min}}
 Minimum value of two, three or four values.
@@ -25996,6 +26022,74 @@ Output:
 \end{itemize}
 
 
+\subsection{storagetotal}
+\label{\detokenize{references/functions:storagetotal}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{n}{total} \PYG{o}{=} \PYG{n}{storagetotal}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{storageused}
+\label{\detokenize{references/functions:storageused}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{n}{used} \PYG{o}{=} \PYG{n}{storageused}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{strtod}
+\label{\detokenize{references/functions:strtod}}
+C++ \sphinxtitleref{strtod} function
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{string} \PYG{n}{text} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{10.5}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{n}{number} \PYG{o}{=} \PYG{n}{strtod}\PYG{p}{(}\PYG{n}{text}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Parameter:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{text}} (\sphinxcode{\sphinxupquote{string}})
+
+\end{itemize}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{number}} (\sphinxcode{\sphinxupquote{real}})
+
+\end{itemize}
+
+
+\subsection{strtol}
+\label{\detokenize{references/functions:strtol}}
+C++ \sphinxtitleref{strtol} function
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{string} \PYG{n}{text} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{10}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{number} \PYG{o}{=} \PYG{n}{strtol}\PYG{p}{(}\PYG{n}{text}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n}{base} \PYG{o}{=} \PYG{l+m+mi}{16}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{number} \PYG{o}{=} \PYG{n}{strtol}\PYG{p}{(}\PYG{n}{text}\PYG{p}{,} \PYG{n}{base}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Parameter:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{text}} (\sphinxcode{\sphinxupquote{string}})
+
+\item {} 
+\sphinxcode{\sphinxupquote{base}} (\sphinxcode{\sphinxupquote{int}}) Base \sphinxstyleemphasis{{[}Optional{]}}
+
+\end{itemize}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{number}} (\sphinxcode{\sphinxupquote{int}})
+
+\end{itemize}
+
+
 \subsection{swap}
 \label{\detokenize{references/functions:swap}}
 Swap values.
@@ -26132,6 +26226,25 @@ Output:
 \begin{itemize}
 \item {} 
 \sphinxcode{\sphinxupquote{tg}} (\sphinxcode{\sphinxupquote{real}})
+
+\end{itemize}
+
+
+\subsection{time}
+\label{\detokenize{references/functions:time}}
+Return the current time (C++ function).
+
+Parameter:
+\begin{itemize}
+\item {} 
+None
+
+\end{itemize}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{t}} (\sphinxcode{\sphinxupquote{real}})
 
 \end{itemize}
 
