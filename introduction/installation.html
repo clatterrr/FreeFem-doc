@@ -550,8 +550,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../references/operators.html">Operators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#addition-operator">Addition operator +</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#increment-operator">Increment operator ++</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#substraction-operator">Substraction operator -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#decrement-operator">Decrement operator –</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#multiplication-operator">Multiplication operator *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#equal-operator">Equal operator =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#comparison-operator">Comparison operator ==</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#id1">Comparison operator !=</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#id2">Comparison operator &lt;, &lt;=</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/operators.html#id3">Comparison operator &gt;, &gt;=</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#term-by-term-multiplication">Term by term multiplication .*</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#division-operator">Division operator /</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/operators.html#term-by-term-division">Term by term division ./</a></li>
@@ -671,6 +678,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#invdiffpos">invdiffpos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#isinf">isInf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#isnan">isNaN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../references/functions.html#isnormal">isNormal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#j0">j0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#j1">j1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../references/functions.html#jn">jn</a></li>
@@ -2052,7 +2060,7 @@ autoreconf -i
 </div>
 </li>
 <li><p class="first">Configure</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --disable-pastix
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2142,7 +2150,7 @@ autoreconf -i
 </td></tr></table></div>
 </li>
 <li><p class="first">Configure</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --disable-pastix
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2263,7 +2271,7 @@ perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzc
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
-./configure --enable-download --disable-pastix --disable-hips
+./configure --enable-download --disable-hips
 ./3rdparty/getall -a
 make -j4
 make check

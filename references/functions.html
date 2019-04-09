@@ -550,8 +550,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#addition-operator">Addition operator +</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#increment-operator">Increment operator ++</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#substraction-operator">Substraction operator -</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#decrement-operator">Decrement operator –</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#multiplication-operator">Multiplication operator *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#equal-operator">Equal operator =</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#comparison-operator">Comparison operator ==</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#id1">Comparison operator !=</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#id2">Comparison operator &lt;, &lt;=</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operators.html#id3">Comparison operator &gt;, &gt;=</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#term-by-term-multiplication">Term by term multiplication .*</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#division-operator">Division operator /</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operators.html#term-by-term-division">Term by term division ./</a></li>
@@ -671,6 +678,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#invdiffpos">invdiffpos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#isinf">isInf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#isnan">isNaN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isnormal">isNormal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#j0">j0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#j1">j1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#jn">jn</a></li>
@@ -1866,6 +1874,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#invdiffpos">invdiffpos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#isinf">isInf</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#isnan">isNaN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isnormal">isNormal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#j0">j0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#j1">j1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#jn">jn</a></li>
@@ -3098,6 +3107,10 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 </pre></div>
 </td></tr></table></div>
 </div>
+<div class="section" id="isnormal">
+<h2>isNormal<a class="headerlink" href="#isnormal" title="Permalink to this headline"> </a></h2>
+<p>The C++ <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">isNormal</span></code> function.</p>
+</div>
 <div class="section" id="j0">
 <h2>j0<a class="headerlink" href="#j0" title="Permalink to this headline"> </a></h2>
 <p>Bessel function of first kind, order 0.</p>
@@ -3259,10 +3272,12 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 </div>
 <div class="section" id="max">
 <h2>max<a class="headerlink" href="#max" title="Permalink to this headline"> </a></h2>
-<p>Maximum value of two values.</p>
+<p>Maximum value of two, three or four values.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
 <span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="nf">d</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Parameters:</p>
@@ -3270,6 +3285,7 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">a</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">b</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">c</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) <em>[Optional]</em></li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">d</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) <em>[Optional]</em></li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
@@ -3278,10 +3294,12 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 </div>
 <div class="section" id="min">
 <h2>min<a class="headerlink" href="#min" title="Permalink to this headline"> </a></h2>
-<p>Minimum value of two values.</p>
+<p>Minimum value of two, three or four values.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
 <span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="kt">real</span> <span class="kr">m</span> <span class="o">=</span> <span class="kr">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="nf">d</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Parameters:</p>
@@ -3289,6 +3307,7 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">a</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">b</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">c</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) <em>[Optional]</em></li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">d</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) <em>[Optional]</em></li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
@@ -4070,6 +4089,7 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><a class="reference internal" href="#invdiffpos">invdiffpos</a></li>
 <li><a class="reference internal" href="#isinf">isInf</a></li>
 <li><a class="reference internal" href="#isnan">isNaN</a></li>
+<li><a class="reference internal" href="#isnormal">isNormal</a></li>
 <li><a class="reference internal" href="#j0">j0</a></li>
 <li><a class="reference internal" href="#j1">j1</a></li>
 <li><a class="reference internal" href="#jn">jn</a></li>
