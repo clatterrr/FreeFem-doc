@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 08, 2019}
+\date{Apr 09, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -604,7 +604,7 @@ if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf Au
 Configure
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim \PYGZhy{}\PYGZhy{}disable\PYGZhy{}pastix
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -707,7 +707,7 @@ autoreconf \PYGZhy{}i
 Configure
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim \PYGZhy{}\PYGZhy{}disable\PYGZhy{}pastix
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -829,7 +829,7 @@ Open \sphinxcode{\sphinxupquote{MingW64 terminal}} (or \sphinxcode{\sphinxupquot
 git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources
 \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
 autoreconf \PYGZhy{}i
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}pastix \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
 ./3rdparty/getall \PYGZhy{}a
 make \PYGZhy{}j4
 make check
@@ -22489,6 +22489,27 @@ This quadrature formula is exact on \(\mathbb{P}_1\).
 Works for \sphinxcode{\sphinxupquote{int}}, \sphinxcode{\sphinxupquote{real}}, \sphinxcode{\sphinxupquote{complex}}, \sphinxcode{\sphinxupquote{string}}, \sphinxcode{\sphinxupquote{mesh}}, \sphinxcode{\sphinxupquote{mesh3}}, array.
 
 
+\subsection{Increment operator ++}
+\label{\detokenize{references/operators:increment-operator}}
+Pre-increment:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Post-increment:
+.. code-block:: freefem
+\begin{quote}
+\begin{quote}\begin{description}
+\item[{linenos}] \leavevmode
+\end{description}\end{quote}
+
+int i = 0;
+i++;
+\end{quote}
+
+
 \subsection{Substraction operator -}
 \label{\detokenize{references/operators:substraction-operator}}
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
@@ -22496,6 +22517,31 @@ Works for \sphinxcode{\sphinxupquote{int}}, \sphinxcode{\sphinxupquote{real}}, \
 \end{sphinxVerbatim}
 
 Works for \sphinxcode{\sphinxupquote{int}}, \sphinxcode{\sphinxupquote{real}}, \sphinxcode{\sphinxupquote{complex}}, array.
+
+
+\subsection{Decrement operator \textendash{}}
+\label{\detokenize{references/operators:decrement-operator}}
+Pre-decrement:
+.. code-block:: freefem
+\begin{quote}
+\begin{quote}\begin{description}
+\item[{linenos}] \leavevmode
+\end{description}\end{quote}
+
+int i = 0;
+\textendash{}i;
+\end{quote}
+
+Post-decrement:
+.. code-block:: freefem
+\begin{quote}
+\begin{quote}\begin{description}
+\item[{linenos}] \leavevmode
+\end{description}\end{quote}
+
+int i = 0;
+i\textendash{};
+\end{quote}
 
 
 \subsection{Multiplication operator *}
@@ -22507,6 +22553,55 @@ Works for \sphinxcode{\sphinxupquote{int}}, \sphinxcode{\sphinxupquote{real}}, \
 \end{sphinxVerbatim}
 
 Works for \sphinxcode{\sphinxupquote{int}}, \sphinxcode{\sphinxupquote{real}}, \sphinxcode{\sphinxupquote{complex}}, array, \sphinxcode{\sphinxupquote{matrix}}.
+
+
+\subsection{Equal operator =}
+\label{\detokenize{references/operators:equal-operator}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Comparison operator ==}
+\label{\detokenize{references/operators:comparison-operator}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{;}
+
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{=}\PYG{o}{=} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Comparison operator !=}
+\label{\detokenize{references/operators:id1}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{2.}\PYG{p}{;}
+
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{!}\PYG{o}{=} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Comparison operator \textless{}, \textless{}=}
+\label{\detokenize{references/operators:id2}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{2.}\PYG{p}{;}
+
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZlt{}} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Comparison operator \textgreater{}, \textgreater{}=}
+\label{\detokenize{references/operators:id3}}
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{3.}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{2.}\PYG{p}{;}
+
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZgt{}} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+\end{sphinxVerbatim}
 
 
 \subsection{Term by term multiplication .*}
@@ -24740,6 +24835,11 @@ The C++ \sphinxcode{\sphinxupquote{isNan}} function.
 \end{sphinxVerbatim}
 
 
+\subsection{isNormal}
+\label{\detokenize{references/functions:isnormal}}
+The C++ \sphinxcode{\sphinxupquote{isNormal}} function.
+
+
 \subsection{j0}
 \label{\detokenize{references/functions:j0}}
 Bessel function of first kind, order 0.
@@ -24978,11 +25078,12 @@ Output:
 
 \subsection{max}
 \label{\detokenize{references/functions:max}}
-Maximum value of two values.
+Maximum value of two, three or four values.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{max}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{;}
 \PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{max}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{max}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n+nf}{d}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 Parameters:
@@ -24995,6 +25096,9 @@ Parameters:
 
 \item {} 
 \sphinxcode{\sphinxupquote{c}} (\sphinxcode{\sphinxupquote{int}} or \sphinxcode{\sphinxupquote{real}}) \sphinxstyleemphasis{{[}Optional{]}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{d}} (\sphinxcode{\sphinxupquote{int}} or \sphinxcode{\sphinxupquote{real}}) \sphinxstyleemphasis{{[}Optional{]}}
 
 \end{itemize}
 
@@ -25008,11 +25112,12 @@ Output:
 
 \subsection{min}
 \label{\detokenize{references/functions:min}}
-Minimum value of two values.
+Minimum value of two, three or four values.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{min}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}\PYG{p}{;}
 \PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{min}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{real} \PYG{k+kr}{m} \PYG{o}{=} \PYG{k+kr}{min}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n+nf}{d}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 Parameters:
@@ -25025,6 +25130,9 @@ Parameters:
 
 \item {} 
 \sphinxcode{\sphinxupquote{c}} (\sphinxcode{\sphinxupquote{int}} or \sphinxcode{\sphinxupquote{real}}) \sphinxstyleemphasis{{[}Optional{]}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{d}} (\sphinxcode{\sphinxupquote{int}} or \sphinxcode{\sphinxupquote{real}}) \sphinxstyleemphasis{{[}Optional{]}}
 
 \end{itemize}
 
