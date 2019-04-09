@@ -53,6 +53,7 @@
 	<div style="display: none;">
 		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/new-features.html">New features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/download.html">Download FreeFEM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/download.html#latest-binary-packages">Latest binary packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/download.html#syntax-highlighters">Syntax highlighters</a></li>
@@ -691,6 +692,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#lrint">lrint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lround">lround</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ltime">ltime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#min">min</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nan">NaN</a></li>
@@ -722,11 +724,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#splitmesh">splitmesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sqrt">sqrt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#square">square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storagetotal">storagetotal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storageused">storageused</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strtod">strtod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strtol">strtol</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#swap">swap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#system">system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tan">tan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tanh">tanh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tgamma">tgamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time">time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trunc">trunc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#y0">y0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#y1">y1</a></li>
@@ -1887,6 +1894,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#lrint">lrint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lround">lround</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ltime">ltime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#min">min</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nan">NaN</a></li>
@@ -1918,11 +1926,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#splitmesh">splitmesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sqrt">sqrt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#square">square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storagetotal">storagetotal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storageused">storageused</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strtod">strtod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strtol">strtol</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#swap">swap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#system">system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tan">tan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tanh">tanh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tgamma">tgamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time">time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trunc">trunc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#y0">y0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#y1">y1</a></li>
@@ -3292,6 +3305,21 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">b</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 </ul>
 </div>
+<div class="section" id="ltime">
+<h2>ltime<a class="headerlink" href="#ltime" title="Permalink to this headline"> </a></h2>
+<p>Return the current time since <em>the Epcoh</em>.</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="kp">t</span> <span class="o">=</span> <span class="n">ltime</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Parameter:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>)</li>
+</ul>
+</div>
 <div class="section" id="min">
 <h2>min<a class="headerlink" href="#min" title="Permalink to this headline"> </a></h2>
 <p>Minimum value of two, three or four values.</p>
@@ -3847,6 +3875,59 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code>)</li>
 </ul>
 </div>
+<div class="section" id="storagetotal">
+<h2>storagetotal<a class="headerlink" href="#storagetotal" title="Permalink to this headline"> </a></h2>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="n">storagetotal</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="storageused">
+<h2>storageused<a class="headerlink" href="#storageused" title="Permalink to this headline"> </a></h2>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">used</span> <span class="o">=</span> <span class="n">storageused</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="strtod">
+<h2>strtod<a class="headerlink" href="#strtod" title="Permalink to this headline"> </a></h2>
+<p>C++ <cite>strtod</cite> function</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">string</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;10.5&quot;</span><span class="p">;</span>
+<span class="kt">real</span> <span class="n">number</span> <span class="o">=</span> <span class="n">strtod</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">text</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>)</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">number</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="strtol">
+<h2>strtol<a class="headerlink" href="#strtol" title="Permalink to this headline"> </a></h2>
+<p>C++ <cite>strtol</cite> function</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">string</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">strtol</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">strtol</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Parameter:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">text</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">string</span></code>)</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">base</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) Base <em>[Optional]</em></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">number</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>)</li>
+</ul>
+</div>
 <div class="section" id="swap">
 <h2>swap<a class="headerlink" href="#swap" title="Permalink to this headline"> </a></h2>
 <p>Swap values.</p>
@@ -3936,6 +4017,18 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <p>Output:</p>
 <ul class="simple">
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">tg</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="time">
+<h2>time<a class="headerlink" href="#time" title="Permalink to this headline"> </a></h2>
+<p>Return the current time (C++ function).</p>
+<p>Parameter:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
 </ul>
 </div>
 <div class="section" id="trunc">
@@ -4102,6 +4195,7 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><a class="reference internal" href="#lrint">lrint</a></li>
 <li><a class="reference internal" href="#lround">lround</a></li>
 <li><a class="reference internal" href="#max">max</a></li>
+<li><a class="reference internal" href="#ltime">ltime</a></li>
 <li><a class="reference internal" href="#min">min</a></li>
 <li><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li><a class="reference internal" href="#nan">NaN</a></li>
@@ -4133,11 +4227,16 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><a class="reference internal" href="#splitmesh">splitmesh</a></li>
 <li><a class="reference internal" href="#sqrt">sqrt</a></li>
 <li><a class="reference internal" href="#square">square</a></li>
+<li><a class="reference internal" href="#storagetotal">storagetotal</a></li>
+<li><a class="reference internal" href="#storageused">storageused</a></li>
+<li><a class="reference internal" href="#strtod">strtod</a></li>
+<li><a class="reference internal" href="#strtol">strtol</a></li>
 <li><a class="reference internal" href="#swap">swap</a></li>
 <li><a class="reference internal" href="#system">system</a></li>
 <li><a class="reference internal" href="#tan">tan</a></li>
 <li><a class="reference internal" href="#tanh">tanh</a></li>
 <li><a class="reference internal" href="#tgamma">tgamma</a></li>
+<li><a class="reference internal" href="#time">time</a></li>
 <li><a class="reference internal" href="#trunc">trunc</a></li>
 <li><a class="reference internal" href="#y0">y0</a></li>
 <li><a class="reference internal" href="#y1">y1</a></li>
