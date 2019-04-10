@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 09, 2019}
+\date{Apr 10, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -25989,7 +25989,7 @@ Build a structured square mesh.
 \end{enumerate}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{k+kt}{mesh} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{square}\PYG{p}{(}\PYG{n}{nnX}\PYG{p}{,} \PYG{n}{nnY}\PYG{p}{,} \PYG{p}{[}\PYG{p}{[}\PYG{n}{L}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{,} \PYG{n}{H}\PYG{o}{*}\PYG{k+kr}{y}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kp}{flags}\PYG{o}{=}\PYG{n}{Flags}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{mesh} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{square}\PYG{p}{(}\PYG{n}{nnX}\PYG{p}{,} \PYG{n}{nnY}\PYG{p}{,} \PYG{p}{[}\PYG{p}{[}\PYG{n}{L}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{,} \PYG{n}{H}\PYG{o}{*}\PYG{k+kr}{y}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kp}{flags}\PYG{o}{=}\PYG{n}{Flags}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{Labels}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{region}\PYG{o}{=}\PYG{n}{Region}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 Parameters:
@@ -26009,7 +26009,15 @@ Parameters:
 \item {} 
 \sphinxcode{\sphinxupquote{flags=}} (\sphinxcode{\sphinxupquote{int}}) \sphinxstyleemphasis{{[}Optional{]}}
 
+\item {} 
+\sphinxcode{\sphinxupquote{label=}} (\sphinxcode{\sphinxupquote{int{[}int{]}}}) \sphinxstyleemphasis{{[}Optional{]}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{region=}} (\sphinxcode{\sphinxupquote{int}}) \sphinxstyleemphasis{{[}Optional{]}}
+\begin{quote}
+
 Structured mesh type, see {\hyperref[\detokenize{documentation/mesh-generation:meshsquare}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Generation chapter}}}} for more information
+\end{quote}
 
 \end{itemize}
 
