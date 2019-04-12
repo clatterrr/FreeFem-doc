@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 10, 2019}
+\date{Apr 12, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -5350,8 +5350,8 @@ If \(\Omega\) is polygonal domain, then it will be \(\Omega=\Omega_h\)
 \end{itemize}
 
 
-\subsection{Finite Element Spaces}
-\label{\detokenize{documentation/notations:finite-element-spaces}}\begin{itemize}
+\subsection{Functional Spaces}
+\label{\detokenize{documentation/notations:functional-spaces}}\begin{itemize}
 \item {} 
 {[}\(L^2(\Omega)\){]} the set \(\displaystyle{\left\{w(x,y)\left|\; \int_{\Omega}|w(x,y)|^2\text{d} x\text{d} y<\infty\right.\right\}}\)
 
@@ -5386,6 +5386,11 @@ If \(\Omega\) is polygonal domain, then it will be \(\Omega=\Omega_h\)
 
 {[}\(L^2(\Omega)^2\){]} denotes \(L^2(\Omega)\times L^2(\Omega)\), and also \(H^1(\Omega)^2=H^1(\Omega)\times H^1(\Omega)\)
 
+\end{itemize}
+
+
+\subsection{Finite Element Spaces}
+\label{\detokenize{documentation/notations:finite-element-spaces}}\begin{itemize}
 \item {} 
 {[}\(V_h\){]} denotes the finite element space created by \sphinxcode{\sphinxupquote{fespace Vh(Th, *)}} in \sphinxstylestrong{FreeFEM} (see {\hyperref[\detokenize{documentation/finite-element:finiteelement}]{\sphinxcrossref{\DUrole{std,std-ref}{Finite Elements}}}} for \sphinxcode{\sphinxupquote{*}})
 
