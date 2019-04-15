@@ -5462,7 +5462,10 @@ If \(\Omega\) is polygonal domain, then it will be \(\Omega=\Omega_h\)
 Let us begin with the two important keywords: \sphinxcode{\sphinxupquote{border}} and \sphinxcode{\sphinxupquote{buildmesh}}.
 
 
-\subsection{Square}
+\subsection{Generalities}
+\label{\detokenize{documentation/mesh-generation:generalities}}
+
+\subsubsection{Square}
 \label{\detokenize{documentation/mesh-generation:square}}\label{\detokenize{documentation/mesh-generation:meshsquare}}
 The command \sphinxcode{\sphinxupquote{square}} triangulates the unit square.
 
@@ -5539,7 +5542,7 @@ To see all of these flags at work, check {\hyperref[\detokenize{examples/mesh-ge
 \end{sphinxadmonition}
 
 
-\subsection{Border}
+\subsubsection{Border}
 \label{\detokenize{documentation/mesh-generation:border}}\label{\detokenize{documentation/mesh-generation:meshborder}}
 Boundaries are defined piecewise by parametrized curves. The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints. This can be used to structure the mesh if an area touches a border and create new regions by dividing larger ones:
 
@@ -5674,7 +5677,7 @@ Borders are evaluated only at the time \sphinxcode{\sphinxupquote{plot}} or \sph
 \end{sphinxadmonition}
 
 
-\subsection{Multi-Border}
+\subsubsection{Multi-Border}
 \label{\detokenize{documentation/mesh-generation:multi-border}}
 Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the \sphinxstylestrong{FreeFEM} syntax. To bypass this problem, if the number of segments of the discretization \(n\) is an array, we make an implicit loop on all of the values of the array, and the index variable \(i\) of the loop is defined after the parameter definition, like in \sphinxcode{\sphinxupquote{border a(t=0, 2*pi; i)}} …
 
@@ -5720,7 +5723,7 @@ And a more complex example to define a square with small circles:
 \end{sphinxVerbatim}
 
 
-\subsection{Data Structures and Read/Write Statements for a Mesh}
+\subsubsection{Data Structures and Read/Write Statements for a Mesh}
 \label{\detokenize{documentation/mesh-generation:data-structures-and-read-write-statements-for-a-mesh}}\label{\detokenize{documentation/mesh-generation:meshdatastructurereadwrite}}
 Users who want to read a triangulation made elsewhere should see the structure of the file generated below:
 
@@ -5939,7 +5942,7 @@ So these borders have to be referenced by the number which corresponds to their 
 \end{sphinxVerbatim}
 
 
-\subsection{Mesh Connectivity and data}
+\subsubsection{Mesh Connectivity and data}
 \label{\detokenize{documentation/mesh-generation:mesh-connectivity-and-data}}
 The following example explains methods to obtain mesh information.
 
@@ -6203,7 +6206,7 @@ The real characteristic function of a mesh \sphinxcode{\sphinxupquote{Th}} is \s
 \sphinxcode{\sphinxupquote{chi(Th)(P)=0}} if \(P\not\in Th\)
 
 
-\subsection{The keyword “triangulate”}
+\subsubsection{The keyword “triangulate”}
 \label{\detokenize{documentation/mesh-generation:the-keyword-triangulate}}
 \sphinxstylestrong{FreeFEM} is able to build a triangulation from a set of points.
 This triangulation is a Delaunay mesh of the convex hull of the set of points.
@@ -6281,7 +6284,7 @@ One new way to build a mesh is to have two arrays: one for the \(x\) values and 
 \end{sphinxVerbatim}
 
 
-\subsubsection{Boundary FEM Spaces Built as Empty Meshes}
+\subsection{Boundary FEM Spaces Built as Empty Meshes}
 \label{\detokenize{documentation/mesh-generation:boundary-fem-spaces-built-as-empty-meshes}}
 To define a Finite Element space on a boundary, we came up with the idea of a mesh with no internal points (called empty mesh).
 It can be useful to handle Lagrange multipliers in mixed and mortar methods.
@@ -6339,10 +6342,10 @@ It is also possible to build an empty mesh of a pseudo subregion with \sphinxcod
 
 
 
-\subsubsection{Remeshing}
+\subsection{Remeshing}
 \label{\detokenize{documentation/mesh-generation:remeshing}}\label{\detokenize{documentation/mesh-generation:EmptyMesh}}
 
-\subsection{Movemesh}
+\subsubsection{Movemesh}
 \label{\detokenize{documentation/mesh-generation:movemesh}}\label{\detokenize{documentation/mesh-generation:meshgenerationmovemesh}}
 Meshes can be translated, rotated, and deformed by \sphinxcode{\sphinxupquote{movemesh}}; this is useful for elasticity to watch the deformation due to the displacement \(\mathbf{\Phi}(x,y)=(\Phi_1(x,y),\Phi_2(x,y))\) of shape.
 
@@ -6462,7 +6465,7 @@ Now, we give an example of moving a mesh with a Lagrangian function \(u\) define
 \end{sphinxVerbatim}
 
 
-\subsubsection{Regular Triangulation: hTriangle}
+\subsection{Regular Triangulation: hTriangle}
 \label{\detokenize{documentation/mesh-generation:regular-triangulation-htriangle}}\label{\detokenize{documentation/mesh-generation:meshregulartriangulation}}
 For a set \(S\), we define the diameter of \(S\) by
 \begin{equation*}
@@ -6492,7 +6495,7 @@ We put \(h(\mathcal{T}_h)=\max\{\textrm{diam}(T_k)|\; T_k\in \mathcal{T}_h\}\), 
 \end{sphinxVerbatim}
 
 
-\subsubsection{Adaptmesh}
+\subsection{Adaptmesh}
 \label{\detokenize{documentation/mesh-generation:adaptmesh}}
 The function:
 \begin{equation*}
@@ -6828,7 +6831,7 @@ To build a mesh with a constant mesh size equal to \(\frac{1}{30}\) try:
 
 
 
-\subsubsection{Trunc}
+\subsection{Trunc}
 \label{\detokenize{documentation/mesh-generation:trunc}}\label{\detokenize{documentation/mesh-generation:AdaptMesh2}}
 Two operators have been introduced to remove triangles from a mesh or to divide them.
 Operator \sphinxcode{\sphinxupquote{trunc}} has two parameters:
@@ -6892,7 +6895,7 @@ The following example construct all “trunced” meshes to the support of the b
 
 
 
-\subsubsection{Splitmesh}
+\subsection{Splitmesh}
 \label{\detokenize{documentation/mesh-generation:splitmesh}}\label{\detokenize{documentation/mesh-generation:Trunc}}
 Another way to split mesh triangles is to use \sphinxcode{\sphinxupquote{splitmesh}}, for example:
 
@@ -6928,7 +6931,7 @@ Another way to split mesh triangles is to use \sphinxcode{\sphinxupquote{splitme
 
 
 
-\subsubsection{Meshing Examples}
+\subsection{Meshing Examples}
 \label{\detokenize{documentation/mesh-generation:meshing-examples}}\label{\detokenize{documentation/mesh-generation:meshexamples}}\label{\detokenize{documentation/mesh-generation:SplitMesh}}
 \begin{sphinxadmonition}{tip}{Tip:}
 Two rectangles touching by a side
@@ -7194,7 +7197,7 @@ Smiling face
 \end{quote}
 
 
-\subsubsection{How to change the label of elements and border elements of a mesh}
+\subsection{How to change the label of elements and border elements of a mesh}
 \label{\detokenize{documentation/mesh-generation:how-to-change-the-label-of-elements-and-border-elements-of-a-mesh}}\label{\detokenize{documentation/mesh-generation:meshgenerationchangelabel}}
 Changing the label of elements and border elements will be done using the keyword \sphinxcode{\sphinxupquote{change}}.
 The parameters for this command line are for two dimensional and three dimensional cases:
@@ -7266,10 +7269,10 @@ This function is the operator “+” between meshes.
 The method implemented needs the point in adjacent meshes to be the same.
 
 
-\subsubsection{Mesh in three dimensions}
+\subsection{Mesh in three dimensions}
 \label{\detokenize{documentation/mesh-generation:mesh-in-three-dimensions}}
 
-\subsection{Cube}
+\subsubsection{Cube}
 \label{\detokenize{documentation/mesh-generation:cube}}
 A new function \sphinxcode{\sphinxupquote{cube}} like the function \sphinxcode{\sphinxupquote{square}} in 2d is the simple way to a build cubic object, in plugin \sphinxcode{\sphinxupquote{msh3}} (need \sphinxcode{\sphinxupquote{load "msh3"}}).
 
@@ -7368,7 +7371,7 @@ The output of this script is:
 \caption{The mesh 3d of function \sphinxcode{\sphinxupquote{cube(4, 5, 6, flags=3)}}}\label{\detokenize{documentation/mesh-generation:meshgeneration-cube}}\end{figure}
 
 
-\subsection{Read/Write Statements for a Mesh in 3D}
+\subsubsection{Read/Write Statements for a Mesh in 3D}
 \label{\detokenize{documentation/mesh-generation:read-write-statements-for-a-mesh-in-3d}}\label{\detokenize{documentation/mesh-generation:meshreadwrite3d}}
 In three dimensions, the file mesh format supported for input and output files by \sphinxstylestrong{FreeFEM} are the extension .msh and .mesh.
 These formats are described in the {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
@@ -7413,7 +7416,7 @@ Vertex1 Vertex2 Vertex3 Vertex4 Label
 This field is express with the notation of {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
 
 
-\subsection{TetGen: A tetrahedral mesh generator}
+\subsubsection{TetGen: A tetrahedral mesh generator}
 \label{\detokenize{documentation/mesh-generation:tetgen-a-tetrahedral-mesh-generator}}
 \sphinxstylestrong{TetGen}
 
@@ -7727,7 +7730,7 @@ Set the label of triangles.
 In the string \sphinxcode{\sphinxupquote{switch}}, we can’t used the option \sphinxcode{\sphinxupquote{p}} and \sphinxcode{\sphinxupquote{q}} of TetGen.
 
 
-\subsection{Reconstruct/Refine a three dimensional mesh with TetGen}
+\subsubsection{Reconstruct/Refine a three dimensional mesh with TetGen}
 \label{\detokenize{documentation/mesh-generation:reconstruct-refine-a-three-dimensional-mesh-with-tetgen}}
 Meshes in three dimension can be refined using TetGen with the command line \sphinxcode{\sphinxupquote{tetgreconstruction}}.
 
@@ -7829,7 +7832,7 @@ This parameter and \sphinxcode{\sphinxupquote{nbofregions}} can’t be used with
 \end{sphinxVerbatim}
 
 
-\subsection{Moving mesh in three dimensions}
+\subsubsection{Moving mesh in three dimensions}
 \label{\detokenize{documentation/mesh-generation:moving-mesh-in-three-dimensions}}
 Meshes in three dimensions can be translated, rotated, and deformed using the command line \sphinxcode{\sphinxupquote{movemesh}} as in the 2D case (see {\hyperref[\detokenize{documentation/mesh-generation:meshgenerationmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{section movemesh}}}}).
 If \(\Omega\) is tetrahedrized as \(T_{h}(\Omega)\), and \(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\) is a displacement vector then \(\Phi(T_{h})\) is obtained by:
@@ -7881,7 +7884,7 @@ where \(B\) is the smallest axis parallel boxes containing the discretion domain
 An example of this command can be found in the {\hyperref[\detokenize{examples/misc:examplepoissonequation3d}]{\sphinxcrossref{\DUrole{std,std-ref}{Poisson’s equation 3D example}}}}.
 
 
-\subsection{Layer mesh}
+\subsubsection{Layer mesh}
 \label{\detokenize{documentation/mesh-generation:layer-mesh}}
 In this section, we present the command line to obtain a Layer mesh: \sphinxcode{\sphinxupquote{buildlayers}}.
 This mesh is obtained by extending a two dimensional mesh in the \(z\)-axis.
@@ -8166,7 +8169,7 @@ Buildlayer mesh
 \end{sphinxadmonition}
 
 
-\subsubsection{Meshing examples}
+\subsection{Meshing examples}
 \label{\detokenize{documentation/mesh-generation:meshing-examples-1}}\label{\detokenize{documentation/mesh-generation:id13}}
 \begin{sphinxadmonition}{tip}{Tip:}
 Lake
@@ -8268,7 +8271,7 @@ Hole region
 \end{sphinxadmonition}
 
 
-\subsection{Build a 3d mesh of a cube with a balloon}
+\subsubsection{Build a 3d mesh of a cube with a balloon}
 \label{\detokenize{documentation/mesh-generation:build-a-3d-mesh-of-a-cube-with-a-balloon}}
 First the \sphinxcode{\sphinxupquote{MeshSurface.idp}} file to build boundary mesh of a Hexaedra and of a Sphere:
 
@@ -8382,7 +8385,7 @@ The test of the two functions and the call to \sphinxcode{\sphinxupquote{TetGen}
 
 
 
-\subsubsection{Medit}
+\subsection{Medit}
 \label{\detokenize{documentation/mesh-generation:medit}}\label{\detokenize{documentation/mesh-generation:CubeSphere}}
 The keyword \sphinxcode{\sphinxupquote{medit}} allows to display a mesh alone or a mesh and one or several functions defined on the mesh using the Pascal Frey’s freeware \sphinxcode{\sphinxupquote{medit}}.
 \sphinxcode{\sphinxupquote{medit}} opens its own window and uses OpenGL extensively.
@@ -8498,7 +8501,7 @@ Medit
 \end{sphinxadmonition}
 
 
-\subsubsection{Mshmet}
+\subsection{Mshmet}
 \label{\detokenize{documentation/mesh-generation:mshmet}}\label{\detokenize{documentation/mesh-generation:meshgenerationmshmet}}
 Mshmet is a software developed by P. Frey that allows to compute an anisotropic metric based on solutions (i.e. Hessian-based).
 This software can return also an isotropic metric.
@@ -8692,7 +8695,7 @@ mshmet
 \end{sphinxadmonition}
 
 
-\subsubsection{FreeYams}
+\subsection{FreeYams}
 \label{\detokenize{documentation/mesh-generation:freeyams}}
 FreeYams is a surface mesh adaptation software which is developed by P. Frey.
 This software is a new version of yams.
@@ -8952,7 +8955,7 @@ freeyams
 \end{sphinxadmonition}
 
 
-\subsubsection{mmg3d}
+\subsection{mmg3d}
 \label{\detokenize{documentation/mesh-generation:mmg3d}}
 \begin{sphinxadmonition}{note}{\label{documentation/mesh-generation:index-0}Todo:}
 mmg3d-v4.0
@@ -9158,7 +9161,7 @@ Falling spheres
 \end{sphinxadmonition}
 
 
-\subsubsection{A first 3d isotrope mesh adaptation process}
+\subsection{A first 3d isotrope mesh adaptation process}
 \label{\detokenize{documentation/mesh-generation:a-first-3d-isotrope-mesh-adaptation-process}}\label{\detokenize{documentation/mesh-generation:meshfirstisotropemeshadaptation}}
 \begin{sphinxadmonition}{tip}{Tip:}
 Adaptation 3D
@@ -9221,7 +9224,7 @@ Adaptation 3D
 \end{sphinxadmonition}
 
 
-\subsubsection{Build a 2d mesh from an isoline}
+\subsection{Build a 2d mesh from an isoline}
 \label{\detokenize{documentation/mesh-generation:build-a-2d-mesh-from-an-isoline}}
 The idea is to get the discretization of an isoline of fluid meshes, this tool can be useful to construct meshes from image.
 First, we give an example of the isovalue meshes \(0.2\) of analytical function \(\sqrt{(x-1/2)^2 +(y-1/2)^2}\), on unit square.
