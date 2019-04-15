@@ -172,44 +172,45 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Mesh Generation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#square">Square</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#border">Border</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multi-border">Multi-Border</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-structures-and-read-write-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mesh-connectivity-and-data">Mesh Connectivity and data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-keyword-triangulate">The keyword “triangulate”</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remeshing">Remeshing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generalities">Generalities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#square">Square</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#border">Border</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-border">Multi-Border</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-structures-and-read-write-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-connectivity-and-data">Mesh Connectivity and data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-keyword-triangulate">The keyword “triangulate”</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#movemesh">Movemesh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#regular-triangulation-htriangle">Regular Triangulation: hTriangle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adaptmesh">Adaptmesh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#trunc">Trunc</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#splitmesh">Splitmesh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#meshing-examples">Meshing Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">How to change the label of elements and border elements of a mesh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mesh-in-three-dimensions">Mesh in three dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remeshing">Remeshing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#movemesh">Movemesh</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#cube">Cube</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#read-write-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen">Reconstruct/Refine a three dimensional mesh with TetGen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#moving-mesh-in-three-dimensions">Moving mesh in three dimensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#layer-mesh">Layer mesh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#meshing-examples-1">Meshing examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regular-triangulation-htriangle">Regular Triangulation: hTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adaptmesh">Adaptmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trunc">Trunc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splitmesh">Splitmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meshing-examples">Meshing Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">How to change the label of elements and border elements of a mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-in-three-dimensions">Mesh in three dimensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cube">Cube</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-write-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen">Reconstruct/Refine a three dimensional mesh with TetGen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moving-mesh-in-three-dimensions">Moving mesh in three dimensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-mesh">Layer mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#medit">Medit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mshmet">Mshmet</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#freeyams">FreeYams</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mmg3d">mmg3d</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meshing-examples-1">Meshing examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#medit">Medit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mshmet">Mshmet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freeyams">FreeYams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mmg3d">mmg3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="finite-element.html">Finite element</a><ul>
@@ -1810,20 +1811,23 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="notations.html">Notations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Mesh Generation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#square">Square</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#border">Border</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#multi-border">Multi-Border</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-structures-and-read-write-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mesh-connectivity-and-data">Mesh Connectivity and data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-keyword-triangulate">The keyword “triangulate”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#movemesh">Movemesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cube">Cube</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#read-write-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen">Reconstruct/Refine a three dimensional mesh with TetGen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#moving-mesh-in-three-dimensions">Moving mesh in three dimensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#layer-mesh">Layer mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generalities">Generalities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remeshing">Remeshing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regular-triangulation-htriangle">Regular Triangulation: hTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adaptmesh">Adaptmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trunc">Trunc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#splitmesh">Splitmesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meshing-examples">Meshing Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">How to change the label of elements and border elements of a mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh-in-three-dimensions">Mesh in three dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meshing-examples-1">Meshing examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#medit">Medit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mshmet">Mshmet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freeyams">FreeYams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mmg3d">mmg3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="finite-element.html">Finite element</a></li>
@@ -1850,8 +1854,10 @@
    <div class="section" id="mesh-generation">
 <span id="meshgeneration"></span><h1>Mesh Generation<a class="headerlink" href="#mesh-generation" title="Permalink to this headline"> </a></h1>
 <p>Let us begin with the two important keywords: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">border</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span></code>.</p>
+<div class="section" id="generalities">
+<h2>Generalities<a class="headerlink" href="#generalities" title="Permalink to this headline"> </a></h2>
 <div class="section" id="square">
-<span id="meshsquare"></span><h2>Square<a class="headerlink" href="#square" title="Permalink to this headline"> </a></h2>
+<span id="meshsquare"></span><h3>Square<a class="headerlink" href="#square" title="Permalink to this headline"> </a></h3>
 <p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square</span></code> triangulates the unit square.</p>
 <p>The following generates a <span class="math notranslate nohighlight">\(4&nbsp;\times 5\)</span> grid in the unit square <span class="math notranslate nohighlight">\([0,1]^2\)</span>. The labels of the boundaries are shown in <a class="reference internal" href="#figboundarylabels"><span class="std std-numref">Fig. 57</span></a>.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
@@ -1913,7 +1919,7 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 </div>
 </div>
 <div class="section" id="border">
-<span id="meshborder"></span><h2>Border<a class="headerlink" href="#border" title="Permalink to this headline"> </a></h2>
+<span id="meshborder"></span><h3>Border<a class="headerlink" href="#border" title="Permalink to this headline"> </a></h3>
 <p>Boundaries are defined piecewise by parametrized curves. The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints. This can be used to structure the mesh if an area touches a border and create new regions by dividing larger ones:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -2044,7 +2050,7 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 </div>
 </div>
 <div class="section" id="multi-border">
-<h2>Multi-Border<a class="headerlink" href="#multi-border" title="Permalink to this headline"> </a></h2>
+<h3>Multi-Border<a class="headerlink" href="#multi-border" title="Permalink to this headline"> </a></h3>
 <p>Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the <strong>FreeFEM</strong> syntax. To bypass this problem, if the number of segments of the discretization <span class="math notranslate nohighlight">\(n\)</span> is an array, we make an implicit loop on all of the values of the array, and the index variable <span class="math notranslate nohighlight">\(i\)</span> of the loop is defined after the parameter definition, like in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">border</span> <span class="n">a</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="p">;</span> <span class="n">i</span><span class="p">)</span></code> …</p>
 <p>A first very small example:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -2114,7 +2120,7 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 </td></tr></table></div>
 </div>
 <div class="section" id="data-structures-and-read-write-statements-for-a-mesh">
-<span id="meshdatastructurereadwrite"></span><h2>Data Structures and Read/Write Statements for a Mesh<a class="headerlink" href="#data-structures-and-read-write-statements-for-a-mesh" title="Permalink to this headline"> </a></h2>
+<span id="meshdatastructurereadwrite"></span><h3>Data Structures and Read/Write Statements for a Mesh<a class="headerlink" href="#data-structures-and-read-write-statements-for-a-mesh" title="Permalink to this headline"> </a></h3>
 <p>Users who want to read a triangulation made elsewhere should see the structure of the file generated below:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -2359,7 +2365,7 @@ So these borders have to be referenced by the number which corresponds to their 
 </td></tr></table></div>
 </div>
 <div class="section" id="mesh-connectivity-and-data">
-<h2>Mesh Connectivity and data<a class="headerlink" href="#mesh-connectivity-and-data" title="Permalink to this headline"> </a></h2>
+<h3>Mesh Connectivity and data<a class="headerlink" href="#mesh-connectivity-and-data" title="Permalink to this headline"> </a></h3>
 <p>The following example explains methods to obtain mesh information.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
@@ -2859,7 +2865,7 @@ boundingbox:
 <p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">chi</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span><span class="kr">P</span><span class="p">)</span><span class="o">=</span><span class="mi">0</span></code> if <span class="math notranslate nohighlight">\(P\not\in Th\)</span></p>
 </div>
 <div class="section" id="the-keyword-triangulate">
-<h2>The keyword “triangulate”<a class="headerlink" href="#the-keyword-triangulate" title="Permalink to this headline"> </a></h2>
+<h3>The keyword “triangulate”<a class="headerlink" href="#the-keyword-triangulate" title="Permalink to this headline"> </a></h3>
 <p><strong>FreeFEM</strong> is able to build a triangulation from a set of points.
 This triangulation is a Delaunay mesh of the convex hull of the set of points.
 It can be useful to build a mesh from a table function.</p>
@@ -2946,8 +2952,10 @@ The command <code class="code freefem docutils literal highlight highlight-freef
 <span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">triangulate</span><span class="p">(</span><span class="n">xx</span><span class="p">[],</span> <span class="n">yy</span><span class="p">[]);</span>
 </pre></div>
 </td></tr></table></div>
+</div>
+</div>
 <div class="section" id="boundary-fem-spaces-built-as-empty-meshes">
-<h3>Boundary FEM Spaces Built as Empty Meshes<a class="headerlink" href="#boundary-fem-spaces-built-as-empty-meshes" title="Permalink to this headline"> </a></h3>
+<h2>Boundary FEM Spaces Built as Empty Meshes<a class="headerlink" href="#boundary-fem-spaces-built-as-empty-meshes" title="Permalink to this headline"> </a></h2>
 <p>To define a Finite Element space on a boundary, we came up with the idea of a mesh with no internal points (called empty mesh).
 It can be useful to handle Lagrange multipliers in mixed and mortar methods.</p>
 <p>So the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">emptymesh</span></code> removes all the internal points of a mesh except points on internal boundaries.</p>
@@ -3010,11 +3018,9 @@ It can be useful to handle Lagrange multipliers in mixed and mortar methods.</p>
 <p class="caption"><span class="caption-text">Empty mesh</span></p>
 </div></div>
 <div class="section" id="remeshing">
-<span id="EmptyMesh"></span><h3>Remeshing<a class="headerlink" href="#remeshing" title="Permalink to this headline"> </a></h3>
-</div>
-</div>
+<span id="EmptyMesh"></span><h2>Remeshing<a class="headerlink" href="#remeshing" title="Permalink to this headline"> </a></h2>
 <div class="section" id="movemesh">
-<span id="meshgenerationmovemesh"></span><h2>Movemesh<a class="headerlink" href="#movemesh" title="Permalink to this headline"> </a></h2>
+<span id="meshgenerationmovemesh"></span><h3>Movemesh<a class="headerlink" href="#movemesh" title="Permalink to this headline"> </a></h3>
 <p>Meshes can be translated, rotated, and deformed by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">movemesh</span></code>; this is useful for elasticity to watch the deformation due to the displacement <span class="math notranslate nohighlight">\(\mathbf{\Phi}(x,y)=(\Phi_1(x,y),\Phi_2(x,y))\)</span> of shape.</p>
 <p>It is also useful to handle free boundary problems or optimal shape problems.</p>
 <p>If <span class="math notranslate nohighlight">\(\Omega\)</span> is triangulated as <span class="math notranslate nohighlight">\(T_h(\Omega)\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{\Phi}\)</span> is a displacement vector then <span class="math notranslate nohighlight">\(\mathbf{\Phi}(T_h)\)</span> is obtained by:</p>
@@ -3170,8 +3176,10 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 <span class="c1">// previous meshes are deleted from memory.</span>
 </pre></div>
 </td></tr></table></div>
+</div>
+</div>
 <div class="section" id="regular-triangulation-htriangle">
-<span id="meshregulartriangulation"></span><h3>Regular Triangulation: hTriangle<a class="headerlink" href="#regular-triangulation-htriangle" title="Permalink to this headline"> </a></h3>
+<span id="meshregulartriangulation"></span><h2>Regular Triangulation: hTriangle<a class="headerlink" href="#regular-triangulation-htriangle" title="Permalink to this headline"> </a></h2>
 <p>For a set <span class="math notranslate nohighlight">\(S\)</span>, we define the diameter of <span class="math notranslate nohighlight">\(S\)</span> by</p>
 <div class="math notranslate nohighlight">
 \[\textrm{diam}(S)=\sup\{|\mathbf{x}-\mathbf{y}|; \; \mathbf{x},\, \mathbf{y}\in S\}\]</div>
@@ -3193,7 +3201,7 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 </td></tr></table></div>
 </div>
 <div class="section" id="adaptmesh">
-<h3>Adaptmesh<a class="headerlink" href="#adaptmesh" title="Permalink to this headline"> </a></h3>
+<h2>Adaptmesh<a class="headerlink" href="#adaptmesh" title="Permalink to this headline"> </a></h2>
 <p>The function:</p>
 <div class="math notranslate nohighlight">
 \[f(x,y) = 10.0x^3+y^3+\tan^{-1}[\varepsilon/(\sin(5.0y)-2.0x)],\ \varepsilon = 0.0001\]</div>
@@ -3539,7 +3547,7 @@ To build a mesh with a constant mesh size equal to <span class="math notranslate
 <p class="caption"><span class="caption-text">Mesh adaptation</span></p>
 </div></div>
 <div class="section" id="trunc">
-<span id="AdaptMesh2"></span><h3>Trunc<a class="headerlink" href="#trunc" title="Permalink to this headline"> </a></h3>
+<span id="AdaptMesh2"></span><h2>Trunc<a class="headerlink" href="#trunc" title="Permalink to this headline"> </a></h2>
 <p>Two operators have been introduced to remove triangles from a mesh or to divide them.
 Operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">trunc</span></code> has two parameters:</p>
 <ul class="simple">
@@ -3600,7 +3608,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 <p class="caption"><span class="caption-text">Trunc</span></p>
 </div></div>
 <div class="section" id="splitmesh">
-<span id="Trunc"></span><h3>Splitmesh<a class="headerlink" href="#splitmesh" title="Permalink to this headline"> </a></h3>
+<span id="Trunc"></span><h2>Splitmesh<a class="headerlink" href="#splitmesh" title="Permalink to this headline"> </a></h2>
 <p>Another way to split mesh triangles is to use <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">splitmesh</span></code>, for example:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -3631,7 +3639,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 <p class="caption"><span class="caption-text">Split mesh</span></p>
 </div></div>
 <div class="section" id="meshing-examples">
-<span id="meshexamples"></span><span id="SplitMesh"></span><h3>Meshing Examples<a class="headerlink" href="#meshing-examples" title="Permalink to this headline"> </a></h3>
+<span id="meshexamples"></span><span id="SplitMesh"></span><h2>Meshing Examples<a class="headerlink" href="#meshing-examples" title="Permalink to this headline"> </a></h2>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>Two rectangles touching by a side</p>
@@ -3969,7 +3977,7 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </div></blockquote>
 </div>
 <div class="section" id="how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">
-<span id="meshgenerationchangelabel"></span><h3>How to change the label of elements and border elements of a mesh<a class="headerlink" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh" title="Permalink to this headline"> </a></h3>
+<span id="meshgenerationchangelabel"></span><h2>How to change the label of elements and border elements of a mesh<a class="headerlink" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh" title="Permalink to this headline"> </a></h2>
 <p>Changing the label of elements and border elements will be done using the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code>.
 The parameters for this command line are for two dimensional and three dimensional cases:</p>
 <ul class="simple">
@@ -4064,11 +4072,9 @@ This function is the operator “+” between meshes.
 The method implemented needs the point in adjacent meshes to be the same.</p>
 </div>
 <div class="section" id="mesh-in-three-dimensions">
-<h3>Mesh in three dimensions<a class="headerlink" href="#mesh-in-three-dimensions" title="Permalink to this headline"> </a></h3>
-</div>
-</div>
+<h2>Mesh in three dimensions<a class="headerlink" href="#mesh-in-three-dimensions" title="Permalink to this headline"> </a></h2>
 <div class="section" id="cube">
-<h2>Cube<a class="headerlink" href="#cube" title="Permalink to this headline"> </a></h2>
+<h3>Cube<a class="headerlink" href="#cube" title="Permalink to this headline"> </a></h3>
 <p>A new function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">cube</span></code> like the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square</span></code> in 2d is the simple way to a build cubic object, in plugin <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">msh3</span></code> (need <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="cp">load</span> <span class="s">&quot;msh3&quot;</span></code>).</p>
 <p>The following code generates a <span class="math notranslate nohighlight">\(3\times 4 \times 5\)</span> grid in the unit cube <span class="math notranslate nohighlight">\([0, 1]^3\)</span>.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">cube</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
@@ -4182,7 +4188,7 @@ The method implemented needs the point in adjacent meshes to be the same.</p>
 </div>
 </div>
 <div class="section" id="read-write-statements-for-a-mesh-in-3d">
-<span id="meshreadwrite3d"></span><h2>Read/Write Statements for a Mesh in 3D<a class="headerlink" href="#read-write-statements-for-a-mesh-in-3d" title="Permalink to this headline"> </a></h2>
+<span id="meshreadwrite3d"></span><h3>Read/Write Statements for a Mesh in 3D<a class="headerlink" href="#read-write-statements-for-a-mesh-in-3d" title="Permalink to this headline"> </a></h3>
 <p>In three dimensions, the file mesh format supported for input and output files by <strong>FreeFEM</strong> are the extension .msh and .mesh.
 These formats are described in the <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh Format section</span></a>.</p>
 <p><strong>Extension file .msh</strong> The structure of the files with extension .msh in 3D is given by:</p>
@@ -4222,7 +4228,7 @@ Vertex1 Vertex2 Vertex3 Vertex4 Label
 <p>This field is express with the notation of <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh Format section</span></a>.</p>
 </div>
 <div class="section" id="tetgen-a-tetrahedral-mesh-generator">
-<h2>TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permalink to this headline"> </a></h2>
+<h3>TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permalink to this headline"> </a></h3>
 <p><strong>TetGen</strong></p>
 <p>TetGen is a software developed by Dr.&nbsp;Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a class="reference internal" href="../bibliography.html#hang2006" id="id3">[HANG2006]</a>.
 TetGen is free for research and non-commercial use.
@@ -4545,7 +4551,7 @@ x_{n_v} &amp; y_{n_v} &amp; z_{n_v}
 <p>In the string <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code>, we can’t used the option <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">p</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">q</span></code> of TetGen.</p>
 </div>
 <div class="section" id="reconstruct-refine-a-three-dimensional-mesh-with-tetgen">
-<h2>Reconstruct/Refine a three dimensional mesh with TetGen<a class="headerlink" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen" title="Permalink to this headline"> </a></h2>
+<h3>Reconstruct/Refine a three dimensional mesh with TetGen<a class="headerlink" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen" title="Permalink to this headline"> </a></h3>
 <p>Meshes in three dimension can be refined using TetGen with the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetgreconstruction</span></code>.</p>
 <p>The parameter of this keyword are</p>
 <ul class="simple">
@@ -4693,7 +4699,7 @@ The label in the <code class="code freefem docutils literal highlight highlight-
 </td></tr></table></div>
 </div>
 <div class="section" id="moving-mesh-in-three-dimensions">
-<h2>Moving mesh in three dimensions<a class="headerlink" href="#moving-mesh-in-three-dimensions" title="Permalink to this headline"> </a></h2>
+<h3>Moving mesh in three dimensions<a class="headerlink" href="#moving-mesh-in-three-dimensions" title="Permalink to this headline"> </a></h3>
 <p>Meshes in three dimensions can be translated, rotated, and deformed using the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">movemesh</span></code> as in the 2D case (see <a class="reference internal" href="#meshgenerationmovemesh"><span class="std std-ref">section movemesh</span></a>).
 If <span class="math notranslate nohighlight">\(\Omega\)</span> is tetrahedrized as <span class="math notranslate nohighlight">\(T_{h}(\Omega)\)</span>, and <span class="math notranslate nohighlight">\(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\)</span> is a displacement vector then <span class="math notranslate nohighlight">\(\Phi(T_{h})\)</span> is obtained by:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">Phi1</span><span class="p">,</span> <span class="n">Phi2</span><span class="p">,</span> <span class="n">Phi3</span><span class="p">],</span> <span class="p">...);</span>
@@ -4739,7 +4745,7 @@ By default, we use</p>
 <p>An example of this command can be found in the <a class="reference internal" href="../examples/misc.html#examplepoissonequation3d"><span class="std std-ref">Poisson’s equation 3D example</span></a>.</p>
 </div>
 <div class="section" id="layer-mesh">
-<h2>Layer mesh<a class="headerlink" href="#layer-mesh" title="Permalink to this headline"> </a></h2>
+<h3>Layer mesh<a class="headerlink" href="#layer-mesh" title="Permalink to this headline"> </a></h3>
 <p>In this section, we present the command line to obtain a Layer mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildlayers</span></code>.
 This mesh is obtained by extending a two dimensional mesh in the <span class="math notranslate nohighlight">\(z\)</span>-axis.</p>
 <p>The domain <span class="math notranslate nohighlight">\(\Omega_{3d}\)</span> defined by the layer mesh is equal to <span class="math notranslate nohighlight">\(\Omega_{3d} = \Omega_{2d} \times [zmin, zmax]\)</span> where <span class="math notranslate nohighlight">\(\Omega_{2d}\)</span> is the domain defined by the two dimensional meshes.
@@ -5095,8 +5101,10 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 </pre></div>
 </td></tr></table></div>
 </div>
+</div>
+</div>
 <div class="section" id="meshing-examples-1">
-<span id="id13"></span><h3>Meshing examples<a class="headerlink" href="#meshing-examples-1" title="Permalink to this headline"> </a></h3>
+<span id="id13"></span><h2>Meshing examples<a class="headerlink" href="#meshing-examples-1" title="Permalink to this headline"> </a></h2>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>Lake</p>
@@ -5277,10 +5285,8 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 </pre></div>
 </td></tr></table></div>
 </div>
-</div>
-</div>
 <div class="section" id="build-a-3d-mesh-of-a-cube-with-a-balloon">
-<h2>Build a 3d mesh of a cube with a balloon<a class="headerlink" href="#build-a-3d-mesh-of-a-cube-with-a-balloon" title="Permalink to this headline"> </a></h2>
+<h3>Build a 3d mesh of a cube with a balloon<a class="headerlink" href="#build-a-3d-mesh-of-a-cube-with-a-balloon" title="Permalink to this headline"> </a></h3>
 <p>First the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MeshSurface</span><span class="p">.</span><span class="n">idp</span></code> file to build boundary mesh of a Hexaedra and of a Sphere:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -5457,8 +5463,10 @@ These parameters correspond to parameters <code class="code freefem docutils lit
 <p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">The tetrahedral mesh of the cube with internal ball</span></p>
 </div>
 <p class="caption"><span class="caption-text">Cube sphere</span></p>
-</div><div class="section" id="medit">
-<span id="CubeSphere"></span><h3>Medit<a class="headerlink" href="#medit" title="Permalink to this headline"> </a></h3>
+</div></div>
+</div>
+<div class="section" id="medit">
+<span id="CubeSphere"></span><h2>Medit<a class="headerlink" href="#medit" title="Permalink to this headline"> </a></h2>
 <p>The keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> allows to display a mesh alone or a mesh and one or several functions defined on the mesh using the Pascal Frey’s freeware <code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code>.
 <code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> opens its own window and uses OpenGL extensively.
 Naturally to use this command <code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> must be installed.</p>
@@ -5619,7 +5627,7 @@ A vizualisation with medit of scalar solutions <span class="math notranslate noh
 </div>
 </div>
 <div class="section" id="mshmet">
-<span id="meshgenerationmshmet"></span><h3>Mshmet<a class="headerlink" href="#mshmet" title="Permalink to this headline"> </a></h3>
+<span id="meshgenerationmshmet"></span><h2>Mshmet<a class="headerlink" href="#mshmet" title="Permalink to this headline"> </a></h2>
 <p>Mshmet is a software developed by P. Frey that allows to compute an anisotropic metric based on solutions (i.e.&nbsp;Hessian-based).
 This software can return also an isotropic metric.
 Moreover, <code class="docutils literal highlight highlight-freefem"><span></span><span class="nf">mshmet</span></code> can also construct a metric suitable for levelset interface capturing.
@@ -5818,7 +5826,7 @@ For a symmetric tensor metric <span class="math notranslate nohighlight">\(h=\le
 </div>
 </div>
 <div class="section" id="freeyams">
-<h3>FreeYams<a class="headerlink" href="#freeyams" title="Permalink to this headline"> </a></h3>
+<h2>FreeYams<a class="headerlink" href="#freeyams" title="Permalink to this headline"> </a></h2>
 <p>FreeYams is a surface mesh adaptation software which is developed by P. Frey.
 This software is a new version of yams.
 The adapted surface mesh is constructed with a geometric metric tensor field.
@@ -6012,7 +6020,7 @@ The ridge definition is given in the parameter doptions(12).</dd>
 </div>
 </div>
 <div class="section" id="mmg3d">
-<h3>mmg3d<a class="headerlink" href="#mmg3d" title="Permalink to this headline"> </a></h3>
+<h2>mmg3d<a class="headerlink" href="#mmg3d" title="Permalink to this headline"> </a></h2>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">mmg3d-v4.0</p>
@@ -6267,7 +6275,7 @@ It is a vector of size 3 <span class="math notranslate nohighlight">\(nv\)</span
 </div>
 </div>
 <div class="section" id="a-first-3d-isotrope-mesh-adaptation-process">
-<span id="meshfirstisotropemeshadaptation"></span><h3>A first 3d isotrope mesh adaptation process<a class="headerlink" href="#a-first-3d-isotrope-mesh-adaptation-process" title="Permalink to this headline"> </a></h3>
+<span id="meshfirstisotropemeshadaptation"></span><h2>A first 3d isotrope mesh adaptation process<a class="headerlink" href="#a-first-3d-isotrope-mesh-adaptation-process" title="Permalink to this headline"> </a></h2>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>Adaptation 3D</p>
@@ -6381,7 +6389,7 @@ It is a vector of size 3 <span class="math notranslate nohighlight">\(nv\)</span
 </div>
 </div>
 <div class="section" id="build-a-2d-mesh-from-an-isoline">
-<h3>Build a 2d mesh from an isoline<a class="headerlink" href="#build-a-2d-mesh-from-an-isoline" title="Permalink to this headline"> </a></h3>
+<h2>Build a 2d mesh from an isoline<a class="headerlink" href="#build-a-2d-mesh-from-an-isoline" title="Permalink to this headline"> </a></h2>
 <p>The idea is to get the discretization of an isoline of fluid meshes, this tool can be useful to construct meshes from image.
 First, we give an example of the isovalue meshes <span class="math notranslate nohighlight">\(0.2\)</span> of analytical function <span class="math notranslate nohighlight">\(\sqrt{(x-1/2)^2 +(y-1/2)^2}\)</span>, on unit square.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -6593,7 +6601,6 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <span class="target" id="Isoline"></span></div></div>
 </div>
 </div>
-</div>
 
 
 		<div class="content-nav-buttons" role="navigation">
@@ -6607,44 +6614,45 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 		<b>Table of content</b>
 		<ul>
 <li><a class="reference internal" href="#">Mesh Generation</a><ul>
+<li><a class="reference internal" href="#generalities">Generalities</a><ul>
 <li><a class="reference internal" href="#square">Square</a></li>
 <li><a class="reference internal" href="#border">Border</a></li>
 <li><a class="reference internal" href="#multi-border">Multi-Border</a></li>
 <li><a class="reference internal" href="#data-structures-and-read-write-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh</a></li>
 <li><a class="reference internal" href="#mesh-connectivity-and-data">Mesh Connectivity and data</a></li>
-<li><a class="reference internal" href="#the-keyword-triangulate">The keyword “triangulate”</a><ul>
-<li><a class="reference internal" href="#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
-<li><a class="reference internal" href="#remeshing">Remeshing</a></li>
+<li><a class="reference internal" href="#the-keyword-triangulate">The keyword “triangulate”</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#movemesh">Movemesh</a><ul>
+<li><a class="reference internal" href="#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
+<li><a class="reference internal" href="#remeshing">Remeshing</a><ul>
+<li><a class="reference internal" href="#movemesh">Movemesh</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#regular-triangulation-htriangle">Regular Triangulation: hTriangle</a></li>
 <li><a class="reference internal" href="#adaptmesh">Adaptmesh</a></li>
 <li><a class="reference internal" href="#trunc">Trunc</a></li>
 <li><a class="reference internal" href="#splitmesh">Splitmesh</a></li>
 <li><a class="reference internal" href="#meshing-examples">Meshing Examples</a></li>
 <li><a class="reference internal" href="#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">How to change the label of elements and border elements of a mesh</a></li>
-<li><a class="reference internal" href="#mesh-in-three-dimensions">Mesh in three dimensions</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#mesh-in-three-dimensions">Mesh in three dimensions</a><ul>
 <li><a class="reference internal" href="#cube">Cube</a></li>
 <li><a class="reference internal" href="#read-write-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D</a></li>
 <li><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
 <li><a class="reference internal" href="#reconstruct-refine-a-three-dimensional-mesh-with-tetgen">Reconstruct/Refine a three dimensional mesh with TetGen</a></li>
 <li><a class="reference internal" href="#moving-mesh-in-three-dimensions">Moving mesh in three dimensions</a></li>
-<li><a class="reference internal" href="#layer-mesh">Layer mesh</a><ul>
-<li><a class="reference internal" href="#meshing-examples-1">Meshing examples</a></li>
+<li><a class="reference internal" href="#layer-mesh">Layer mesh</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a><ul>
+<li><a class="reference internal" href="#meshing-examples-1">Meshing examples</a><ul>
+<li><a class="reference internal" href="#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#medit">Medit</a></li>
 <li><a class="reference internal" href="#mshmet">Mshmet</a></li>
 <li><a class="reference internal" href="#freeyams">FreeYams</a></li>
 <li><a class="reference internal" href="#mmg3d">mmg3d</a></li>
 <li><a class="reference internal" href="#a-first-3d-isotrope-mesh-adaptation-process">A first 3d isotrope mesh adaptation process</a></li>
 <li><a class="reference internal" href="#build-a-2d-mesh-from-an-isoline">Build a 2d mesh from an isoline</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
