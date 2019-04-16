@@ -473,7 +473,10 @@ In order to get the syntax highlighting in Gedit, you have to downlaod the \sphi
 \subsection{Compilation}
 \label{\detokenize{introduction/installation:compilation}}
 
-\subsubsection{Compilation on OSX (\textgreater{}=10.13)}
+\subsubsection{Using autotools}
+\label{\detokenize{introduction/installation:using-autotools}}
+
+\paragraph{Compilation on OSX (\textgreater{}=10.13)}
 \label{\detokenize{introduction/installation:compilation-on-osx-10-13}}
 Remark: Blocks of code are shell commands in terminal.
 \begin{enumerate}
@@ -559,7 +562,7 @@ sudo make install
 \end{enumerate}
 
 
-\subsubsection{Compilation on Ubuntu}
+\paragraph{Compilation on Ubuntu}
 \label{\detokenize{introduction/installation:compilation-on-ubuntu}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
@@ -666,7 +669,7 @@ sudo make install
 \end{enumerate}
 
 
-\subsubsection{Compilation on Arch Linux}
+\paragraph{Compilation on Arch Linux}
 \label{\detokenize{introduction/installation:compilation-on-arch-linux}}
 \begin{sphinxadmonition}{warning}{Warning:}
 As Arch is in rolling release, the following information can be quickly outdated !
@@ -769,12 +772,12 @@ sudo make install
 \end{enumerate}
 
 
-\subsubsection{Compilation on Linux with Intel software tools}
+\paragraph{Compilation on Linux with Intel software tools}
 \label{\detokenize{introduction/installation:compilation-on-linux-with-intel-software-tools}}
 Follow the \sphinxhref{https://software.intel.com/en-us/articles/building-freefem-with-intel-software-tools-for-developers}{guide}
 
 
-\subsubsection{Compilation on Windows}
+\paragraph{Compilation on Windows}
 \label{\detokenize{introduction/installation:compilation-on-windows}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
@@ -836,6 +839,230 @@ autoreconf \PYGZhy{}i
 ./3rdparty/getall \PYGZhy{}a
 make \PYGZhy{}j4
 make check
+make install
+\end{sphinxVerbatim}
+
+The \sphinxstylestrong{FreeFEM} executable (and some other like \sphinxcode{\sphinxupquote{ffmedit}}, …)
+are in \sphinxcode{\sphinxupquote{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin}} (or \sphinxcode{\sphinxupquote{C:\textbackslash{}msys32\textbackslash{}mingw32\textbackslash{}bin}}).
+
+\end{enumerate}
+
+
+\subsubsection{Using CMake (FreeFEM without plugins)}
+\label{\detokenize{introduction/installation:using-cmake-freefem-without-plugins}}
+
+\paragraph{Compilation on OSX (\textgreater{}=10.13)}
+\label{\detokenize{introduction/installation:id1}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the \sphinxhref{https://developer.apple.com/download/more/}{Apple website}
+
+\item {} 
+Install gcc from \sphinxhref{http://hpc.sourceforge.net/}{http://hpc.sourceforge.net}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+curl \PYGZhy{}O http://prdownloads.sourceforge.net/hpc/gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz?download
+sudo tar zxvf gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz \PYGZhy{}C /
+\end{sphinxVerbatim}
+
+\item {} 
+Install cmake from \sphinxhref{https://www.macports.org}{macport} or with \sphinxhref{https://brew.sh}{Homebrew}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo port install cmake
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+brew install cmake
+\end{sphinxVerbatim}
+
+\item {} 
+Install mactex from \sphinxhref{http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg}{ctan}
+
+\item {} 
+Install the \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi} source code
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc \PYG{n+nv}{CXX}\PYG{o}{=}/usr/local/bin/g++ \PYG{n+nv}{F77}\PYG{o}{=}/usr/local/bin/gfortran \PYG{n+nv}{FC}\PYG{o}{=}/usr/local/bin/gfortran
+make
+sudo make install
+\end{sphinxVerbatim}
+
+\item {} 
+Install \sphinxhref{https://www.gnu.org/software/gsl}{gsl}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+curl \PYGZhy{}O https://fr.mirror.babylon.network/gnu/gsl/gsl\PYGZhy{}2.4.tar.gz
+tar zxvf gsl\PYGZhy{}2.4.tar.gz
+\PYG{n+nb}{cd} gsl\PYGZhy{}2.4
+./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc
+make
+sudo make install
+\end{sphinxVerbatim}
+
+\item {} 
+Install \sphinxhref{https://git-scm.com/download/mac}{git}
+
+\item {} 
+Download the \sphinxstylestrong{FreeFEM} source from the repository
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
+\end{sphinxVerbatim}
+
+\end{enumerate}
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi )}
+\makeatletter\def\p@enumii{\p@enumi \theenumi )}\makeatother
+\setcounter{enumi}{8}
+\item {} 
+Compile \sphinxstylestrong{FreeFEM}. Don’t forget to update the MacOS SDK version with your own in the command below:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+mkdir build
+\PYG{n+nb}{cd} build
+cmake ..
+make
+make \PYG{n+nb}{test}
+sudo make install
+\end{sphinxVerbatim}
+
+\end{enumerate}
+
+
+\paragraph{Compilation on Ubuntu}
+\label{\detokenize{introduction/installation:id2}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Install the following dependencies
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo apt\PYGZhy{}get update \PYG{o}{\PYGZam{}\PYGZam{}} sudo apt\PYGZhy{}get upgrade
+sudo apt\PYGZhy{}get install cpp freeglut3\PYGZhy{}dev g++ gcc gfortran \PYG{l+s+se}{\PYGZbs{}}
+    ghostscript m4 make patch pkg\PYGZhy{}config wget python unzip \PYG{l+s+se}{\PYGZbs{}}
+    libopenblas\PYGZhy{}dev liblapack\PYGZhy{}dev libhdf5\PYGZhy{}dev libgsl\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
+    libscotch\PYGZhy{}dev libfftw3\PYGZhy{}dev libarpack2\PYGZhy{}dev libsuitesparse\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
+    libmumps\PYGZhy{}seq\PYGZhy{}dev libnlopt\PYGZhy{}dev coinor\PYGZhy{}libipopt\PYGZhy{}dev libgmm++\PYGZhy{}dev libtet1.5\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
+    gnuplot\PYGZhy{}qt autoconf automake autotools\PYGZhy{}dev bison flex gdb valgrind git cmake
+
+\PYG{c+c1}{\PYGZsh{} mpich is required for the FreeFem parallel computing version}
+sudo apt\PYGZhy{}get install mpich
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{warning}{Warning:}
+In the oldest distribution of Ubuntu, \sphinxcode{\sphinxupquote{libgsl-dev}} does not exists, use \sphinxcode{\sphinxupquote{libgsl2-dev}} instead
+\end{sphinxadmonition}
+
+\item {} 
+Download \sphinxstylestrong{FreeFEM} source from the repository
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
+\end{sphinxVerbatim}
+
+\item {} 
+Configure
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+mkdir build
+\PYG{n+nb}{cd} build
+cmake ..
+\end{sphinxVerbatim}
+
+\item {} 
+Build
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+make
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+If your computer has many threads, you can run \sphinxcode{\sphinxupquote{make}} in parallel using \sphinxcode{\sphinxupquote{make -j16}} for 16 threads, for example.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}{Note:}
+Optionnally, check the compilation with \sphinxcode{\sphinxupquote{make test}}
+\end{sphinxadmonition}
+
+\item {} 
+Install
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo make install
+\end{sphinxVerbatim}
+
+\end{enumerate}
+
+
+\paragraph{Compilation on Windows}
+\label{\detokenize{introduction/installation:id3}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Install \sphinxhref{https://www.microsoft.com/en-us/download/details.aspx?id=49926}{MS MPI v7} (msmpisdk.msi and MSMpiSetup.exe)
+
+\item {} 
+Install \sphinxhref{https://www.msys2.org/}{Msys2} (x86\_64 version)
+
+\item {} 
+Start MSYS2 MSYS
+
+\item {} 
+Open \sphinxcode{\sphinxupquote{MSYS2 MSYS terminal}} to install dependancies
+\begin{itemize}
+\item {} 
+for 64bits system:
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+pacman \PYGZhy{}Syu
+pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion \PYG{l+s+se}{\PYGZbs{}}
+    bison bsdcpio bsdtar bzip2 cmake coreutils curl dash file filesystem \PYG{l+s+se}{\PYGZbs{}}
+    findutils flex gawk gcc gcc\PYGZhy{}fortran gcc\PYGZhy{}libs grep gzip inetutils info less lndir \PYG{l+s+se}{\PYGZbs{}}
+    make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}freeglut mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gcc \PYG{l+s+se}{\PYGZbs{}}
+    mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gcc\PYGZhy{}fortran mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
+    mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}openblas mintty msys2\PYGZhy{}keyring msys2\PYGZhy{}launcher\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
+    msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch pax\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
+    perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip util\PYGZhy{}linux which
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+for 32bits system:
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+pacman \PYGZhy{}Syu
+pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion \PYG{l+s+se}{\PYGZbs{}}
+    bison bsdcpio bsdtar bzip2 cmake coreutils curl dash file filesystem \PYG{l+s+se}{\PYGZbs{}}
+    findutils flex gawk gcc gcc\PYGZhy{}fortran gcc\PYGZhy{}libs grep gzip inetutils info less lndir \PYG{l+s+se}{\PYGZbs{}}
+    make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}freeglut mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}gcc \PYG{l+s+se}{\PYGZbs{}}
+    mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}gcc\PYGZhy{}fortran mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
+    mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}openblas mintty msys2\PYGZhy{}keyring msys2\PYGZhy{}launcher\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
+    msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch pax\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
+perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip util\PYGZhy{}linux which
+\end{sphinxVerbatim}
+
+\item {} 
+Open \sphinxcode{\sphinxupquote{MingW64 terminal}} (or \sphinxcode{\sphinxupquote{MingW32}}) to compile \sphinxstylestrong{FreeFEM}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources
+\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+mkdir build
+\PYG{n+nb}{cd} build
+cmake ..
+make \PYGZhy{}j4
+make \PYG{n+nb}{test}
 make install
 \end{sphinxVerbatim}
 
