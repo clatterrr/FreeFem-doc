@@ -2008,9 +2008,9 @@ sudo make install
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O http://mirror.cyberbits.eu/gnu/gsl/gsl-2.5.tar.gz
-tar zxvf gsl-2.5.tar.gz
-<span class="nb">cd</span> gsl-2.5
-./configure
+tar zxvf gsl-2.4.tar.gz
+<span class="nb">cd</span> gsl-2.4
+./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc
 make
 sudo make install
 </pre></div>
