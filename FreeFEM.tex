@@ -539,9 +539,9 @@ Install \sphinxhref{https://www.gnu.org/software/gsl}{gsl}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 curl \PYGZhy{}O http://mirror.cyberbits.eu/gnu/gsl/gsl\PYGZhy{}2.5.tar.gz
-tar zxvf gsl\PYGZhy{}2.5.tar.gz
-\PYG{n+nb}{cd} gsl\PYGZhy{}2.5
-./configure
+tar zxvf gsl\PYGZhy{}2.4.tar.gz
+\PYG{n+nb}{cd} gsl\PYGZhy{}2.4
+./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc
 make
 sudo make install
 \end{sphinxVerbatim}
