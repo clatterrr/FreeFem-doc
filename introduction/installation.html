@@ -2008,9 +2008,9 @@ sudo make install
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O http://mirror.cyberbits.eu/gnu/gsl/gsl-2.5.tar.gz
-tar zxvf gsl-2.4.tar.gz
-<span class="nb">cd</span> gsl-2.4
-./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc
+tar zxvf gsl-2.5.tar.gz
+<span class="nb">cd</span> gsl-2.5
+./configure
 make
 sudo make install
 </pre></div>
@@ -2363,15 +2363,24 @@ sudo make install
 </li>
 <li><p class="first">Install <a class="reference external" href="https://git-scm.com/download/mac">git</a></p>
 </li>
+<li><p class="first">Install SparseSuite and Arpack from <a class="reference external" href="https://www.macports.org">macport</a> or with <a class="reference external" href="https://brew.sh">Homebrew</a></p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo port install arpack SuiteSparse
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install arpack suite-sparse
+</pre></div>
+</td></tr></table></div>
+</li>
 <li><p class="first">Download the <strong>FreeFEM</strong> source from the repository</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
 </pre></div>
 </td></tr></table></div>
 </li>
-</ol>
-<ol class="arabic" start="9">
 <li><p class="first">Compile <strong>FreeFEM</strong>. Don’t forget to update the MacOS SDK version with your own in the command below:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -2386,8 +2395,7 @@ make <span class="nb">test</span>
 sudo make install
 </pre></div>
 </td></tr></table></div>
-</li>
-</ol>
+</div></blockquote>
 </div>
 <div class="section" id="id2">
 <h4>Compilation on Ubuntu<a class="headerlink" href="#id2" title="Permalink to this headline"> </a></h4>
