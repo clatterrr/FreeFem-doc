@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 17, 2019}
+\date{Apr 24, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -539,9 +539,9 @@ Install \sphinxhref{https://www.gnu.org/software/gsl}{gsl}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 curl \PYGZhy{}O http://mirror.cyberbits.eu/gnu/gsl/gsl\PYGZhy{}2.5.tar.gz
-tar zxvf gsl\PYGZhy{}2.4.tar.gz
-\PYG{n+nb}{cd} gsl\PYGZhy{}2.4
-./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc
+tar zxvf gsl\PYGZhy{}2.5.tar.gz
+\PYG{n+nb}{cd} gsl\PYGZhy{}2.5
+./configure
 make
 sudo make install
 \end{sphinxVerbatim}
@@ -921,20 +921,28 @@ sudo make install
 Install \sphinxhref{https://git-scm.com/download/mac}{git}
 
 \item {} 
+Install SparseSuite and Arpack from \sphinxhref{https://www.macports.org}{macport} or with \sphinxhref{https://brew.sh}{Homebrew}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo port install arpack SuiteSparse
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+brew install arpack suite\PYGZhy{}sparse
+\end{sphinxVerbatim}
+
+\item {} 
 Download the \sphinxstylestrong{FreeFEM} source from the repository
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
 \end{sphinxVerbatim}
 
-\end{enumerate}
-\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi )}
-\makeatletter\def\p@enumii{\p@enumi \theenumi )}\makeatother
-\setcounter{enumi}{8}
 \item {} 
 Compile \sphinxstylestrong{FreeFEM}. Don’t forget to update the MacOS SDK version with your own in the command below:
+
+\end{enumerate}
+\begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
@@ -945,8 +953,7 @@ make
 make \PYG{n+nb}{test}
 sudo make install
 \end{sphinxVerbatim}
-
-\end{enumerate}
+\end{quote}
 
 
 \paragraph{Compilation on Ubuntu}
