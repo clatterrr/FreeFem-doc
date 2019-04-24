@@ -2340,7 +2340,7 @@ Unboundedness in some directions can be achieved by using the <span class="math 
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c c}
     \forall x\in\mathbb{R}^{n},\ f(x) = \frac{1}{2}\left\langle Ax,x \right\rangle + \left\langle b,x\right\rangle &amp; (A,b)\in\mathcal{M}_{n,n}(\mathbb{R})\times\mathbb{R}^{n} \\
-    \mathrm{or} ,\ C(x) = Ax + b &amp; (A,b)\in\mathcal{M}_{n,m}(\mathbb{R})\times\mathbb{R}^{m}
+    \mathrm{or} ,\ C(x) = Ax + b &amp; (A,b)\in\mathcal{M}_{m,n}(\mathbb{R})\times\mathbb{R}^{m}
 \end{array}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constant, it is possible to directly pass the <span class="math notranslate nohighlight">\((A,b)\)</span> pair instead of defining 3 (or 2) functions.
 It also indicates to IPOPT that some objects are constant and that they have to be evaluated only once, thus avoiding multiple copies of the same matrix.
