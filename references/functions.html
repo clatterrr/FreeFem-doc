@@ -649,8 +649,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#buildmesh">buildmesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ceil">ceil</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#change">change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chi">chi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checkmovemesh">checkmovemesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chi">chi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">clock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complexeigenvalue">complexEigenValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#conj">conj</a></li>
@@ -710,8 +710,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#log10">log10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lrint">lrint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lround">lround</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ltime">ltime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#min">min</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nan">NaN</a></li>
@@ -1851,8 +1851,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#buildmesh">buildmesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ceil">ceil</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#change">change</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chi">chi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checkmovemesh">checkmovemesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chi">chi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">clock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complexeigenvalue">complexEigenValue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#conj">conj</a></li>
@@ -1912,8 +1912,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#log10">log10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lrint">lrint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lround">lround</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ltime">ltime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#min">min</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nan">NaN</a></li>
@@ -2345,6 +2345,19 @@
 parameters</li>
 </ul>
 </div>
+<div class="section" id="checkmovemesh">
+<h2>checkmovemesh<a class="headerlink" href="#checkmovemesh" title="Permalink to this headline"> </a></h2>
+<p>Check a <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a> without mesh generation.</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="n">minT</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">Dx</span><span class="p">,</span> <span class="n">Dy</span><span class="p">]);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Parameters:</p>
+<p>Same as <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a></p>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">minT</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) Minimum triangle area</li>
+</ul>
+</div>
 <div class="section" id="chi">
 <h2>chi<a class="headerlink" href="#chi" title="Permalink to this headline"> </a></h2>
 <p>Characteristic function of a mesh.</p>
@@ -2361,19 +2374,6 @@ parameters</li>
 <ul class="simple">
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">IsInMesh</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>) 1 if <span class="math notranslate nohighlight">\((x,y)\in\)</span> <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code> 0 if
 <span class="math notranslate nohighlight">\((x,y)\not\in\)</span> <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Th</span></code></li>
-</ul>
-</div>
-<div class="section" id="checkmovemesh">
-<h2>checkmovemesh<a class="headerlink" href="#checkmovemesh" title="Permalink to this headline"> </a></h2>
-<p>Check a <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a> without mesh generation.</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="n">minT</span> <span class="o">=</span> <span class="nf">checkmovemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="n">Dx</span><span class="p">,</span> <span class="n">Dy</span><span class="p">]);</span>
-</pre></div>
-</td></tr></table></div>
-<p>Parameters:</p>
-<p>Same as <a class="reference internal" href="#functionmovemesh"><span class="std std-ref">movemesh</span></a></p>
-<p>Output:</p>
-<ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">minT</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>) Minimum triangle area</li>
 </ul>
 </div>
 <div class="section" id="clock">
@@ -3302,6 +3302,21 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">l</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>)</li>
 </ul>
 </div>
+<div class="section" id="ltime">
+<h2>ltime<a class="headerlink" href="#ltime" title="Permalink to this headline"> </a></h2>
+<p>Return the current time since <em>the Epcoh</em>.</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="kp">t</span> <span class="o">=</span> <span class="n">ltime</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Parameter:</p>
+<ul class="simple">
+<li>None</li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>)</li>
+</ul>
+</div>
 <div class="section" id="max">
 <h2>max<a class="headerlink" href="#max" title="Permalink to this headline"> </a></h2>
 <p>Maximum value of two, three or four values.</p>
@@ -3322,21 +3337,6 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <p>Output:</p>
 <ul class="simple">
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">b</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code> or <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">real</span></code>)</li>
-</ul>
-</div>
-<div class="section" id="ltime">
-<h2>ltime<a class="headerlink" href="#ltime" title="Permalink to this headline"> </a></h2>
-<p>Return the current time since <em>the Epcoh</em>.</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="kp">t</span> <span class="o">=</span> <span class="n">ltime</span><span class="p">();</span>
-</pre></div>
-</td></tr></table></div>
-<p>Parameter:</p>
-<ul class="simple">
-<li>None</li>
-</ul>
-<p>Output:</p>
-<ul class="simple">
-<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="kp">t</span></code> (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span></code>)</li>
 </ul>
 </div>
 <div class="section" id="min">
@@ -4165,8 +4165,8 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><a class="reference internal" href="#buildmesh">buildmesh</a></li>
 <li><a class="reference internal" href="#ceil">ceil</a></li>
 <li><a class="reference internal" href="#change">change</a></li>
-<li><a class="reference internal" href="#chi">chi</a></li>
 <li><a class="reference internal" href="#checkmovemesh">checkmovemesh</a></li>
+<li><a class="reference internal" href="#chi">chi</a></li>
 <li><a class="reference internal" href="#clock">clock</a></li>
 <li><a class="reference internal" href="#complexeigenvalue">complexEigenValue</a></li>
 <li><a class="reference internal" href="#conj">conj</a></li>
@@ -4226,8 +4226,8 @@ Note that the eigenvalues and the eigenvectors are stored for further purposes u
 <li><a class="reference internal" href="#log10">log10</a></li>
 <li><a class="reference internal" href="#lrint">lrint</a></li>
 <li><a class="reference internal" href="#lround">lround</a></li>
-<li><a class="reference internal" href="#max">max</a></li>
 <li><a class="reference internal" href="#ltime">ltime</a></li>
+<li><a class="reference internal" href="#max">max</a></li>
 <li><a class="reference internal" href="#min">min</a></li>
 <li><a class="reference internal" href="#movemesh">movemesh</a></li>
 <li><a class="reference internal" href="#nan">NaN</a></li>
