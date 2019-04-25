@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 24, 2019}
+\date{Apr 25, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -23983,6 +23983,26 @@ parameters
 \end{itemize}
 
 
+\subsection{checkmovemesh}
+\label{\detokenize{references/functions:checkmovemesh}}
+Check a {\hyperref[\detokenize{references/functions:functionmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{movemesh}}}} without mesh generation.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{real} \PYG{n}{minT} \PYG{o}{=} \PYG{n+nf}{checkmovemesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{p}{[}\PYG{n}{Dx}\PYG{p}{,} \PYG{n}{Dy}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Parameters:
+
+Same as {\hyperref[\detokenize{references/functions:functionmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{movemesh}}}}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{minT}} (\sphinxcode{\sphinxupquote{real}}) Minimum triangle area
+
+\end{itemize}
+
+
 \subsection{chi}
 \label{\detokenize{references/functions:chi}}
 Characteristic function of a mesh.
@@ -24009,26 +24029,6 @@ Output:
 \item {} 
 \sphinxcode{\sphinxupquote{IsInMesh}} (\sphinxcode{\sphinxupquote{int}}) 1 if \((x,y)\in\) \sphinxcode{\sphinxupquote{Th}} 0 if
 \((x,y)\not\in\) \sphinxcode{\sphinxupquote{Th}}
-
-\end{itemize}
-
-
-\subsection{checkmovemesh}
-\label{\detokenize{references/functions:checkmovemesh}}
-Check a {\hyperref[\detokenize{references/functions:functionmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{movemesh}}}} without mesh generation.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{k+kt}{real} \PYG{n}{minT} \PYG{o}{=} \PYG{n+nf}{checkmovemesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{p}{[}\PYG{n}{Dx}\PYG{p}{,} \PYG{n}{Dy}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\end{sphinxVerbatim}
-
-Parameters:
-
-Same as {\hyperref[\detokenize{references/functions:functionmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{movemesh}}}}
-
-Output:
-\begin{itemize}
-\item {} 
-\sphinxcode{\sphinxupquote{minT}} (\sphinxcode{\sphinxupquote{real}}) Minimum triangle area
 
 \end{itemize}
 
@@ -25392,6 +25392,29 @@ Output:
 \end{itemize}
 
 
+\subsection{ltime}
+\label{\detokenize{references/functions:ltime}}
+Return the current time since \sphinxstyleemphasis{the Epcoh}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{k+kp}{t} \PYG{o}{=} \PYG{n}{ltime}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+Parameter:
+\begin{itemize}
+\item {} 
+None
+
+\end{itemize}
+
+Output:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{t}} (\sphinxcode{\sphinxupquote{int}})
+
+\end{itemize}
+
+
 \subsection{max}
 \label{\detokenize{references/functions:max}}
 Maximum value of two, three or four values.
@@ -25422,29 +25445,6 @@ Output:
 \begin{itemize}
 \item {} 
 \sphinxcode{\sphinxupquote{b}} (\sphinxcode{\sphinxupquote{int}} or \sphinxcode{\sphinxupquote{real}})
-
-\end{itemize}
-
-
-\subsection{ltime}
-\label{\detokenize{references/functions:ltime}}
-Return the current time since \sphinxstyleemphasis{the Epcoh}.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{k+kt}{int} \PYG{k+kp}{t} \PYG{o}{=} \PYG{n}{ltime}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
-\end{sphinxVerbatim}
-
-Parameter:
-\begin{itemize}
-\item {} 
-None
-
-\end{itemize}
-
-Output:
-\begin{itemize}
-\item {} 
-\sphinxcode{\sphinxupquote{t}} (\sphinxcode{\sphinxupquote{int}})
 
 \end{itemize}
 
