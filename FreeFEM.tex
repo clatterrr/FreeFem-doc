@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 25, 2019}
+\date{Apr 29, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -19768,7 +19768,7 @@ The result is computed as \(\sum_{j=1}^N (D_j a_j, b_j)\).
 
 \subsubsection{Define the problem to solve}
 \label{\detokenize{documentation/ffddm/documentation:define-the-problem-to-solve}}\label{\detokenize{documentation/ffddm/documentation:ffddmdocumentationdefineproblemtosolve}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n}{ffddmsetupOperator}\PYG{p}{(}\PYG{n}{pr}\PYG{p}{,}\PYG{n}{prfe}\PYG{p}{,}\PYG{n}{Varf}\PYG{p}{)}
 \end{sphinxVerbatim}
 
@@ -20994,8 +20994,10 @@ RAS + GenEO
 &
 ORAS
 &
-Coarse Mesh
-&&\\
+Coarse Mesh / DtN
+&&
+for the DtN coarse space see \sphinxhref{https://doi.org/10.1016/j.cam.2014.03.031}{this paper}
+\\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/blob/develop/examples/ffddm/Helmholtz-2d-marmousi.edp}{Helmholtz-2d-marmousi.edp}
 &
