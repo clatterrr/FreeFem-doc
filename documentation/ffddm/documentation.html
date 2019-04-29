@@ -2073,9 +2073,9 @@ pr#K[int][int] pr#snd(0);
 --></div>
 <div class="section" id="define-the-problem-to-solve">
 <span id="ffddmdocumentationdefineproblemtosolve"></span><h2>Define the problem to solve<a class="headerlink" href="#define-the-problem-to-solve" title="Permalink to this headline"> </a></h2>
-<div class="code freefem highlight-freefem notranslate"><div class="highlight"><pre><span></span><span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">prfe</span><span class="p">,</span><span class="n">Varf</span><span class="p">)</span>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">prfe</span><span class="p">,</span><span class="n">Varf</span><span class="p">)</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>builds the distributed operator associated to the variational problem given by <strong>Varf</strong>, on top of the distributed finite element space <strong>prfe</strong>.
 This will create and expose variables whose names will be prefixed by <strong>pr</strong>, see below.
 It is assumed that <a class="reference internal" href="#ffddmdocumentationlocalfiniteelementspaces"><span class="std std-ref">ffddmbuildDfespace</span></a> has already been called with prefix <strong>prfe</strong> in order to define the distributed finite element space.</p>
