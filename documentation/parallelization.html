@@ -2275,7 +2275,7 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 </li>
 <li><p class="first"><span class="math notranslate nohighlight">\({V_{0h}}_i= \{ {v_h} \in {V_h}_i :\forall k \in {\mathcal{N}^{\Gamma_i}_{hi}}, \quad \sigma_i^k({v_h})=0 \}\)</span>,</p>
 </li>
-<li><p class="first">The conditional expression <span class="math notranslate nohighlight">\(a\;?\;b:c\)</span> is defined like in :c`C` of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">C</span><span class="p">++</span></code> language by</p>
+<li><p class="first">The conditional expression <span class="math notranslate nohighlight">\(a\;?\;b:c\)</span> is defined like in :c`C` of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">C</span><span class="o">++</span></code> language by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}a?b: c \equiv
 \left\{
@@ -2411,9 +2411,9 @@ mpirun -np <span class="m">2</span> FreeFem++-mpi SchwarzParallel.edp
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">template</span><span class="p">&lt;</span><span class="n">class</span> <span class="n">R</span><span class="p">&gt;</span> <span class="nb">R </span><span class="n">ReduceSum1</span><span class="p">(</span><span class="nb">R </span><span class="n">s</span><span class="p">,</span> <span class="n">MPI_Comm</span> <span class="p">*</span><span class="n">comm</span><span class="p">){</span>
-    <span class="nb">R r </span><span class="p">=</span> <span class="n">0</span><span class="p">;</span>
-    <span class="n">MPI_Allreduce</span><span class="p">(&amp;</span><span class="n">s</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="n">1</span><span class="p">,</span> <span class="n">MPI_TYPE</span><span class="p">&lt;</span><span class="n">R</span><span class="p">&gt;::</span><span class="n">TYPE</span><span class="p">(),</span> <span class="n">MPI_SUM</span><span class="p">,</span> <span class="p">*</span><span class="n">comm</span> <span class="p">);</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span> <span class="n">R</span> <span class="n">ReduceSum1</span><span class="p">(</span><span class="n">R</span> <span class="n">s</span><span class="p">,</span> <span class="n">MPI_Comm</span> <span class="o">*</span><span class="n">comm</span><span class="p">){</span>
+    <span class="n">R</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">MPI_Allreduce</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_TYPE</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;::</span><span class="n">TYPE</span><span class="p">(),</span> <span class="n">MPI_SUM</span><span class="p">,</span> <span class="o">*</span><span class="n">comm</span> <span class="p">);</span>
     <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -2703,7 +2703,7 @@ In these commands, the parameter <code class="code freefem docutils literal high
 We have added specify parameters to these command lines for parallel sparse solvers.
 These are:</p>
 <ul class="simple">
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">lparams</span></code> : vector of integer parameters (<code class="docutils literal highlight highlight-freefem"><span></span><span class="n">l</span></code> is for the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code> type <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span></code>)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">lparams</span></code> : vector of integer parameters (<code class="docutils literal highlight highlight-freefem"><span></span><span class="n">l</span></code> is for the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code> type <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span></code>)</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">dparams</span></code> : vector of real parameters</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">sparams</span></code> : string parameters</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">datafilename</span></code> : name of the file which contains solver parameters</li>
@@ -3041,7 +3041,7 @@ It constructs a direct factorization <span class="math notranslate nohighlight">
 <p>There are four input parameters in <a class="reference external" href="http://mumps.enseeiht.fr/index.php?page=doc">MUMPS</a>.
 Two integers <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">SYM</span></code> and <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">PAR</span></code>, a vector of integer of size 40 <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">INCTL</span></code> and a vector of real of size 15 <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">CNTL</span></code>.</p>
 <p>The first parameter gives the type of the matrix: 0 for unsymmetric matrix, 1 for symmetric positive matrix and 2 for general symmetric.</p>
-<p>The second parameter defined if the host processor work during the factorization and solves steps : <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">PAR</span><span class="p">=</span><span class="n">1</span></code> host processor working and <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">PAR</span><span class="p">=</span><span class="n">0</span></code> host processor not working.</p>
+<p>The second parameter defined if the host processor work during the factorization and solves steps : <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">PAR</span><span class="o">=</span><span class="mi">1</span></code> host processor working and <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">PAR</span><span class="o">=</span><span class="mi">0</span></code> host processor not working.</p>
 <p>The parameter <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">INCTL</span></code> and <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">CNTL</span></code> is the control parameter of MUMPS.
 The vectors <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">ICNTL</span></code> and <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">CNTL</span></code> in MUMPS becomes with index 1 like vector in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Fortran</span></code>.
 For more details see the <a class="reference external" href="http://mumps.enseeiht.fr/index.php?page=doc">MUMPS user’s guide</a>.</p>

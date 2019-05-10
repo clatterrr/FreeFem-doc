@@ -2251,38 +2251,38 @@ As easily guessed <code class="code freefem docutils literal highlight highlight
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// Computes matrix a on a triangle for the Dervieux FVM
-int fvmP1P0(double q[3][2], // the 3 vertices of a triangle T
-    double u[2], // convection velocity on T
-    double c[3], // the P1 function on T
-    double a[3][3],// output matrix
-    double where[3]) // where&gt;0 means we&#39;re on the boundary
-{
-    for (int i = 0; i &lt; 3; i++)
-        for(int j = 0; j &lt; 3; j++) a[i][j] = 0;
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Computes matrix a on a triangle for the Dervieux FVM</span>
+<span class="kt">int</span> <span class="nf">fvmP1P0</span><span class="p">(</span><span class="kt">double</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="c1">// the 3 vertices of a triangle T</span>
+    <span class="kt">double</span> <span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="c1">// convection velocity on T</span>
+    <span class="kt">double</span> <span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="c1">// the P1 function on T</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span><span class="c1">// output matrix</span>
+    <span class="kt">double</span> <span class="n">where</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="c1">// where&gt;0 means we&#39;re on the boundary</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    for(int i = 0; i &lt; 3; i++){
-        int ip = (i+1)%3, ipp = (ip+1)%3;
-        double unL = -((q[ip][1] + q[i][1] - 2*q[ipp][1])*u[0]
-            - (q[ip][0] + q[i][0] - 2*q[ipp][0])*u[1])/6.;
-        if (unL &gt; 0){
-            a[i][i] += unL;
-            a[ip][i] -=unL;
-        }
-        else{
-            a[i][ip] += unL;
-            a[ip][ip] -=unL;
-        }
-        if (where[i] &amp;&amp; where[ip]){ // this is a boundary edge
-            unL = ((q[ip][1] - q[i][1])*u[0] - (q[ip][0] - q[i][0])*u[1])/2;
-            if (unL &gt; 0){
-                a[i][i] += unL;
-                a[ip][ip] += unL;
-            }
-        }
-    }
-    return 1;
-}
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">ip</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span><span class="p">,</span> <span class="n">ipp</span> <span class="o">=</span> <span class="p">(</span><span class="n">ip</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">unL</span> <span class="o">=</span> <span class="o">-</span><span class="p">((</span><span class="n">q</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">q</span><span class="p">[</span><span class="n">ipp</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="o">-</span> <span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">q</span><span class="p">[</span><span class="n">ipp</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">6.</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">unL</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">unL</span><span class="p">;</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span><span class="n">unL</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">ip</span><span class="p">]</span> <span class="o">+=</span> <span class="n">unL</span><span class="p">;</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="n">ip</span><span class="p">]</span> <span class="o">-=</span><span class="n">unL</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">where</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">where</span><span class="p">[</span><span class="n">ip</span><span class="p">]){</span> <span class="c1">// this is a boundary edge</span>
+            <span class="n">unL</span> <span class="o">=</span> <span class="p">((</span><span class="n">q</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">unL</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">unL</span><span class="p">;</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">ip</span><span class="p">][</span><span class="n">ip</span><span class="p">]</span> <span class="o">+=</span> <span class="n">unL</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 <p>It must be inserted into a larger .cpp file, shown in Appendix A, which is the load module linked to <strong>FreeFEM</strong>.</p>

@@ -1862,7 +1862,7 @@
 <h2>Standard types<a class="headerlink" href="#standard-types" title="Permalink to this headline"> </a></h2>
 <div class="section" id="int">
 <h3>int<a class="headerlink" href="#int" title="Permalink to this headline"> </a></h3>
-<p>Integer value (equivalent to <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">long</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
+<p>Integer value (equivalent to <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">long</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
@@ -1881,14 +1881,14 @@
 </div>
 <div class="section" id="real">
 <h3>real<a class="headerlink" href="#real" title="Permalink to this headline"> </a></h3>
-<p>Real value (equivalent to <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">double</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
+<p>Real value (equivalent to <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">double</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="complex">
 <h3>complex<a class="headerlink" href="#complex" title="Permalink to this headline"> </a></h3>
-<p>Complex value (equivalent to two <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">double</span></code> or <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">complex</span><span class="p">&lt;</span><span class="n">double</span><span class="p">&gt;</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
+<p>Complex value (equivalent to two <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="kt">double</span></code> or <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span></code> in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">C</span><span class="o">++</span></code>).</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">complex</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">0.</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
@@ -2109,7 +2109,7 @@ a/b <span class="o">=</span> <span class="o">(</span><span class="m">0</span>.23
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Macro concatenation</p>
-<p>You can use the C concatenation operator <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="c">##</span></code> inside a macro using <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">#</span><span class="cp"></span></code>.</p>
+<p>You can use the C concatenation operator <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="cp">##</span></code> inside a macro using <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">#</span><span class="cp"></span></code>.</p>
 <p>If <cite>Ux</cite> and <cite>Uy</cite> are defined as finite element function, you can define:</p>
 <div class="last highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">macro</span> <span class="n">Grad</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">[</span><span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="o">#</span><span class="kr">x</span><span class="p">),</span> <span class="n">grad</span><span class="p">(</span><span class="n">U</span><span class="o">#</span><span class="kr">y</span><span class="p">)]</span> <span class="c1">// End of macro</span>
 </pre></div>
@@ -2342,7 +2342,7 @@ Hence FE-functions are not defined only by their formula but also by the mesh an
 <li>the first is similar to vector, i.e.&nbsp;array with integer indices</li>
 <li>the second is array with string indices</li>
 </ul>
-<p>In the first case, the size of the array must be known at execution time, and implementation is done with the <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">KN</span><span class="p">&lt;&gt;</span></code> class and all the vector operator of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">KN</span><span class="p">&lt;&gt;</span></code> are implemented.</p>
+<p>In the first case, the size of the array must be known at execution time, and implementation is done with the <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">KN</span><span class="o">&lt;&gt;</span></code> class and all the vector operator of <code class="code cpp docutils literal highlight highlight-cpp"><span></span><span class="n">KN</span><span class="o">&lt;&gt;</span></code> are implemented.</p>
 <p>Arrays can be set like in Matlab or Scilab with the operator <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">::</span></code>, the array generator of <code class="docutils literal highlight highlight-freefem"><span></span><span class="nl">a</span><span class="o">:</span><span class="n">c</span></code> is equivalent to <code class="docutils literal highlight highlight-freefem"><span></span><span class="nl">a</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="n">c</span></code>, and the array set by <code class="docutils literal highlight highlight-freefem"><span></span><span class="nl">a</span><span class="o">:</span><span class="nl">b</span><span class="o">:</span><span class="n">c</span></code> is set to size <span class="math notranslate nohighlight">\(\lfloor |(b-a)/c|+1 \rfloor\)</span> and the value <span class="math notranslate nohighlight">\(i\)</span> is set by <span class="math notranslate nohighlight">\(a + i (b-a)/c\)</span>.</p>
 <p>There are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">,</span><span class="kt">real</span><span class="p">,</span> <span class="kt">complex</span></code> array with, in the third case, two operators (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="kr">im</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="kr">re</span></code>) to generate the real and imaginary real array from the complex array (without copy).</p>
 <div class="admonition note">
