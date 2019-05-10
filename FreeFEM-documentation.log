@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.5.3)  3 MAY 2019 13:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.5.10)  10 MAY 2019 12:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1302,11 +1302,11 @@ File: convectDG.png Graphic file (type png)
  <use convectDG.png>
 Package pdftex.def Info: convectDG.png used on input line 3158.
 (pdftex.def)             Requested size: 207.16286pt x 203.11478pt.
- [46 <./convectCG.png> <./convectDG.png>] [47] [48] [49]
+ [46 <./convectCG.png> <./convectDG.png>] [47]
 LaTeX Font Info:    Font shape `TS1/pcr/m/it' in size <9> not available
-(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 3382.
+(Font)              Font shape `TS1/pcr/m/sl' tried instead on input line 3272.
 
- [50]
+ [48] [49] [50]
 <lame_vector.png, id=988, 836.12375pt x 219.82124pt>
 File: lame_vector.png Graphic file (type png)
  <use lame_vector.png>
@@ -4096,7 +4096,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41325.
  ) 
 Here is how much of TeX's memory you used:
  20899 strings out of 495028
- 378946 string characters out of 6181498
+ 378946 string characters out of 6181497
  947911 words of memory out of 5000000
  21038 multiletter control sequences out of 15000+600000
  84425 words of font info for 122 fonts, out of 8000000 for 9000
@@ -4135,7 +4135,7 @@ are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive
 ts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on FreeFEM-documentation.pdf (649 pages, 34895287 bytes).
+Output written on FreeFEM-documentation.pdf (649 pages, 34898146 bytes).
 PDF statistics:
  6769 PDF objects out of 7423 (max. 8388607)
  5547 compressed objects within 56 object streams

@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{May 03, 2019}
+\date{May 10, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -588,7 +588,7 @@ Install the following dependencies
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 sudo apt\PYGZhy{}get update \PYG{o}{\PYGZam{}\PYGZam{}} sudo apt\PYGZhy{}get upgrade
 sudo apt\PYGZhy{}get install cpp freeglut3\PYGZhy{}dev g++ gcc gfortran \PYG{l+s+se}{\PYGZbs{}}
-    ghostscript m4 make patch pkg\PYGZhy{}config wget python unzip \PYG{l+s+se}{\PYGZbs{}}
+    m4 make patch pkg\PYGZhy{}config wget python unzip \PYG{l+s+se}{\PYGZbs{}}
     libopenblas\PYGZhy{}dev liblapack\PYGZhy{}dev libhdf5\PYGZhy{}dev libgsl\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
     libscotch\PYGZhy{}dev libfftw3\PYGZhy{}dev libarpack2\PYGZhy{}dev libsuitesparse\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
     libmumps\PYGZhy{}seq\PYGZhy{}dev libnlopt\PYGZhy{}dev coinor\PYGZhy{}libipopt\PYGZhy{}dev libgmm++\PYGZhy{}dev libtet1.5\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
@@ -703,7 +703,7 @@ Install the following dependencies:
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 pacman \PYGZhy{}Syu
 pacman \PYGZhy{}S git openmpi gcc\PYGZhy{}fortran wget python
-    freeglut ghostscript m4 make patch gmm
+    freeglut m4 make patch gmm
     blas lapack hdf5 gsl fftw arpack suitesparse
     gnuplot autoconf automake bison flex gdb
     valgrind cmake texlive\PYGZhy{}most
@@ -3264,38 +3264,38 @@ the “mass lumping” parameter forces a quadrature formula with Gauss points a
 The right hand side \sphinxcode{\sphinxupquote{rhs}} is computed by an external C++ function \sphinxcode{\sphinxupquote{MatUpWind0(...)}} which is programmed as :
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-// Computes matrix a on a triangle for the Dervieux FVM
-int fvmP1P0(double q[3][2], // the 3 vertices of a triangle T
-    double u[2], // convection velocity on T
-    double c[3], // the P1 function on T
-    double a[3][3],// output matrix
-    double where[3]) // where\PYGZgt{}0 means we\PYGZsq{}re on the boundary
-\PYGZob{}
-    for (int i = 0; i \PYGZlt{} 3; i++)
-        for(int j = 0; j \PYGZlt{} 3; j++) a[i][j] = 0;
+\PYG{c+c1}{// Computes matrix a on a triangle for the Dervieux FVM}
+\PYG{k+kt}{int} \PYG{n+nf}{fvmP1P0}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{q}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{c+c1}{// the 3 vertices of a triangle T}
+    \PYG{k+kt}{double} \PYG{n}{u}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{c+c1}{// convection velocity on T}
+    \PYG{k+kt}{double} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{c+c1}{// the P1 function on T}
+    \PYG{k+kt}{double} \PYG{n}{a}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,}\PYG{c+c1}{// output matrix}
+    \PYG{k+kt}{double} \PYG{n}{where}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)} \PYG{c+c1}{// where\PYGZgt{}0 means we\PYGZsq{}re on the boundary}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{j}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)} \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
 
-    for(int i = 0; i \PYGZlt{} 3; i++)\PYGZob{}
-        int ip = (i+1)\PYGZpc{}3, ipp = (ip+1)\PYGZpc{}3;
-        double unL = \PYGZhy{}((q[ip][1] + q[i][1] \PYGZhy{} 2*q[ipp][1])*u[0]
-            \PYGZhy{} (q[ip][0] + q[i][0] \PYGZhy{} 2*q[ipp][0])*u[1])/6.;
-        if (unL \PYGZgt{} 0)\PYGZob{}
-            a[i][i] += unL;
-            a[ip][i] \PYGZhy{}=unL;
-        \PYGZcb{}
-        else\PYGZob{}
-            a[i][ip] += unL;
-            a[ip][ip] \PYGZhy{}=unL;
-        \PYGZcb{}
-        if (where[i] \PYGZam{}\PYGZam{} where[ip])\PYGZob{} // this is a boundary edge
-            unL = ((q[ip][1] \PYGZhy{} q[i][1])*u[0] \PYGZhy{} (q[ip][0] \PYGZhy{} q[i][0])*u[1])/2;
-            if (unL \PYGZgt{} 0)\PYGZob{}
-                a[i][i] += unL;
-                a[ip][ip] += unL;
-            \PYGZcb{}
-        \PYGZcb{}
-    \PYGZcb{}
-    return 1;
-\PYGZcb{}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{ip} \PYG{o}{=} \PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{ipp} \PYG{o}{=} \PYG{p}{(}\PYG{n}{ip}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{3}\PYG{p}{;}
+        \PYG{k+kt}{double} \PYG{n}{unL} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{p}{(}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ipp}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{u}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+            \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+} \PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ipp}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{u}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mf}{6.}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{unL} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{unL}\PYG{p}{;}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}}\PYG{o}{=}\PYG{n}{unL}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{else}\PYG{p}{\PYGZob{}}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{unL}\PYG{p}{;}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]} \PYG{o}{\PYGZhy{}}\PYG{o}{=}\PYG{n}{unL}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{where}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{where}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{// this is a boundary edge}
+            \PYG{n}{unL} \PYG{o}{=} \PYG{p}{(}\PYG{p}{(}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{u}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{q}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{u}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{unL} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+                \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{unL}\PYG{p}{;}
+                \PYG{n}{a}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]}\PYG{p}{[}\PYG{n}{ip}\PYG{p}{]} \PYG{o}{+}\PYG{o}{=} \PYG{n}{unL}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
 It must be inserted into a larger .cpp file, shown in Appendix A, which is the load module linked to \sphinxstylestrong{FreeFEM}.
@@ -14793,9 +14793,9 @@ with the following macro definition:
 Where the parallel \sphinxcode{\sphinxupquote{MPIGMRES}} or \sphinxcode{\sphinxupquote{MPICG}} algorithm is just a simple way to solve in parallel the following \(A_i x_i = b_i, i = 1, .., N_p\) by just changing the dot product by reduce the local dot product of all process with the following MPI code:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{template}\PYG{p}{\PYGZlt{}}\PYG{n}{class} \PYG{n}{R}\PYG{p}{\PYGZgt{}} \PYG{n+nb}{R }\PYG{n}{ReduceSum1}\PYG{p}{(}\PYG{n+nb}{R }\PYG{n}{s}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}Comm} \PYG{p}{*}\PYG{n}{comm}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-    \PYG{n+nb}{R }\PYG{n+nb}{r }\PYG{p}{=} \PYG{n}{0}\PYG{p}{;}
-    \PYG{n}{MPI\PYGZus{}Allreduce}\PYG{p}{(}\PYG{p}{\PYGZam{}}\PYG{n}{s}\PYG{p}{,} \PYG{p}{\PYGZam{}}\PYG{n}{r}\PYG{p}{,} \PYG{n}{1}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}TYPE}\PYG{p}{\PYGZlt{}}\PYG{n}{R}\PYG{p}{\PYGZgt{}}\PYG{p}{::}\PYG{n}{TYPE}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}SUM}\PYG{p}{,} \PYG{p}{*}\PYG{n}{comm} \PYG{p}{)}\PYG{p}{;}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{class} \PYG{n+nc}{R}\PYG{o}{\PYGZgt{}} \PYG{n}{R} \PYG{n}{ReduceSum1}\PYG{p}{(}\PYG{n}{R} \PYG{n}{s}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}Comm} \PYG{o}{*}\PYG{n}{comm}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+    \PYG{n}{R} \PYG{n}{r} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{MPI\PYGZus{}Allreduce}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{s}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{r}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}TYPE}\PYG{o}{\PYGZlt{}}\PYG{n}{R}\PYG{o}{\PYGZgt{}}\PYG{o}{:}\PYG{o}{:}\PYG{n}{TYPE}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{MPI\PYGZus{}SUM}\PYG{p}{,} \PYG{o}{*}\PYG{n}{comm} \PYG{p}{)}\PYG{p}{;}
     \PYG{k}{return} \PYG{n}{r}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
@@ -18200,85 +18200,85 @@ The mesh data structure, output of a mesh generation algorithm, refers to the ge
 In this case, the fields are
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{MeshVersionFormatted} \PYG{n}{0}
+\PYG{n}{MeshVersionFormatted} \PYG{l+m+mi}{0}
 
-\PYG{n}{Dimension} \PYG{n+no}{[DIM]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{Dimension} \PYG{p}{[}\PYG{n}{DIM}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{Vertices}
-\PYG{n+no}{[Number of vertices]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n}{X\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{Y\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{(}\PYG{n}{Z\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertices}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{n}{X\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{Y\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{(}\PYG{n}{Z\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{X\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{Y\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{(}\PYG{n}{Z\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nv}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{X\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{Y\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{(}\PYG{n}{Z\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{Edges}
-\PYG{n+no}{[Number of edges]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{edges}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{Vertex1\PYGZus{}ne}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}ne}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}ne}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}ne}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}ne}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}ne}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{Triangles}
-\PYG{n+no}{[Number of triangles]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{triangles}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{Vertex1\PYGZus{}nt}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}nt}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}nt}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nt}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{Quadrilaterals}
-\PYG{n+no}{[Number of Quadrilaterals]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex4\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{Quadrilaterals}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex4\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{Vertex1\PYGZus{}nq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}nq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}nq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Vertex4\PYGZus{}nq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{Vertex1\PYGZus{}nq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex2\PYGZus{}nq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex3\PYGZus{}nq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Vertex4\PYGZus{}nq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Ref\PYGZus{}nq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{Geometry}
-\PYG{n+no}{[File name of geometric support]}\PYG{p}{(}\PYG{n}{char}\PYG{p}{*}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{File} \PYG{n}{name} \PYG{n}{of} \PYG{n}{geometric} \PYG{n}{support}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}
 
    \PYG{n}{VertexOnGeometricVertex}
-   \PYG{n+no}{[Number of vertex on geometric vertex]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{VertexGeometry\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertex} \PYG{n}{on} \PYG{n}{geometric} \PYG{n}{vertex}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{VertexGeometry\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Vertex\PYGZus{}nvg}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{VertexGeometry\PYGZus{}nvg}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}nvg}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{VertexGeometry\PYGZus{}nvg}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
    \PYG{n}{EdgeOnGeometricEdge}
-   \PYG{n+no}{[Number of geometric edge]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-   \PYG{n}{Edge\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{EdgeGeometry\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{geometric} \PYG{n}{edge}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+   \PYG{n}{Edge\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{EdgeGeometry\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Edge\PYGZus{}neg}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{EdgeGeometry\PYGZus{}neg}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{n}{Edge\PYGZus{}neg}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{EdgeGeometry\PYGZus{}neg}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
 \PYG{n}{CrackedEdges}
-\PYG{n+no}{[Number of cracked edges]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n}{Edge1\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Edge2\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{cracked} \PYG{n}{edges}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{n}{Edge1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Edge2\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{Edge1\PYGZus{}nce}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{Edge2\PYGZus{}nce}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{n}{Edge1\PYGZus{}nce}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{Edge2\PYGZus{}nce}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 When the current mesh refers to a previous mesh, we have in addition
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n}{MeshSupportOfVertices}
-\PYG{n+no}{[File name of mesh support]}\PYG{p}{(}\PYG{n}{char}\PYG{p}{*}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{File} \PYG{n}{name} \PYG{n}{of} \PYG{n}{mesh} \PYG{n}{support}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}
 
    \PYG{n}{VertexOnSupportVertex}
-   \PYG{n+no}{[Number of vertex on support vertex]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{VertexSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertex} \PYG{n}{on} \PYG{n}{support} \PYG{n}{vertex}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{VertexSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Vertex\PYGZus{}nvsv}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{VertexSupport\PYGZus{}nvsv}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}nvsv}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{VertexSupport\PYGZus{}nvsv}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
    \PYG{n}{VertexOnSupportEdge}
-   \PYG{n+no}{[Number of vertex on support edge]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{EdgeSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertex} \PYG{n}{on} \PYG{n}{support} \PYG{n}{edge}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{EdgeSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Vertex\PYGZus{}nvse}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{EdgeSupport\PYGZus{}nvse}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvse}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}nvse}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{EdgeSupport\PYGZus{}nvse}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvse}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 
    \PYG{n}{VertexOnSupportTriangle}
-   \PYG{n+no}{[Number of vertex on support triangle]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertex} \PYG{n}{on} \PYG{n}{support} \PYG{n}{triangle}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Vertex\PYGZus{}nvst}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}nvst}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvst}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}nvst}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}nvst}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}nvst}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvst}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}nvst}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 
    \PYG{n}{VertexOnSupportQuadrilaterals}
-   \PYG{n+no}{[Number of vertex on support quadrilaterals]}
-   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertex} \PYG{n}{on} \PYG{n}{support} \PYG{n}{quadrilaterals}\PYG{p}{]}
+   \PYG{n}{Vertex\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
    \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-   \PYG{n}{Vertex\PYGZus{}nvsq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+   \PYG{n}{Vertex\PYGZus{}nvsq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{TriangleSupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{n}{USupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{VSupport\PYGZus{}nvsq}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18310,11 +18310,11 @@ When the current mesh refers to a previous mesh, we have in addition
 The file is formatted such that:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{2} \PYG{n+no}{[Number of solutions]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n+no}{[Number of vertices]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{2}
+\PYG{l+m+mi}{2} \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{solutions}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertices}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{l+m+mi}{2}
 
-\PYG{n}{U\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{U\PYGZus{}1\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}ns\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}ns\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18334,17 +18334,17 @@ The file is formatted such that:
 The file is formatted such that:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{2} \PYG{n+no}{[Number of solutions]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n+no}{[Type 1]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n+no}{[Type ns]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n+no}{[Number of vertices]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{2}
+\PYG{l+m+mi}{2} \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{solutions}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{[}\PYG{n}{Type} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{[}\PYG{n}{Type} \PYG{n}{ns}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertices}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{l+m+mi}{2}
 
-\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}nbv\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}nbv\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
 
-\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}ns}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}1\PYGZus{}ns}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}ns}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}1\PYGZus{}ns}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{U\PYGZus{}1\PYGZus{}nbv\PYGZus{}ns}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}nbv\PYGZus{}ns}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}nbv\PYGZus{}ns}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{type\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}nbv\PYGZus{}ns}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18384,10 +18384,10 @@ A metric file can be of two types, isotropic or anisotropic.
 The isotropic file is such that
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+no}{[Number of vertices]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{1}
-\PYG{n}{h\PYGZus{}0}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertices}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{l+m+mi}{1}
+\PYG{n}{h\PYGZus{}0}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{h\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{h\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18403,10 +18403,10 @@ The metric is \(\mathcal{M}_i = h_i^{-2}I\) where \(I\) is the identity matrix.
 The anisotropic file is such that
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+no}{[Number of vertices]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n}{3}
-\PYG{n}{a11\PYGZus{}0}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{a21\PYGZus{}0}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{a22\PYGZus{}0}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{vertices}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{l+m+mi}{3}
+\PYG{n}{a11\PYGZus{}0}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{a21\PYGZus{}0}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{a22\PYGZus{}0}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{a11\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{a21\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{n}{a22\PYGZus{}nv}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{a11\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{a21\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{n}{a22\PYGZus{}nv}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18576,18 +18576,18 @@ An example of field with the keyword \sphinxcode{\sphinxupquote{SolAtTetrahedra}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n}{SolAtTetrahedra}
-\PYG{n+no}{[Number of tetrahedra]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
-\PYG{n+no}{[Number of solutions]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{n+no}{[Type of solution 1]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n+no}{[Type of soution nt]}\PYG{p}{(}\PYG{n}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{tetrahedra}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
+\PYG{p}{[}\PYG{n}{Number} \PYG{n}{of} \PYG{n}{solutions}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{[}\PYG{n}{Type} \PYG{n}{of} \PYG{n}{solution} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{[}\PYG{n}{Type} \PYG{n}{of} \PYG{n}{soution} \PYG{n}{nt}\PYG{p}{]}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}
 
-\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}nrs\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}nrs\PYGZus{}1\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{U\PYGZus{}1\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{nrs\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{nrs\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}ns\PYGZus{}1}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
 
-\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}nt}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}nrs\PYGZus{}1\PYGZus{}nt}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}1\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}nrs\PYGZus{}1\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-\PYG{n}{U\PYGZus{}1\PYGZus{}ns\PYGZus{}nt}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{nrs\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}ns\PYGZus{}nt}\PYG{p}{(}\PYG{n}{double}\PYG{p}{)}
+\PYG{n}{U\PYGZus{}1\PYGZus{}ns\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{n}{U\PYGZus{}}\PYG{p}{(}\PYG{n}{nrs\PYGZus{}k}\PYG{p}{)}\PYG{n}{\PYGZus{}ns\PYGZus{}nt}\PYG{p}{(}\PYG{k+kt}{double}\PYG{p}{)}
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -18750,50 +18750,50 @@ Add file \sphinxcode{\sphinxupquote{FE\_ADD.cpp}} in directory \sphinxcode{\sphi
 example first to initialize :
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c}{\PYGZsh{}include \PYGZdq{}error.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}rgraph.hpp\PYGZdq{}}
-\PYG{n}{using} \PYG{n}{namespace} \PYG{n}{std}\PYG{p}{;}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}RNM.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}fem.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}FESpace.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}AddNewFE.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}error.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}rgraph.hpp\PYGZdq{}}
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}RNM.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}fem.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}FESpace.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}AddNewFE.h\PYGZdq{}}
 
-\PYG{n}{namespace} \PYG{n}{Fem2D} \PYG{p}{\PYGZob{}} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{\PYGZcb{}}
+\PYG{k}{namespace} \PYG{n}{Fem2D} \PYG{p}{\PYGZob{}} \PYG{p}{.}\PYG{p}{.}\PYG{p}{.} \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
 Then add a class which derive for \sphinxcode{\sphinxupquote{public TypeOfFE}} like:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-class TypeOfFE\PYGZus{}RTortho : public TypeOfFE \PYGZob{} public:
-    static int Data[]; //some numbers
-    TypeOfFE\PYGZus{}RTortho():
-    TypeOfFE(
-        0+3+0,  //nb degree of freedom on element
-        2,      //dimension N of vectorial FE (1 if scalar FE)
-        Data,   //the array data
-        1,      //nb of subdivision for plotting
-        1,      //nb of sub finite element (generaly 1)
-        6,      //number kPi of coef to build the interpolator
-        3,      //number npPi of integration point to build interpolator
-        0       //an array to store the coef \PYGZbs{}alpha\PYGZus{}k to build interpolator
-        //here this array is no constant so we have
-        //to rebuilt for each element
-    )
-    \PYGZob{}
-        const R2 Pt[] = \PYGZob{}R2(0.5, 0.5), R2(0.0, 0.5), R2(0.5, 0.0) \PYGZcb{};
-        // the set of Point in hat\PYGZob{}K\PYGZcb{}
-        for (int p = 0, kk = 0; p \PYGZlt{} 3; p++)\PYGZob{}
-            P\PYGZus{}Pi\PYGZus{}h[p] = Pt[p];
-            for (int j = 0; j \PYGZlt{} 2; j++)
-                pij\PYGZus{}alpha[kk++] = IPJ(p, p, j);
-        \PYGZcb{}
-    \PYGZcb{} //definition of i\PYGZus{}k, p\PYGZus{}k, j\PYGZus{}k in interpolator
+\PYG{k}{class} \PYG{n+nc}{TypeOfFE\PYGZus{}RTortho} \PYG{o}{:} \PYG{k}{public} \PYG{n}{TypeOfFE} \PYG{p}{\PYGZob{}} \PYG{k}{public}\PYG{o}{:}
+    \PYG{k}{static} \PYG{k+kt}{int} \PYG{n}{Data}\PYG{p}{[}\PYG{p}{]}\PYG{p}{;} \PYG{c+c1}{//some numbers}
+    \PYG{n}{TypeOfFE\PYGZus{}RTortho}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{TypeOfFE}\PYG{p}{(}
+        \PYG{l+m+mi}{0}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{o}{+}\PYG{l+m+mi}{0}\PYG{p}{,}  \PYG{c+c1}{//nb degree of freedom on element}
+        \PYG{l+m+mi}{2}\PYG{p}{,}      \PYG{c+c1}{//dimension N of vectorial FE (1 if scalar FE)}
+        \PYG{n}{Data}\PYG{p}{,}   \PYG{c+c1}{//the array data}
+        \PYG{l+m+mi}{1}\PYG{p}{,}      \PYG{c+c1}{//nb of subdivision for plotting}
+        \PYG{l+m+mi}{1}\PYG{p}{,}      \PYG{c+c1}{//nb of sub finite element (generaly 1)}
+        \PYG{l+m+mi}{6}\PYG{p}{,}      \PYG{c+c1}{//number kPi of coef to build the interpolator}
+        \PYG{l+m+mi}{3}\PYG{p}{,}      \PYG{c+c1}{//number npPi of integration point to build interpolator}
+        \PYG{l+m+mi}{0}       \PYG{c+c1}{//an array to store the coef \PYGZbs{}alpha\PYGZus{}k to build interpolator}
+        \PYG{c+c1}{//here this array is no constant so we have}
+        \PYG{c+c1}{//to rebuilt for each element}
+    \PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{const} \PYG{n}{R2} \PYG{n}{Pt}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{R2}\PYG{p}{(}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{l+m+mf}{0.5}\PYG{p}{)}\PYG{p}{,} \PYG{n}{R2}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{l+m+mf}{0.5}\PYG{p}{)}\PYG{p}{,} \PYG{n}{R2}\PYG{p}{(}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)} \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+        \PYG{c+c1}{// the set of Point in hat\PYGZob{}K\PYGZcb{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{kk} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{p} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{p}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+            \PYG{n}{P\PYGZus{}Pi\PYGZus{}h}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Pt}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{p}{;}
+            \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{2}\PYG{p}{;} \PYG{n}{j}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+                \PYG{n}{pij\PYGZus{}alpha}\PYG{p}{[}\PYG{n}{kk}\PYG{o}{+}\PYG{o}{+}\PYG{p}{]} \PYG{o}{=} \PYG{n}{IPJ}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}} \PYG{c+c1}{//definition of i\PYGZus{}k, p\PYGZus{}k, j\PYGZus{}k in interpolator}
 
-    void FB(const bool *watdd, const Mesh \PYGZam{}Th, const Triangle \PYGZam{}K,
-        const R2 \PYGZam{}PHat, RNMK\PYGZus{} \PYGZam{}val) const;
+    \PYG{k+kt}{void} \PYG{n}{FB}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{bool} \PYG{o}{*}\PYG{n}{watdd}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Mesh} \PYG{o}{\PYGZam{}}\PYG{n}{Th}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Triangle} \PYG{o}{\PYGZam{}}\PYG{n}{K}\PYG{p}{,}
+        \PYG{k}{const} \PYG{n}{R2} \PYG{o}{\PYGZam{}}\PYG{n}{PHat}\PYG{p}{,} \PYG{n}{RNMK\PYGZus{}} \PYG{o}{\PYGZam{}}\PYG{n}{val}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
 
-    void Pi\PYGZus{}h\PYGZus{}alpha(const baseFElement \PYGZam{}K, KN\PYGZus{}\PYGZlt{}double\PYGZgt{} \PYGZam{}v) const;
-\PYGZcb{} ;
+    \PYG{k+kt}{void} \PYG{n+nf}{Pi\PYGZus{}h\PYGZus{}alpha}\PYG{p}{(}\PYG{k}{const} \PYG{n}{baseFElement} \PYG{o}{\PYGZam{}}\PYG{n}{K}\PYG{p}{,} \PYG{n}{KN\PYGZus{}}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{p}{;}
 \end{sphinxVerbatim}
 
 where the array data is formed with the concatenation of five array of
@@ -18802,15 +18802,15 @@ size \sphinxcode{\sphinxupquote{NbDoF}} and one array of size \sphinxcode{\sphin
 This array is:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-int TypeOfFE\PYGZus{}RTortho::Data[] = \PYGZob{}
-    //for each df 0, 1, 3:
-    3, 4, 5, //the support of the node of the df
-    0, 0, 0, //the number of the df on the node
-    0, 1, 2, //the node of the df
-    0, 0, 0, //the df come from which FE (generally 0)
-    0, 1, 2, //which are the df on sub FE
-    0, 0
-\PYGZcb{}; //for each component j=0, N\PYGZhy{}1 it give the sub FE associated
+\PYG{k+kt}{int} \PYG{n}{TypeOfFE\PYGZus{}RTortho}\PYG{o}{:}\PYG{o}{:}\PYG{n}{Data}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//for each df 0, 1, 3:}
+    \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{c+c1}{//the support of the node of the df}
+    \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{c+c1}{//the number of the df on the node}
+    \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{c+c1}{//the node of the df}
+    \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{c+c1}{//the df come from which FE (generally 0)}
+    \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{c+c1}{//which are the df on sub FE}
+    \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;} \PYG{c+c1}{//for each component j=0, N\PYGZhy{}1 it give the sub FE associated}
 \end{sphinxVerbatim}
 
 where the support is a number \(0,1,2\) for vertex support, \(3,4,5\) for edge support, and finally \(6\) for element support.
@@ -18835,17 +18835,17 @@ The index \(i,j,k\) of the array \(val(i,j,k)\) correspond to:
 For optimization, this value is computed only if \sphinxcode{\sphinxupquote{whatd{[}k{]}}} is true, and the numbering is defined with
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{enum} \PYG{n}{operatortype} \PYG{p}{\PYGZob{}}
-\PYG{n}{op\PYGZus{}id} \PYG{p}{=} \PYG{n}{0}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dx} \PYG{p}{=} \PYG{n}{1}\PYG{p}{,} \PYG{n}{op\PYGZus{}dy} \PYG{p}{=} \PYG{n}{2}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dxx} \PYG{p}{=} \PYG{n}{3}\PYG{p}{,}\PYG{n}{op\PYGZus{}dyy} \PYG{p}{=} \PYG{n}{4}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dyx} \PYG{p}{=} \PYG{n}{5}\PYG{p}{,}\PYG{n}{op\PYGZus{}dxy} \PYG{p}{=} \PYG{n}{5}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dz} \PYG{p}{=} \PYG{n}{6}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dzz} \PYG{p}{=} \PYG{n}{7}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dzx} \PYG{p}{=} \PYG{n}{8}\PYG{p}{,} \PYG{n}{op\PYGZus{}dxz} \PYG{p}{=} \PYG{n}{8}\PYG{p}{,}
-\PYG{n}{op\PYGZus{}dzy} \PYG{p}{=} \PYG{n}{9}\PYG{p}{,} \PYG{n}{op\PYGZus{}dyz} \PYG{p}{=} \PYG{n}{9}
+\PYG{k}{enum} \PYG{n}{operatortype} \PYG{p}{\PYGZob{}}
+\PYG{n}{op\PYGZus{}id} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dx} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{op\PYGZus{}dy} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dxx} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{,}\PYG{n}{op\PYGZus{}dyy} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dyx} \PYG{o}{=} \PYG{l+m+mi}{5}\PYG{p}{,}\PYG{n}{op\PYGZus{}dxy} \PYG{o}{=} \PYG{l+m+mi}{5}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dz} \PYG{o}{=} \PYG{l+m+mi}{6}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dzz} \PYG{o}{=} \PYG{l+m+mi}{7}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dzx} \PYG{o}{=} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{n}{op\PYGZus{}dxz} \PYG{o}{=} \PYG{l+m+mi}{8}\PYG{p}{,}
+\PYG{n}{op\PYGZus{}dzy} \PYG{o}{=} \PYG{l+m+mi}{9}\PYG{p}{,} \PYG{n}{op\PYGZus{}dyz} \PYG{o}{=} \PYG{l+m+mi}{9}
 \PYG{p}{\PYGZcb{}}\PYG{p}{;}
-\PYG{n}{const} \PYG{n}{int} \PYG{n}{last\PYGZus{}operatortype} \PYG{p}{=} \PYG{n}{10}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{last\PYGZus{}operatortype} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{p}{;}
 \end{sphinxVerbatim}
 \end{sphinxadmonition}
 
@@ -18854,50 +18854,50 @@ For optimization, this value is computed only if \sphinxcode{\sphinxupquote{what
 The shape function:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{void} \PYG{n}{TypeOfFE\PYGZus{}RTortho}\PYG{p}{::}\PYG{n}{FB}\PYG{p}{(}\PYG{n}{const} \PYG{n}{bool} \PYG{p}{*}\PYG{n}{whatd}\PYG{p}{,} \PYG{n}{const} \PYG{n}{Mesh} \PYG{p}{\PYGZam{}}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{const} \PYG{n}{Triangle} \PYG{p}{\PYGZam{}} \PYG{n}{K}\PYG{p}{,}
-    \PYG{n}{const} \PYG{n}{R2} \PYG{p}{\PYGZam{}}\PYG{n}{PHat}\PYG{p}{,}\PYG{n}{RNMK\PYGZus{}} \PYG{p}{\PYGZam{}}\PYG{n}{val}\PYG{p}{)} \PYG{n}{const}
+\PYG{k+kt}{void} \PYG{n}{TypeOfFE\PYGZus{}RTortho}\PYG{o}{:}\PYG{o}{:}\PYG{n}{FB}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{bool} \PYG{o}{*}\PYG{n}{whatd}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Mesh} \PYG{o}{\PYGZam{}}\PYG{n}{Th}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Triangle} \PYG{o}{\PYGZam{}} \PYG{n}{K}\PYG{p}{,}
+    \PYG{k}{const} \PYG{n}{R2} \PYG{o}{\PYGZam{}}\PYG{n}{PHat}\PYG{p}{,}\PYG{n}{RNMK\PYGZus{}} \PYG{o}{\PYGZam{}}\PYG{n}{val}\PYG{p}{)} \PYG{k}{const}
 \PYG{p}{\PYGZob{}}
     \PYG{n}{R2} \PYG{n}{P}\PYG{p}{(}\PYG{n}{K}\PYG{p}{(}\PYG{n}{PHat}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{R2} \PYG{n}{A}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{n}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,} \PYG{n}{B}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{n}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,} \PYG{n}{C}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{n}{2}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{l0} \PYG{p}{=} \PYG{n}{1} \PYG{p}{\PYGZhy{}} \PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{n}{\PYGZhy{}P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{l1} \PYG{p}{=} \PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n}{l2} \PYG{p}{=} \PYG{n}{P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
-    \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{N}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZgt{}}\PYG{p}{=} \PYG{n}{3}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{M}\PYG{p}{(}\PYG{p}{)} \PYG{p}{=}\PYG{p}{=} \PYG{n}{2}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{val} \PYG{p}{=} \PYG{n}{0}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{a} \PYG{p}{=} \PYG{n}{1}\PYG{p}{.}\PYG{p}{/}\PYG{p}{(}\PYG{n}{2}\PYG{p}{*}\PYG{n}{K}\PYG{p}{.}\PYG{n}{area}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{a0} \PYG{p}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{n}{0}\PYG{p}{)} \PYG{p}{*} \PYG{n}{a}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{a1} \PYG{p}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{n}{1}\PYG{p}{)} \PYG{p}{*} \PYG{n}{a}\PYG{p}{;}
-    \PYG{n+nb}{R }\PYG{n}{a2} \PYG{p}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{n}{2}\PYG{p}{)} \PYG{p}{*} \PYG{n}{a}\PYG{p}{;}
+    \PYG{n}{R2} \PYG{n+nf}{A}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,} \PYG{n}{B}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,} \PYG{n}{C}\PYG{p}{(}\PYG{n}{K}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{l0} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{l1} \PYG{o}{=} \PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n}{l2} \PYG{o}{=} \PYG{n}{P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
+    \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{N}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{M}\PYG{p}{(}\PYG{p}{)} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{val} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{a} \PYG{o}{=} \PYG{l+m+mf}{1.}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{K}\PYG{p}{.}\PYG{n}{area}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{a0} \PYG{o}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{*} \PYG{n}{a}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{a1} \PYG{o}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{a}\PYG{p}{;}
+    \PYG{n}{R} \PYG{n}{a2} \PYG{o}{=} \PYG{n}{K}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{a}\PYG{p}{;}
 
-    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{n+no}{[op\PYGZus{}id]}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{p}{/}\PYG{p}{/}\PYG{n}{value} \PYG{n}{of} \PYG{n}{the} \PYG{k}{function}
-        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZgt{}} \PYG{n}{op\PYGZus{}id}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n}{RN\PYGZus{}} \PYG{n}{f0}\PYG{p}{(}\PYG{n}{val}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{,} \PYG{n}{0}\PYG{p}{,}\PYG{n}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{value} \PYG{n}{first} \PYG{n}{component}
-        \PYG{n}{RN\PYGZus{}} \PYG{n}{f1}\PYG{p}{(}\PYG{n}{val}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{,} \PYG{n}{1}\PYG{p}{,}\PYG{n}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{value} \PYG{n}{second} \PYG{n}{component}
-        \PYG{n}{f1}\PYG{p}{[}\PYG{n}{0}\PYG{p}{]} \PYG{p}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{p}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a0}\PYG{p}{;}
-        \PYG{n}{f0}\PYG{p}{[}\PYG{n}{0}\PYG{p}{]} \PYG{p}{=} \PYG{p}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{p}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a0}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{p}{[}\PYG{n}{op\PYGZus{}id}\PYG{p}{]}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//value of the function}
+        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{op\PYGZus{}id}\PYG{p}{)}\PYG{p}{;}
+        \PYG{n}{RN\PYGZus{}} \PYG{n+nf}{f0}\PYG{p}{(}\PYG{n}{val}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}}\PYG{l+s+sc}{.}\PYG{l+s+sc}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//value first component}
+        \PYG{n}{RN\PYGZus{}} \PYG{n+nf}{f1}\PYG{p}{(}\PYG{n}{val}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}}\PYG{l+s+sc}{.}\PYG{l+s+sc}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//value second component}
+        \PYG{n}{f1}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a0}\PYG{p}{;}
+        \PYG{n}{f0}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{A}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a0}\PYG{p}{;}
 
-        \PYG{n}{f1}\PYG{p}{[}\PYG{n}{1}\PYG{p}{]} \PYG{p}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{p}{\PYGZhy{}} \PYG{n}{B}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a1}\PYG{p}{;}
-        \PYG{n}{f0}\PYG{p}{[}\PYG{n}{1}\PYG{p}{]} \PYG{p}{=} \PYG{p}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{p}{\PYGZhy{}} \PYG{n}{B}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a1}\PYG{p}{;}
+        \PYG{n}{f1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{B}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a1}\PYG{p}{;}
+        \PYG{n}{f0}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{B}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a1}\PYG{p}{;}
 
-        \PYG{n}{f1}\PYG{p}{[}\PYG{n}{2}\PYG{p}{]} \PYG{p}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{p}{\PYGZhy{}} \PYG{n}{C}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a2}\PYG{p}{;}
-        \PYG{n}{f0}\PYG{p}{[}\PYG{n}{2}\PYG{p}{]} \PYG{p}{=} \PYG{p}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{p}{\PYGZhy{}} \PYG{n}{C}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{p}{*}\PYG{n}{a2}\PYG{p}{;}
+        \PYG{n}{f1}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{C}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a2}\PYG{p}{;}
+        \PYG{n}{f0}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{C}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{n}{a2}\PYG{p}{;}
     \PYG{p}{\PYGZcb{}}
 
-    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{n+no}{[op\PYGZus{}dx]}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{p}{/}\PYG{p}{/}\PYG{n}{value} \PYG{n}{of} \PYG{n}{the} \PYG{n}{dx} \PYG{n}{of} \PYG{k}{function}
-        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZgt{}} \PYG{n}{op\PYGZus{}dx}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{0}\PYG{p}{,}\PYG{n}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{p}{=} \PYG{n}{a0}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{1}\PYG{p}{,}\PYG{n}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{p}{=} \PYG{n}{a1}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{2}\PYG{p}{,}\PYG{n}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{p}{=} \PYG{n}{a2}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{p}{[}\PYG{n}{op\PYGZus{}dx}\PYG{p}{]}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//value of the dx of function}
+        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{op\PYGZus{}dx}\PYG{p}{)}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{o}{=} \PYG{n}{a0}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{o}{=} \PYG{n}{a1}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{op\PYGZus{}dx}\PYG{p}{)} \PYG{o}{=} \PYG{n}{a2}\PYG{p}{;}
     \PYG{p}{\PYGZcb{}}
-    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{n+no}{[op\PYGZus{}dy]}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZgt{}} \PYG{n}{op\PYGZus{}dy}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{0}\PYG{p}{,}\PYG{n}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{p}{=} \PYG{n}{\PYGZhy{}a0}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{1}\PYG{p}{,}\PYG{n}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{p}{=} \PYG{n}{\PYGZhy{}a1}\PYG{p}{;}
-        \PYG{n}{val}\PYG{p}{(}\PYG{n}{2}\PYG{p}{,}\PYG{n}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{p}{=} \PYG{n}{\PYGZhy{}a2}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{p}{[}\PYG{n}{op\PYGZus{}dy}\PYG{p}{]}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+        \PYG{n}{assert}\PYG{p}{(}\PYG{n}{val}\PYG{p}{.}\PYG{n}{K}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{op\PYGZus{}dy}\PYG{p}{)}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{a0}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{a1}\PYG{p}{;}
+        \PYG{n}{val}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{a2}\PYG{p}{;}
     \PYG{p}{\PYGZcb{}}
 
-    \PYG{k}{for} \PYG{p}{(}\PYG{n}{int} \PYG{n}{i} \PYG{p}{=} \PYG{n}{op\PYGZus{}dy}\PYG{p}{;} \PYG{n}{i} \PYG{p}{\PYGZlt{}} \PYG{n}{last\PYGZus{}operatortype}\PYG{p}{;} \PYG{n}{i}\PYG{p}{+}\PYG{p}{+}\PYG{p}{)}
-        \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{n+no}{[op\PYGZus{}dx]}\PYG{p}{)}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{op\PYGZus{}dy}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{last\PYGZus{}operatortype}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{whatd}\PYG{p}{[}\PYG{n}{op\PYGZus{}dx}\PYG{p}{]}\PYG{p}{)}
             \PYG{n}{assert}\PYG{p}{(}\PYG{n}{op\PYGZus{}dy}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
@@ -18905,15 +18905,15 @@ The shape function:
 The function to defined the coefficient \(\alpha_{k}\):
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{void} \PYG{n}{TypeOfFE\PYGZus{}RT}\PYG{p}{::}\PYG{n}{Pi\PYGZus{}h\PYGZus{}alpha}\PYG{p}{(}\PYG{n}{const} \PYG{n}{baseFElement} \PYG{p}{\PYGZam{}}\PYG{n}{K}\PYG{p}{,} \PYG{n}{KN\PYGZus{}}\PYG{p}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{\PYGZgt{}} \PYG{p}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{n}{const}
+\PYG{k+kt}{void} \PYG{n}{TypeOfFE\PYGZus{}RT}\PYG{o}{:}\PYG{o}{:}\PYG{n}{Pi\PYGZus{}h\PYGZus{}alpha}\PYG{p}{(}\PYG{k}{const} \PYG{n}{baseFElement} \PYG{o}{\PYGZam{}}\PYG{n}{K}\PYG{p}{,} \PYG{n}{KN\PYGZus{}}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{v}\PYG{p}{)} \PYG{k}{const}
 \PYG{p}{\PYGZob{}}
-    \PYG{n}{const} \PYG{n}{Triangle} \PYG{p}{\PYGZam{}}\PYG{n}{T}\PYG{p}{(}\PYG{n}{K}\PYG{p}{.}\PYG{n}{T}\PYG{p}{)}\PYG{p}{;}
+    \PYG{k}{const} \PYG{n}{Triangle} \PYG{o}{\PYGZam{}}\PYG{n}{T}\PYG{p}{(}\PYG{n}{K}\PYG{p}{.}\PYG{n}{T}\PYG{p}{)}\PYG{p}{;}
 
-    \PYG{k}{for} \PYG{p}{(}\PYG{n}{int} \PYG{n}{i} \PYG{p}{=} \PYG{n}{0}\PYG{p}{,} \PYG{n}{k} \PYG{p}{=} \PYG{n}{0}\PYG{p}{;} \PYG{n}{i} \PYG{p}{\PYGZlt{}} \PYG{n}{3}\PYG{p}{;} \PYG{n}{i}\PYG{p}{+}\PYG{p}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}}
         \PYG{n}{R2} \PYG{n}{E}\PYG{p}{(}\PYG{n}{T}\PYG{p}{.}\PYG{n}{Edge}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n+nb}{R }\PYG{n}{signe} \PYG{p}{=} \PYG{n}{T}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{p}{;}
-        \PYG{n}{v}\PYG{p}{[}\PYG{n}{k}\PYG{p}{+}\PYG{p}{+}\PYG{p}{]} \PYG{p}{=} \PYG{n}{signe}\PYG{p}{*}\PYG{n}{E}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
-        \PYG{n}{v}\PYG{p}{[}\PYG{n}{k}\PYG{p}{+}\PYG{p}{+}\PYG{p}{]} \PYG{p}{=} \PYG{n}{\PYGZhy{}signe}\PYG{p}{*}\PYG{n}{E}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+        \PYG{n}{R} \PYG{n}{signe} \PYG{o}{=} \PYG{n}{T}\PYG{p}{.}\PYG{n}{EdgeOrientation}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{p}{;}
+        \PYG{n}{v}\PYG{p}{[}\PYG{n}{k}\PYG{o}{+}\PYG{o}{+}\PYG{p}{]} \PYG{o}{=} \PYG{n}{signe}\PYG{o}{*}\PYG{n}{E}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
+        \PYG{n}{v}\PYG{p}{[}\PYG{n}{k}\PYG{o}{+}\PYG{o}{+}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{signe}\PYG{o}{*}\PYG{n}{E}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
     \PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
@@ -18925,9 +18925,9 @@ Two way, with static or dynamic link so at the end of the file, we add:
 \sphinxstylestrong{With dynamic link} it is very simple (see section {\hyperref[\detokenize{documentation/developers:developersdynamicallink}]{\sphinxcrossref{\DUrole{std,std-ref}{Dynamical link}}}}), just add before the end of \sphinxcode{\sphinxupquote{FEM2d namespace}}:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-   \PYG{n}{static} \PYG{n}{TypeOfFE\PYGZus{}RTortho} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{;}
-   \PYG{n}{static} \PYG{n}{AddNewFE}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{RT0Ortho}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{)}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}} \PYG{p}{/}\PYG{p}{/}\PYG{n}{FEM2d} \PYG{n}{namespace}
+   \PYG{k}{static} \PYG{n}{TypeOfFE\PYGZus{}RTortho} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{;}
+   \PYG{k}{static} \PYG{n+nf}{AddNewFE}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{RT0Ortho}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{c+c1}{//FEM2d namespace}
 \end{sphinxVerbatim}
 
 Try with \sphinxcode{\sphinxupquote{./load.link}} command in \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/master/examples\%2B\%2B-load}{examples++-load/} and see \sphinxcode{\sphinxupquote{BernardiRaugel.cpp}} or \sphinxcode{\sphinxupquote{Morley.cpp}} new finite element examples.
@@ -18935,29 +18935,29 @@ Try with \sphinxcode{\sphinxupquote{./load.link}} command in \sphinxhref{https:/
 \sphinxstylestrong{Otherwise with static link} (for expert only), add
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{p}{/}\PYG{p}{/}\PYG{n}{let} \PYG{n}{the} \PYG{n}{2} \PYG{n}{globals} \PYG{n}{variables}
-\PYG{n}{static} \PYG{n}{TypeOfFE\PYGZus{}RTortho} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{;}
-\PYG{p}{/}\PYG{p}{/}\PYG{n}{the} \PYG{n}{name} \PYG{k}{in} \PYG{n}{freefem}
-\PYG{n}{static} \PYG{n}{ListOfTFE} \PYG{n}{typefemRTOrtho}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{RT0Ortho}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{p}{\PYGZam{}}\PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+c1}{//let the 2 globals variables}
+\PYG{k}{static} \PYG{n}{TypeOfFE\PYGZus{}RTortho} \PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{;}
+\PYG{c+c1}{//the name in freefem}
+\PYG{k}{static} \PYG{n}{ListOfTFE} \PYG{n+nf}{typefemRTOrtho}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{RT0Ortho}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{The\PYGZus{}TypeOfFE\PYGZus{}RTortho}\PYG{p}{)}\PYG{p}{;}
 
-\PYG{p}{/}\PYG{p}{/}\PYG{n}{link} \PYG{n}{with} \PYG{n}{FreeFEM} \PYG{k}{do} \PYG{n}{not} \PYG{n}{work} \PYG{n}{with} \PYG{n}{static} \PYG{n}{library} \PYG{p}{.}\PYG{n}{a}
-\PYG{p}{/}\PYG{p}{/}\PYG{n}{so} \PYG{n}{add} \PYG{n}{a} \PYG{n}{extern} \PYG{n}{name} \PYG{n}{to} \PYG{n}{call} \PYG{k}{in} \PYG{n}{init\PYGZus{}static\PYGZus{}FE}
-\PYG{p}{/}\PYG{p}{/}\PYG{p}{(}\PYG{n}{see} \PYG{k}{end} \PYG{n}{of} \PYG{n}{FESpace}\PYG{p}{.}\PYG{n}{cpp}\PYG{p}{)}
-\PYG{n}{void} \PYG{n}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{p}{\PYGZcb{}}\PYG{p}{;}
-\PYG{p}{/}\PYG{p}{/}\PYG{k}{end}
-\PYG{p}{\PYGZcb{}} \PYG{p}{/}\PYG{p}{/}\PYG{n}{FEM2d} \PYG{n}{namespace}
+\PYG{c+c1}{//link with FreeFEM do not work with static library .a}
+\PYG{c+c1}{//so add a extern name to call in init\PYGZus{}static\PYGZus{}FE}
+\PYG{c+c1}{//(see end of FESpace.cpp)}
+\PYG{k+kt}{void} \PYG{n+nf}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{c+c1}{//end}
+\PYG{p}{\PYGZcb{}} \PYG{c+c1}{//FEM2d namespace}
 \end{sphinxVerbatim}
 
 To inforce in loading of this new finite element, we have to add the two new lines close to the end of files \sphinxcode{\sphinxupquote{src/femlib/FESpace.cpp}} like:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{p}{/}\PYG{p}{/}\PYG{n}{correct} \PYG{n}{problem} \PYG{n}{of} \PYG{n}{static} \PYG{n}{library} \PYG{n}{link} \PYG{n}{with} \PYG{n}{new} \PYG{n}{make} \PYG{n}{file}
-\PYG{n}{void} \PYG{n}{init\PYGZus{}static\PYGZus{}FE}\PYG{p}{(}\PYG{p}{)}
-\PYG{p}{\PYGZob{}} \PYG{p}{/}\PYG{p}{/}\PYG{n}{list} \PYG{n}{of} \PYG{n}{other} \PYG{n}{FE} \PYG{n}{file}\PYG{p}{.}\PYG{n}{o}
-    \PYG{n}{extern} \PYG{n}{void} \PYG{n}{init\PYGZus{}FE\PYGZus{}P2h}\PYG{p}{(}\PYG{p}{)} \PYG{p}{;}
+\PYG{c+c1}{//correct problem of static library link with new make file}
+\PYG{k+kt}{void} \PYG{n+nf}{init\PYGZus{}static\PYGZus{}FE}\PYG{p}{(}\PYG{p}{)}
+\PYG{p}{\PYGZob{}} \PYG{c+c1}{//list of other FE file.o}
+    \PYG{k}{extern} \PYG{k+kt}{void} \PYG{n}{init\PYGZus{}FE\PYGZus{}P2h}\PYG{p}{(}\PYG{p}{)} \PYG{p}{;}
     \PYG{n}{init\PYGZus{}FE\PYGZus{}P2h}\PYG{p}{(}\PYG{p}{)} \PYG{p}{;}
-    \PYG{n}{extern} \PYG{n}{void} \PYG{n}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{new} \PYG{n}{line} \PYG{n}{1}
-    \PYG{n}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{new} \PYG{n}{line} \PYG{n}{2}
+    \PYG{k}{extern} \PYG{k+kt}{void} \PYG{n}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//new line 1}
+    \PYG{n}{init\PYGZus{}FE\PYGZus{}ADD}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//new line 2}
 \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
@@ -18966,21 +18966,21 @@ and now you have to change the makefile.
 First, create a file \sphinxcode{\sphinxupquote{FE\_ADD.cpp}} contening all this code, like in file \sphinxcode{\sphinxupquote{src/femlib/Element\_P2h.cpp}}, after modify the \sphinxcode{\sphinxupquote{Makefile.am}} by adding the name of your file to the variable \sphinxcode{\sphinxupquote{EXTRA\_DIST}} like:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c}{\PYGZsh{} Makefile using Automake + Autoconf}
-\PYG{c}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
-\PYG{c}{\PYGZsh{} Id}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ Makefile using Automake + Autoconf}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ Id}
 
-\PYG{c}{\PYGZsh{} This is not compiled as a separate library because its}
-\PYG{c}{\PYGZsh{} interconnections with other libraries have not been solved.}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ This is not compiled as a separate library because its}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ interconnections with other libraries have not been solved.}
 
-\PYG{n}{EXTRA\PYGZus{}DIST}\PYG{p}{=}\PYG{n}{BamgFreeFem}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{BamgFreeFem}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{CGNL}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{CheckPtr}\PYG{p}{.}\PYG{n+nb}{cpp }       \PYG{p}{\PYGZbs{}}
-\PYG{n}{ConjuguedGradrientNL}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{DOperator}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{Drawing}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{Element\PYGZus{}P2h}\PYG{p}{.}\PYG{n+nb}{cpp }     \PYG{p}{\PYGZbs{}}
-\PYG{n}{Element\PYGZus{}P3}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{Element\PYGZus{}RT}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{fem3}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{fem}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{fem}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{FESpace}\PYG{p}{.}\PYG{n+nb}{cpp }     \PYG{p}{\PYGZbs{}}
-\PYG{n}{FESpace}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{FESpace}\PYG{n}{\PYGZhy{}v0}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{FQuadTree}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{FQuadTree}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{gibbs}\PYG{p}{.}\PYG{n+nb}{cpp }       \PYG{p}{\PYGZbs{}}
-\PYG{n}{glutdraw}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{gmres}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{MatriceCreuse}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{MatriceCreuse\PYGZus{}tpl}\PYG{p}{.}\PYG{n}{hpp}          \PYG{p}{\PYGZbs{}}
-\PYG{n}{MeshPoint}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{mortar}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{mshptg}\PYG{p}{.}\PYG{n+nb}{cpp }\PYG{n}{QuadratureFormular}\PYG{p}{.}\PYG{n+nb}{cpp }             \PYG{p}{\PYGZbs{}}
-\PYG{n}{QuadratureFormular}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RefCounter}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM\PYGZus{}opc}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM\PYGZus{}op}\PYG{p}{.}\PYG{n}{hpp}    \PYG{p}{\PYGZbs{}}
-\PYG{n}{RNM\PYGZus{}tpl}\PYG{p}{.}\PYG{n}{hpp}     \PYG{n}{FE\PYGZus{}ADD}\PYG{p}{.}\PYG{n+nb}{cpp}
+\PYG{n}{EXTRA\PYGZus{}DIST}\PYG{o}{=}\PYG{n}{BamgFreeFem}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{BamgFreeFem}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{CGNL}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{CheckPtr}\PYG{p}{.}\PYG{n}{cpp}        \PYGZbs{}
+\PYG{n}{ConjuguedGradrientNL}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{DOperator}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{Drawing}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{Element\PYGZus{}P2h}\PYG{p}{.}\PYG{n}{cpp}      \PYGZbs{}
+\PYG{n}{Element\PYGZus{}P3}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{Element\PYGZus{}RT}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{fem3}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{fem}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{fem}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{FESpace}\PYG{p}{.}\PYG{n}{cpp}      \PYGZbs{}
+\PYG{n}{FESpace}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{FESpace}\PYG{o}{\PYGZhy{}}\PYG{n}{v0}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{FQuadTree}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{FQuadTree}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{gibbs}\PYG{p}{.}\PYG{n}{cpp}        \PYGZbs{}
+\PYG{n}{glutdraw}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{gmres}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{MatriceCreuse}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{MatriceCreuse\PYGZus{}tpl}\PYG{p}{.}\PYG{n}{hpp}          \PYGZbs{}
+\PYG{n}{MeshPoint}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{mortar}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{mshptg}\PYG{p}{.}\PYG{n}{cpp} \PYG{n}{QuadratureFormular}\PYG{p}{.}\PYG{n}{cpp}              \PYGZbs{}
+\PYG{n}{QuadratureFormular}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RefCounter}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM\PYGZus{}opc}\PYG{p}{.}\PYG{n}{hpp} \PYG{n}{RNM\PYGZus{}op}\PYG{p}{.}\PYG{n}{hpp}    \PYGZbs{}
+\PYG{n}{RNM\PYGZus{}tpl}\PYG{p}{.}\PYG{n}{hpp}     \PYG{n}{FE\PYGZus{}ADD}\PYG{p}{.}\PYG{n}{cpp}
 \end{sphinxVerbatim}
 
 and do in the \sphinxstylestrong{FreeFEM} root directory
@@ -19039,25 +19039,25 @@ The script \sphinxcode{\sphinxupquote{ff-c++}} compiles and makes the link with 
 The following defines a new function call \sphinxcode{\sphinxupquote{myfunction}} with no parameter, but using the \(x,y\) current value.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c}{\PYGZsh{}include \PYGZlt{}iostream\PYGZgt{}}
-\PYG{c}{\PYGZsh{}include \PYGZlt{}cfloat\PYGZgt{}}
-\PYG{n}{using} \PYG{n}{namespace} \PYG{n}{std}\PYG{p}{;}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}error.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}AFunction.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}rgraph.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}RNM.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}fem.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}FESpace.hpp\PYGZdq{}}
-\PYG{c}{\PYGZsh{}include \PYGZdq{}MeshPoint.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZlt{}cfloat\PYGZgt{}}
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}error.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}AFunction.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}rgraph.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}RNM.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}fem.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}FESpace.hpp\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include} \PYG{c+cpf}{\PYGZdq{}MeshPoint.hpp\PYGZdq{}}
 
-\PYG{n}{using} \PYG{n}{namespace} \PYG{n}{Fem2D}\PYG{p}{;}
-\PYG{n}{double} \PYG{n}{myfunction}\PYG{p}{(}\PYG{n}{Stack} \PYG{n}{stack}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-    \PYG{p}{/}\PYG{p}{/}\PYG{n}{to} \PYG{n}{get} \PYG{n}{FreeFEM} \PYG{n}{data}
-    \PYG{n}{MeshPoint} \PYG{p}{\PYGZam{}}\PYG{n+nb}{mp }\PYG{p}{=} \PYG{p}{*}\PYG{n}{MeshPointStack}\PYG{p}{(}\PYG{n}{stack}\PYG{p}{)}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{the} \PYG{n}{struct} \PYG{n}{to} \PYG{n}{get} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{normal}\PYG{p}{,} \PYG{n}{value}
-    \PYG{n}{double} \PYG{n}{x} \PYG{p}{=} \PYG{n}{mp}\PYG{p}{.}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{get} \PYG{n}{the} \PYG{n}{current} \PYG{n}{x} \PYG{n}{value}
-    \PYG{n}{double} \PYG{n}{y} \PYG{p}{=} \PYG{n}{mp}\PYG{p}{.}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;} \PYG{p}{/}\PYG{p}{/}\PYG{n}{get} \PYG{n}{the} \PYG{n}{current} \PYG{n}{y} \PYG{n}{value}
-    \PYG{p}{/}\PYG{p}{/}\PYG{n}{cout} \PYG{p}{\PYGZlt{}}\PYG{p}{\PYGZlt{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{x = }\PYG{l+s+s2}{\PYGZdq{}} \PYG{p}{\PYGZlt{}}\PYG{p}{\PYGZlt{}} \PYG{n}{x} \PYG{p}{\PYGZlt{}}\PYG{p}{\PYGZlt{}} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ y=}\PYG{l+s+s2}{\PYGZdq{}} \PYG{p}{\PYGZlt{}}\PYG{p}{\PYGZlt{}} \PYG{n}{y} \PYG{p}{\PYGZlt{}}\PYG{p}{\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
-    \PYG{k}{return} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{;}
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{Fem2D}\PYG{p}{;}
+\PYG{k+kt}{double} \PYG{n+nf}{myfunction}\PYG{p}{(}\PYG{n}{Stack} \PYG{n}{stack}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//to get FreeFEM data}
+    \PYG{n}{MeshPoint} \PYG{o}{\PYGZam{}}\PYG{n}{mp} \PYG{o}{=} \PYG{o}{*}\PYG{n}{MeshPointStack}\PYG{p}{(}\PYG{n}{stack}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//the struct to get x, y, normal, value}
+    \PYG{k+kt}{double} \PYG{n}{x} \PYG{o}{=} \PYG{n}{mp}\PYG{p}{.}\PYG{n}{P}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;} \PYG{c+c1}{//get the current x value}
+    \PYG{k+kt}{double} \PYG{n}{y} \PYG{o}{=} \PYG{n}{mp}\PYG{p}{.}\PYG{n}{P}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;} \PYG{c+c1}{//get the current y value}
+    \PYG{c+c1}{//cout \PYGZlt{}\PYGZlt{} \PYGZdq{}x = \PYGZdq{} \PYGZlt{}\PYGZlt{} x \PYGZlt{}\PYGZlt{} \PYGZdq{} y=\PYGZdq{} \PYGZlt{}\PYGZlt{} y \PYGZlt{}\PYGZlt{} endl;}
+    \PYG{k}{return} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
@@ -19067,39 +19067,39 @@ All \sphinxstylestrong{FreeFEM} evaluable expression must be a \sphinxcode{\sphi
 By default this expression does not depend of the mesh position, but if they derivate from \sphinxcode{\sphinxupquote{E\_F0mps}} the expression depends of the mesh position, and for more details see \sphinxcite{bibliography:hecht2002}.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-//A class build the link with FreeFEM
-//generaly this class are already in AFunction.hpp
-//but unfortunatly, I have no simple function with no parameter
-//in FreeFEM depending of the mesh
-template\PYGZlt{}class R\PYGZgt{}
-class OneOperator0s : public OneOperator \PYGZob{}
-    //the class to define and evaluate a new function
-    //It must devive from E\PYGZus{}F0 if it is mesh independent
-    //or from E\PYGZus{}F0mps if it is mesh dependent
-    class E\PYGZus{}F0\PYGZus{}F :public E\PYGZus{}F0mps \PYGZob{}
-    public:
-        typedef R (*func)(Stack stack);
-        func f; //the pointeur to the fnction myfunction
-        E\PYGZus{}F0\PYGZus{}F(func ff) : f(ff) \PYGZob{}\PYGZcb{}
-        //the operator evaluation in FreeFEM
-        AnyType operator()(Stack stack) const \PYGZob{}return SetAny\PYGZlt{}R\PYGZgt{}(f(stack));\PYGZcb{}
-    \PYGZcb{};
-    typedef R (*func)(Stack);
-    func f;
-    public:
-        //the function which build the FreeFEM byte code
-        E\PYGZus{}F0 *code(const basicAC\PYGZus{}F0 \PYGZam{}) const \PYGZob{} return new E\PYGZus{}F0\PYGZus{}F(f); \PYGZcb{}
-        //the constructor to say ff is a function without parameter
-        //and returning a R
-        OneOperator0s(func ff) : OneOperator(map\PYGZus{}type[typeid(R).name()]),f(ff)\PYGZob{}\PYGZcb{}
-\PYGZcb{};
+\PYG{c+c1}{//A class build the link with FreeFEM}
+\PYG{c+c1}{//generaly this class are already in AFunction.hpp}
+\PYG{c+c1}{//but unfortunatly, I have no simple function with no parameter}
+\PYG{c+c1}{//in FreeFEM depending of the mesh}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{class} \PYG{n+nc}{R}\PYG{o}{\PYGZgt{}}
+\PYG{k}{class} \PYG{n+nc}{OneOperator0s} \PYG{o}{:} \PYG{k}{public} \PYG{n}{OneOperator} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//the class to define and evaluate a new function}
+    \PYG{c+c1}{//It must devive from E\PYGZus{}F0 if it is mesh independent}
+    \PYG{c+c1}{//or from E\PYGZus{}F0mps if it is mesh dependent}
+    \PYG{k}{class} \PYG{n+nc}{E\PYGZus{}F0\PYGZus{}F} \PYG{o}{:}\PYG{k}{public} \PYG{n}{E\PYGZus{}F0mps} \PYG{p}{\PYGZob{}}
+    \PYG{k}{public}\PYG{o}{:}
+        \PYG{k}{typedef} \PYG{n}{R} \PYG{p}{(}\PYG{o}{*}\PYG{n}{func}\PYG{p}{)}\PYG{p}{(}\PYG{n}{Stack} \PYG{n}{stack}\PYG{p}{)}\PYG{p}{;}
+        \PYG{n}{func} \PYG{n}{f}\PYG{p}{;} \PYG{c+c1}{//the pointeur to the fnction myfunction}
+        \PYG{n}{E\PYGZus{}F0\PYGZus{}F}\PYG{p}{(}\PYG{n}{func} \PYG{n}{ff}\PYG{p}{)} \PYG{o}{:} \PYG{n}{f}\PYG{p}{(}\PYG{n}{ff}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+        \PYG{c+c1}{//the operator evaluation in FreeFEM}
+        \PYG{n}{AnyType} \PYG{k}{operator}\PYG{p}{(}\PYG{p}{)}\PYG{p}{(}\PYG{n}{Stack} \PYG{n}{stack}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}}\PYG{k}{return} \PYG{n}{SetAny}\PYG{o}{\PYGZlt{}}\PYG{n}{R}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{stack}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+    \PYG{k}{typedef} \PYG{n+nf}{R} \PYG{p}{(}\PYG{o}{*}\PYG{n}{func}\PYG{p}{)}\PYG{p}{(}\PYG{n}{Stack}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{func} \PYG{n}{f}\PYG{p}{;}
+    \PYG{k}{public}\PYG{o}{:}
+        \PYG{c+c1}{//the function which build the FreeFEM byte code}
+        \PYG{n}{E\PYGZus{}F0} \PYG{o}{*}\PYG{n}{code}\PYG{p}{(}\PYG{k}{const} \PYG{n}{basicAC\PYGZus{}F0} \PYG{o}{\PYGZam{}}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}} \PYG{k}{return} \PYG{k}{new} \PYG{n}{E\PYGZus{}F0\PYGZus{}F}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+        \PYG{c+c1}{//the constructor to say ff is a function without parameter}
+        \PYG{c+c1}{//and returning a R}
+        \PYG{n}{OneOperator0s}\PYG{p}{(}\PYG{n}{func} \PYG{n}{ff}\PYG{p}{)} \PYG{o}{:} \PYG{n}{OneOperator}\PYG{p}{(}\PYG{n}{map\PYGZus{}type}\PYG{p}{[}\PYG{k}{typeid}\PYG{p}{(}\PYG{n}{R}\PYG{p}{)}\PYG{p}{.}\PYG{n}{name}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}\PYG{n}{f}\PYG{p}{(}\PYG{n}{ff}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 To finish we must add this new function in \sphinxstylestrong{FreeFEM} table, to do that include :
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
- \PYG{n}{void} \PYG{n}{init}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-     \PYG{n}{Global}\PYG{p}{.}\PYG{n}{Add}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{myfunction}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{new} \PYG{n}{OneOperator0s}\PYG{p}{\PYGZlt{}}\PYG{n}{double}\PYG{p}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{myfunction}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+ \PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+     \PYG{n}{Global}\PYG{p}{.}\PYG{n}{Add}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{myfunction}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{(}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{k}{new} \PYG{n}{OneOperator0s}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{myfunction}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
  \PYG{p}{\PYGZcb{}}
  \PYG{n}{LOADFUNC}\PYG{p}{(}\PYG{n}{init}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
@@ -19109,9 +19109,9 @@ It will be called automatically at load module time.
 To compile and link, use the \sphinxcode{\sphinxupquote{ff-c++}} script :
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n}{ff}\PYG{n}{\PYGZhy{}c}\PYG{p}{+}\PYG{p}{+} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n+nb}{cpp}
-\PYG{n}{g}\PYG{p}{+}\PYG{p}{+} \PYG{n}{\PYGZhy{}c} \PYG{n}{\PYGZhy{}g} \PYG{n}{\PYGZhy{}Iinclude} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n+nb}{cpp}
-\PYG{n}{g}\PYG{p}{+}\PYG{p}{+} \PYG{n}{\PYGZhy{}bundle} \PYG{n}{\PYGZhy{}undefined} \PYG{n}{dynamic\PYGZus{}lookup} \PYG{n}{\PYGZhy{}g} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{o} \PYG{n}{\PYGZhy{}o} \PYG{p}{.}\PYG{p}{/}\PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{dylib}
+\PYG{n}{ff}\PYG{o}{\PYGZhy{}}\PYG{n}{c}\PYG{o}{+}\PYG{o}{+} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{cpp}
+\PYG{n}{g}\PYG{o}{+}\PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{o}{\PYGZhy{}}\PYG{n}{g} \PYG{o}{\PYGZhy{}}\PYG{n}{Iinclude} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{cpp}
+\PYG{n}{g}\PYG{o}{+}\PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{n}{bundle} \PYG{o}{\PYGZhy{}}\PYG{n}{undefined} \PYG{n}{dynamic\PYGZus{}lookup} \PYG{o}{\PYGZhy{}}\PYG{n}{g} \PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{o} \PYG{o}{\PYGZhy{}}\PYG{n}{o} \PYG{p}{.}\PYG{o}{/}\PYG{n}{myfunction}\PYG{p}{.}\PYG{n}{dylib}
 \end{sphinxVerbatim}
 
 To try the simple example under Linux or MacOS, do \sphinxcode{\sphinxupquote{FreeFem++-nw load.edp}}
