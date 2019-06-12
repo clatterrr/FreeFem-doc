@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{May 27, 2019}
+\date{Jun 12, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -489,12 +489,17 @@ In order to get the syntax highlighting in Gedit, you have to downlaod the \sphi
 \label{\detokenize{introduction/installation:compilation}}
 
 \subsubsection{Using autotools}
-\label{\detokenize{introduction/installation:using-autotools}}
+\label{\detokenize{introduction/installation:using-autotools}}\begin{quote}
+
+\begin{sphinxadmonition}{note}{Note:}
+2 worked versions of FreeFEM are possible: minimal and full: sequential and without plugins (contains in 3rdparty) full: parallel with available plugins.
+.. note:: We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible \sphinxhref{https://brew.sh}{here}
+\end{sphinxadmonition}
+\end{quote}
+
 
 \paragraph{Compilation on OSX (\textgreater{}=10.13)}
-\label{\detokenize{introduction/installation:compilation-on-osx-10-13}}
-Remark: Blocks of code are shell commands in terminal.
-\begin{enumerate}
+\label{\detokenize{introduction/installation:compilation-on-osx-10-13}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
@@ -502,20 +507,53 @@ Remark: Blocks of code are shell commands in terminal.
 Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the \sphinxhref{https://developer.apple.com/download/more/}{Apple website}
 
 \item {} 
-Install gcc from \sphinxhref{http://hpc.sourceforge.net/}{http://hpc.sourceforge.net}
+Install gcc and gfortran from Homebrew
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-curl \PYGZhy{}O http://prdownloads.sourceforge.net/hpc/gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz?download
-sudo tar zxvf gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz \PYGZhy{}C /
+ brew install gcc
 \end{sphinxVerbatim}
 
 \item {} 
-Install autoconf and automake from \sphinxhref{https://www.macports.org}{macport} or with \sphinxhref{https://brew.sh}{Homebrew}
+To use \sphinxstylestrong{FreeFEM} parallel version, install the \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi} source code
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo port install autoconf
-sudo port install automake
+ curl \PYGZhy{}L https://download.open\PYGZhy{}mpi.org/release/open\PYGZhy{}mpi/v4.0/openmpi\PYGZhy{}4.0.1.tar.gz \PYGZhy{}\PYGZhy{}output openmpi\PYGZhy{}4.0.1.tar.gz
+ tar xf openmpi\PYGZhy{}4.0.1
+ \PYG{n+nb}{cd} openmpi\PYGZhy{}4.0.1/
 \end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+with brew gcc gfortran compilers
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=4,stepnumber=1]
+ ./configure \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/usr/local
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+with LLVM gcc and brew gfortran compilers
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=4,stepnumber=1]
+./configure \PYG{n+nv}{CC}\PYG{o}{=}gcc\PYGZhy{}9 \PYG{n+nv}{CXX}\PYG{o}{=}g++\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/usr/local
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=5,stepnumber=1]
+ make
+ sudo make install
+\end{sphinxVerbatim}
+
+\item {} 
+Install the required libraries for \sphinxstylestrong{FreeFEM}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+brew install m4 git flex bison
+\end{sphinxVerbatim}
+
+\item {} 
+If you want build your own configure according your system, install autoconf and automake from Homebrew (optional, see note in step 10)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 brew install autoconf
@@ -523,15 +561,10 @@ brew install automake
 \end{sphinxVerbatim}
 
 \item {} 
-Install mactex from \sphinxhref{http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg}{ctan}
-
-\item {} 
-Install the \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi} source code
+To use \sphinxstylestrong{FreeFEM} with its plugins, install rom Homebrew suitesparse, hdf5, cmake, wget
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc \PYG{n+nv}{CXX}\PYG{o}{=}/usr/local/bin/g++ \PYG{n+nv}{F77}\PYG{o}{=}/usr/local/bin/gfortran \PYG{n+nv}{FC}\PYG{o}{=}/usr/local/bin/gfortran
-make
-sudo make install
+brew install suitesparse hdf5 cmake wget
 \end{sphinxVerbatim}
 
 \item {} 
@@ -547,34 +580,109 @@ sudo make install
 \end{sphinxVerbatim}
 
 \item {} 
-Install \sphinxhref{https://git-scm.com/download/mac}{git}
-
-\item {} 
-Download the \sphinxstylestrong{FreeFEM} source from the repository
+Download the latest Git for Mac installer \sphinxhref{https://git-scm.com/download/mac}{git} and the \sphinxstylestrong{FreeFEM} source from the repository
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
 \end{sphinxVerbatim}
 
-\end{enumerate}
-\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi )}
-\makeatletter\def\p@enumii{\p@enumi \theenumi )}\makeatother
-\setcounter{enumi}{8}
 \item {} 
-Compile \sphinxstylestrong{FreeFEM}. Don’t forget to update the MacOS SDK version with your own in the command below:
+Configure your source code
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
-autoreconf \PYGZhy{}i
-./configure \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}with\PYGZhy{}suffix=macos\PYGZhy{}10.13\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}without\PYGZhy{}fltk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIRUN=/usr/local/bin/mpirun\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}m64\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}without\PYGZhy{}x\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CC=clang \PYGZhy{}isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CFLAGS=\PYGZhy{}mmacosx\PYGZhy{}version\PYGZhy{}min=10.13\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CXXFLAGS=\PYGZhy{}mmacosx\PYGZhy{}version\PYGZhy{}min=10.13 \PYGZhy{}std=c++11\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}CXX=clang++ \PYGZhy{}isysroot /Applications/Xcode.app//Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}F77=/usr/local/bin/gfortran\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}FC=/usr/local/bin/gfortran\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPICXX=/usr/local/bin/mpic++\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPICC=/usr/local/bin/mpicc\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIFC=/usr/local/bin/mpif90\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}MPIF77=/usr/local/bin/mpif90\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode\PYGZsq{}}
+ \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+ autoreconf \PYGZhy{}i
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf AutoGeneratedFile.tar.gz}}
+\end{sphinxadmonition}
+\begin{itemize}
+\item {} 
+with LLVM gcc and brew gfortran compilers
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+with brew gcc and brew gfortran compilers
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}gcc\PYGZhy{}9 \PYG{n+nv}{CXX}\PYG{o}{=}g++\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9
+\end{sphinxVerbatim}
+
+\item {} 
+Download the 3rd party packages to use FreeFEM plugins
+
+\end{enumerate}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+./3rdparty/getall \PYGZhy{}a
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+All the third party packages have their own licence
+\end{sphinxadmonition}
+\end{quote}
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\setcounter{enumi}{10}
+\item {} 
+Compile petsc \& slepc
+
+\end{enumerate}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
+make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
+\PYG{n+nb}{cd} \PYGZhy{}
+\end{sphinxVerbatim}
+\end{quote}
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\setcounter{enumi}{11}
+\item {} 
+Reconfigure with petsc and slepc
+
+\end{enumerate}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+./reconfigure
+\end{sphinxVerbatim}
+\end{quote}
+\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\setcounter{enumi}{12}
+\item {} 
+Build FreeFEM executable
+
+\end{enumerate}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 make
 make check
 sudo make install
 \end{sphinxVerbatim}
 
-\end{enumerate}
+\begin{sphinxadmonition}{note}{Note:}
+To install FreeFEM, it is recommanded to change the user ID of your installation directory instead of using SUDO.
+\end{sphinxadmonition}
+\end{quote}
 
 
 \paragraph{Compilation on Ubuntu}
