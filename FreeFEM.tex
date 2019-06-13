@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jun 12, 2019}
+\date{Jun 13, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -24010,7 +24010,7 @@ todo
 Build a 2D mesh using border elements.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{k+kt}{mesh} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildmesh}\PYG{p}{(}\PYG{n}{b1}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b2}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b3}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b4}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)}\PYG{p}{,} \PYG{p}{[}\PYG{k+kp}{nbvx}\PYG{o}{=}\PYG{n}{Nbvx}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kp}{fixedborder}\PYG{o}{=}\PYG{n}{FixedBorder}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{mesh} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildmesh}\PYG{p}{(}\PYG{n}{b1}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b2}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b3}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)} \PYG{o}{+} \PYG{n}{b4}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{)}\PYG{p}{,}\PYG{p}{[}\PYG{n}{points}\PYG{o}{=}\PYG{n}{Points}\PYG{p}{]}\PYG{p}{,} \PYG{p}{]}\PYG{p}{[}\PYG{k+kp}{nbvx}\PYG{o}{=}\PYG{n}{Nbvx}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{k+kp}{fixedborder}\PYG{o}{=}\PYG{n}{FixedBorder}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 Parameters:
@@ -24019,6 +24019,13 @@ Parameters:
 \sphinxcode{\sphinxupquote{b1}}, \sphinxcode{\sphinxupquote{b2}}, \sphinxcode{\sphinxupquote{b3}}, \sphinxcode{\sphinxupquote{b4}} (\sphinxcode{\sphinxupquote{border}})
 
 Geometry border, \sphinxcode{\sphinxupquote{b1(nn)}} means \sphinxcode{\sphinxupquote{b1}} border discretized by \sphinxcode{\sphinxupquote{nn}} vertices
+
+\item {} 
+\sphinxcode{\sphinxupquote{points}} (\sphinxcode{\sphinxupquote{real{[}int, int{]}}}) \sphinxstyleemphasis{{[}Optional{]}}
+
+Specify a set of points
+
+The size of \sphinxcode{\sphinxupquote{Points}} array is \sphinxcode{\sphinxupquote{(nbp, 2)}}, containing a set of \sphinxcode{\sphinxupquote{nbp}} points with \sphinxcode{\sphinxupquote{x}} and \sphinxcode{\sphinxupquote{y}} coordinates
 
 \item {} 
 \sphinxcode{\sphinxupquote{nbvx=}} (\sphinxcode{\sphinxupquote{int}}) \sphinxstyleemphasis{{[}Optional{]}}
