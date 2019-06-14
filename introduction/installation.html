@@ -86,12 +86,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#using-cmake-freefem-without-plugins">Using CMake (FreeFEM without plugins)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id1">Compilation on OSX (&gt;=10.13)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id2">Compilation on Ubuntu</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id3">Compilation on Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -1930,39 +1925,13 @@ makepkg -si
 <h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"> </a></h2>
 <div class="section" id="branches-os-status">
 <h3>Branches / OS status<a class="headerlink" href="#branches-os-status" title="Permalink to this headline"> </a></h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="26%" />
-<col width="26%" />
-<col width="26%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Branch</th>
-<th class="head">Linux</th>
-<th class="head">MacOSX</th>
-<th class="head">Windows 7</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Develop</td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-UbuntuAll/"><img alt="Build Status01" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-UbuntuAll" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-UbuntuNo/"><img alt="Build Status02" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-UbuntuNo" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-MacOSXAll/"><img alt="Build Status03" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-MacOSXAll" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-MacOSXNo/"><img alt="Build Status04" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-MacOSXNo" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-Windows7"><img alt="Build Status05" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-Windows7" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-develop-Windows7-32"><img alt="Build Status06" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-develop-Windows7-32" /></a></td>
-</tr>
-<tr class="row-odd"><td>Master</td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-UbuntuAll/"><img alt="Build Status07" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-UbuntuAll" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-UbuntuNo/"><img alt="Build Status08" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-UbuntuNo" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-MacOSXAll/"><img alt="Build Status09" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-MacOSXAll" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-MacOSXNo/"><img alt="Build Status10" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-MacOSXNo" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-Windows7"><img alt="Build Status11" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-Windows7" /></a>
-<a class="reference external" href="https://ci.inria.fr/freefem/job/FreeFem-source-master-Windows7-32"><img alt="Build Status12" src="https://ci.inria.fr/freefem/buildStatus/icon?job=FreeFem-source-master-Windows7-32" /></a></td>
-</tr>
-</tbody>
-</table>
+<p>The Inria Jenkins server is used for the CI/CD integration of the source code.</p>
+<p>Compilation results of the develop branch are here
++—————–+——————-+——————-+——————-+——————-+——————-+
+| Branch          | Linux 16.04       | Linux 18.04       | MacOS 10.10.5     | MacOS 10.13.5     | Windows 7         |
++=================+===================+===================+===================+===================+===================+
+| Develop         | <a href="#id2"><span class="problematic" id="id3">|Build Status01|</span></a>  | <a href="#id4"><span class="problematic" id="id5">|Build Status02|</span></a>  | <a href="#id6"><span class="problematic" id="id7">|Build Status03|</span></a>  | <a href="#id8"><span class="problematic" id="id9">|Build Status04|</span></a>  | <a href="#id10"><span class="problematic" id="id11">|Build Status05|</span></a>  |
++—————–+——————-+——————-+——————-+——————-+——————-+</p>
 </div>
 <div class="section" id="using-autotools">
 <h3>Using autotools<a class="headerlink" href="#using-autotools" title="Permalink to this headline"> </a></h3>
@@ -2388,159 +2357,8 @@ are in <code class="docutils literal highlight highlight-freefem"><span></span>C
 </li>
 </ol>
 </div>
-</div>
-<div class="section" id="using-cmake-freefem-without-plugins">
-<span id="cmake"></span><h3>Using CMake (FreeFEM without plugins)<a class="headerlink" href="#using-cmake-freefem-without-plugins" title="Permalink to this headline"> </a></h3>
 <div class="section" id="id1">
-<h4>Compilation on OSX (&gt;=10.13)<a class="headerlink" href="#id1" title="Permalink to this headline"> </a></h4>
-<ol class="arabic">
-<li><p class="first">Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the <a class="reference external" href="https://developer.apple.com/download/more/">Apple website</a></p>
-</li>
-<li><p class="first">Install gcc from <a class="reference external" href="http://hpc.sourceforge.net/">http://hpc.sourceforge.net</a></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O http://prdownloads.sourceforge.net/hpc/gfortran-8.1-bin.tar.gz?download
-sudo tar zxvf gfortran-8.1-bin.tar.gz -C /
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Install cmake from <a class="reference external" href="https://www.macports.org">macport</a> or with <a class="reference external" href="https://brew.sh">Homebrew</a></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo port install cmake
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install cmake
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Install mactex from <a class="reference external" href="http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg">ctan</a></p>
-</li>
-<li><p class="first">Install the <a class="reference external" href="https://www.open-mpi.org/software/ompi/v4.0/">openmpi</a> source code</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc <span class="nv">CXX</span><span class="o">=</span>/usr/local/bin/g++ <span class="nv">F77</span><span class="o">=</span>/usr/local/bin/gfortran <span class="nv">FC</span><span class="o">=</span>/usr/local/bin/gfortran
-make
-sudo make install
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Install <a class="reference external" href="https://www.gnu.org/software/gsl">gsl</a></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>curl -O https://fr.mirror.babylon.network/gnu/gsl/gsl-2.4.tar.gz
-tar zxvf gsl-2.4.tar.gz
-<span class="nb">cd</span> gsl-2.4
-./configure <span class="nv">CC</span><span class="o">=</span>/usr/local/bin/gcc
-make
-sudo make install
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Install <a class="reference external" href="https://git-scm.com/download/mac">git</a></p>
-</li>
-<li><p class="first">Install SparseSuite and Arpack from <a class="reference external" href="https://www.macports.org">macport</a> or with <a class="reference external" href="https://brew.sh">Homebrew</a></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo port install arpack SuiteSparse
-</pre></div>
-</td></tr></table></div>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install arpack suite-sparse
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Download the <strong>FreeFEM</strong> source from the repository</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Compile <strong>FreeFEM</strong>. Don’t forget to update the MacOS SDK version with your own in the command below:</p>
-</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make
-make <span class="nb">test</span>
-sudo make install
-</pre></div>
-</td></tr></table></div>
-</div></blockquote>
-</div>
-<div class="section" id="id2">
-<h4>Compilation on Ubuntu<a class="headerlink" href="#id2" title="Permalink to this headline"> </a></h4>
-<ol class="arabic">
-<li><p class="first">Install the following dependencies</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
-sudo apt-get install cpp freeglut3-dev g++ gcc gfortran <span class="se">\</span>
-    ghostscript m4 make patch pkg-config wget python unzip <span class="se">\</span>
-    libopenblas-dev liblapack-dev libhdf5-dev libgsl-dev <span class="se">\</span>
-    libscotch-dev libfftw3-dev libarpack2-dev libsuitesparse-dev <span class="se">\</span>
-    libmumps-seq-dev libnlopt-dev coinor-libipopt-dev libgmm++-dev libtet1.5-dev <span class="se">\</span>
-    gnuplot-qt autoconf automake autotools-dev bison flex gdb valgrind git cmake
-
-<span class="c1"># mpich is required for the FreeFem parallel computing version</span>
-sudo apt-get install mpich
-</pre></div>
-</td></tr></table></div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">In the oldest distribution of Ubuntu, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">libgsl</span><span class="o">-</span><span class="n">dev</span></code> does not exists, use <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">libgsl2</span><span class="o">-</span><span class="n">dev</span></code> instead</p>
-</div>
-</li>
-<li><p class="first">Download <strong>FreeFEM</strong> source from the repository</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources.git
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Configure</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> FreeFem-sources
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Build</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make
-</pre></div>
-</td></tr></table></div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If your computer has many threads, you can run <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span></code> in parallel using <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="o">-</span><span class="n">j16</span></code> for 16 threads, for example.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Optionnally, check the compilation with <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">test</span></code></p>
-</div>
-</li>
-<li><p class="first">Install</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo make install
-</pre></div>
-</td></tr></table></div>
-</li>
-</ol>
-</div>
-<div class="section" id="id3">
-<h4>Compilation on Windows<a class="headerlink" href="#id3" title="Permalink to this headline"> </a></h4>
+<h4>Compilation on Windows<a class="headerlink" href="#id1" title="Permalink to this headline"> </a></h4>
 <ol class="arabic">
 <li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">MS MPI v7</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
 </li>
@@ -2679,11 +2497,65 @@ freefem++.pref
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>To show the list of init of <strong>FreeFEM</strong> , do</p>
-<div class="last highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<blockquote>
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FF_VERBOSITY</span><span class="o">=</span><span class="m">100</span><span class="p">;</span>
 ./FreeFem++-nw
 </pre></div>
 </td></tr></table></div>
+</div></blockquote>
+<dl class="last docutils">
+<dt><a href="#id12"><span class="problematic" id="id13">|Build Status01|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6</a></dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/</a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt><a href="#id14"><span class="problematic" id="id15">|Build Status02|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6</a></dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/</a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt><a href="#id16"><span class="problematic" id="id17">|Build Status03|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6</a></dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/</a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt><a href="#id18"><span class="problematic" id="id19">|Build Status04|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6</a></dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/</a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt><a href="#id20"><span class="problematic" id="id21">|Build Status05|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7</a></dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7</a></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -2719,12 +2591,7 @@ freefem++.pref
 <li><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#using-cmake-freefem-without-plugins">Using CMake (FreeFEM without plugins)</a><ul>
-<li><a class="reference internal" href="#id1">Compilation on OSX (&gt;=10.13)</a></li>
-<li><a class="reference internal" href="#id2">Compilation on Ubuntu</a></li>
-<li><a class="reference internal" href="#id3">Compilation on Windows</a></li>
+<li><a class="reference internal" href="#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>

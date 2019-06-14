@@ -86,12 +86,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#compilation-on-windows">Compilation on Windows</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../introduction/installation.html#using-cmake-freefem-without-plugins">Using CMake (FreeFEM without plugins)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#id1">Compilation on OSX (&gt;=10.13)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#id2">Compilation on Ubuntu</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#id3">Compilation on Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../introduction/installation.html#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -1857,6 +1852,7 @@
    <div class="section" id="tutorial">
 <span id="ffddmtutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline"> </a></h1>
 <p>Authors: Pierre-Henri Tournier - Frédéric Nataf - Pierre Jolivet</p>
+<p><strong>We recommend checking the</strong> <a class="reference external" href="../../_static/html/tutorial-slides.html">slides</a> <strong>version of this tutorial.</strong></p>
 <div class="section" id="what-is-ffddm">
 <h2>What is <strong>ffddm</strong> ?<a class="headerlink" href="#what-is-ffddm" title="Permalink to this headline"> </a></h2>
 <ul class="simple">
@@ -2318,7 +2314,7 @@ and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restric
 <p>The simplest way to enrich the one level preconditioner is through the <em>additive coarse correction</em> formula:</p>
 <div class="math notranslate nohighlight">
 \[M^{-1}_2 = M^{-1}_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T\]</div>
-<p><em>How to choose $color{red}{Z}$ ?</em></p>
+<p>How to choose <span class="math notranslate nohighlight">\(\color{red}{Z}\)</span> ?</p>
 </div>
 <div class="section" id="build-the-geneo-coarse-space">
 <h2>Build the GenEO coarse space<a class="headerlink" href="#build-the-geneo-coarse-space" title="Permalink to this headline"> </a></h2>
@@ -2330,7 +2326,7 @@ and <span class="math notranslate nohighlight">\(R_i\)</span> is the <em>restric
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> solve a local generalized eigenvalue problem in each subdomain</p>
 <div class="math notranslate nohighlight">
 \[D_i A_i D_i\, V_{i,k} = \lambda_{i,k}\, A_i^{\text{Neu}} \,V_{i,k}\]</div>
-<p>with <span class="math notranslate nohighlight">\(A_i^{\text{Neu}}\)</span> the local Neumann matrices built from <strong>Varf</strong> (same <strong>Varf</strong> as <a class="reference internal" href="#ffddmtutorialdefineyourproblem"><span class="std std-ref">Step 3</span></a></p>
+<p>with <span class="math notranslate nohighlight">\(A_i^{\text{Neu}}\)</span> the local Neumann matrices built from <strong>Varf</strong> (same <strong>Varf</strong> as <a class="reference internal" href="#ffddmtutorialdefineyourproblem"><span class="std std-ref">Step 3</span></a>)</p>
 <p>The GenEO coarse space is <span class="math notranslate nohighlight">\(\color{red}{Z} = (R_i^T D_i V_{i,k})^{i=1,...,N}_{\lambda_{i,k} \ge \color{blue}{\tau}}\)</span>
 The eigenvectors <span class="math notranslate nohighlight">\(V_{i,k}\)</span> selected to enter the coarse space correspond to eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i,k} \ge \color{blue}{\tau}\)</span>, where <span class="math notranslate nohighlight">\(\color{blue}{\tau}\)</span> is a threshold parameter</p>
 <blockquote>

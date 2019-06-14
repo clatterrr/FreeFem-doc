@@ -86,12 +86,7 @@
 <li class="toctree-l5"><a class="reference internal" href="installation.html#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li class="toctree-l5"><a class="reference internal" href="installation.html#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li class="toctree-l5"><a class="reference internal" href="installation.html#compilation-on-windows">Compilation on Windows</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="installation.html#using-cmake-freefem-without-plugins">Using CMake (FreeFEM without plugins)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="installation.html#id1">Compilation on OSX (&gt;=10.13)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="installation.html#id2">Compilation on Ubuntu</a></li>
-<li class="toctree-l5"><a class="reference internal" href="installation.html#id3">Compilation on Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="installation.html#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -1852,12 +1847,13 @@
 <span id="download"></span><h1>Download FreeFEM<a class="headerlink" href="#download-freefem" title="Permalink to this headline"> </a></h1>
 <div class="section" id="latest-binary-packages">
 <h2>Latest binary packages<a class="headerlink" href="#latest-binary-packages" title="Permalink to this headline"> </a></h2>
+<p>FreeFEM v4.2.1 release runs under MacOS X, Ubuntu and Windows 64 bits.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="30%" />
-<col width="30%" />
-<col width="17%" />
-<col width="22%" />
+<col width="42%" />
+<col width="25%" />
+<col width="14%" />
+<col width="18%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Operating System</th>
@@ -1867,52 +1863,32 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-MacOS_10.13.pkg">MacOS 10.13</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.61</span></code></td>
-<td>445.3 Mb</td>
-<td>May 09, 2018</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/FreeFem++-3.59-MacOS_10.12.pkg">MacOS 10.12</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.59</span></code></td>
-<td>507.1 Mb</td>
-<td>Mar 16, 2018</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-MacOS_10.11.pkg">MacOS 10.11</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.61</span></code></td>
-<td>376.5 Mb</td>
-<td>Jul 12, 2018</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/FreeFem++-3.59-MacOS_10.10.pkg">MacOS 10.10</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.59</span></code></td>
-<td>507.1 Mb</td>
-<td>Mar 16, 2018</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/3.62/freefem_1-3.62_amd64.deb">Ubuntu</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.62</span></code></td>
-<td>27.6 Mb</td>
-<td>Jan 14, 2019</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-win64.exe">Windows 64bits</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.61</span></code></td>
-<td>87.6 Mb</td>
-<td>Jul 12, 2018</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/FreeFem++-3.46-win32.exe">Windows 32bits</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">3.46</span></code></td>
-<td>66.4 Mb</td>
-<td>May 09, 2017</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/freefem++-4.0-beta.tar.gz">Source_4.0</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">4.0</span><span class="o">-</span><span class="n">beta</span></code></td>
-<td>3.2 Mb</td>
-<td>Jan 18, 2019</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/latest">Source</a></td>
-<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">latest</span></code></td>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem++-4.2-1-b-348-MacOS_10.11.pkg">MacOS 10.14</a></td>
 <td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
-<td>Feb 22, 2018</td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/">Older versions</a></td>
+<tr class="row-odd"><td><a class="reference external" href="MacOS10.10_">MacOS 10.10.5 up to 10.13.5</a></td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">4.2.1</span></code></td>
+<td>417 Mb</td>
+<td>May 31, 2019</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="Ubuntu16.04_">Ubuntu 16.04 or higher</a></td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">4.2.1</span></code></td>
+<td>52.6 Mb</td>
+<td>May 31, 2019</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem.-4.2-1-win64.exe">Windows 64bits</a></td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">4.2.1</span></code></td>
+<td>135 Mb</td>
+<td>May 31, 2019</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/FreeFem/FreeFem-sources/archive/v4.2.1.tar.gz">Source_4.2.1</a></td>
+<td><code class="docutils literal highlight highlight-freefem"><span></span><span class="mf">4.2.1</span></code></td>
+<td>3.2 Mb</td>
+<td>May 31, 2019</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://www3.freefem.org/ff++/ftp/">previous releases</a></td>
 <td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
 <td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
 <td><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span></code></td>
@@ -1920,6 +1896,10 @@
 </tbody>
 </table>
 <p>The source code is available on the <a class="reference external" href="https://github.com/FreeFem/FreeFem-sources">FreeFEM GitHub Repository</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The support ended for all releases under Windows 32 bits.</p>
+</div>
 </div>
 <div class="section" id="syntax-highlighters">
 <h2>Syntax highlighters<a class="headerlink" href="#syntax-highlighters" title="Permalink to this headline"> </a></h2>
