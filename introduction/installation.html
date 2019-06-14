@@ -1926,12 +1926,35 @@ makepkg -si
 <div class="section" id="branches-os-status">
 <h3>Branches / OS status<a class="headerlink" href="#branches-os-status" title="Permalink to this headline"> </a></h3>
 <p>The Inria Jenkins server is used for the CI/CD integration of the source code.</p>
-<p>Compilation results of the develop branch are here
-+—————–+——————-+——————-+——————-+——————-+——————-+
-| Branch          | Linux 16.04       | Linux 18.04       | MacOS 10.10.5     | MacOS 10.13.5     | Windows 7         |
-+=================+===================+===================+===================+===================+===================+
-| Develop         | <a href="#id2"><span class="problematic" id="id3">|Build Status01|</span></a>  | <a href="#id4"><span class="problematic" id="id5">|Build Status02|</span></a>  | <a href="#id6"><span class="problematic" id="id7">|Build Status03|</span></a>  | <a href="#id8"><span class="problematic" id="id9">|Build Status04|</span></a>  | <a href="#id10"><span class="problematic" id="id11">|Build Status05|</span></a>  |
-+—————–+——————-+——————-+——————-+——————-+——————-+</p>
+<p>Compilation results of the develop branch are here</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Branch</th>
+<th class="head">Linux 16.04</th>
+<th class="head">Linux 18.04</th>
+<th class="head">MacOS 10.10.5</th>
+<th class="head">MacOS 10.13.5</th>
+<th class="head">Windows 7</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Develop</td>
+<td><img alt="Build Status01" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6:target:https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/" /></td>
+<td><img alt="Build Status02" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6:target:https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/" /></td>
+<td><img alt="Build Status03" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6:target:https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/" /></td>
+<td><img alt="Build Status04" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6:target:https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/" /></td>
+<td><img alt="Build Status05" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7:target:https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7" /></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="using-autotools">
 <h3>Using autotools<a class="headerlink" href="#using-autotools" title="Permalink to this headline"> </a></h3>
@@ -2497,65 +2520,11 @@ freefem++.pref
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>To show the list of init of <strong>FreeFEM</strong> , do</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="last highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FF_VERBOSITY</span><span class="o">=</span><span class="m">100</span><span class="p">;</span>
 ./FreeFem++-nw
 </pre></div>
 </td></tr></table></div>
-</div></blockquote>
-<dl class="last docutils">
-<dt><a href="#id12"><span class="problematic" id="id13">|Build Status01|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6</a></dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/</a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt><a href="#id14"><span class="problematic" id="id15">|Build Status02|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6</a></dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/</a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt><a href="#id16"><span class="problematic" id="id17">|Build Status03|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6</a></dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/</a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt><a href="#id18"><span class="problematic" id="id19">|Build Status04|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6</a></dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/</a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt><a href="#id20"><span class="problematic" id="id21">|Build Status05|</span></a> image:: <a class="reference external" href="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7">https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7</a></dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">target:</th><td class="field-body"><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7">https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7</a></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 </div>
 </div>
 </div>
