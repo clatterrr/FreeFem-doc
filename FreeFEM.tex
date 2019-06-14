@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jun 13, 2019}
+\date{Jun 14, 2019}
 \release{4.0}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -207,12 +207,13 @@ A new internal managment of matrix inside the FreeFEM core have been introduced 
 
 \subsection{Surface Finite Element}
 \label{\detokenize{introduction/new-features:surface-finite-element}}
-Some tools about surface finite element have been introduced in FreeFEM 4.0, more stuff coming in FreeFEM 4.1.
+The release version of the surface finite element is available in FreeFEM 4.2.1. with some examples in examples/3dSurf of the disturb.
+The documentation is being prepared.
 
 
 \subsection{CMake}
 \label{\detokenize{introduction/new-features:cmake}}
-A compilation process is available in FreeFEM 4.1 using CMake, see the {\hyperref[\detokenize{introduction/installation:cmake}]{\sphinxcrossref{\DUrole{std,std-ref}{compilation process}}}}.
+In the process: a compilation process using CMake is under development
 
 
 \section{Download FreeFEM}
@@ -220,6 +221,8 @@ A compilation process is available in FreeFEM 4.1 using CMake, see the {\hyperre
 
 \subsection{Latest binary packages}
 \label{\detokenize{introduction/download:latest-binary-packages}}
+FreeFEM v4.2.1 release runs under MacOS X, Ubuntu and Windows 64 bits.
+
 
 \begin{savenotes}\sphinxattablestart
 \centering
@@ -235,88 +238,52 @@ Size
 Date
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-MacOS\_10.13.pkg}{MacOS 10.13}
-&
-\sphinxcode{\sphinxupquote{3.61}}
-&
-445.3 Mb
-&
-May 09, 2018
-\\
-\hline
-\sphinxhref{http://www3.freefem.org/ff++/ftp/FreeFem++-3.59-MacOS\_10.12.pkg}{MacOS 10.12}
-&
-\sphinxcode{\sphinxupquote{3.59}}
-&
-507.1 Mb
-&
-Mar 16, 2018
-\\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-MacOS\_10.11.pkg}{MacOS 10.11}
-&
-\sphinxcode{\sphinxupquote{3.61}}
-&
-376.5 Mb
-&
-Jul 12, 2018
-\\
-\hline
-\sphinxhref{http://www3.freefem.org/ff++/ftp/FreeFem++-3.59-MacOS\_10.10.pkg}{MacOS 10.10}
-&
-\sphinxcode{\sphinxupquote{3.59}}
-&
-507.1 Mb
-&
-Mar 16, 2018
-\\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/3.62/freefem\_1-3.62\_amd64.deb}{Ubuntu}
-&
-\sphinxcode{\sphinxupquote{3.62}}
-&
-27.6 Mb
-&
-Jan 14, 2019
-\\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/3.61/FreeFem++-3.61-1-win64.exe}{Windows 64bits}
-&
-\sphinxcode{\sphinxupquote{3.61}}
-&
-87.6 Mb
-&
-Jul 12, 2018
-\\
-\hline
-\sphinxhref{http://www3.freefem.org/ff++/ftp/FreeFem++-3.46-win32.exe}{Windows 32bits}
-&
-\sphinxcode{\sphinxupquote{3.46}}
-&
-66.4 Mb
-&
-May 09, 2017
-\\
-\hline
-\sphinxhref{http://www3.freefem.org/ff++/ftp/freefem++-4.0-beta.tar.gz}{Source\_4.0}
-&
-\sphinxcode{\sphinxupquote{4.0-beta}}
-&
-3.2 Mb
-&
-Jan 18, 2019
-\\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/latest}{Source}
-&
-\sphinxcode{\sphinxupquote{latest}}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem++-4.2-1-b-348-MacOS\_10.11.pkg}{MacOS 10.14}
 &
 \sphinxcode{\sphinxupquote{-}}
 &
-Feb 22, 2018
+\sphinxcode{\sphinxupquote{-}}
+&
+\sphinxcode{\sphinxupquote{-}}
 \\
 \hline
-\sphinxhref{http://www3.freefem.org/ff++/ftp/}{Older versions}
+\sphinxhref{MacOS10.10\_}{MacOS 10.10.5 up to 10.13.5}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+417 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{Ubuntu16.04\_}{Ubuntu 16.04 or higher}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+52.6 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem.-4.2-1-win64.exe}{Windows 64bits}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+135 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/archive/v4.2.1.tar.gz}{Source\_4.2.1}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+3.2 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{http://www3.freefem.org/ff++/ftp/}{previous releases}
 &
 \sphinxcode{\sphinxupquote{-}}
 &
@@ -330,6 +297,11 @@ Feb 22, 2018
 \sphinxattableend\end{savenotes}
 
 The source code is available on the \sphinxhref{https://github.com/FreeFem/FreeFem-sources}{FreeFEM GitHub Repository}.
+
+\phantomsection\label{\detokenize{introduction/download:macos-10-14}}
+\begin{sphinxadmonition}{note}{Note:}
+The support ended for all releases under Windows 32 bits.
+\end{sphinxadmonition}
 
 
 \subsection{Syntax highlighters}
@@ -971,168 +943,8 @@ are in \sphinxcode{\sphinxupquote{C:\textbackslash{}msys64\textbackslash{}mingw6
 \end{enumerate}
 
 
-\subsubsection{Using CMake (FreeFEM without plugins)}
-\label{\detokenize{introduction/installation:using-cmake-freefem-without-plugins}}\label{\detokenize{introduction/installation:cmake}}
-
-\paragraph{Compilation on OSX (\textgreater{}=10.13)}
-\label{\detokenize{introduction/installation:id1}}\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi .}
-\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
-\item {} 
-Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the \sphinxhref{https://developer.apple.com/download/more/}{Apple website}
-
-\item {} 
-Install gcc from \sphinxhref{http://hpc.sourceforge.net/}{http://hpc.sourceforge.net}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-curl \PYGZhy{}O http://prdownloads.sourceforge.net/hpc/gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz?download
-sudo tar zxvf gfortran\PYGZhy{}8.1\PYGZhy{}bin.tar.gz \PYGZhy{}C /
-\end{sphinxVerbatim}
-
-\item {} 
-Install cmake from \sphinxhref{https://www.macports.org}{macport} or with \sphinxhref{https://brew.sh}{Homebrew}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo port install cmake
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-brew install cmake
-\end{sphinxVerbatim}
-
-\item {} 
-Install mactex from \sphinxhref{http://mirrors.ctan.org/systems/mac/mactex/MacTeX.pkg}{ctan}
-
-\item {} 
-Install the \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi} source code
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc \PYG{n+nv}{CXX}\PYG{o}{=}/usr/local/bin/g++ \PYG{n+nv}{F77}\PYG{o}{=}/usr/local/bin/gfortran \PYG{n+nv}{FC}\PYG{o}{=}/usr/local/bin/gfortran
-make
-sudo make install
-\end{sphinxVerbatim}
-
-\item {} 
-Install \sphinxhref{https://www.gnu.org/software/gsl}{gsl}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-curl \PYGZhy{}O https://fr.mirror.babylon.network/gnu/gsl/gsl\PYGZhy{}2.4.tar.gz
-tar zxvf gsl\PYGZhy{}2.4.tar.gz
-\PYG{n+nb}{cd} gsl\PYGZhy{}2.4
-./configure \PYG{n+nv}{CC}\PYG{o}{=}/usr/local/bin/gcc
-make
-sudo make install
-\end{sphinxVerbatim}
-
-\item {} 
-Install \sphinxhref{https://git-scm.com/download/mac}{git}
-
-\item {} 
-Install SparseSuite and Arpack from \sphinxhref{https://www.macports.org}{macport} or with \sphinxhref{https://brew.sh}{Homebrew}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo port install arpack SuiteSparse
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-brew install arpack suite\PYGZhy{}sparse
-\end{sphinxVerbatim}
-
-\item {} 
-Download the \sphinxstylestrong{FreeFEM} source from the repository
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
-\end{sphinxVerbatim}
-
-\item {} 
-Compile \sphinxstylestrong{FreeFEM}. Don’t forget to update the MacOS SDK version with your own in the command below:
-
-\end{enumerate}
-\begin{quote}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
-mkdir build
-\PYG{n+nb}{cd} build
-cmake ..
-make
-make \PYG{n+nb}{test}
-sudo make install
-\end{sphinxVerbatim}
-\end{quote}
-
-
-\paragraph{Compilation on Ubuntu}
-\label{\detokenize{introduction/installation:id2}}\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi .}
-\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
-\item {} 
-Install the following dependencies
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo apt\PYGZhy{}get update \PYG{o}{\PYGZam{}\PYGZam{}} sudo apt\PYGZhy{}get upgrade
-sudo apt\PYGZhy{}get install cpp freeglut3\PYGZhy{}dev g++ gcc gfortran \PYG{l+s+se}{\PYGZbs{}}
-    ghostscript m4 make patch pkg\PYGZhy{}config wget python unzip \PYG{l+s+se}{\PYGZbs{}}
-    libopenblas\PYGZhy{}dev liblapack\PYGZhy{}dev libhdf5\PYGZhy{}dev libgsl\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    libscotch\PYGZhy{}dev libfftw3\PYGZhy{}dev libarpack2\PYGZhy{}dev libsuitesparse\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    libmumps\PYGZhy{}seq\PYGZhy{}dev libnlopt\PYGZhy{}dev coinor\PYGZhy{}libipopt\PYGZhy{}dev libgmm++\PYGZhy{}dev libtet1.5\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    gnuplot\PYGZhy{}qt autoconf automake autotools\PYGZhy{}dev bison flex gdb valgrind git cmake
-
-\PYG{c+c1}{\PYGZsh{} mpich is required for the FreeFem parallel computing version}
-sudo apt\PYGZhy{}get install mpich
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{warning}{Warning:}
-In the oldest distribution of Ubuntu, \sphinxcode{\sphinxupquote{libgsl-dev}} does not exists, use \sphinxcode{\sphinxupquote{libgsl2-dev}} instead
-\end{sphinxadmonition}
-
-\item {} 
-Download \sphinxstylestrong{FreeFEM} source from the repository
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
-\end{sphinxVerbatim}
-
-\item {} 
-Configure
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
-mkdir build
-\PYG{n+nb}{cd} build
-cmake ..
-\end{sphinxVerbatim}
-
-\item {} 
-Build
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-make
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{note}{Note:}
-If your computer has many threads, you can run \sphinxcode{\sphinxupquote{make}} in parallel using \sphinxcode{\sphinxupquote{make -j16}} for 16 threads, for example.
-\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}{Note:}
-Optionnally, check the compilation with \sphinxcode{\sphinxupquote{make test}}
-\end{sphinxadmonition}
-
-\item {} 
-Install
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo make install
-\end{sphinxVerbatim}
-
-\end{enumerate}
-
-
 \paragraph{Compilation on Windows}
-\label{\detokenize{introduction/installation:id3}}\begin{enumerate}
+\label{\detokenize{introduction/installation:id1}}\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
@@ -1262,11 +1074,45 @@ The separator between directories must be “;” and not “:” because “:�
 
 \begin{sphinxadmonition}{note}{Note:}
 To show the list of init of \sphinxstylestrong{FreeFEM} , do
+\begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{export} \PYG{n+nv}{FF\PYGZus{}VERBOSITY}\PYG{o}{=}\PYG{l+m}{100}\PYG{p}{;}
 ./FreeFem++\PYGZhy{}nw
 \end{sphinxVerbatim}
+\end{quote}
+\begin{description}
+\item[{{\color{red}\bfseries{}\textbar{}Build Status01\textbar{}} image:: \sphinxurl{https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job6}}] \leavevmode\begin{quote}\begin{description}
+\item[{target}] \leavevmode
+\sphinxurl{https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job6/}
+
+\end{description}\end{quote}
+
+\item[{{\color{red}\bfseries{}\textbar{}Build Status02\textbar{}} image:: \sphinxurl{https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job6}}] \leavevmode\begin{quote}\begin{description}
+\item[{target}] \leavevmode
+\sphinxurl{https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job6/}
+
+\end{description}\end{quote}
+
+\item[{{\color{red}\bfseries{}\textbar{}Build Status03\textbar{}} image:: \sphinxurl{https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job6}}] \leavevmode\begin{quote}\begin{description}
+\item[{target}] \leavevmode
+\sphinxurl{https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job6/}
+
+\end{description}\end{quote}
+
+\item[{{\color{red}\bfseries{}\textbar{}Build Status04\textbar{}} image:: \sphinxurl{https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job6}}] \leavevmode\begin{quote}\begin{description}
+\item[{target}] \leavevmode
+\sphinxurl{https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job6/}
+
+\end{description}\end{quote}
+
+\item[{{\color{red}\bfseries{}\textbar{}Build Status05\textbar{}} image:: \sphinxurl{https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-Windows7}}] \leavevmode\begin{quote}\begin{description}
+\item[{target}] \leavevmode
+\sphinxurl{https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-Windows7}
+
+\end{description}\end{quote}
+
+\end{description}
 \end{sphinxadmonition}
 
 
@@ -20817,7 +20663,7 @@ The simplest way to enrich the one level preconditioner is through the \sphinxst
 \begin{equation*}
 \begin{split}M^{-1}_2 = M^{-1}_1 + \color{red}{Z} E^{-1} \color{red}{Z}^T\end{split}
 \end{equation*}
-\sphinxstyleemphasis{How to choose \$color\{red\}\{Z\}\$ ?}
+How to choose \(\color{red}{Z}\) ?
 
 
 \subsubsection{Build the GenEO coarse space}
@@ -20834,7 +20680,7 @@ The \sphinxstyleemphasis{GenEO} method builds a robust coarse space for highly h
 \begin{equation*}
 \begin{split}D_i A_i D_i\, V_{i,k} = \lambda_{i,k}\, A_i^{\text{Neu}} \,V_{i,k}\end{split}
 \end{equation*}
-with \(A_i^{\text{Neu}}\) the local Neumann matrices built from \sphinxstylestrong{Varf} (same \sphinxstylestrong{Varf} as {\hyperref[\detokenize{documentation/ffddm/tutorial:ffddmtutorialdefineyourproblem}]{\sphinxcrossref{\DUrole{std,std-ref}{Step 3}}}}
+with \(A_i^{\text{Neu}}\) the local Neumann matrices built from \sphinxstylestrong{Varf} (same \sphinxstylestrong{Varf} as {\hyperref[\detokenize{documentation/ffddm/tutorial:ffddmtutorialdefineyourproblem}]{\sphinxcrossref{\DUrole{std,std-ref}{Step 3}}}})
 
 The GenEO coarse space is \(\color{red}{Z} = (R_i^T D_i V_{i,k})^{i=1,...,N}_{\lambda_{i,k} \ge \color{blue}{\tau}}\)
 The eigenvectors \(V_{i,k}\) selected to enter the coarse space correspond to eigenvalues \(\lambda_{i,k} \ge \color{blue}{\tau}\), where \(\color{blue}{\tau}\) is a threshold parameter
