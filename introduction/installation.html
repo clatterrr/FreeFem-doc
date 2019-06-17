@@ -86,7 +86,6 @@
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>
@@ -2305,7 +2304,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <div class="section" id="compilation-on-windows">
 <h4>Compilation on Windows<a class="headerlink" href="#compilation-on-windows" title="Permalink to this headline"> </a></h4>
 <ol class="arabic">
-<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">MS MPI v7</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
+<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=56511">MS MPI v9</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
 </li>
 <li><p class="first">Install <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
 </li>
@@ -2315,37 +2314,47 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <ul class="simple">
 <li>for 64bits system:</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syu
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">source</span> shell mingw64
+
+pacman -Syu
 pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
-    bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
-    findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
-    make man-db git mingw-w64-x86_64-freeglut mingw-w64-x86_64-gcc <span class="se">\</span>
-    mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
-    mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-    msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
-    perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
+  bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
+  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
+  make man-db git mingw-w64-x86_64-freeglut mingw-w64-x86_64-gcc <span class="se">\</span>
+  mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
+  mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
+  msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python <span class="se">\</span>
+  perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which <span class="se">\</span>
+  mingw-w64-x86_64-libmicroutils mingw-w64-x86_64-arpack cmake
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
 <li>for 32bits system:</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syu
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">source</span> shell mingw32
+
+pacman -Syu
 pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
     bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
     findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
@@ -2372,84 +2381,6 @@ autoreconf -i
 ./3rdparty/getall -a
 make -j4
 make check
-make install
-</pre></div>
-</td></tr></table></div>
-<p>The <strong>FreeFEM</strong> executable (and some other like <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffmedit</span></code>, …)
-are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys64\mingw64\bin</code> (or <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys32\mingw32\bin</code>).</p>
-</li>
-</ol>
-</div>
-<div class="section" id="id1">
-<h4>Compilation on Windows<a class="headerlink" href="#id1" title="Permalink to this headline"> </a></h4>
-<ol class="arabic">
-<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">MS MPI v7</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
-</li>
-<li><p class="first">Install <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
-</li>
-<li><p class="first">Start MSYS2 MSYS</p>
-</li>
-<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MSYS2</span> <span class="n">MSYS</span> <span class="n">terminal</span></code> to install dependancies</p>
-<ul class="simple">
-<li>for 64bits system:</li>
-</ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syu
-pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
-    bison bsdcpio bsdtar bzip2 cmake coreutils curl dash file filesystem <span class="se">\</span>
-    findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
-    make man-db git mingw-w64-x86_64-freeglut mingw-w64-x86_64-gcc <span class="se">\</span>
-    mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
-    mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-    msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
-    perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
-</pre></div>
-</td></tr></table></div>
-<ul class="simple">
-<li>for 32bits system:</li>
-</ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syu
-pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
-    bison bsdcpio bsdtar bzip2 cmake coreutils curl dash file filesystem <span class="se">\</span>
-    findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
-    make man-db git mingw-w64-i686-freeglut mingw-w64-i686-gcc <span class="se">\</span>
-    mingw-w64-i686-gcc-fortran mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
-    mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-    msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
-perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code>) to compile <strong>FreeFEM</strong></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
-<span class="nb">cd</span> FreeFem-sources
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make -j4
-make <span class="nb">test</span>
 make install
 </pre></div>
 </td></tr></table></div>
@@ -2560,7 +2491,6 @@ freefem++.pref
 <li><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
 <li><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
 <li><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
-<li><a class="reference internal" href="#id1">Compilation on Windows</a></li>
 </ul>
 </li>
 </ul>
