@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jul 01, 2019}
+\date{Jul 04, 2019}
 \release{v4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -873,15 +873,22 @@ Follow the \sphinxhref{https://software.intel.com/en-us/articles/building-freefe
 
 
 \paragraph{Compilation on Windows}
-\label{\detokenize{introduction/installation:compilation-on-windows}}\begin{enumerate}
+\label{\detokenize{introduction/installation:compilation-on-windows}}
+\begin{sphinxadmonition}{warning}{Warning:}
+The support ended for all releases under Windows 32 bits since the V4.
+\end{sphinxadmonition}
+\begin{enumerate}
 \def\theenumi{\arabic{enumi}}
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \item {} 
-Install \sphinxhref{https://www.microsoft.com/en-us/download/details.aspx?id=56511}{MS MPI v9} (msmpisdk.msi and MSMpiSetup.exe)
+Install \sphinxhref{https://www.microsoft.com/en-us/download/details.aspx?id=56511}{Microsoft MPI v9.0} (msmpisdk.msi and MSMpiSetup.exe)
 
 \item {} 
-Install \sphinxhref{https://www.msys2.org/}{Msys2} (x86\_64 version)
+Install the software \sphinxhref{https://www.msys2.org/}{Msys2} (x86\_64 version)
+
+\item {} 
+Install the version control system \sphinxhref{https://git-scm.com/download/win}{Git} for Windows
 
 \item {} 
 Start MSYS2 MSYS
@@ -890,7 +897,7 @@ Start MSYS2 MSYS
 Open \sphinxcode{\sphinxupquote{MSYS2 MSYS terminal}} to install dependancies
 \begin{itemize}
 \item {} 
-for 64bits system:
+for 64bits system (all \sphinxstyleemphasis{FreeFEM} release version):
 
 \end{itemize}
 
@@ -906,16 +913,16 @@ pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion
   mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}openblas mintty msys2\PYGZhy{}keyring msys2\PYGZhy{}launcher\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
   msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch pax\PYGZhy{}git python \PYG{l+s+se}{\PYGZbs{}}
   perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip util\PYGZhy{}linux which \PYG{l+s+se}{\PYGZbs{}}
-  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}libmicroutils mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}arpack cmake
+  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}libmicroutils mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}arpack cmake python2
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
-for 32bits system:
+for 32bits system (less \sphinxstyleemphasis{FreeFEM} release V4 is not currently supported):
 
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nb}{source} shell mingw32
+*source shell mingw32
 
 pacman \PYGZhy{}Syu
 pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion \PYG{l+s+se}{\PYGZbs{}}
