@@ -2303,16 +2303,22 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 </div>
 <div class="section" id="compilation-on-windows">
 <h4>Compilation on Windows<a class="headerlink" href="#compilation-on-windows" title="Permalink to this headline"> </a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The support ended for all releases under Windows 32 bits since the V4.</p>
+</div>
 <ol class="arabic">
-<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=56511">MS MPI v9</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
+<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=56511">Microsoft MPI v9.0</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
 </li>
-<li><p class="first">Install <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
+<li><p class="first">Install the software <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
+</li>
+<li><p class="first">Install the version control system <a class="reference external" href="https://git-scm.com/download/win">Git</a> for Windows</p>
 </li>
 <li><p class="first">Start MSYS2 MSYS</p>
 </li>
 <li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MSYS2</span> <span class="n">MSYS</span> <span class="n">terminal</span></code> to install dependancies</p>
 <ul class="simple">
-<li>for 64bits system:</li>
+<li>for 64bits system (all <em>FreeFEM</em> release version):</li>
 </ul>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -2336,11 +2342,11 @@ pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</spa
   mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python <span class="se">\</span>
   perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which <span class="se">\</span>
-  mingw-w64-x86_64-libmicroutils mingw-w64-x86_64-arpack cmake
+  mingw-w64-x86_64-libmicroutils mingw-w64-x86_64-arpack cmake python2
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li>for 32bits system:</li>
+<li>for 32bits system (less <em>FreeFEM</em> release V4 is not currently supported):</li>
 </ul>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -2352,7 +2358,7 @@ pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</spa
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">source</span> shell mingw32
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>*source shell mingw32
 
 pacman -Syu
 pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
