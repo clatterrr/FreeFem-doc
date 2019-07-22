@@ -54,54 +54,47 @@
 	<nav id="nav">
 	<div style="display: none;">
 		<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">New features</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="new-features.html#hash-matrix">Hash Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-features.html#surface-finite-element">Surface Finite Element</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-features.html#cmake">CMake</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="download.html">Download FreeFEM</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-installation">Windows installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macos-x-installation">macOS X installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-source-code">Compiling source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compilation-on-osx-10-13">Compilation on OSX (&gt;=10.13)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compilation-on-ubuntu">Compilation on Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#atom">Atom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gedit">Gedit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textmate-2-an-editor-under-macos">Textmate 2, an editor under macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notepad-an-editor-under-windows">Notepad++,an editor under windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emacs-editor">Emacs editor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="download.html">Download</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="download.html#latest-binary-packages">Latest binary packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="download.html#syntax-highlighters">Syntax highlighters</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#easy-installation">Easy installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#windows-binary-installation">Windows binary installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#macos-x-binary-installation">MacOS X binary installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#text-editor">Text-editor</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#atom">Atom</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gedit">Gedit</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#compilation">Compilation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#branches-os-status">Branches / OS status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-autotools">Using autotools</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#compilation-on-osx-10-13">Compilation on OSX (&gt;=10.13)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#compilation-on-ubuntu">Compilation on Ubuntu</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#compilation-on-linux-with-intel-software-tools">Compilation on Linux with Intel software tools</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing.html#bug-report">Bug report</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contributing.html#concerning-the-freefem-documentation">Concerning the <strong>FreeFEM</strong> documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="contributing.html#concerning-the-freefem-compilation-or-usage">Concerning the <strong>FreeFEM</strong> compilation or usage</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="contributing.html#improve-content">Improve content</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="citation.html">Citation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="citation.html#if-you-use-freefem-please-cite-the-following-reference-in-your-work">If you use <strong>FreeFEM</strong>, please cite the following reference in your work:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="citation.html#apa">APA</a></li>
@@ -113,9 +106,18 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#bug-report">Bug report</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contributing.html#concerning-the-freefem-documentation">Concerning the <strong>FreeFEM</strong> documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contributing.html#concerning-the-freefem-compilation-or-usage">Concerning the <strong>FreeFEM</strong> compilation or usage</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#improve-content">Improve content</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Learning by Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/poisson.html">Getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/equationsClassification.html">Classification of partial differential equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/membrane.html">Membrane</a></li>
@@ -180,37 +182,85 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../documentation/mesh-generation.html">Mesh Generation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#generalities">Generalities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#square">Square</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#border">Border</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#multi-border">Multi-Border</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#data-structures-and-read-write-statements-for-a-mesh">Data Structures and Read/Write Statements for a Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-mesh-in-2-dimension"><strong>The type mesh in 2 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#commands-for-2d-mesh-generation">Commands for 2d mesh Generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-square">the command <em>square</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildmesh">the command <em>buildmesh</em></a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#mesh-connectivity-and-data">Mesh Connectivity and data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#the-keyword-triangulate">The keyword “triangulate”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#d-finite-element-space-on-a-boundary">2d Finite Element space on a boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#remeshing">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh">the command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-htriangle">the command <em>hTriangle</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-adaptmesh">the command <em>adaptmesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-trunc">the command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-change">the command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-splitmesh">the command <em>splitmesh</em></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#boundary-fem-spaces-built-as-empty-meshes">Boundary FEM Spaces Built as Empty Meshes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#remeshing">Remeshing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#movemesh">Movemesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#meshing-examples">Meshing Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#regular-triangulation-htriangle">Regular Triangulation: hTriangle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#adaptmesh">Adaptmesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#trunc">Trunc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#splitmesh">Splitmesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#meshing-examples">Meshing Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#how-to-change-the-label-of-elements-and-border-elements-of-a-mesh">How to change the label of elements and border elements of a mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#mesh-in-three-dimensions">Mesh in three dimensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#cube">Cube</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#read-write-statements-for-a-mesh-in-3d">Read/Write Statements for a Mesh in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-mesh3-in-3-dimension"><strong>The type mesh3 in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#d-mesh-generation">3d mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-cube">the command <em>cube</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildlayers">the command <em>buildlayers</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id3">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id4">the command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#meshgenerationtrunc">the command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh3">the command <em>movemesh3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-extract">the command <em>extract</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildsurface">the command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh23">the command <em>movemesh23</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#d-meshing-examples">3d Meshing examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-meshs-in-3-dimension"><strong>The type meshS in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#commands-for-3d-surface-mesh-generation">Commands for 3d surface mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-square3">the command <em>square3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#surface-mesh-builders">surface mesh builders</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id6">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id7">the command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemeshs">the command <em>movemeshS</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">the command <em>change</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#link-with-a-mesh3">Link with a mesh3</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-gamma">the command <em>Gamma</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">the command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-savesurfacemesh">the command <em>savesurfacemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#reconstruct-refine-a-three-dimensional-mesh-with-tetgen">Reconstruct/Refine a three dimensional mesh with TetGen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#moving-mesh-in-three-dimensions">Moving mesh in three dimensions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#layer-mesh">Layer mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#reconstruct-refine-a-3d-mesh-with-tetgen">Reconstruct/Refine a 3d mesh with TetGen</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#meshing-examples-1">Meshing examples</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#build-a-3d-mesh-of-a-cube-with-a-balloon">Build a 3d mesh of a cube with a balloon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#read-write-statements-for-meshes">Read/Write Statements for meshes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#d-case">2d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#format-of-mesh-data">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id20">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id21">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id22">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#medit">Medit</a></li>
@@ -222,12 +272,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../documentation/finite-element.html">Finite element</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#use-of-freefem-fespace-in-2d">Use of freefem fespace in 2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#list-of-the-types-of-finite-elements">List of the types of finite elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#use-of-fespace-in-2d">Use of fespace in 2D</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#use-of-fespace-in-3d">Use of fespace in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#use-of-fespace-in-surface-3d">Use of fespace in surface 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#finite-element-functions">Finite Element functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#lagrangian-finite-elements">Lagrangian Finite Elements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/finite-element.html#p0-element">P0-element</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/finite-element.html#p1-element">P1-element</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/finite-element.html#p2-element">P2-element</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#surface-lagrangian-finite-elements">Surface Lagrangian Finite Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/finite-element.html#definition-of-the-surface-p1-lagragian-element">Definition of the surface P1 Lagragian element</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../documentation/finite-element.html#p1-nonconforming-element">P1 Nonconforming Element</a></li>
@@ -1815,22 +1872,24 @@
 	<div id="subnav">
 	<div style="display: none">
 		<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">New features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html">Download FreeFEM</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#easy-installation">Easy installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#text-editor">Text-editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compilation">Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-binaries-package">Using binaries package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-source-code">Compiling source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="citation.html">Citation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Learning by Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">Language references</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Mathematical Models</a></li>
@@ -1846,16 +1905,22 @@
 		
    <div class="section" id="installation-guide">
 <h1>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline"> </a></h1>
-<div class="section" id="easy-installation">
-<h2>Easy installation<a class="headerlink" href="#easy-installation" title="Permalink to this headline"> </a></h2>
-<p>First, go to the <a class="reference internal" href="download.html#download"><span class="std std-ref">download page</span></a> and choose your platform: Linux, MacOS or Windows.</p>
+<p>To use FreeFEM, two installation methods are available: user access (binarie package) and access developers (from the source code).
+Follow the section corresponding to your type of installation.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="section" id="using-binaries-package">
+<h2>Using binaries package<a class="headerlink" href="#using-binaries-package" title="Permalink to this headline"> </a></h2>
+<p>First, open the following web page <a class="reference internal" href="download.html#download"><span class="std std-ref">download page</span></a> and choose your platform: Linux, MacOS or Windows.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Binary packages are available for Microsoft Windows, MacOS and some Linux distributions.</p>
 </div>
 <p>Install <strong>FreeFEM</strong> by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="kp">bin</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">freefem</span><span class="o">++</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ff</span><span class="o">++</span></code></p>
-<div class="section" id="windows-binary-installation">
-<h3>Windows binary installation<a class="headerlink" href="#windows-binary-installation" title="Permalink to this headline"> </a></h3>
+<div class="section" id="windows-installation">
+<h3>Windows installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline"> </a></h3>
 <p>First download the windows installation executable, then double click to install <strong>FreeFEM</strong>.</p>
 <p>In most cases just answer yes (or type return) to all questions.</p>
 <p>Otherwise in the Additional Task windows, check the box “Add application directory to your system path.” This is required otherwise the program <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code> will not be found.</p>
@@ -1867,10 +1932,19 @@
 <p>where <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span></code> is the version of the files (for example 3.59).</p>
 <p>By default, the installed files are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\Programs Files\FreeFem++</code>. In this directory, you have all the <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="n">dll</span></code> files and other applications: <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++-</span><span class="n">nw</span><span class="p">.</span><span class="n">exe</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code>, … The syntax for the command-line tools are the same as those of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="p">.</span><span class="n">exe</span></code>.</p>
 </div>
-<div class="section" id="macos-x-binary-installation">
-<h3>MacOS X binary installation<a class="headerlink" href="#macos-x-binary-installation" title="Permalink to this headline"> </a></h3>
-<p>Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">+</span><span class="p">.</span><span class="n">app</span></code> application in the <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">Applications</span></code> directory.</p>
+<div class="section" id="macos-x-installation">
+<h3>macOS X installation<a class="headerlink" href="#macos-x-installation" title="Permalink to this headline"> </a></h3>
+<p>Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span><span class="p">.</span><span class="n">app</span></code> application in the <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">Applications</span></code> directory.</p>
 <p>If you want terminal access to <strong>FreeFEM</strong> just copy the file <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span></code> in a directory of your <code class="code bash docutils literal highlight highlight-bash"><span></span><span class="nv">$PATH</span></code> shell environment variable.</p>
+</div>
+<div class="section" id="ubuntu-binary-installation">
+<h3>Ubuntu binary installation<a class="headerlink" href="#ubuntu-binary-installation" title="Permalink to this headline"> </a></h3>
+<p>Beforehand, install the following dependances libraries using the apt tool:</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get install libhdf5-dev libsuitesparse-dev libarpack2-dev
+</pre></div>
+</td></tr></table></div>
+<p>Download the package FreeFEM .deb, install it by double clicking on the icon of the file.
+FreeFEM is directly available in your terminal by the command “FreeFem++”.</p>
 </div>
 <div class="section" id="arch-aur-package">
 <h3>Arch AUR package<a class="headerlink" href="#arch-aur-package" title="Permalink to this headline"> </a></h3>
@@ -1889,83 +1963,13 @@ makepkg -si
 </div>
 </div>
 </div>
-<div class="section" id="text-editor">
-<h2>Text-editor<a class="headerlink" href="#text-editor" title="Permalink to this headline"> </a></h2>
-<div class="section" id="atom">
-<h3>Atom<a class="headerlink" href="#atom" title="Permalink to this headline"> </a></h3>
-<p>In order to get the syntax highlighting in <a class="reference external" href="https://atom.io/">Atom</a>, you have to install the <a class="reference external" href="https://atom.io/packages/language-freefem-official">FreeFEM language support</a>.</p>
-<p>You can do it directly in Atom: Edit -&gt; Preferences -&gt; Install, and search for <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">language</span><span class="o">-</span><span class="n">freefem</span><span class="o">-</span><span class="n">offical</span></code>.</p>
-<p>To launch scripts directly from Atom, you have to install the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">atom</span><span class="o">-</span><span class="n">runner</span></code> package. Once installed, modify the Atom configuration file (Edit -&gt; Config…) to have something like that:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s2">&quot;*&quot;</span>:
-   ...
-
-   runner:
-      extensions:
-         edp: <span class="s2">&quot;FreeFem++&quot;</span>
-      scopes:
-         <span class="s2">&quot;Freefem++&quot;</span>: <span class="s2">&quot;FreeFem++&quot;</span>
-</pre></div>
-</td></tr></table></div>
-<p>Reboot Atom, and use Alt+R to run a FreeFem++ script.</p>
-</div>
-<div class="section" id="gedit">
-<h3>Gedit<a class="headerlink" href="#gedit" title="Permalink to this headline"> </a></h3>
-<p>In order to get the syntax highlighting in Gedit, you have to downlaod the <a class="reference external" href="https://github.com/FreeFem/FreeFem-parser-gedit">Gedit parser</a> and copy it in <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">gtksourceview</span><span class="o">-</span><span class="mf">3.0</span><span class="o">/</span><span class="n">language</span><span class="o">-</span><span class="n">specs</span><span class="o">/</span></code>.</p>
-</div>
-</div>
-<div class="section" id="compilation">
-<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"> </a></h2>
-<div class="section" id="branches-os-status">
-<h3>Branches / OS status<a class="headerlink" href="#branches-os-status" title="Permalink to this headline"> </a></h3>
-<p>The Inria Jenkins server is used for the CI/CD integration of the source code.</p>
-<p>Compilation results of the develop branch are here</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="15%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Branch</th>
-<th class="head">Linux 16.04</th>
-<th class="head">Linux 18.04</th>
-<th class="head">MacOS 10.10.5</th>
-<th class="head">MacOS 10.13.5</th>
-<th class="head">Windows 7</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Develop</td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job5/"><img alt="Build Status01" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job5/"><img alt="Build Status02" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job5/"><img alt="Build Status03" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job5/"><img alt="Build Status04" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7"><img alt="Build Status05" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7" /></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="using-autotools">
-<h3>Using autotools<a class="headerlink" href="#using-autotools" title="Permalink to this headline"> </a></h3>
+<div class="section" id="compiling-source-code">
+<h2>Compiling source code<a class="headerlink" href="#compiling-source-code" title="Permalink to this headline"> </a></h2>
 <blockquote>
-<div><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">2 worked versions of FreeFEM are possible: minimal and full: sequential and without plugins (contains in 3rdparty) full: parallel with available plugins.
-.. note:: We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible <a class="reference external" href="https://brew.sh">here</a></p>
-</div>
-</div></blockquote>
+<div>2 worked versions of FreeFEM are possible: minimal and full - 1/ sequential and without plugins (contains in 3rdparty) 2/ full: parallel with plugins.
+.. note:: We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible <a class="reference external" href="https://brew.sh">here</a></div></blockquote>
 <div class="section" id="compilation-on-osx-10-13">
-<h4>Compilation on OSX (&gt;=10.13)<a class="headerlink" href="#compilation-on-osx-10-13" title="Permalink to this headline"> </a></h4>
+<h3>Compilation on OSX (&gt;=10.13)<a class="headerlink" href="#compilation-on-osx-10-13" title="Permalink to this headline"> </a></h3>
 <ol class="arabic">
 <li><p class="first">Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the <a class="reference external" href="https://developer.apple.com/download/more/">Apple website</a></p>
 </li>
@@ -2073,46 +2077,54 @@ sudo make install
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="11">
-<li>Compile petsc &amp; slepc</li>
+<li>If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</li>
 </ol>
 <blockquote>
 <div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
 make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <span class="nb">cd</span> -
+./reconfigure
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
 <ol class="arabic simple" start="12">
-<li>Reconfigure with petsc and slepc</li>
+<li>Build your <strong>FreeFEM</strong> library and executable</li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./reconfigure
+<div><blockquote>
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
+make check
+
+    .. note:: <span class="sb">``</span>make check<span class="sb">``</span> is optionnally, but advise to check the validity of your **FreeFEM** building
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
-<ol class="arabic simple" start="13">
-<li>Build FreeFEM executable</li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make
-make check
-sudo make install
-</pre></div>
-</td></tr></table></div>
-<div class="admonition note">
+<ol class="arabic" start="13">
+<li><dl class="first docutils">
+<dt>Install the <strong>FreeFEM</strong> apllication</dt>
+<dd><p class="first">sudo make install</p>
+<blockquote class="last">
+<div><div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">To install FreeFEM, it is recommanded to change the user ID of your installation directory instead of using SUDO.</p>
 </div>
 </div></blockquote>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="section" id="compilation-on-ubuntu">
-<h4>Compilation on Ubuntu<a class="headerlink" href="#compilation-on-ubuntu" title="Permalink to this headline"> </a></h4>
+<h3>Compilation on Ubuntu<a class="headerlink" href="#compilation-on-ubuntu" title="Permalink to this headline"> </a></h3>
 <ol class="arabic">
-<li><p class="first">Install the following dependencies</p>
+<li><p class="first">Install the following packages on you system</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2173,34 +2185,31 @@ autoreconf -i
 <p class="last">All the third party packages have their own licence</p>
 </div>
 </li>
-<li><p class="first">Compile petsc &amp; slepc</p>
+<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
 make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <span class="nb">cd</span> -
+./reconfigure
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Reconfigure with petsc and slepc</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./reconfigure
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Build</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make
+<li><p class="first">Build your <strong>FreeFEM</strong> library and executable</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
+make check
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If your computer has many threads, you can run <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span></code> in parallel using <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="o">-</span><span class="n">j16</span></code> for 16 threads, for example.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Optionnally, check the compilation with <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">check</span></code></p>
+<p class="last"><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">check</span></code> is optionnally, but advise to check the validity of your <strong>FreeFEM</strong> building</p>
 </div>
 </li>
-<li><p class="first">Install</p>
+</ol>
+<ol class="arabic" start="9">
+<li><p class="first">Install the executable</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo make install
 </pre></div>
 </td></tr></table></div>
@@ -2208,7 +2217,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 </ol>
 </div>
 <div class="section" id="compilation-on-arch-linux">
-<h4>Compilation on Arch Linux<a class="headerlink" href="#compilation-on-arch-linux" title="Permalink to this headline"> </a></h4>
+<h3>Compilation on Arch Linux<a class="headerlink" href="#compilation-on-arch-linux" title="Permalink to this headline"> </a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">As Arch is in rolling release, the following information can be quickly outdated !</p>
@@ -2272,12 +2281,12 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Reconfigure with petsc and slepc</p>
+<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./reconfigure
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Build</p>
+<li><p class="first">Compile the <strong>FreeFEM</strong> source</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make
 </pre></div>
 </td></tr></table></div>
@@ -2290,7 +2299,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <p class="last">Optionnally, check the compilation with <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">check</span></code></p>
 </div>
 </li>
-<li><p class="first">Install</p>
+<li><p class="first">Install the <strong>FreeFEM</strong> application</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo make install
 </pre></div>
 </td></tr></table></div>
@@ -2298,47 +2307,64 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 </ol>
 </div>
 <div class="section" id="compilation-on-linux-with-intel-software-tools">
-<h4>Compilation on Linux with Intel software tools<a class="headerlink" href="#compilation-on-linux-with-intel-software-tools" title="Permalink to this headline"> </a></h4>
+<h3>Compilation on Linux with Intel software tools<a class="headerlink" href="#compilation-on-linux-with-intel-software-tools" title="Permalink to this headline"> </a></h3>
 <p>Follow the <a class="reference external" href="https://software.intel.com/en-us/articles/building-freefem-with-intel-software-tools-for-developers">guide</a></p>
 </div>
 <div class="section" id="compilation-on-windows">
-<h4>Compilation on Windows<a class="headerlink" href="#compilation-on-windows" title="Permalink to this headline"> </a></h4>
+<h3>Compilation on Windows<a class="headerlink" href="#compilation-on-windows" title="Permalink to this headline"> </a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">The support ended for all releases under Windows 32 bits since the V4.</p>
+<p class="last">The support ended for all releases under Windows 32 bits since the V4.
+We assume your development machine is 64-bit, and you want your compiler to target 64-bit windows by default.</p>
 </div>
-<ol class="arabic">
-<li><p class="first">Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=56511">Microsoft MPI v9.0</a> (msmpisdk.msi and MSMpiSetup.exe)</p>
-</li>
-<li><p class="first">Install the software <a class="reference external" href="https://www.msys2.org/">Msys2</a> (x86_64 version)</p>
-</li>
-<li><p class="first">Install the version control system <a class="reference external" href="https://git-scm.com/download/win">Git</a> for Windows</p>
-</li>
-<li><p class="first">Start MSYS2 MSYS</p>
-</li>
-<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MSYS2</span> <span class="n">MSYS</span> <span class="n">terminal</span></code> to install dependancies</p>
+<ol class="arabic simple">
+<li>Install the <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">Microsoft MPI v7.0 (archived)</a> (msmpisdk.msi and MSMpiSetup.exe)</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<dl class="last docutils">
+<dt>2019/07/07  Microsoft MPI v10.0 isn’t usable in MSYS/mingw64 with gfortran <a class="reference external" href="https://github.com/Microsoft/Microsoft-MPI/issues/7">more information here</a></dt>
+<dd>Microsoft MPI v9: mpiexec.exe doesn’t run</dd>
+</dl>
+</div>
+<ol class="arabic simple" start="2">
+<li>Download ` msys2-x86_64-latest.exe and run it.&lt;<a class="reference external" href="http://repo.msys2.org/distrib/msys2-x86_64-latest.exe">http://repo.msys2.org/distrib/msys2-x86_64-latest.exe</a>&gt;`__ (x86_64 version) and run it</li>
+<li>Install the version control system <a class="reference external" href="https://git-scm.com/download/win">Git</a> for Windows</li>
+</ol>
+<p>4. In the MSYS2 shell, execute the following.
+Hint: if you right click the title bar, go to Options -&gt; Keys and tick “Ctrl+Shift+letter shortcuts” you can use Ctrl+Shift+V to paste in the MSYS shell.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    pacman -Syuu
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p>Close the MSYS2 shell once you’re asked to. There are now 3 MSYS subsystems installed: MSYS2, MinGW32 and MinGW64.
+They can respectively be launched from C:devmsys64msys2.exe, C:devmsys64mingw32.exe and C:devmsys64mingw64.exe
+Reopen MSYS2 (doesn’t matter which version, since we’re merely installing packages).
+Repeatedly run the following command until it says there are no further updates. You might have to restart your shell again.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    pacman -Syuu
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p class="first">Now that MSYS2 is fully up-to-date, install the following dependancies</p>
 <ul class="simple">
 <li>for 64bits system (all <em>FreeFEM</em> release version):</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">source</span> shell mingw64
-
-pacman -Syu
-pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
-  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
-  make man-db git mingw-w64-x86_64-freeglut mingw-w64-x86_64-gcc <span class="se">\</span>
-  mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
+  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils
+          info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
+          mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
   mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python <span class="se">\</span>
   perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which <span class="se">\</span>
@@ -2348,6 +2374,25 @@ pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</spa
 <ul class="simple">
 <li>for 32bits system (less <em>FreeFEM</em> release V4 is not currently supported):</li>
 </ul>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+  bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
+  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils <span class="se">\</span>
+          info less lndir make man-db git mingw-w64-i686-freeglut <span class="se">\</span>
+          mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
+  mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
+  msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
+  perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Open a <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code> for old 32 bits <strong>FreeFEM</strong> version) and compile the <strong>FreeFEM</strong> source</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2358,32 +2403,13 @@ pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</spa
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>*source shell mingw32
-
-pacman -Syu
-pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
-    bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
-    findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils info less lndir <span class="se">\</span>
-    make man-db git mingw-w64-i686-freeglut mingw-w64-i686-gcc <span class="se">\</span>
-    mingw-w64-i686-gcc-fortran mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
-    mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-    msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
-perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Open <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code>) to compile <strong>FreeFEM</strong></p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
-./configure --enable-download --disable-hips
+./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
+         --enable-download --enable-maintainer-mode <span class="se">\</span>
+     <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
+             <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
 ./3rdparty/getall -a
 make -j4
 make check
@@ -2396,6 +2422,47 @@ are in <code class="docutils literal highlight highlight-freefem"><span></span>C
 </ol>
 </div>
 </div>
+<div class="section" id="freefem-continuous-integration">
+<h2><em>FreeFEM</em> continuous integration<a class="headerlink" href="#freefem-continuous-integration" title="Permalink to this headline"> </a></h2>
+<p>The Inria Jenkins platform is used for the CI/CD integration of the source code.</p>
+<p>Compilation results of the develop branch by OS type and configuration of FreeFEM are here</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Branch</th>
+<th class="head">Linux 16.04</th>
+<th class="head">Linux 18.04</th>
+<th class="head">MacOS 10.10.5</th>
+<th class="head">MacOS 10.13.5</th>
+<th class="head">Windows 7</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Develop</td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job3/"><img alt="Build Status01" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job3" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job3/"><img alt="Build Status02" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job3" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job3/"><img alt="Build Status03" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job3" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job3/"><img alt="Build Status04" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job3" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7"><img alt="Build Status05" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7" /></a></td>
+</tr>
+<tr class="row-odd"><td>Develop
+<em>compiles in DEBUG
+runs MPI &amp; PETSc/SLEPS</em></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job5/"><img alt="Build Status06" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job5" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job5/"><img alt="Build Status07" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job5" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job5/"><img alt="Build Status08" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job5" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job5/"><img alt="Build Status09" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job5" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7-job5"><img alt="Build Status10" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7-job5" /></a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="environment-variables-and-init-file">
 <h2>Environment variables and init file<a class="headerlink" href="#environment-variables-and-init-file" title="Permalink to this headline"> </a></h2>
@@ -2463,13 +2530,61 @@ freefem++.pref
 </pre></div>
 </td></tr></table></div>
 </div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="coloring-syntax-freefem">
+<h2>Coloring Syntax FreeFem++<a class="headerlink" href="#coloring-syntax-freefem" title="Permalink to this headline"> </a></h2>
+<div class="section" id="atom">
+<h3>Atom<a class="headerlink" href="#atom" title="Permalink to this headline"> </a></h3>
+<p>In order to get the syntax highlighting in <a class="reference external" href="https://atom.io/">Atom</a>, you have to install the <a class="reference external" href="https://atom.io/packages/language-freefem-official">FreeFEM language support</a>.</p>
+<p>You can do it directly in Atom: Edit -&gt; Preferences -&gt; Install, and search for <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">language</span><span class="o">-</span><span class="n">freefem</span><span class="o">-</span><span class="n">offical</span></code>.</p>
+<p>To launch scripts directly from Atom, you have to install the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">atom</span><span class="o">-</span><span class="n">runner</span></code> package. Once installed, modify the Atom configuration file (Edit -&gt; Config…) to have something like that:</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s2">&quot;*&quot;</span>:
+   ...
+
+   runner:
+      extensions:
+         edp: <span class="s2">&quot;FreeFem++&quot;</span>
+      scopes:
+         <span class="s2">&quot;Freefem++&quot;</span>: <span class="s2">&quot;FreeFem++&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Reboot Atom, and use Alt+R to run a FreeFem++ script.</p>
+</div>
+<div class="section" id="gedit">
+<h3>Gedit<a class="headerlink" href="#gedit" title="Permalink to this headline"> </a></h3>
+<p>In order to get the syntax highlighting in Gedit, you have to downlaod the <a class="reference external" href="https://github.com/FreeFem/FreeFem-parser-gedit">Gedit parser</a> and copy it in <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">gtksourceview</span><span class="o">-</span><span class="mf">3.0</span><span class="o">/</span><span class="n">language</span><span class="o">-</span><span class="n">specs</span><span class="o">/</span></code>.</p>
+</div>
+<div class="section" id="textmate-2-an-editor-under-macos">
+<h3>Textmate 2, an editor under macOS<a class="headerlink" href="#textmate-2-an-editor-under-macos" title="Permalink to this headline"> </a></h3>
+<p>To use the coloring <strong>FreeFEM</strong> syntax with the Textmate 2 editor on Mac 10.7 or better, download from macromates.com and download the textmate freefem++ syntax <a class="reference external" href="http://www3.freefem.org/ff++/Textmate2-ff++.zip">here</a> (version june 2107). To install this parser, unzip Textmate2-ff++.zip and follow the explanation given in file How_To.rtf.</p>
+<p>rom www.freefem.org/ff++/Textmate2-ff++.zip (version june 2107) unzip Textmate2-</p>
+</div>
+<div class="section" id="notepad-an-editor-under-windows">
+<h3>Notepad++,an editor under windows<a class="headerlink" href="#notepad-an-editor-under-windows" title="Permalink to this headline"> </a></h3>
+<p>Read and follow the instruction, <a class="reference external" href="http://www3.freefem.org/ff++/color-syntax-win.pdf">FREEFEM++ COLOR SYNTAX OF WINDOWS</a> .</p>
+</div>
+<div class="section" id="emacs-editor">
+<h3>Emacs editor<a class="headerlink" href="#emacs-editor" title="Permalink to this headline"> </a></h3>
+<p>For emacs editor you can download <a class="reference external" href="https://github.com/rrgalvan/freefem-mode/">ff++-mode.el</a> .</p>
+</div>
 </div>
 </div>
 
 
 		<div class="content-nav-buttons" role="navigation">
-			<a href="download.html" class="btn-neutral" title="previous topic" rel="previous"><span class="fa fa-arrow-circle-left"></span> Previous topic: Download FreeFEM</a>
-			<a href="contributing.html" class="btn-neutral" title="next topic" rel="next">Next topic: Contributing <span class="fa fa-arrow-circle-right"></span></a>
+			<a href="new-features.html" class="btn-neutral" title="previous topic" rel="previous"><span class="fa fa-arrow-circle-left"></span> Previous topic: Version 4: new features</a>
+			<a href="download.html" class="btn-neutral" title="next topic" rel="next">Next topic: Download <span class="fa fa-arrow-circle-right"></span></a>
 		</div>
 	</div>
 	
@@ -2478,20 +2593,14 @@ freefem++.pref
 		<b>Table of content</b>
 		<ul>
 <li><a class="reference internal" href="#">Installation guide</a><ul>
-<li><a class="reference internal" href="#easy-installation">Easy installation</a><ul>
-<li><a class="reference internal" href="#windows-binary-installation">Windows binary installation</a></li>
-<li><a class="reference internal" href="#macos-x-binary-installation">MacOS X binary installation</a></li>
+<li><a class="reference internal" href="#using-binaries-package">Using binaries package</a><ul>
+<li><a class="reference internal" href="#windows-installation">Windows installation</a></li>
+<li><a class="reference internal" href="#macos-x-installation">macOS X installation</a></li>
+<li><a class="reference internal" href="#ubuntu-binary-installation">Ubuntu binary installation</a></li>
 <li><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#text-editor">Text-editor</a><ul>
-<li><a class="reference internal" href="#atom">Atom</a></li>
-<li><a class="reference internal" href="#gedit">Gedit</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#compilation">Compilation</a><ul>
-<li><a class="reference internal" href="#branches-os-status">Branches / OS status</a></li>
-<li><a class="reference internal" href="#using-autotools">Using autotools</a><ul>
+<li><a class="reference internal" href="#compiling-source-code">Compiling source code</a><ul>
 <li><a class="reference internal" href="#compilation-on-osx-10-13">Compilation on OSX (&gt;=10.13)</a></li>
 <li><a class="reference internal" href="#compilation-on-ubuntu">Compilation on Ubuntu</a></li>
 <li><a class="reference internal" href="#compilation-on-arch-linux">Compilation on Arch Linux</a></li>
@@ -2499,9 +2608,16 @@ freefem++.pref
 <li><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
+<li><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a><ul>
+<li><a class="reference internal" href="#atom">Atom</a></li>
+<li><a class="reference internal" href="#gedit">Gedit</a></li>
+<li><a class="reference internal" href="#textmate-2-an-editor-under-macos">Textmate 2, an editor under macOS</a></li>
+<li><a class="reference internal" href="#notepad-an-editor-under-windows">Notepad++,an editor under windows</a></li>
+<li><a class="reference internal" href="#emacs-editor">Emacs editor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
 </ul>
 </li>
 </ul>
