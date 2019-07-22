@@ -90,44 +90,44 @@
 \contentsline {section}{\numberline {3.2}Mesh Generation}{97}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}\sphinxstylestrong {The type mesh in 2 dimension}}{97}{subsection.3.2.1}
 \contentsline {subsubsection}{Commands for 2d mesh Generation}{97}{subsubsection*.110}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {square}}{97}{paragraph*.111}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {buildmesh}}{98}{paragraph*.113}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {square}}{97}{paragraph*.111}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildmesh}}{98}{paragraph*.113}
 \contentsline {subsubsection}{Mesh Connectivity and data}{102}{subsubsection*.123}
 \contentsline {subsubsection}{The keyword \IeC {\textquotedblleft }triangulate\IeC {\textquotedblright }}{106}{subsubsection*.124}
 \contentsline {subsubsection}{2d Finite Element space on a boundary}{108}{subsubsection*.129}
 \contentsline {subsubsection}{Remeshing}{108}{subsubsection*.133}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {movemesh}}{108}{paragraph*.134}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {hTriangle}}{111}{paragraph*.139}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {adaptmesh}}{111}{paragraph*.140}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {trunc}}{117}{paragraph*.150}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {change}}{117}{paragraph*.154}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {splitmesh}}{118}{paragraph*.155}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh}}{108}{paragraph*.134}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {hTriangle}}{111}{paragraph*.139}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {adaptmesh}}{111}{paragraph*.140}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{117}{paragraph*.150}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{117}{paragraph*.154}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {splitmesh}}{118}{paragraph*.155}
 \contentsline {subsubsection}{Meshing Examples}{119}{subsubsection*.159}
-\contentsline {subsection}{\numberline {3.2.2}\sphinxstylestrong {The type mesh3 in 3 dimension}}{125}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.2}\sphinxstylestrong {The type mesh3 in 3 dimension}}{126}{subsection.3.2.2}
 \contentsline {subsubsection}{3d mesh generation}{126}{subsubsection*.170}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {cube}}{126}{paragraph*.171}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {buildlayers}}{127}{paragraph*.173}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {cube}}{126}{paragraph*.171}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildlayers}}{127}{paragraph*.173}
 \contentsline {subsubsection}{Remeshing}{133}{subsubsection*.177}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {change}}{133}{paragraph*.179}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {trunc}}{134}{paragraph*.180}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {movemesh3}}{135}{paragraph*.181}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {extract}}{136}{paragraph*.182}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {buildSurface}}{137}{paragraph*.183}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {movemesh23}}{137}{paragraph*.184}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{133}{paragraph*.179}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{134}{paragraph*.180}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh3}}{135}{paragraph*.181}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {extract}}{136}{paragraph*.182}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{137}{paragraph*.183}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh23}}{137}{paragraph*.184}
 \contentsline {subsubsection}{3d Meshing examples}{138}{subsubsection*.185}
 \contentsline {subsection}{\numberline {3.2.3}\sphinxstylestrong {The type meshS in 3 dimension}}{141}{subsection.3.2.3}
 \contentsline {subsubsection}{Commands for 3d surface mesh generation}{141}{subsubsection*.189}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {square3}}{141}{paragraph*.190}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {square3}}{141}{paragraph*.190}
 \contentsline {paragraph}{surface mesh builders}{142}{paragraph*.191}
 \contentsline {paragraph}{2D mesh generators combined with \sphinxstyleemphasis {movemesh23}}{144}{paragraph*.192}
 \contentsline {subsubsection}{Remeshing}{144}{subsubsection*.193}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {trunc}}{144}{paragraph*.194}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {movemeshS}}{144}{paragraph*.195}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {change}}{145}{paragraph*.196}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{144}{paragraph*.194}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemeshS}}{144}{paragraph*.195}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{145}{paragraph*.196}
 \contentsline {subsubsection}{Link with a mesh3}{146}{subsubsection*.197}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {Gamma}}{146}{paragraph*.198}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {buildSurface}}{146}{paragraph*.199}
-\contentsline {paragraph}{the command \sphinxstyleemphasis {savesurfacemesh}}{147}{paragraph*.200}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {Gamma}}{146}{paragraph*.198}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{146}{paragraph*.199}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {savesurfacemesh}}{147}{paragraph*.200}
 \contentsline {paragraph}{Glue of meshS meshes}{147}{paragraph*.201}
 \contentsline {subsubsection}{TetGen: A tetrahedral mesh generator}{148}{subsubsection*.202}
 \contentsline {subsubsection}{Reconstruct/Refine a 3d mesh with TetGen}{150}{subsubsection*.203}

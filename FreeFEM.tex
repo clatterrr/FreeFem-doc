@@ -6014,7 +6014,7 @@ Through this presentation, the principal commands for the mesh generation and li
 The \sphinxstylestrong{FreeFEM} type to define a 2d mesh object is \sphinxcode{\sphinxupquote{mesh}}.
 
 
-\paragraph{the command \sphinxstyleemphasis{square}}
+\paragraph{The command \sphinxstyleemphasis{square}}
 \label{\detokenize{documentation/mesh-generation:the-command-square}}\label{\detokenize{documentation/mesh-generation:meshsquare}}
 The command \sphinxcode{\sphinxupquote{square}} triangulates the unit square.
 
@@ -6054,16 +6054,16 @@ Adding the named parameter \sphinxcode{\sphinxupquote{flags=icase}} with icase:
 will produce a mesh where all quads are split with diagonal \(x-y=constant\)
 
 \item {} 
-will produce \sphinxstyleemphasis{Union Jack flag} type of mesh
+will produce a \sphinxstyleemphasis{Union Jack flag} type of mesh
 
 \item {} 
 will produce a mesh where all quads are split with diagonal \(x+y=constant\)
 
 \item {} 
-same as in case 0, except two corners where the triangles are the same as case 2 to avoid having 3 vertices on the boundary
+same as in case 0, except two corners where the triangles are the same as case 2, to avoid having 3 vertices on the boundary
 
 \item {} 
-same as in case 2, except two corners where the triangles are the same as case 0 to avoid having 3 vertices on the boundary
+same as in case 2, except two corners where the triangles are the same as case 0, to avoid having 3 vertices on the boundary
 
 \end{enumerate}
 
@@ -6091,9 +6091,9 @@ To see all of these flags at work, check {\hyperref[\detokenize{examples/mesh-ge
 \end{sphinxadmonition}
 
 
-\paragraph{the command \sphinxstyleemphasis{buildmesh}}
+\paragraph{The command \sphinxstyleemphasis{buildmesh}}
 \label{\detokenize{documentation/mesh-generation:the-command-buildmesh}}\label{\detokenize{documentation/mesh-generation:meshborder}}
-\sphinxstyleemphasis{mesh building with :freefem:{}`border{}`}
+\sphinxstyleemphasis{mesh building with} \sphinxcode{\sphinxupquote{border}}
 
 Boundaries are defined piecewise by parametrized curves. The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints. This can be used to structure the mesh if an area touches a border and create new regions by dividing larger ones:
 
@@ -6227,7 +6227,7 @@ Borders are evaluated only at the time \sphinxcode{\sphinxupquote{plot}} or \sph
 \end{sphinxVerbatim}
 \end{sphinxadmonition}
 
-\sphinxstyleemphasis{mesh building with array of :freefem:{}`border{}`}
+\sphinxstyleemphasis{mesh building with array of} \sphinxcode{\sphinxupquote{border}}
 
 Sometimes it can be useful to make an array of the border, but unfortunately it is incompatible with the \sphinxstylestrong{FreeFEM} syntax. To bypass this problem, if the number of segments of the discretization \(n\) is an array, we make an implicit loop on all of the values of the array, and the index variable \(i\) of the loop is defined after the parameter definition, like in \sphinxcode{\sphinxupquote{border a(t=0, 2*pi; i)}} …
 
@@ -6285,11 +6285,11 @@ The following example explains methods to obtain mesh information.
 \PYG{p}{\PYGZob{}}
     \PYG{k+kt}{int} \PYG{n}{NbTriangles} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{k+kr}{nt}\PYG{p}{;}
     \PYG{k+kt}{real} \PYG{n}{MeshArea} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{k+kr}{measure}\PYG{p}{;}
-    \PYG{k+kt}{real} \PYG{n}{BorderLenght} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{k+kr}{bordermeasure}\PYG{p}{;}
+    \PYG{k+kt}{real} \PYG{n}{BorderLength} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{k+kr}{bordermeasure}\PYG{p}{;}
 
     \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Number of triangle(s) = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{NbTriangles} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
     \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Mesh area = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{MeshArea} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
-    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Border length = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{BorderLenght} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
+    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Border length = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{BorderLength} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
 
     \PYG{c+c1}{// Th(i) return the vextex i of Th}
     \PYG{c+c1}{// Th[k] return the triangle k of Th}
@@ -6676,7 +6676,7 @@ It is also possible to build an empty mesh of a pseudo subregion with \sphinxcod
 \subsubsection{Remeshing}
 \label{\detokenize{documentation/mesh-generation:remeshing}}\label{\detokenize{documentation/mesh-generation:EmptyMesh}}
 
-\paragraph{the command \sphinxstyleemphasis{movemesh}}
+\paragraph{The command \sphinxstyleemphasis{movemesh}}
 \label{\detokenize{documentation/mesh-generation:the-command-movemesh}}\label{\detokenize{documentation/mesh-generation:meshgenerationmovemesh}}
 Meshes can be translated, rotated, and deformed by \sphinxcode{\sphinxupquote{movemesh}}; this is useful for elasticity to watch the deformation due to the displacement \(\mathbf{\Phi}(x,y)=(\Phi_1(x,y),\Phi_2(x,y))\) of shape.
 
@@ -6796,7 +6796,7 @@ Now, we give an example of moving a mesh with a Lagrangian function \(u\) define
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{hTriangle}}
+\paragraph{The command \sphinxstyleemphasis{hTriangle}}
 \label{\detokenize{documentation/mesh-generation:the-command-htriangle}}\label{\detokenize{documentation/mesh-generation:meshregulartriangulation}}
 This section presents the way to obtain a regular triangulation with \sphinxstylestrong{FreeFEM}.
 
@@ -6828,7 +6828,7 @@ We put \(h(\mathcal{T}_h)=\max\{\textrm{diam}(T_k)|\; T_k\in \mathcal{T}_h\}\), 
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{adaptmesh}}
+\paragraph{The command \sphinxstyleemphasis{adaptmesh}}
 \label{\detokenize{documentation/mesh-generation:the-command-adaptmesh}}
 The function:
 \begin{equation*}
@@ -6882,7 +6882,7 @@ of a function (formula or FE-function).
 
 Mesh adaptation is a very powerful tool when the solution of a problem varies locally and sharply.
 
-Here we solve the {\hyperref[\detokenize{tutorials/poisson:tutorialpoisson}]{\sphinxcrossref{\DUrole{std,std-ref}{Poisson’s problem}}}}, when \(f=1\) and \(\Omega\) is a L-shape domain.
+Here we solve the {\hyperref[\detokenize{tutorials/poisson:tutorialpoisson}]{\sphinxcrossref{\DUrole{std,std-ref}{Poisson’s problem}}}}, when \(f=1\) and \(\Omega\) is an L-shape domain.
 
 \begin{figure}
 \centering
@@ -7164,7 +7164,7 @@ To build a mesh with a constant mesh size equal to \(\frac{1}{30}\) try:
 
 
 
-\paragraph{the command \sphinxstyleemphasis{trunc}}
+\paragraph{The command \sphinxstyleemphasis{trunc}}
 \label{\detokenize{documentation/mesh-generation:the-command-trunc}}\label{\detokenize{documentation/mesh-generation:AdaptMesh2}}
 Two operators have been introduced to remove triangles from a mesh or to divide them.
 Operator \sphinxcode{\sphinxupquote{trunc}} has the following parameters:
@@ -7231,7 +7231,7 @@ The following example construct all “trunced” meshes to the support of the b
 
 
 
-\paragraph{the command \sphinxstyleemphasis{change}}
+\paragraph{The command \sphinxstyleemphasis{change}}
 \label{\detokenize{documentation/mesh-generation:the-command-change}}\label{\detokenize{documentation/mesh-generation:Trunc}}
 This command changes the label of elements and border elements of a mesh.
 
@@ -7296,7 +7296,7 @@ An application example is given here:
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{splitmesh}}
+\paragraph{The command \sphinxstyleemphasis{splitmesh}}
 \label{\detokenize{documentation/mesh-generation:the-command-splitmesh}}
 Another way to split mesh triangles is to use \sphinxcode{\sphinxupquote{splitmesh}}, for example:
 
@@ -7505,7 +7505,7 @@ Domain with U-shape channel
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.500\linewidth]{{MeshGeneration_Example_UShape}.png}
-\caption{Domain with U-shape channel changed by :freefem{}`d{}`}\label{\detokenize{documentation/mesh-generation:ushape}}\end{figure}
+\caption{Domain with U-shape channel changed by \sphinxcode{\sphinxupquote{d}}}\label{\detokenize{documentation/mesh-generation:ushape}}\end{figure}
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{tip}{Tip:}
@@ -7566,8 +7566,8 @@ Smiling face
 \caption{Smiling face (Mouth is changeable)}\label{\detokenize{documentation/mesh-generation:smilingface}}\end{figure}
 \end{sphinxadmonition}
 
-. tip:: 3 points bending
-\begin{quote}
+\begin{sphinxadmonition}{tip}{Tip:}
+3 points bending
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{c+c1}{// Square for Three\PYGZhy{}Point Bend Specimens fixed on Fix1, Fix2}
@@ -7595,7 +7595,7 @@ Smiling face
 
 \noindent\sphinxincludegraphics[width=0.750\linewidth]{{MeshGeneration_Example_ThreePoints}.png}
 \caption{Domain for three-point bending test}\label{\detokenize{documentation/mesh-generation:threepoints}}\end{figure}
-\end{quote}
+\end{sphinxadmonition}
 
 
 \subsection{\sphinxstylestrong{The type mesh3 in 3 dimension}}
@@ -7614,13 +7614,13 @@ mesh is \sphinxstylestrong{meshS}.
 \subsubsection{3d mesh generation}
 \label{\detokenize{documentation/mesh-generation:d-mesh-generation}}
 \begin{sphinxadmonition}{note}{Note:}
-For 3D mesh tools, load “msh3” at the top of .edp script.
+For 3D mesh tools, put \sphinxcode{\sphinxupquote{load "msh3"}} at the top of the .edp script.
 \end{sphinxadmonition}
 
 
-\paragraph{the command \sphinxstyleemphasis{cube}}
+\paragraph{The command \sphinxstyleemphasis{cube}}
 \label{\detokenize{documentation/mesh-generation:the-command-cube}}
-The function \sphinxcode{\sphinxupquote{cube}} like the function \sphinxcode{\sphinxupquote{square}} in 2d is the simple way to a build cubic object, in plugin \sphinxcode{\sphinxupquote{msh3}} (need \sphinxcode{\sphinxupquote{load "msh3"}}).
+The function \sphinxcode{\sphinxupquote{cube}} like its 2d function \sphinxcode{\sphinxupquote{square}} is a simple way to build cubic objects, it is contained in plugin \sphinxcode{\sphinxupquote{msh3}} (import with \sphinxcode{\sphinxupquote{load "msh3"}}).
 
 The following code generates a \(3\times 4 \times 5\) grid in the unit cube \([0, 1]^3\).
 
@@ -7714,10 +7714,10 @@ The output of this script is:
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.500\linewidth]{{MeshGeneration_Cube}.jpg}
-\caption{The mesh 3d of function \sphinxcode{\sphinxupquote{cube(4, 5, 6, flags=3)}}}\label{\detokenize{documentation/mesh-generation:meshgeneration-cube}}\end{figure}
+\caption{The 3D mesh of function \sphinxcode{\sphinxupquote{cube(4, 5, 6, flags=3)}}}\label{\detokenize{documentation/mesh-generation:meshgeneration-cube}}\end{figure}
 
 
-\paragraph{the command \sphinxstyleemphasis{buildlayers}}
+\paragraph{The command \sphinxstyleemphasis{buildlayers}}
 \label{\detokenize{documentation/mesh-generation:the-command-buildlayers}}\label{\detokenize{documentation/mesh-generation:meshreadwrite3d}}
 This mesh is obtained by extending a two dimensional mesh in the \(z\)-axis.
 
@@ -8008,7 +8008,7 @@ if an operation on a \sphinxcode{\sphinxupquote{mesh3}} is performed then the sa
 \end{sphinxadmonition}
 
 
-\paragraph{the command \sphinxstyleemphasis{change}}
+\paragraph{The command \sphinxstyleemphasis{change}}
 \label{\detokenize{documentation/mesh-generation:id4}}
 This command changes the label of elements and border elements of a mesh. It’s the equivalent command in 2d mesh case.
 
@@ -8061,7 +8061,7 @@ An example of use:
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{trunc}}
+\paragraph{The command \sphinxstyleemphasis{trunc}}
 \label{\detokenize{documentation/mesh-generation:meshgenerationtrunc}}\label{\detokenize{documentation/mesh-generation:id5}}
 This operator have been introduce to remove peace of mesh and split all element or for a particular label element
 The three named parameter
@@ -8099,7 +8099,7 @@ An example of use
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{movemesh3}}
+\paragraph{The command \sphinxstyleemphasis{movemesh3}}
 \label{\detokenize{documentation/mesh-generation:the-command-movemesh3}}
 3D meshes  can be translated, rotated, and deformed using the command line \sphinxcode{\sphinxupquote{movemesh}} as in the 2D case (see {\hyperref[\detokenize{documentation/mesh-generation:meshgenerationmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{section movemesh}}}}).
 If \(\Omega\) is tetrahedrized as \(T_{h}(\Omega)\), and \(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\) is the transformation vector then \(\Phi(T_{h})\) is obtained by:
@@ -8201,7 +8201,7 @@ An example of this command can be found in the {\hyperref[\detokenize{examples/m
 movemesh doesn’t use the prefix tranfo= {[}.,.,.{]}, the geometric transformation is directly given by  {[}.,.,.{]} in the arguments list
 
 
-\paragraph{the command \sphinxstyleemphasis{extract}}
+\paragraph{The command \sphinxstyleemphasis{extract}}
 \label{\detokenize{documentation/mesh-generation:the-command-extract}}
 This command offers the possibility to extract a boundary part of a \sphinxcode{\sphinxupquote{mesh3}}
 \begin{itemize}
@@ -8224,7 +8224,7 @@ This command offers the possibility to extract a boundary part of a \sphinxcode{
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{buildSurface}}
+\paragraph{The command \sphinxstyleemphasis{buildSurface}}
 \label{\detokenize{documentation/mesh-generation:the-command-buildsurface}}
 This new function allows to build the surface mesh of a volume mesh, under the condition the surface is the boundary of the volume.
 By definition, a \sphinxstylestrong{mesh3} is defined by a list of vertices, tetrahedron elements and triangle border elements. \sphinxstyleemphasis{buildSurface} function create the meshS corresponding, given
@@ -8232,7 +8232,7 @@ the list vertices which are on the border domain, the triangle elements and buil
 Remark, for a closed surface mesh, the edges list is empty.
 
 
-\paragraph{the command \sphinxstyleemphasis{movemesh23}}
+\paragraph{The command \sphinxstyleemphasis{movemesh23}}
 \label{\detokenize{documentation/mesh-generation:the-command-movemesh23}}
 A simple method to tranform a 2D mesh in 3D Surface mesh. The principe is to project a two dimensional domain in a three dimensional space, 2d surface in the (x,y,z)-space to create a surface mesh 3D, \sphinxstylestrong{meshS}.
 
@@ -8507,7 +8507,7 @@ Since the release 4.2.1, the surface \sphinxcode{\sphinxupquote{mesh3}} object (
 \subsubsection{Commands for 3d surface mesh generation}
 \label{\detokenize{documentation/mesh-generation:commands-for-3d-surface-mesh-generation}}
 
-\paragraph{the command \sphinxstyleemphasis{square3}}
+\paragraph{The command \sphinxstyleemphasis{square3}}
 \label{\detokenize{documentation/mesh-generation:the-command-square3}}
 The function \sphinxcode{\sphinxupquote{square3}} like the function \sphinxcode{\sphinxupquote{square}} in 2d is the simple way to a build the unit square plan in the space \(\mathbb{R^3}\).
 To use this command, it is necessary to load the pluging \sphinxcode{\sphinxupquote{msh3}} (need \sphinxcode{\sphinxupquote{load "msh3"}}).
@@ -8694,7 +8694,7 @@ The operation is a projection of a 2d plane in \(\mathbb{R^3}\) following the ge
 \subsubsection{Remeshing}
 \label{\detokenize{documentation/mesh-generation:id6}}
 
-\paragraph{the command \sphinxstyleemphasis{trunc}}
+\paragraph{The command \sphinxstyleemphasis{trunc}}
 \label{\detokenize{documentation/mesh-generation:id7}}
 This operator allows to define a \sphinxcode{\sphinxupquote{meshS}} by truncating another one, i.e. by removing triangles, and/or by splitting each triangle by a given positive integer s.
 In a FreeFEM script, this function must be called as follows:
@@ -8730,7 +8730,7 @@ An example of how to call the function
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{movemeshS}}
+\paragraph{The command \sphinxstyleemphasis{movemeshS}}
 \label{\detokenize{documentation/mesh-generation:the-command-movemeshs}}
 Like 2d and 3d type meshes in \sphinxstylestrong{FreeFEM}, \sphinxcode{\sphinxupquote{meshS}} can be translated, rotated or deformated by an application \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]}.
 The image \(T_{h}(\Omega)\) is obtained by the command \sphinxcode{\sphinxupquote{movemeshS}}.
@@ -8793,7 +8793,7 @@ Example of using
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{change}}
+\paragraph{The command \sphinxstyleemphasis{change}}
 \label{\detokenize{documentation/mesh-generation:id8}}
 Equivalent for a 2d or 3d mesh, the command \sphinxcode{\sphinxupquote{change}} changes the label of elements and border elements of a \sphinxcode{\sphinxupquote{meshS}}.
 
@@ -8868,7 +8868,7 @@ Hence, if an input mesh (.msh freefem or .mesh format) contains a list of vertic
 \end{sphinxadmonition}
 
 
-\paragraph{the command \sphinxstyleemphasis{Gamma}}
+\paragraph{The command \sphinxstyleemphasis{Gamma}}
 \label{\detokenize{documentation/mesh-generation:the-command-gamma}}
 The command \sphinxcode{\sphinxupquote{Gamma}} allows to build and manipulate the border mesh independly of a volume mesh such as the surface is described by triangle elements and edges border elements in 3d. Use this function, suppose that the \sphinxcode{\sphinxupquote{mesh3}} object even contains the geometric description of its surface. That means, the input mesh explicitly contains the list of vertices, tetrahedra, triangles and edges. In case where the surface mesh doesn’t exist, before calling \sphinxcode{\sphinxupquote{Gamma}}, must build it by calling the \sphinxcode{\sphinxupquote{buildSurface}} function (see the next function description).
 
@@ -8884,13 +8884,13 @@ The command \sphinxcode{\sphinxupquote{Gamma}} allows to build and manipulate th
 \end{sphinxVerbatim}
 
 
-\paragraph{the command \sphinxstyleemphasis{buildSurface}}
+\paragraph{The command \sphinxstyleemphasis{buildSurface}}
 \label{\detokenize{documentation/mesh-generation:id9}}
 Let Th3 a volume mesh (mesh3 type) ; such as the geometry description is a list of vertices, tetrahedra elements and triangle border elements.
 \sphinxstylestrong{FreeFEM} can generate the surface mesh associated to Th3. The intern mechanism of \sphinxstylestrong{FreeFEM} created directly the \sphinxcode{\sphinxupquote{meshS}} associated to Th3 and accessible by the command \sphinxcode{\sphinxupquote{meshS ThS = Th3.Gamma;}}.
 
 
-\paragraph{the command \sphinxstyleemphasis{savesurfacemesh}}
+\paragraph{The command \sphinxstyleemphasis{savesurfacemesh}}
 \label{\detokenize{documentation/mesh-generation:the-command-savesurfacemesh}}
 Available for 3d meshes, the command \sphinxcode{\sphinxupquote{savesurfacemesh}} saves the entire surface of a 3d volume \sphinxcode{\sphinxupquote{mesh3}} at the format .mesh.
 Two possibilies about the mesh3 surface:
@@ -9039,7 +9039,7 @@ The other regions have label 0.
 
 The option \sphinxcode{\sphinxupquote{AA}} gives a different label at each region.
 This switch works with the option \sphinxcode{\sphinxupquote{p}}.
-If option :freefem{}`r{}` is used, this switch has no effect.
+If option \sphinxcode{\sphinxupquote{r}} is used, this switch has no effect.
 
 \item {} \begin{description}
 \item[{\sphinxcode{\sphinxupquote{r}} Reconstructs and Refines a previously generated mesh.}] \leavevmode
