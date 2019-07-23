@@ -2323,12 +2323,16 @@ We assume your development machine is 64-bit, and you want your compiler to targ
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <dl class="last docutils">
-<dt>2019/07/07  Microsoft MPI v10.0 isn’t usable in MSYS/mingw64 with gfortran <a class="reference external" href="https://github.com/Microsoft/Microsoft-MPI/issues/7">more information here</a></dt>
-<dd>Microsoft MPI v9: mpiexec.exe doesn’t run</dd>
+<dt>2019/07/07</dt>
+<dd><ul class="first last simple">
+<li>Microsoft MPI v10.0 isn’t usable in MSYS/mingw64 with gfortran <a class="reference external" href="https://github.com/Microsoft/Microsoft-MPI/issues/7">more information here</a></li>
+<li>Microsoft MPI v9: mpiexec.exe doesn’t run</li>
+</ul>
+</dd>
 </dl>
 </div>
 <ol class="arabic simple" start="2">
-<li>Download ` msys2-x86_64-latest.exe and run it.&lt;<a class="reference external" href="http://repo.msys2.org/distrib/msys2-x86_64-latest.exe">http://repo.msys2.org/distrib/msys2-x86_64-latest.exe</a>&gt;`__ (x86_64 version) and run it</li>
+<li>Download <a class="reference external" href="http://repo.msys2.org/distrib/msys2-x86_64-latest.exe">msys2-x86_64-latest.exe</a> (x86_64 version) and run it.</li>
 <li>Install the version control system <a class="reference external" href="https://git-scm.com/download/win">Git</a> for Windows</li>
 </ol>
 <p>4. In the MSYS2 shell, execute the following.
@@ -2363,8 +2367,8 @@ Repeatedly run the following command until it says there are no further updates.
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
   findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils
-          info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
-          mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
+      info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
+      mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
   mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python <span class="se">\</span>
   perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which <span class="se">\</span>
@@ -2384,8 +2388,8 @@ Repeatedly run the following command until it says there are no further updates.
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
   findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils <span class="se">\</span>
-          info less lndir make man-db git mingw-w64-i686-freeglut <span class="se">\</span>
-          mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
+      info less lndir make man-db git mingw-w64-i686-freeglut <span class="se">\</span>
+      mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
   mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
   perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
@@ -2407,9 +2411,9 @@ Repeatedly run the following command until it says there are no further updates.
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
 ./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
-         --enable-download --enable-maintainer-mode <span class="se">\</span>
+     --enable-download --enable-maintainer-mode <span class="se">\</span>
      <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
-             <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
+     <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
 ./3rdparty/getall -a
 make -j4
 make check

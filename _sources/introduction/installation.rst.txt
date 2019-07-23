@@ -419,10 +419,11 @@ Compilation on Windows
 1. Install the `Microsoft MPI v7.0 (archived) <https://www.microsoft.com/en-us/download/details.aspx?id=49926>`__ (msmpisdk.msi and MSMpiSetup.exe)
 
 .. note::
-   2019/07/07  Microsoft MPI v10.0 isn't usable in MSYS/mingw64 with gfortran `more information here <https://github.com/Microsoft/Microsoft-MPI/issues/7>`__
-               Microsoft MPI v9: mpiexec.exe doesn't run 
+   2019/07/07  
+    - Microsoft MPI v10.0 isn't usable in MSYS/mingw64 with gfortran `more information here <https://github.com/Microsoft/Microsoft-MPI/issues/7>`__
+    - Microsoft MPI v9: mpiexec.exe doesn't run 
 
-2. Download ` msys2-x86_64-latest.exe and run it.<http://repo.msys2.org/distrib/msys2-x86_64-latest.exe>`__ (x86_64 version) and run it 
+2. Download `msys2-x86_64-latest.exe <http://repo.msys2.org/distrib/msys2-x86_64-latest.exe>`__ (x86_64 version) and run it. 
 
 3. Install the version control system `Git <https://git-scm.com/download/win>`__ for Windows
 
@@ -455,8 +456,8 @@ Repeatedly run the following command until it says there are no further updates.
       pacman -S autoconf automake-wrapper bash bash-completion \
         bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem \
         findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils 
-		info less lndir make man-db git mingw-w64-x86_64-freeglut \
-		mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 \
+	    info less lndir make man-db git mingw-w64-x86_64-freeglut \
+	    mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 \
         mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git \
         msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python \
         perl pkg-config pkgfile rebase sed tar tftp-hpa time tzcode unzip util-linux which \
@@ -470,8 +471,8 @@ Repeatedly run the following command until it says there are no further updates.
       pacman -S autoconf automake-wrapper bash bash-completion \
         bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem \
         findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils \ 
-		info less lndir make man-db git mingw-w64-i686-freeglut \
-		mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 \
+	    info less lndir make man-db git mingw-w64-i686-freeglut \
+	    mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 \
         mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git \
         msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git \
         perl pkg-config pkgfile rebase sed tar tftp-hpa time tzcode unzip util-linux which
@@ -484,10 +485,10 @@ Repeatedly run the following command until it says there are no further updates.
       git clone https://github.com/FreeFem/FreeFem-sources
       cd FreeFem-sources
       autoreconf -i
-      ./configure ./configure --enable-generic --enable-optim \ 
-	       --enable-download --enable-maintainer-mode \
+      ./configure ./configure --enable-generic --enable-optim \
+           --enable-download --enable-maintainer-mode \
            CXXFLAGS=-mtune=generic CFLAGS=-mtune=generic \
-		   FFLAGS=-mtune=generic--enable-download --disable-hips
+           FFLAGS=-mtune=generic--enable-download --disable-hips
       ./3rdparty/getall -a
       make -j4
       make check
