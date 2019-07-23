@@ -2356,23 +2356,25 @@ Repeatedly run the following command until it says there are no further updates.
 <ul class="simple">
 <li>for 64bits system (all <em>FreeFEM</em> release version):</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
-  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils
-      info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
-      mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
+  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils <span class="se">\</span>
+  info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
+  mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
   mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-  msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git python <span class="se">\</span>
-  perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which <span class="se">\</span>
-  mingw-w64-x86_64-libmicroutils mingw-w64-x86_64-arpack cmake python2
+  msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch <span class="se">\</span>
+  pax-git python perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> <span class="se">\</span>
+  tzcode unzip util-linux which mingw-w64-x86_64-libmicroutils <span class="se">\</span>
+  mingw-w64-x86_64-arpack cmake python2
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
@@ -2385,14 +2387,16 @@ Repeatedly run the following command until it says there are no further updates.
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
   findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils <span class="se">\</span>
-      info less lndir make man-db git mingw-w64-i686-freeglut <span class="se">\</span>
-      mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
+  info less lndir make man-db git mingw-w64-i686-freeglut <span class="se">\</span>
+  mingw-w64-i686-toolchain mingw-w64-i686-gsl mingw-w64-i686-hdf5 <span class="se">\</span>
   mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
-  perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip util-linux which
+  perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip <span class="se">\</span>
+          util-linux which
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2411,9 +2415,9 @@ Repeatedly run the following command until it says there are no further updates.
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
 ./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
-     --enable-download --enable-maintainer-mode <span class="se">\</span>
-     <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
-     <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
+  --enable-download --enable-maintainer-mode <span class="se">\</span>
+  <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
+  <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
 ./3rdparty/getall -a
 make -j4
 make check
