@@ -135,7 +135,7 @@
 
 \title{FreeFEM Documentation}
 \date{Jul 23, 2019}
-\release{v4.2.1}
+\release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -974,13 +974,14 @@ for 64bits system (all \sphinxstyleemphasis{FreeFEM} release version):
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion \PYG{l+s+se}{\PYGZbs{}}
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem \PYG{l+s+se}{\PYGZbs{}}
-  findutils flex gawk gcc gcc\PYGZhy{}fortran gcc\PYGZhy{}libs grep gzip inetutils
-      info less lndir make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}freeglut \PYG{l+s+se}{\PYGZbs{}}
-      mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}toolchain  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
+  findutils flex gawk gcc gcc\PYGZhy{}fortran gcc\PYGZhy{}libs grep gzip inetutils \PYG{l+s+se}{\PYGZbs{}}
+  info less lndir make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}freeglut \PYG{l+s+se}{\PYGZbs{}}
+  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}toolchain  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
   mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}openblas mintty msys2\PYGZhy{}keyring msys2\PYGZhy{}launcher\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
-  msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch pax\PYGZhy{}git python \PYG{l+s+se}{\PYGZbs{}}
-  perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip util\PYGZhy{}linux which \PYG{l+s+se}{\PYGZbs{}}
-  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}libmicroutils mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}arpack cmake python2
+  msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch \PYG{l+s+se}{\PYGZbs{}}
+  pax\PYGZhy{}git python perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} \PYG{l+s+se}{\PYGZbs{}}
+  tzcode unzip util\PYGZhy{}linux which mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}libmicroutils \PYG{l+s+se}{\PYGZbs{}}
+  mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}arpack cmake python2
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -992,11 +993,12 @@ for 32bits system (less \sphinxstyleemphasis{FreeFEM} release V4 is not currentl
 pacman \PYGZhy{}S autoconf automake\PYGZhy{}wrapper bash bash\PYGZhy{}completion \PYG{l+s+se}{\PYGZbs{}}
   bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem \PYG{l+s+se}{\PYGZbs{}}
   findutils flex gawk gcc gcc\PYGZhy{}fortran gcc\PYGZhy{}libs grep gzip inetutils \PYG{l+s+se}{\PYGZbs{}}
-      info less lndir make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}freeglut \PYG{l+s+se}{\PYGZbs{}}
-      mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}toolchain mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
+  info less lndir make man\PYGZhy{}db git mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}freeglut \PYG{l+s+se}{\PYGZbs{}}
+  mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}toolchain mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}gsl mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}hdf5 \PYG{l+s+se}{\PYGZbs{}}
   mingw\PYGZhy{}w64\PYGZhy{}i686\PYGZhy{}openblas mintty msys2\PYGZhy{}keyring msys2\PYGZhy{}launcher\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
   msys2\PYGZhy{}runtime ncurses pacman pacman\PYGZhy{}mirrors pactoys\PYGZhy{}git patch pax\PYGZhy{}git \PYG{l+s+se}{\PYGZbs{}}
-  perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip util\PYGZhy{}linux which
+  perl pkg\PYGZhy{}config pkgfile rebase sed tar tftp\PYGZhy{}hpa \PYG{n+nb}{time} tzcode unzip \PYG{l+s+se}{\PYGZbs{}}
+          util\PYGZhy{}linux which
 \end{sphinxVerbatim}
 
 \item {} 
@@ -1007,9 +1009,9 @@ git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources
 \PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
 autoreconf \PYGZhy{}i
 ./configure ./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}generic \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim \PYG{l+s+se}{\PYGZbs{}}
-     \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode \PYG{l+s+se}{\PYGZbs{}}
-     \PYG{n+nv}{CXXFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{n+nv}{CFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{l+s+se}{\PYGZbs{}}
-     \PYG{n+nv}{FFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
+  \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode \PYG{l+s+se}{\PYGZbs{}}
+  \PYG{n+nv}{CXXFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{n+nv}{CFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{l+s+se}{\PYGZbs{}}
+  \PYG{n+nv}{FFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
 ./3rdparty/getall \PYGZhy{}a
 make \PYGZhy{}j4
 make check
