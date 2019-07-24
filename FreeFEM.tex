@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jul 23, 2019}
+\date{Jul 24, 2019}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -148,39 +148,34 @@
         \clearpage
         In collaboration with:
         \vfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_LJLL.png}
         \end{minipage}
         \hfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_UPMC.png}
         \end{minipage}
         \vfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_Sorbonne.png}
         \end{minipage}
         \hfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_ANR.png}
         \end{minipage}
         \vfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_INRIA.png}
         \end{minipage}
         \hfill
-        \begin{minipage}{.3\linewidth}
+        \begin{minipage}{.49\linewidth}
             \centering
             \sphinxincludegraphics[width=.8\linewidth]{logo_CNRS.png}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{.3\linewidth}
-            \centering
-            \sphinxincludegraphics[width=.8\linewidth]{logo_alpines.png}
         \end{minipage}
     
 \pagestyle{plain}
@@ -188,6 +183,28 @@
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
 
+
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\end{DUlineblock}
+
+
+
+
+\bigskip\hrule\bigskip
+
+
+\begin{DUlineblock}{0em}
+\item[] 
+\end{DUlineblock}
+
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\item[] 
+\item[] 
+\end{DUlineblock}
 
 
 \chapter{\sphinxstylestrong{Introduction}}
@@ -198,6 +215,11 @@ Problems involving partial differential equations from several branches of physi
 \sphinxstylestrong{FreeFEM} includes a fast interpolation algorithm and a language for the manipulation of data on multiple meshes.
 
 \sphinxstylestrong{FreeFEM} is written in C++ and its language is a C++ idiom.
+
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\end{DUlineblock}
 
 \sphinxstylestrong{FreeFEM} currently interfaces to the following libraries:
 \begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
@@ -266,6 +288,24 @@ Problems involving partial differential equations from several branches of physi
 
 \end{itemize}
 
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\end{DUlineblock}
+
+\noindent{\hspace*{\fill}\sphinxincludegraphics[width=0.650\linewidth]{{Logo}.png}\hspace*{\fill}}
+
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\item[] 
+\item[] 
+\item[] 
+\item[] 
+\end{DUlineblock}
+
+\begin{center}\sphinxincludegraphics[scale=0.4]{{logo_cnrs_SU_UP}.png}  \sphinxincludegraphics[scale=0.2]{{inr_logo_rouge_300}.jpg}  \sphinxincludegraphics[scale=0.6]{{logo_LJLL}.png}    \sphinxincludegraphics[scale=0.45]{{logo_alpines}.png}
+\end{center}
 
 \section{Version 4: new features}
 \label{\detokenize{introduction/new-features:version-4-new-features}}\label{\detokenize{introduction/new-features::doc}}
@@ -22532,7 +22572,7 @@ For example:
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{,} \PYG{k+kr}{n} \PYG{o}{=} \PYG{l+m+mi}{20}\PYG{p}{;} \PYG{c+c1}{//i, n are integer}
 \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{xx}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{,} \PYG{n}{yy}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//two array of size n}
-\PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{k+kr}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//which can be used in statements such as}
+\PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{20}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//which can be used in statements such as}
     \PYG{n}{xx}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n+nf}{cos}\PYG{p}{(}\PYG{n}{i}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;}
     \PYG{n}{yy}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n+nf}{sin}\PYG{p}{(}\PYG{n}{i}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
