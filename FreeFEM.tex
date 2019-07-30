@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jul 26, 2019}
+\date{Jul 30, 2019}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -8562,7 +8562,7 @@ Adding at the top of a \sphinxstyleemphasis{FreeFEM} script \sphinxcode{\sphinxu
 \begin{quote}
 \begin{itemize}
 \item {} 
-\sphinxcode{\sphinxupquote{meshS SurfaceHex(N,B,L,orient)}}
+\sphinxcode{\sphinxupquote{SurfaceHex(N, B, L, orient)}}
 \begin{itemize}
 \item {} 
 this operator allows to build the surface mesh of a 3d box
@@ -8579,10 +8579,13 @@ int {[}int,int{]}  L={[}{[}1,2{]},{[}3,4{]},{[}5,6{]}{]}; // the label of the 6 
 \item {} 
 orient the global orientation of the surface 1 extern (-1 intern),
 
+\item {} 
+returns a \sphinxcode{\sphinxupquote{meshS}} type
+
 \end{itemize}
 
 \item {} 
-\sphinxcode{\sphinxupquote{func meshS Sphere(real R,real h,int L,int orient)}}
+\sphinxcode{\sphinxupquote{Sphere(R, h, L, orient)}}
 \begin{itemize}
 \item {} 
 where R is  the raduis of the sphere,
@@ -8596,10 +8599,13 @@ L is the label the the sphere
 \item {} 
 orient the global orientation of the surface 1 extern (-1 intern)
 
+\item {} 
+returns a \sphinxcode{\sphinxupquote{meshS}} type
+
 \end{itemize}
 
 \item {} 
-\sphinxcode{\sphinxupquote{func meshS Ellipsoide (real RX,real RY,real RZ,real h,int L,int orientation)}}
+\sphinxcode{\sphinxupquote{Ellipsoide (RX, RY, RZ, h, L, orient)}}
 \begin{itemize}
 \item {} 
 h is the mesh size
@@ -8613,11 +8619,14 @@ orient the global orientation of the surface 1 extern (-1 intern)
 \item {} 
 where RX, RY, RZ are real numbers such as the parametric equations of the ellipsoid is:
 
+\item {} 
+returns a \sphinxcode{\sphinxupquote{meshS}} type
+
 \end{itemize}
 
 \end{itemize}
 \begin{equation*}
-\begin{split}\forall u \in [0,2pi[ and v \in [0,pi], \vectthree{x=\text{Rx } cos(u)sin(v)}{y=Ry sin(u)sin(v)}{z = Rz cos(v)     }\end{split}
+\begin{split}\forall u \in [0,2 \pi[ \text{ and } v \in [0, \pi], \vectthree{x=\text{Rx } cos(u)sin(v)}{y=\text{Ry } sin(u)sin(v)}{     z = \text{Rz } cos(v)     }\end{split}
 \end{equation*}\end{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
