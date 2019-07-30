@@ -5082,31 +5082,34 @@ it’s the global orientation of the surface 1 extern (-1 intern)</li>
 <p>Adding at the top of a <em>FreeFEM</em> script <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="cp">include</span> <span class="s">&quot;MeshSurface.idp&quot;</span></code>, constructors of sphere, ellipsoid, surface mesh of a 3d box are available.</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span> <span class="n">SurfaceHex</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span><span class="kp">B</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">orient</span><span class="p">)</span></code><ul>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">SurfaceHex</span><span class="p">(</span><span class="kr">N</span><span class="p">,</span> <span class="kp">B</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">orient</span><span class="p">)</span></code><ul>
 <li>this operator allows to build the surface mesh of a 3d box</li>
 <li>int[int]  N=[nx,ny,nz]; //  the number of seg in the 3 direction</li>
 <li>real [int,int]  B=[[xmin,xmax],[ymin,ymax],[zmin,zmax]]; // bounding bax</li>
 <li>int [int,int]  L=[[1,2],[3,4],[5,6]]; // the label of the 6 face left,right, front, back, down, right</li>
 <li>orient the global orientation of the surface 1 extern (-1 intern),</li>
+<li>returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type</li>
 </ul>
 </li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span> <span class="kt">meshS</span> <span class="n">Sphere</span><span class="p">(</span><span class="kt">real</span> <span class="n">R</span><span class="p">,</span><span class="kt">real</span> <span class="n">h</span><span class="p">,</span><span class="kt">int</span> <span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="n">orient</span><span class="p">)</span></code><ul>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Sphere</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">orient</span><span class="p">)</span></code><ul>
 <li>where R is  the raduis of the sphere,</li>
 <li>h is the mesh size  of  the shpere</li>
 <li>L is the label the the sphere</li>
 <li>orient the global orientation of the surface 1 extern (-1 intern)</li>
+<li>returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type</li>
 </ul>
 </li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">func</span> <span class="kt">meshS</span> <span class="n">Ellipsoide</span> <span class="p">(</span><span class="kt">real</span> <span class="n">RX</span><span class="p">,</span><span class="kt">real</span> <span class="n">RY</span><span class="p">,</span><span class="kt">real</span> <span class="n">RZ</span><span class="p">,</span><span class="kt">real</span> <span class="n">h</span><span class="p">,</span><span class="kt">int</span> <span class="n">L</span><span class="p">,</span><span class="kt">int</span> <span class="kp">orientation</span><span class="p">)</span></code><ul>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Ellipsoide</span> <span class="p">(</span><span class="n">RX</span><span class="p">,</span> <span class="n">RY</span><span class="p">,</span> <span class="n">RZ</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">orient</span><span class="p">)</span></code><ul>
 <li>h is the mesh size</li>
 <li>L is the label</li>
 <li>orient the global orientation of the surface 1 extern (-1 intern)</li>
 <li>where RX, RY, RZ are real numbers such as the parametric equations of the ellipsoid is:</li>
+<li>returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type</li>
 </ul>
 </li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\forall u \in [0,2pi[ and v \in [0,pi], \vectthree{x=\text{Rx } cos(u)sin(v)}{y=Ry sin(u)sin(v)}{z = Rz cos(v)     }\]</div>
+\[\forall u \in [0,2 \pi[ \text{ and } v \in [0, \pi], \vectthree{x=\text{Rx } cos(u)sin(v)}{y=\text{Ry } sin(u)sin(v)}{     z = \text{Rz } cos(v)     }\]</div>
 </div></blockquote>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
