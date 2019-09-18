@@ -451,6 +451,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#solving-the-linear-system">Solving the linear system</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-use">Advanced use</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#local-finite-element-spaces-for-non-lagrange-finite-elements">Local finite element spaces for non Lagrange finite elements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#inexact-coarse-solves-for-two-level-methods">Inexact coarse solves for two level methods</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#coarse-mesh-and-inexact-coarse-solve">Coarse mesh and inexact coarse solve</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="parameters.html">Parameters</a><ul>
@@ -2083,7 +2091,7 @@ It is assumed that <a class="reference internal" href="#ffddmdocumentationoverla
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">mdef</span></code> macro, saves the macro <strong>def</strong> giving the definition of a finite element function in the finite element space <strong>Pk</strong></li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">minit</span></code> macro, saves the macro <strong>init</strong> specifying how to interpolate a scalar function onto the (possibly multiple) components of a finite element function of <strong>Pk</strong>.
 This is used to create the local partition of unity function in <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Vhi</span></code>, by interpolating the local P1 partition of unity function onto the components of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Vhi</span></code>.
-For non Lagrange finite element spaces (e.g.&nbsp;<em>RT0</em>, <em>Edge03d</em>, …), see <a class="reference internal" href="#ffddmdocumentationlocalfiniteelementspaces"><span class="std std-ref">ffddmbuildDfespaceEdge</span></a>.</li>
+For non Lagrange finite element spaces (e.g.&nbsp;<em>RT0</em>, <em>Edge03d</em>, …), see <a class="reference internal" href="#ffddmdocumentationpartitionunityedge"><span class="std std-ref">ffddmbuildDfespaceEdge</span></a>.</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">K</span><span class="p">[</span><span class="kt">int</span><span class="p">][</span><span class="kt">int</span><span class="p">]</span> <span class="n">pr</span><span class="o">#</span><span class="n">Dk</span></code> array (size <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">prmesh</span><span class="o">#</span><span class="n">npart</span></code>) of local partition of unity vectors in the subdomains, equivalent to <span class="math notranslate nohighlight">\((D_i)_{i=1,...,N}\)</span>.
 In the standard parallel case, only the local partition of unity vector for this mpi rank <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Dk</span><span class="p">[</span><span class="nf">mpiRank</span><span class="p">(</span><span class="n">prmesh</span><span class="o">#</span><span class="n">commddm</span><span class="p">)]</span></code> is defined (unless this mpi rank is excluded from the spatial domain decomposition, i. e. <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">prmesh</span><span class="o">#</span><span class="n">excluded</span></code> = 1).
 In the sequential case, all local partition of unity vectors are defined.</li>
@@ -2404,6 +2412,120 @@ with command-line arguments or directly to the underlying <strong>HPDDM</strong>
 Doing so, a call to <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">fGMRES</span></code> will call the <strong>HPDDM</strong> Krylov solver, with <strong>ffddm</strong> providing the operator and preconditioner through <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="kp">A</span></code> and <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">PREC</span></code>.</p>
 <p>An example can be found in <strong>Helmholtz-2d-HPDDM-BGMRES.edp</strong>, see the <a class="reference internal" href="examples.html#ffddmexamples"><span class="std std-ref">Examples</span></a> section.</p>
 </div>
+<div class="section" id="advanced-use">
+<span id="ffddmdocumentationadvanced"></span><h2>Advanced use<a class="headerlink" href="#advanced-use" title="Permalink to this headline"> </a></h2>
+<!--
+.. _ffddmDocumentationNonlinearTimedependent:
+
+Nonlinear and time dependent problems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: freefem
+  :linenos:
+
+  pr#fromVhi(ui,VhName,res)
+
+.. code-block:: freefem
+  :linenos:
+
+ffddmbuildDmeshAug(pr,Th,comm)
+--><div class="section" id="local-finite-element-spaces-for-non-lagrange-finite-elements">
+<span id="ffddmdocumentationpartitionunityedge"></span><h3>Local finite element spaces for non Lagrange finite elements<a class="headerlink" href="#local-finite-element-spaces-for-non-lagrange-finite-elements" title="Permalink to this headline"> </a></h3>
+<p>For Lagrange finite elements, the partition of unity <span class="math notranslate nohighlight">\((D_i)_{i=1,...,N}\)</span> (see <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Dk</span></code> and <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Dih</span></code>) is built by interpolating the local P1 partition of unity function onto the components of the <strong>Pk</strong> finite element space <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Vhi</span></code>.
+For non Lagrange finite element spaces, such as Raviart–Thomas or Nédélec edge elements, the definition of the degrees of freedom can be more involved, and interpolating the P1 partition of unity functions directly is inappropriate.
+The idea is then to use a “pseudo” finite element <strong>Pkpart</strong> derived from <strong>Pk</strong> which is suitable for interpolating the P1 partition of unity, in the sense that it will produce a partition of unity for <strong>Pk</strong>.</p>
+<p>For example, for first-order Nédélec edge elements (<em>Edge03d</em>), whose degrees of freedom are the circulations along the edges, we define the “pseudo” finite element <em>Edge03ds0</em> which can be seen as a scalar Lagrange counterpart: the numbering of the degrees of freedom is the same, but they correspond to the value at the edge midpoints.</p>
+<p>For Lagrange finite elements, the distributed finite element spaces are built using <a class="reference internal" href="#ffddmdocumentationlocalfiniteelementspaces"><span class="std std-ref">ffddmbuildDfespace</span></a>. Here you must use <strong>ffddmbuildDfespaceEdge</strong>, which builds the distributed finite element space using a “pseudo” finite element to build the partition of unity:</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ffddmbuildDfespaceEdge</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">prmesh</span><span class="p">,</span><span class="n">scalar</span><span class="p">,</span><span class="n">def</span><span class="p">,</span><span class="kp">init</span><span class="p">,</span><span class="n">Pk</span><span class="p">,</span><span class="n">defpart</span><span class="p">,</span><span class="n">initpart</span><span class="p">,</span><span class="n">Pkpart</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>where macros <strong>defpart</strong> and <strong>initpart</strong> specify how to define and interpolate a function in the ‘pseudo’ finite element space <strong>Pkpart</strong>, similar to <strong>def</strong> and <strong>init</strong> for <strong>Pk</strong>.</p>
+<p>An example with first-order Nédélec edge elements (<em>Edge03d</em> + <em>Edge03ds0</em>) for Maxwell equations can be found in <strong>Maxwell-3d-simple.edp</strong>, see the <a class="reference internal" href="examples.html#ffddmexamples"><span class="std std-ref">Examples</span></a> section.</p>
+</div>
+<div class="section" id="inexact-coarse-solves-for-two-level-methods">
+<span id="ffddmdocumentationinexactcoarsesolve"></span><h3>Inexact coarse solves for two level methods<a class="headerlink" href="#inexact-coarse-solves-for-two-level-methods" title="Permalink to this headline"> </a></h3>
+<p>We have seen in the <a class="reference internal" href="#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">Two level preconditioners section</span></a> that two level methods produce a ‘coarse space operator’ <span class="math notranslate nohighlight">\(E\)</span> that needs to be inverted at each iteration.
+By default the coarse space operator matrix is factorized by the direct solver <em>MUMPS</em>. This can become a bottleneck and hinder scalability for large problems, where <span class="math notranslate nohighlight">\(E\)</span> can become too large to be factorized efficiently.
+To remedy this, we can instead opt to use an iterative method to solve the coarse problem at each iteration.  Moreover, in order to retain robustness, a DD preconditioner can be used to solve the inner coarse problem more efficiently.</p>
+<!--
+Three level GenEO
+'''''''''''''''''
+--><div class="section" id="coarse-mesh-and-inexact-coarse-solve">
+<h4>Coarse mesh and inexact coarse solve<a class="headerlink" href="#coarse-mesh-and-inexact-coarse-solve" title="Permalink to this headline"> </a></h4>
+<p>When the coarse problem comes from a coarse mesh discretization, a natural way to do inexact coarse solve is to use a one level domain decomposition method on the coarse problem, with the same subdomain partitioning for the coarse and fine meshes.
+This means that each processor is associated to one spatial subdomain and hosts the two local (nested) coarse and fine submeshes corresponding to this subdomain, as well as the corresponding local matrices for the two discretizations.
+This natural choice offers interesting benefits:</p>
+<ul class="simple">
+<li>We naturally recover a load-balanced parallel implementation, provided that the initial partitioning is balanced.</li>
+<li>The communication pattern between neighboring subdomains is the same for the coarse and fine discretizations.</li>
+<li>The assembly and the application of the interpolation operator <span class="math notranslate nohighlight">\(Z\)</span> (and <span class="math notranslate nohighlight">\(Z^T\)</span>) between the fine and the coarse spaces can be computed locally in each subdomain and require no communication.</li>
+</ul>
+<p>In <strong>ffddm</strong>, the first step is to build the two nested mesh decompositions using <strong>ffddmbuildDmeshNested</strong>:</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ffddmbuildDmeshNested</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span><span class="n">Thc</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">comm</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>decomposes the coarse mesh <strong>Thc</strong> into overlapping submeshes and creates the fine decomposition by locally refining submeshes by a factor of <strong>s</strong>, i.e. splitting each mesh element into <span class="math notranslate nohighlight">\(s^d\)</span> elements, <span class="math notranslate nohighlight">\(s \geq 1\)</span>.
+This will create and expose variables corresponding to both decompositions, prefixed by <strong>pr</strong> for the fine mesh and by <strong>pr#Coarse</strong> for the coarse mesh (see <a class="reference internal" href="#ffddmdocumentationoverlappingmeshdecomposition"><span class="std std-ref">ffddmbuildDmesh</span></a>).
+It also sets the integer variable <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">binexactCS</span></code> to 1, which specifies that any two level method defined on mesh prefix <strong>pr</strong> will use inexact coarse solves.</p>
+<p>The distributed finite element spaces, operators and preconditioners can then be defined for both decompositions. Here is an example where the coarse problem is solved using a one level method:</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ffddmbuildDmeshNested</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">Thc</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kr">mpiCommWorld</span><span class="p">)</span>
+
+<span class="n">ffddmbuildDfespace</span><span class="p">(</span><span class="n">FE</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="kt">real</span><span class="p">,</span> <span class="n">def</span><span class="p">,</span> <span class="kp">init</span><span class="p">,</span> <span class="n">Pk</span><span class="p">)</span>
+<span class="n">ffddmbuildDfespace</span><span class="p">(</span><span class="n">FECoarse</span><span class="p">,</span> <span class="n">MCoarse</span><span class="p">,</span> <span class="kt">real</span><span class="p">,</span> <span class="n">def</span><span class="p">,</span> <span class="kp">init</span><span class="p">,</span> <span class="n">Pk</span><span class="p">)</span>
+
+<span class="c1">// coarse operator (Varf of E):</span>
+<span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">PBCoarse</span><span class="p">,</span> <span class="n">FECoarse</span><span class="p">,</span> <span class="n">VarfEprec</span><span class="p">)</span>
+<span class="c1">// one level preconditioner for the coarse problem:</span>
+<span class="n">ffddmsetupPrecond</span><span class="p">(</span><span class="n">PBCoarse</span><span class="p">,</span> <span class="n">VarfPrecC</span><span class="p">)</span>
+
+<span class="c1">// operator for the fine problem:</span>
+<span class="n">ffddmsetupOperator</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">FE</span><span class="p">,</span> <span class="n">Varf</span><span class="p">)</span>
+<span class="c1">// one level preconditioner for the fine problem:</span>
+<span class="n">ffddmsetupPrecond</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">VarfPrec</span><span class="p">)</span>
+
+<span class="c1">// add the second level:</span>
+<span class="n">ffddmcoarsemeshsetup</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">Thc</span><span class="p">,</span> <span class="n">VarfEprec</span><span class="p">,</span> <span class="n">null</span><span class="p">)</span>
+
+<span class="p">[...]</span>
+<span class="n">u</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PBfGMRES</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="mf">1.e-6</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Remarks</strong>:</p>
+<ul class="simple">
+<li>Note that the different prefixes need to match: prefixes for the coarse decomposition have to be those of the fine decomposition, appended with <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">Coarse</span></code>.</li>
+<li>The operator and preconditioner for the coarse problem have to be defined before those of the fine problem, because the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">Q</span></code> function is actually defined by <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffddmsetupPrecond</span></code> and involves a call to <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">CoarsefGMRES</span></code> (which is defined by <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffddmsetupPrecond</span></code> for the coarse problem) for the iterative solution of the coarse problem if <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">prfe</span><span class="o">#</span><span class="n">prmesh</span><span class="o">#</span><span class="n">binexactCS</span></code> <span class="math notranslate nohighlight">\(\neq 0\)</span>.</li>
+<li>In this case, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffddmcoarsemeshsetup</span></code> does not use <strong>Thc</strong> or <strong>VarfEprec</strong> and only builds the local interpolation matrices between fine and coarse local finite element spaces <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">prfe</span><span class="o">#</span><span class="n">Vhi</span></code> and <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">prfe</span><span class="o">#</span><span class="n">CoarseVhi</span></code> to be able to apply <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(Z^T\)</span>.</li>
+<li>The GMRES tolerance for the inner solution of the coarse problem is set by <a class="reference internal" href="parameters.html#ffddmparametersglobal"><span class="std std-ref">ffddminexactCStol</span></a> and is equal to 0.1 by default.</li>
+</ul>
+<p>In practice, these methods can give good results for wave propagation problems, where the addition of artificial absorption in the preconditioner helps with the convergence of the one level method for the inner solution of the coarse problem.
+You can find an example for Maxwell equations in <strong>Maxwell_Cobracavity.edp</strong>, see the <a class="reference internal" href="examples.html#ffddmexamples"><span class="std std-ref">Examples</span></a> section. More details can be found <a class="reference external" href="../../_static/html/tutorial-slides.html#26">here</a> and in</p>
+<blockquote>
+<div>M. Bonazzoli, V. Dolean, I. G. Graham, E. A. Spence, P.-H. Tournier. Domain decomposition preconditioning for the high-frequency time-harmonic Maxwell equations with absorption. Mathematics of Computation, 2019. DOI: <a class="reference external" href="https://doi.org/10.1090/mcom/3447">https://doi.org/10.1090/mcom/3447</a></div></blockquote>
+<!--
+Computing integrals
+~~~~~~~~~~~~~~~~~~~
+--></div>
+</div>
+</div>
 </div>
 
 
@@ -2430,6 +2552,14 @@ Doing so, a call to <code class="docutils literal highlight highlight-freefem"><
 </li>
 <li><a class="reference internal" href="#solving-the-linear-system">Solving the linear system</a></li>
 <li><a class="reference internal" href="#using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em></a></li>
+<li><a class="reference internal" href="#advanced-use">Advanced use</a><ul>
+<li><a class="reference internal" href="#local-finite-element-spaces-for-non-lagrange-finite-elements">Local finite element spaces for non Lagrange finite elements</a></li>
+<li><a class="reference internal" href="#inexact-coarse-solves-for-two-level-methods">Inexact coarse solves for two level methods</a><ul>
+<li><a class="reference internal" href="#coarse-mesh-and-inexact-coarse-solve">Coarse mesh and inexact coarse solve</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

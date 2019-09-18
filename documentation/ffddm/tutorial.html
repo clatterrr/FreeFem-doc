@@ -451,6 +451,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="documentation.html#solving-the-linear-system">Solving the linear system</a></li>
 <li class="toctree-l4"><a class="reference internal" href="documentation.html#using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="documentation.html#advanced-use">Advanced use</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="documentation.html#local-finite-element-spaces-for-non-lagrange-finite-elements">Local finite element spaces for non Lagrange finite elements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="documentation.html#inexact-coarse-solves-for-two-level-methods">Inexact coarse solves for two level methods</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="documentation.html#coarse-mesh-and-inexact-coarse-solve">Coarse mesh and inexact coarse solve</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="parameters.html">Parameters</a><ul>
@@ -2531,10 +2539,7 @@ where <span class="math notranslate nohighlight">\(k_0 - 1\)</span> is the # of 
 <p><strong>ffddm</strong> allows you to use <strong>HPDDM</strong> to solve your problem, effectively replacing the <strong>ffddm</strong> implementation of all parallel linear algebra computations</p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> define your problem with <strong>ffddm</strong>, solve it with <strong>HPDDM</strong></p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> <strong>ffddm</strong> acts as a finite element interface for <strong>HPDDM</strong></p>
-<ul class="simple">
-<li>you can use <strong>HPDDM</strong> features unavailable in <strong>ffddm</strong> such as advanced Krylov subspace methods implementing block and recycling techniques</li>
-<li>conversely, some features of <strong>ffddm</strong> such as two level methods built from a coarse mesh are not implemented in <strong>HPDDM</strong></li>
-</ul>
+<p>You can use <strong>HPDDM</strong> features unavailable in <strong>ffddm</strong> such as advanced Krylov subspace methods implementing block and recycling techniques</p>
 <p>To switch to <strong>HPDDM</strong>, simply define the macro <cite>pr#withhpddm</cite> before using <cite>ffddmsetupOperator</cite> (<a class="reference internal" href="#ffddmtutorialdefineyourproblem"><span class="std std-ref">Step 3</span></a>). You can then pass <strong>HPDDM</strong> options
 with command-line arguments or directly to the underlying <strong>HPDDM</strong> operator:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1

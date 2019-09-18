@@ -451,6 +451,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="documentation.html#solving-the-linear-system">Solving the linear system</a></li>
 <li class="toctree-l4"><a class="reference internal" href="documentation.html#using-hpddm-within-ffddm">Using <em>HPDDM</em> within <em>ffddm</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="documentation.html#advanced-use">Advanced use</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="documentation.html#local-finite-element-spaces-for-non-lagrange-finite-elements">Local finite element spaces for non Lagrange finite elements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="documentation.html#inexact-coarse-solves-for-two-level-methods">Inexact coarse solves for two level methods</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="documentation.html#coarse-mesh-and-inexact-coarse-solve">Coarse mesh and inexact coarse solve</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Parameters</a><ul>
@@ -1924,6 +1932,7 @@ Cannot be used in sequential mode or with plotting.</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span><span class="n">ffddm_geneo_threshold</span> <span class="n">R</span></code>, threshold parameter for selecting local eigenvectors when solving the local generalized eigenvalue problems for the GenEO method, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> (default 0.5).
 If the command-line parameter <strong>-ffddm_geneo_nu N</strong> is used, then <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmtau</span></a> is initialized to 0.</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span><span class="n">ffddm_schwarz_coarse_correction</span> <span class="n">S</span></code>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction), see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddmcorrection</span></a> (default “ADEF1”).</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="o">-</span><span class="n">ffddm_inexactCS_tol</span> <span class="n">R</span></code>, specifies the GMRES tolerance for the inner solution of the coarse problem when using a two level method with approximate coarse solves, see <a class="reference internal" href="#ffddmparametersglobal"><span class="std std-ref">ffddminexactCStol</span></a> (default 0.1).</li>
 </ul>
 </div>
 <div class="section" id="global-parameters">
@@ -1958,6 +1967,8 @@ See <a class="reference internal" href="documentation.html#ffddmdocumentationbui
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffddmcorrection</span></code> initialized by command-line argument <strong>-ffddm_schwarz_coarse_correction S</strong>, specifies the coarse correction formula to use for the two level preconditioner: “AD” (<em>Additive</em>), “BNN” (<em>Balancing Neumann-Neumann</em>), “ADEF1” (<em>Adapted Deflation Variant 1</em>), “ADEF2” (<em>Adapted Deflation Variant 2</em>), “RBNN1” (<em>Reduced Balancing Variant 1</em>), “RBNN2” (<em>Reduced Balancing Variant 2</em>) or “none” (no coarse correction).
 Default is “ADEF1”.
 See the section about <a class="reference internal" href="documentation.html#ffddmdocumentationtwolevelpreconditioners"><span class="std std-ref">Two level preconditioners</span></a> for more details.</li>
+<li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffddminexactCStol</span></code> initialized by command-line argument <strong>-ffddm_inexactCS_tol R</strong>, GMRES tolerance for the inner solution of the coarse problem when using a two level method with approximate coarse solves (default 0.1).
+See the section about <span class="xref std std-ref">Approximate coarse solves for two level methods</span> for more details.</li>
 </ul>
 </div>
 </div>
