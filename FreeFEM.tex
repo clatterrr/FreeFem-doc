@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Nov 15, 2019}
+\date{Nov 27, 2019}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -5551,7 +5551,7 @@ Patch plot (2D map or density plot) including mesh and boundary:
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n}{ffpdeplot}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{VhSeq\PYGZsq{}}\PYG{p}{,}\PYG{n}{vh}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{XYData\PYGZsq{}}\PYG{p}{,}\PYG{n}{u}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ZStyle\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{continuous\PYGZsq{}}\PYG{p}{,} \PYG{c}{...}
           \PYG{l+s}{\PYGZsq{}}\PYG{l+s}{Mesh\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{off\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{lighting} \PYG{n}{gouraud}\PYG{p}{;}
+\PYG{n}{lighting }\PYG{l+s}{gouraud}\PYG{p}{;}
 \PYG{n}{view}\PYG{p}{(}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{47}\PYG{p}{,}\PYG{l+m+mi}{24}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \PYG{n}{camlight}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{headlight\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
@@ -18780,429 +18780,465 @@ Operation use in reduce is: \sphinxcode{\sphinxupquote{MPI\_Op op}} which can be
 Note that, for all global operations, only \sphinxcode{\sphinxupquote{int{[}int{]}}} and \sphinxcode{\sphinxupquote{real{[}int{]}}} are data type take in account in \sphinxstylestrong{FreeFEM}.
 
 
-\subsubsection{HPDDM solvers}
-\label{\detokenize{documentation/parallelization:hpddm-solvers}}
-Real valued problems (diffusion, heat, elasticity and Stokes) and complex valued problems (Maxwell and Helmholtz) are given in both 2D and 3D.
-We detail here the 3D elasticity problem and the 3D time-dependent heat problem.
-
-\begin{sphinxadmonition}{tip}{Tip:}
-Elasticity 3D
-
-A three dimensional elasticity problem is defined.
-The solver is a domain decomposition method.
-Domain decomposition methods are a natural framework for parallel computers.
-The scripts run on multicores computers (from 2 to tens of thousands of cores).
-Recall that like in any MPI code the number of MPI processes, \sphinxcode{\sphinxupquote{mpisize}}, is given in the command line via the option \sphinxcode{\sphinxupquote{-np}}.
-We focus on the script \sphinxcode{\sphinxupquote{Elasticity3D.edp}} but the other scripts have the same structure.
-The command line to run the example on four processes with \sphinxcode{\sphinxupquote{ffglut}} visualization is: \sphinxcode{\sphinxupquote{ff-mpirun -np 4 Elasticity3D.edp -glut ffglut}}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{hpddm}\PYG{l+s}{\PYGZdq{}} \PYG{c+c1}{//load HPDDM plugin}
-\PYG{k+kt}{macro} \PYG{n}{partitioner}\PYG{p}{(}\PYG{p}{)}\PYG{n}{metis}\PYG{c+c1}{//metis, scotch, or parmetis}
-\PYG{k+kt}{macro} \PYG{n}{dimension}\PYG{p}{(}\PYG{p}{)}\PYG{l+m+mi}{3}\PYG{c+c1}{//2D or 3D}
-\PYG{k+kt}{macro} \PYG{n}{vectorialfe}\PYG{p}{(}\PYG{p}{)}\PYG{n+nc}{P1}\PYG{c+c1}{//}
-\PYG{c+cp}{include} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{macro\PYGZus{}ddm.idp}\PYG{l+s}{\PYGZdq{}} \PYG{c+c1}{//additional DDM functions}
-
-\PYG{c+c1}{// Macro}
-\PYG{k+kt}{macro} \PYG{n}{def}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{o}{\PYGZsh{}}\PYG{k+kp}{B}\PYG{p}{,} \PYG{n}{i}\PYG{o}{\PYGZsh{}}\PYG{n}{C}\PYG{p}{]} \PYG{c+c1}{//vector field definition}
-\PYG{k+kt}{macro} \PYG{k+kp}{init}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{p}{]} \PYG{c+c1}{//vector field initialization}
-
-\PYG{k+kt}{real} \PYG{n}{Sqrt} \PYG{o}{=} \PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{l+m+mf}{2.0}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{macro} \PYG{n+nf}{epsilon}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{p}{[}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{k+kp}{B}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{n}{C}\PYG{p}{)}\PYG{p}{,}
-    \PYG{p}{(}\PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{k+kp}{B}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{n}{C}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{Sqrt}\PYG{p}{,}
-    \PYG{p}{(}\PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{n}{C}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{Sqrt}\PYG{p}{,}
-    \PYG{p}{(}\PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{k+kp}{B}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{Sqrt}\PYG{p}{]} \PYG{c+c1}{//}
-\PYG{k+kt}{macro} \PYG{n}{div}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{p}{(}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{k+kp}{B}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZsh{}}\PYG{n}{C}\PYG{p}{)}\PYG{p}{)} \PYG{c+c1}{//}
-
-\PYG{c+c1}{// Parameters}
-\PYG{k+kt}{real} \PYG{n}{f} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{9000.0}\PYG{p}{;}
-\PYG{k+kt}{real} \PYG{n}{strain} \PYG{o}{=} \PYG{l+m+mf}{100.0}\PYG{p}{;}
-\PYG{k+kt}{real} \PYG{n}{Young} \PYG{o}{=} \PYG{l+m+mf}{2.0e11}\PYG{p}{;} \PYG{c+c1}{// steel}
-\PYG{k+kt}{real} \PYG{n}{poisson} \PYG{o}{=} \PYG{l+m+mf}{0.35}\PYG{p}{;}
-
-\PYG{k+kt}{func} \PYG{n}{Pk} \PYG{o}{=} \PYG{p}{[}\PYG{n}{vectorialfe}\PYG{p}{,} \PYG{n}{vectorialfe}\PYG{p}{,} \PYG{n}{vectorialfe}\PYG{p}{]}\PYG{p}{;}
-
-\PYG{k+kt}{string} \PYG{n}{deflation} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}deflation}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//coarse space construction}
-\PYG{k+kt}{int} \PYG{n}{overlap} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}overlap}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//geometric overlap between subdomains}
-\PYG{k+kt}{int} \PYG{n}{fakeInterface} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}interface}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//interface between subdomains}
-\PYG{k+kt}{int} \PYG{n}{s} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}split}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//refinement factor}
-\PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}p}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{k+kt}{mpiComm} \PYG{n}{comm}\PYG{p}{;}
-\PYG{k+kt}{bool} \PYG{n}{excluded} \PYG{o}{=} \PYG{n+nf}{splitComm}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{comm}\PYG{p}{,} \PYG{n}{topology} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}topology}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{n}{exclude} \PYG{o}{=} \PYG{p}{(}\PYG{n}{usedARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}exclude}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{o}{!}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{c+c1}{// Display}
-\PYG{k}{if} \PYG{p}{(}\PYG{k+kr}{verbosity} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{k+kr}{mpirank} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{}\PYGZhy{}\PYGZhy{} }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{mpirank} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{o}{/}\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{mpisize}\PYG{p}{;}
-    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{} Elasticity3D.edp \PYGZhy{} input parameters: refinement factor = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{s} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{} overlap = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{overlap} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{c+c1}{// Mesh}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{LL} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{;}
-\PYG{n}{meshN} \PYG{n}{ThBorder}\PYG{p}{,} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{fespace} \PYG{n+nf}{Wh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local finite element space}
-
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{arrayIntersection}\PYG{p}{;} \PYG{c+c1}{//ranks of neighboring subdomains}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{restrictionIntersection}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local\PYGZhy{}to\PYGZhy{}neighbors renumbering}
-\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{D}\PYG{p}{;} \PYG{c+c1}{//partition of unity}
-\PYG{p}{\PYGZob{}}
-    \PYG{n}{meshN} \PYG{n}{ThGlobal} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{o}{*}\PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{10}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{,} \PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{LL}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//global mesh}
-    \PYG{n}{build}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{ThBorder}\PYG{p}{,} \PYG{n}{ThGlobal}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{,} \PYG{n}{s}\PYG{p}{,} \PYG{n}{overlap}\PYG{p}{,} \PYG{n}{D}\PYG{p}{,} \PYG{n}{arrayIntersection}\PYG{p}{,} \PYG{n}{restrictionIntersection}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{comm}\PYG{p}{,} \PYG{n}{excluded}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{c+c1}{// Problem}
-\PYG{k+kt}{real} \PYG{n}{tmp} \PYG{o}{=} \PYG{l+m+mf}{1.0} \PYG{o}{+} \PYG{n}{poisson}\PYG{p}{;}
-\PYG{k+kt}{real} \PYG{n}{mu} \PYG{o}{=} \PYG{n}{Young} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mf}{2.0} \PYG{o}{*} \PYG{n}{tmp}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{real} \PYG{n}{lambda} \PYG{o}{=} \PYG{n}{Young} \PYG{o}{*} \PYG{n}{poisson} \PYG{o}{/} \PYG{p}{(}\PYG{n}{tmp} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{2.0} \PYG{o}{*} \PYG{n}{poisson}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{rhs}\PYG{p}{;} \PYG{c+c1}{//local right\PYGZhy{}hand side}
-\PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{Mat}\PYG{p}{;} \PYG{c+c1}{//local operator}
-\PYG{p}{\PYGZob{}} \PYG{c+c1}{//local weak form}
-    \PYG{n}{meshN} \PYG{n}{ThAugmented} \PYG{o}{=} \PYG{n}{Th} \PYG{o}{+} \PYG{n}{ThBorder}\PYG{p}{;}
-    \PYG{k+kt}{varf} \PYG{n+nf}{vPb} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-        \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{)}\PYG{p}{(}
-              \PYG{n}{lambda} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}
-            \PYG{o}{+} \PYG{l+m+mf}{2.0} \PYG{o}{*} \PYG{n}{mu} \PYG{o}{*} \PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-        \PYG{p}{)}
-        \PYG{o}{+} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{)}\PYG{p}{(}
-              \PYG{n}{f} \PYG{o}{*} \PYG{n}{vC}
-        \PYG{p}{)}
-        \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uB}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uC}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-        \PYG{p}{;}
-
-    \PYG{k+kt}{fespace} \PYG{n+nf}{WhAugmented}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{Mat} \PYG{o}{=} \PYG{n}{vPb}\PYG{p}{(}\PYG{n}{WhAugmented}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{rhsFull} \PYG{o}{=} \PYG{n}{vPb}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k+kt}{matrix} \PYG{n}{R} \PYG{o}{=} \PYG{n+nf}{interpolate}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{renumbering}\PYG{p}{(}\PYG{n}{Mat}\PYG{p}{,} \PYG{n}{R}\PYG{p}{,} \PYG{n}{rhsFull}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{)}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-\PYG{n}{ThBorder} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{n}{dschwarz} \PYG{k+kp}{A}\PYG{p}{(}\PYG{n}{Mat}\PYG{p}{,} \PYG{n}{arrayIntersection}\PYG{p}{,} \PYG{n}{restrictionIntersection}\PYG{p}{,} \PYG{n}{scaling} \PYG{o}{=} \PYG{n}{D}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{n+nf}{set}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{sparams} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}schwarz\PYGZus{}method ras \PYGZhy{}hpddm\PYGZus{}schwarz\PYGZus{}coarse\PYGZus{}correction balanced \PYGZhy{}hpddm\PYGZus{}variant right \PYGZhy{}hpddm\PYGZus{}verbosity 1 \PYGZhy{}hpddm\PYGZus{}geneo\PYGZus{}nu 10}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{Opt}\PYG{p}{;} \PYG{c+c1}{//local operator with optimized boundary conditions}
-\PYG{n}{dpair} \PYG{n}{ret}\PYG{p}{;}
-\PYG{p}{\PYGZob{}}
-    \PYG{k+kt}{int} \PYG{k+kp}{solver} \PYG{o}{=} \PYG{n}{getOption}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{schwarz\PYGZus{}method}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k}{if} \PYG{p}{(}\PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\textbar{}}\PYG{o}{\textbar{}} \PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{2} \PYG{o}{\textbar{}}\PYG{o}{\textbar{}} \PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//optimized Schwarz methods}
-        \PYG{k+kt}{fespace} \PYG{n}{Ph}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n+nc}{P0}\PYG{p}{)}\PYG{p}{;}
-        \PYG{k+kt}{real} \PYG{n}{kZero} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}kZero}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{10.0}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n}{Ph} \PYG{n}{transmission} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{kZero} \PYG{o}{*} \PYG{n}{mu} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{mu} \PYG{o}{+} \PYG{n}{lambda}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{lambda} \PYG{o}{+} \PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{)}\PYG{p}{;}
-        \PYG{k+kt}{varf} \PYG{n+nf}{vOptimized} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-            \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{(}
-                  \PYG{n}{lambda} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}
-                \PYG{o}{+} \PYG{l+m+mf}{2.0} \PYG{o}{*} \PYG{n}{mu} \PYG{o}{*} \PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-            \PYG{p}{)}
-            \PYG{o}{+} \PYG{n}{intN1}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{)}\PYG{p}{(}
-                  \PYG{n}{transmission} \PYG{o}{*} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-            \PYG{p}{)}
-            \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uB}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uC}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-            \PYG{p}{;}
-        \PYG{n}{Opt} \PYG{o}{=} \PYG{n}{vOptimized}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{p}{\PYGZcb{}}
-    \PYG{k}{if} \PYG{p}{(}\PYG{k+kr}{mpisize} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{isSetOption}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{schwarz\PYGZus{}coarse\PYGZus{}correction}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//two\PYGZhy{}level Schwarz methods}
-        \PYG{k}{if}\PYG{p}{(}\PYG{n}{excluded}\PYG{p}{)}
-            \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{)}\PYG{p}{;}
-        \PYG{k}{else} \PYG{p}{\PYGZob{}}
-            \PYG{k+kt}{varf} \PYG{n}{vPbNoPen} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-                \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{(}
-                      \PYG{n}{lambda} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{*} \PYG{n}{div}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}
-                    \PYG{o}{+} \PYG{l+m+mf}{2.0} \PYG{o}{*} \PYG{n}{mu} \PYG{o}{*} \PYG{p}{(}\PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{epsilon}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-                \PYG{p}{)}
-                \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uB}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{uC}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-                \PYG{p}{;}
-            \PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{noPen} \PYG{o}{=} \PYG{n}{vPbNoPen}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{solver}\PYG{o}{=}\PYG{k+kr}{CG}\PYG{p}{)}\PYG{p}{;}
-            \PYG{k}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{c+c1}{//standard GenEO, no need for RHS \PYGZhy{}\PYGZgt{} deduced from LHS (Neumann matrix)}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-            \PYG{k}{else} \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{dtn}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-                \PYG{k+kt}{varf} \PYG{n}{vMass} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)} \PYG{o}{=} \PYG{n}{intN1}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{)}\PYG{p}{(}\PYG{n}{u} \PYG{o}{*} \PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
-                \PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{massMatrix} \PYG{o}{=} \PYG{n}{vMass}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{solver}\PYG{o}{=}\PYG{k+kr}{CG}\PYG{p}{)}\PYG{p}{;}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{k+kp}{B}\PYG{o}{=}\PYG{n}{massMatrix}\PYG{p}{,} \PYG{n}{pattern}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-            \PYG{p}{\PYGZcb{}}
-            \PYG{k}{else} \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo\PYGZhy{}2}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{c+c1}{//GenEO\PYGZhy{}2 for optimized Schwarz methods, need for RHS (LHS is still Neumann matrix)}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{k+kp}{B}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{pattern}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-        \PYG{p}{\PYGZcb{}}
-    \PYG{p}{\PYGZcb{}}
-\PYG{p}{\PYGZcb{}}
-
-
-\PYG{c+c1}{// Solve}
-\PYG{n}{Wh}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local solution}
-
-\PYG{k}{if}\PYG{p}{(}\PYG{n}{Opt}\PYG{p}{.}\PYG{k+kr}{n} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{//optimized Schwarz methods}
-    \PYG{n}{DDM}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{,} \PYG{n}{excluded}\PYG{o}{=}\PYG{n}{excluded}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{,} \PYG{n}{O}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{)}\PYG{p}{;}
-\PYG{k}{else}
-    \PYG{n}{u}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{k+kp}{A}\PYG{o}{\PYGZca{}}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{*} \PYG{n}{rhs}\PYG{p}{;}
-
-\PYG{c+c1}{// Error}
-\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{k+kp}{err}\PYG{p}{(}\PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{.}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kp}{err} \PYG{o}{=} \PYG{k+kp}{A} \PYG{o}{*} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{;} \PYG{c+c1}{//global matrix\PYGZhy{}vector product}
-\PYG{k+kp}{err} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{n}{rhs}\PYG{p}{;}
-
-\PYG{c+c1}{// Plot}
-\PYG{n}{plotMPI}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Global solution}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{def}\PYG{p}{,} \PYG{k+kt}{real}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
-\PYG{n}{plotMPI}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{k+kp}{err}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Global residual}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{def}\PYG{p}{,} \PYG{k+kt}{real}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
-\PYG{k+kt}{real} \PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mf}{2000.0}\PYG{p}{;}
-\PYG{n}{meshN} \PYG{n}{ThMoved} \PYG{o}{=} \PYG{n}{movemesh3}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{k+kp}{transfo} \PYG{o}{=} \PYG{p}{[}\PYG{k+kr}{x} \PYG{o}{+} \PYG{n}{alpha}\PYG{o}{*}\PYG{n}{u}\PYG{p}{,} \PYG{k+kr}{y} \PYG{o}{+} \PYG{n}{alpha}\PYG{o}{*}\PYG{n}{uB}\PYG{p}{,} \PYG{k+kr}{z} \PYG{o}{+} \PYG{n}{alpha}\PYG{o}{*}\PYG{n}{uC}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{u}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{k+kr}{mpirank}\PYG{p}{;}
-\PYG{n}{plotMPI}\PYG{p}{(}\PYG{n}{ThMoved}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Global moved solution}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{def}\PYG{p}{,} \PYG{k+kt}{real}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-The macro \sphinxcode{\sphinxupquote{build}} is of particular interest since it handles the data distribution among the \sphinxcode{\sphinxupquote{mpisize}} MPI processes with the following steps:
-\begin{itemize}
+\section{PETSc and SLEPc}
+\label{\detokenize{documentation/petsc/index:petsc-and-slepc}}\label{\detokenize{documentation/petsc/index::doc}}
+FreeFEM is interfaced with PETSc and SLEPc which offer a wide range of sequential or parallel linear or nonlinear solvers, time steppers, optimizers, and eigensolvers. In particular, it gives access transparently (without much changes to user code) to: distributed and multithreaded direct solvers (PARDISO, MUMPS, SuperLU), multigrid solvers (hypre, GAMG), domain decomposition methods (block Jacobi, ASM, HPDDM). For a detailed introduction to these tools, interested readers are referred to the tutorial \sphinxhref{http://jolivet.perso.enseeiht.fr/FreeFem-tutorial/}{Introduction to FreeFEM with an emphasis on parallel computing}.
+\begin{description}
+\item[{In most of the scripts listed below, the following standard procedure is used.}] \leavevmode\begin{itemize}
 \item {} 
-The initial mesh \sphinxcode{\sphinxupquote{ThGlobal}} is partitioned by process 0 into \sphinxcode{\sphinxupquote{mpisize}} submeshes
-
-\item {} \begin{description}
-\item[{The partition is broadcasted to every process \(i\) for 0 \textless{} \(i\) \textless{} \sphinxcode{\sphinxupquote{mpisize}}.}] \leavevmode
-From then on, all tasks are parallel.
-
-\end{description}
-
-\item {} \begin{description}
-\item[{Each process creates the local submesh \sphinxcode{\sphinxupquote{Th}} (if the refinement factor \sphinxcode{\sphinxupquote{s}} defined via the option \sphinxcode{\sphinxupquote{-split}} is larger than 1, each local edge is splitted into \(s\) subedges, resulting in each element being split into \(s^2\) element in 2D and \(s^3\) elements in 3D) so that the collection of these submeshes is an overlapping domain decomposition of a refined mesh.}] \leavevmode
-The number of extra layers added to the initial partition is monitored by the option \sphinxcode{\sphinxupquote{overlap}}.
-
-\end{description}
+Load an initial sequential mesh (in 2D or 3D).
 
 \item {} 
-Connectivity structures are created
+Partition the mesh and generate connectivity information according to the number of processes.
 
 \item {} 
-\sphinxcode{\sphinxupquote{D}} is the diagonal of the local partition of unity (see {\hyperref[\detokenize{documentation/parallelization:paralleldistributedvectorshpddm}]{\sphinxcrossref{\DUrole{std,std-ref}{Distributed vectors in HPDDM}}}})
-
-\item {} 
-\sphinxcode{\sphinxupquote{arrayIntersection}} is the list of neighbors of the current subdomain
-
-\item {} 
-For \sphinxcode{\sphinxupquote{j}} in \sphinxcode{\sphinxupquote{arrayIntersection}}, \sphinxcode{\sphinxupquote{restrictionIntersection{[}j{]}}} is the list of the degrees of freedom that belong to the intersection of the current subdomain with its neighbor \sphinxcode{\sphinxupquote{j}}.
+Provide these information to PETSc so that subsequent computations may be done in a distributed fashion.
 
 \end{itemize}
 
-Then, the variational formulation \sphinxcode{\sphinxupquote{vPb}} of a three dimensional elasticity problem is used to assemble a local matrix \sphinxcode{\sphinxupquote{Mat}}.
-This matrix along with \sphinxcode{\sphinxupquote{D}}, \sphinxcode{\sphinxupquote{arrayIntersection}} and \sphinxcode{\sphinxupquote{restrictionIntersection}} are arguments for the constructor of the distributed matrix \sphinxcode{\sphinxupquote{A}}.
-This is enough to solve the problem with a one-level additive Schwarz method which can be either ASM or RAS.
+\end{description}
 
-For some problems it is interesting to use optimized interface conditions.
-When there are many subdomains, it is usually profitable to add a second level to the solver.
-Options are set in the sequel of the script:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{n+nf}{set}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}schwarz\PYGZus{}method ras \PYGZhy{}hpddm\PYGZus{}schwarz\PYGZus{}coarse\PYGZus{}correction balanced \PYGZhy{}hpddm\PYGZus{}variant right \PYGZhy{}hpddm\PYGZus{}verbosity 1 \PYGZhy{}hpddm\PYGZus{}geneo\PYGZus{}nu 10}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-\end{sphinxVerbatim}
-
-In the above line, the first option selects the one-level preconditioner \sphinxcode{\sphinxupquote{ras}} (possible choices are \sphinxcode{\sphinxupquote{ras}}, \sphinxcode{\sphinxupquote{oras}}, \sphinxcode{\sphinxupquote{soras}}, \sphinxcode{\sphinxupquote{asm}}, \sphinxcode{\sphinxupquote{osm}} or \sphinxcode{\sphinxupquote{none}}), the second option selects the correction formula for the second level here \sphinxcode{\sphinxupquote{balanced}} (possible options are \sphinxcode{\sphinxupquote{deflated}}, \sphinxcode{\sphinxupquote{additive}} or \sphinxcode{\sphinxupquote{balanced}}), the third option selects right preconditioning, the fourth one is verbosity level of HPDDM (different from the one of \sphinxstylestrong{FreeFEM}), the fifth one prints all possible options of HPPDM and the last one specifies the number of coarse degrees of freedom per subdomain of the GENEO coarse space.
-All other options of \sphinxhref{https://github.com/hpddm/hpddm/blob/master/doc/cheatsheet.pdf}{HPDDM library} can be selected via the \sphinxstylestrong{FreeFEM} function \sphinxcode{\sphinxupquote{set}}.
-
-In the last part of the script, the global linear system is solved by the domain decomposition method defined above.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c+c1}{// Solve}
-\PYG{n}{Wh}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local solution}
-
-\PYG{k}{if}\PYG{p}{(}\PYG{n}{Opt}\PYG{p}{.}\PYG{k+kr}{n} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{//optimized Schwarz methods}
-\PYG{n}{DDM}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{,} \PYG{n}{excluded}\PYG{o}{=}\PYG{n}{excluded}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{,} \PYG{n}{O}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{)}\PYG{p}{;}
-\PYG{k}{else}
-\PYG{n}{u}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{k+kp}{A}\PYG{o}{\PYGZca{}}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{*} \PYG{n}{rhs}\PYG{p}{;}
-\end{sphinxVerbatim}
-\end{sphinxadmonition}
+Combining the power and flexibility of PETSc with the ease-of-use of FreeFEM may help design multiphysics solvers, e.g., for \sphinxtitleref{Navier\textendash{}Stokes equations \textless{}https://www.sciencedirect.com/science/article/pii/S0045782519301914\textgreater{}}, advanced matrix-free discretization and such.
 
 
-\subsubsection{Time dependent problem}
-\label{\detokenize{documentation/parallelization:time-dependent-problem}}
-\begin{sphinxadmonition}{tip}{Tip:}
-Heat 3D
+\subsection{Examples}
+\label{\detokenize{documentation/petsc/examples:examples}}\label{\detokenize{documentation/petsc/examples:petscexamples}}\label{\detokenize{documentation/petsc/examples::doc}}
 
-A three dimensional heat problem
-\begin{equation*}
-\begin{split}\frac{\partial u}{\partial t} - \Delta u = 1,\ \ \ u(0,\cdot) := 0 \text{ in }\Omega\,.\end{split}
-\end{equation*}
-is discretized by an implicit Euler scheme. At each time step \(n\), we shall seek \(u^n(x,y,z)\) satisfying for all \(w\in H^1(\Omega)\):
-\begin{equation*}
-\begin{split}\int_\Omega \frac{u^n-u^{n-1}}{\delta t}\,w + \nabla u^n \nabla w = \int_\Omega w ,\ \ \ u^0 := 0 \text{ in }\Omega\,.\end{split}
-\end{equation*}
-so that at each time step a linear system:
-\begin{equation*}
-\begin{split}(M+dt*K) u^n[] = M*u^{n-1}[] + \delta t*F\end{split}
-\end{equation*}
-is solved by a domain decomposition method where \(M\) is the mass matrix and \(K\) is the rigidity matrix. In order to save computational efforts, the domain decomposition method preconditioner is built only once and then reused for all subsequent solves with matrix \(A:=M+dt*K\).
-The distributed matrix vector product with matrix \(M\) is made through the call to the function \sphinxcode{\sphinxupquote{dmv}} using the partition of unity associated to matrix \(A\).
+\subsubsection{Linear problems}
+\label{\detokenize{documentation/petsc/examples:linear-problems}}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{hpddm}\PYG{l+s}{\PYGZdq{}} \PYG{c+c1}{//load HPDDM plugin}
-\PYG{k+kt}{macro} \PYG{n}{partitioner}\PYG{p}{(}\PYG{p}{)}\PYG{n}{metis}\PYG{c+c1}{//metis, scotch, or parmetis}
-\PYG{k+kt}{macro} \PYG{n}{dimension}\PYG{p}{(}\PYG{p}{)}\PYG{l+m+mi}{3}\PYG{c+c1}{//2D or 3D}
-\PYG{c+cp}{include} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{macro\PYGZus{}ddm.idp}\PYG{l+s}{\PYGZdq{}} \PYG{c+c1}{//additional DDM functions}
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments
+(preconditioners,
+numerical schemes)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc.edp}{diffusion-2d-PETSc.edp}
+&
+Distributed
+LU/Cholesky, domain
+decomposition and
+multigrid methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc-complex.edp}{di
+ffusion-2d-PETSc-complex.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-2d-PETSc.edp}{heat-2d-PETSc.edp}
+&
+Transient diffusion
+equation, same as
+above
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-2d-PETSc.edp}{diff
+usion-periodic-2d-PETSc.edp}
+&
+Periodic boundary
+conditions,
+multigrid methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-balanced-2d-PETSc.edp}{diffusion-periodic-bal
+anced-2d-PETSc.edp}
+&
+Better load
+balancing than above
+example
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-substructuring-2d-PETSc.edp}{diffusion-substr
+ucturing-2d-PETSc.edp}
+&
+Balancing Domain
+Decomposition with
+Constraints
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-3d-PETSc.edp}{diffusion-3d-PETSc.edp}
+&
+Three-dimensional
+problem, domain
+decomposition and
+multigrid methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-mg-3d-PETSc.edp}{diffusion-mg-3d-PETSc.edp}
+&
+Geometric multigrid
+methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-2d-PETSc-complex.edp}{he
+lmholtz-2d-PETSc-complex.edp}
+&
+Domain decomposition
+methods with
+optimized boundary
+conditions
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-RT-2d-PETSc.edp}{laplace-RT-2d-PETSc.edp}
+&
+Vectorial
+two-dimensional
+problem with a block
+preconditioner
+(fieldsplit)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-adapt-3d-PETSc.edp}{laplace-adapt-3d-PETSc.edp}
+&
+Three-dimensional
+problem with \sphinxstyleemphasis{h}
+adaptivity,
+multigrid methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-lagrange-PETSc.edp}{laplace-lagrange-PETSc.edp}
+&
+Laplace equation
+with constraints and
+a block
+preconditioner
+(fieldsplit)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-2d-PETSc.edp}{elasticity-2d-PETSc.edp}
+&
+Vectorial problem,
+domain decomposition
+and multigrid
+methods
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-3d-PETSc.edp}{elasticity-3d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-2d-PETSc.edp}{stokes-2d-PETSc.edp}
+&
+Distributed
+LU/Cholesky
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-3d-PETSc.edp}{stokes-3d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-block-2d-PETSc.edp}{stokes-block-2d-PETSc.edp}
+&
+Stokes equation
+defined as a block
+system with four
+matrices
+(fieldsplit)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-2d-PETSc.edp}{st
+okes-fieldsplit-2d-PETSc.edp}
+&
+Block preconditioner
+(fieldsplit)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-3d-PETSc.edp}{st
+okes-fieldsplit-3d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/maxwell-2d-PETSc.edp}{maxwell-2d-PETSc.edp}
+&
+Direct LU/Cholesky
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/maxwell-3d-PETSc.edp}{maxwell-3d-PETSc.edp}
+&
+Multigrid method
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
 
-\PYG{c+c1}{// Macro}
-\PYG{k+kt}{macro} \PYG{n}{def}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{n}{i} \PYG{c+c1}{//scalar field definition}
-\PYG{k+kt}{macro} \PYG{k+kp}{init}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{n}{i} \PYG{c+c1}{//scalar field initialization}
-\PYG{k+kt}{macro} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{p}{[}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{dz}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{]} \PYG{c+c1}{//three\PYGZhy{}dimensional gradient}
 
-\PYG{c+c1}{// Parameters}
-\PYG{k+kt}{func} \PYG{n}{Pk} \PYG{o}{=} \PYG{n+nc}{P2}\PYG{p}{;} \PYG{c+c1}{//finite element space}
+\subsubsection{Nonlinear problems}
+\label{\detokenize{documentation/petsc/examples:nonlinear-problems}}
 
-\PYG{k+kt}{string} \PYG{n}{deflation} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}deflation}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//coarse space construction}
-\PYG{k+kt}{int} \PYG{n}{overlap} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}overlap}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//geometric overlap between subdomains}
-\PYG{k+kt}{int} \PYG{n}{fakeInterface} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}interface}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//interface between subdomains}
-\PYG{k+kt}{int} \PYG{n}{s} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}split}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//refinement factor}
-\PYG{k+kt}{real} \PYG{n}{dt} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}dt}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//time step}
-\PYG{k+kt}{int} \PYG{n}{iMax} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}iMax}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//number of iterations}
-
-\PYG{k+kt}{mpiComm} \PYG{n}{comm}\PYG{p}{;}
-\PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}p}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{bool} \PYG{n}{excluded} \PYG{o}{=} \PYG{n+nf}{splitComm}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{comm}\PYG{p}{,} \PYG{n}{topology} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}topology}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,} \PYG{n}{exclude} \PYG{o}{=} \PYG{p}{(}\PYG{n}{usedARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}master\PYGZus{}exclude}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{o}{!}\PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{c+c1}{// Display}
-\PYG{k}{if} \PYG{p}{(}\PYG{k+kr}{verbosity} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{k+kr}{mpirank} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{}\PYGZhy{}\PYGZhy{} }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{mpirank} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{o}{/}\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{mpisize}\PYG{p}{;}
-    \PYG{k+kr}{cout} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{} Heat3D.edp \PYGZhy{} input parameters: refinement factor = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{s} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ \PYGZhy{} overlap = }\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{n}{overlap} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}} \PYG{k+kr}{endl}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{c+c1}{// Mesh}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{LL} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{;}
-\PYG{n}{meshN} \PYG{n}{ThBorder}\PYG{p}{,} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{fespace} \PYG{n+nf}{Wh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local finite element space}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{arrayIntersection}\PYG{p}{;} \PYG{c+c1}{//ranks of neighboring subdomains}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{restrictionIntersection}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local\PYGZhy{}to\PYGZhy{}neighbors renumbering}
-\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{D}\PYG{p}{;} \PYG{c+c1}{//partition of unity}
-\PYG{p}{\PYGZob{}}
-    \PYG{n}{meshN} \PYG{n}{ThGlobal} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{,} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}global}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{,} \PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{LL}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//global mesh}
-    \PYG{n}{build}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{ThBorder}\PYG{p}{,} \PYG{n}{ThGlobal}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{,} \PYG{n}{s}\PYG{p}{,} \PYG{n}{overlap}\PYG{p}{,} \PYG{n}{D}\PYG{p}{,} \PYG{n}{arrayIntersection}\PYG{p}{,} \PYG{n}{restrictionIntersection}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{comm}\PYG{p}{,} \PYG{n}{excluded}\PYG{p}{)}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{c+c1}{// Problem}
-\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{rhs}\PYG{p}{;} \PYG{c+c1}{// local right\PYGZhy{}hand side}
-\PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{Mat}\PYG{p}{;} \PYG{c+c1}{//local operator}
-\PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{M}\PYG{p}{;} \PYG{c+c1}{//local mass matrix}
-\PYG{p}{\PYGZob{}} \PYG{c+c1}{//local weak form}
-    \PYG{n}{meshN} \PYG{n}{ThAugmented} \PYG{o}{=} \PYG{n}{Th} \PYG{o}{+} \PYG{n}{ThBorder}\PYG{p}{;}
-    \PYG{k+kt}{varf} \PYG{n+nf}{vPb} \PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)}
-        \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{)}\PYG{p}{(}
-              \PYG{n}{u} \PYG{o}{*} \PYG{n}{v}
-            \PYG{o}{+} \PYG{n}{dt} \PYG{o}{*} \PYG{p}{(}\PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-        \PYG{p}{)}
-        \PYG{o}{+} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{)}\PYG{p}{(}
-              \PYG{n}{dt} \PYG{o}{*} \PYG{n}{v}
-        \PYG{p}{)}
-        \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-        \PYG{p}{;}
-    \PYG{k+kt}{fespace} \PYG{n+nf}{WhAugmented}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{Mat} \PYG{o}{=} \PYG{n}{vPb}\PYG{p}{(}\PYG{n}{WhAugmented}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{rhsFull} \PYG{o}{=} \PYG{n}{vPb}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k+kt}{matrix} \PYG{n}{R} \PYG{o}{=} \PYG{n+nf}{interpolate}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k+kt}{varf} \PYG{n+nf}{vPbM} \PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)} \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{ThAugmented}\PYG{p}{)}\PYG{p}{(}\PYG{n}{u} \PYG{o}{*} \PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{M} \PYG{o}{=} \PYG{n}{vPbM}\PYG{p}{(}\PYG{n}{WhAugmented}\PYG{p}{,} \PYG{n}{WhAugmented}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{renumbering}\PYG{p}{(}\PYG{n}{M}\PYG{p}{,} \PYG{n}{R}\PYG{p}{,} \PYG{n}{rhsFull}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{renumbering}\PYG{p}{(}\PYG{n}{Mat}\PYG{p}{,} \PYG{n}{R}\PYG{p}{,} \PYG{n}{rhsFull}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{)}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-\PYG{n}{ThBorder} \PYG{o}{=} \PYG{n+nf}{cube}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,} \PYG{k+kr}{y}\PYG{p}{,} \PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{n}{dschwarz} \PYG{k+kp}{A}\PYG{p}{(}\PYG{n}{Mat}\PYG{p}{,} \PYG{n}{arrayIntersection}\PYG{p}{,} \PYG{n}{restrictionIntersection}\PYG{p}{,} \PYG{n}{scaling}\PYG{o}{=}\PYG{n}{D}\PYG{p}{)}\PYG{p}{;}
-
-\PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{Opt}\PYG{p}{;} \PYG{c+c1}{//local operator with optimized boundary conditions}
-\PYG{n}{dpair} \PYG{n}{ret}\PYG{p}{;}
-\PYG{p}{\PYGZob{}}
-    \PYG{k+kt}{int} \PYG{k+kp}{solver} \PYG{o}{=} \PYG{n}{getOption}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{schwarz\PYGZus{}method}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k}{if} \PYG{p}{(}\PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\textbar{}}\PYG{o}{\textbar{}} \PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{2} \PYG{o}{\textbar{}}\PYG{o}{\textbar{}} \PYG{k+kp}{solver} \PYG{o}{=}\PYG{o}{=} \PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//optimized Schwarz methods}
-        \PYG{k+kt}{fespace} \PYG{n}{Ph}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n+nc}{P0}\PYG{p}{)}\PYG{p}{;}
-        \PYG{k+kt}{real} \PYG{n}{kZero} \PYG{o}{=} \PYG{n+nf}{getARGV}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}kZero}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mf}{10.0}\PYG{p}{)}\PYG{p}{;}
-        \PYG{n}{Ph} \PYG{n}{transmission} \PYG{o}{=} \PYG{n}{kZero}\PYG{p}{;}
-        \PYG{k+kt}{varf} \PYG{n+nf}{vOptimized} \PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)}
-            \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{(}
-                  \PYG{n}{u} \PYG{o}{*} \PYG{n}{v}
-                \PYG{o}{+} \PYG{n}{dt} \PYG{o}{*} \PYG{p}{(}\PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-            \PYG{p}{)}
-            \PYG{o}{+} \PYG{n}{intN1}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{)}\PYG{p}{(}
-                  \PYG{n}{transmission} \PYG{o}{*} \PYG{p}{(}\PYG{n}{u} \PYG{o}{*} \PYG{n}{v}\PYG{p}{)}
-            \PYG{p}{)}
-            \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-            \PYG{p}{;}
-        \PYG{n}{Opt} \PYG{o}{=} \PYG{n}{vOptimized}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{tgv}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
-    \PYG{p}{\PYGZcb{}}
-    \PYG{k}{if} \PYG{p}{(}\PYG{k+kr}{mpisize} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}} \PYG{n}{isSetOption}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{schwarz\PYGZus{}coarse\PYGZus{}correction}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{\PYGZob{}} \PYG{c+c1}{//two\PYGZhy{}level Schwarz methods}
-        \PYG{k}{if}\PYG{p}{(}\PYG{n}{excluded}\PYG{p}{)}
-            \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{)}\PYG{p}{;}
-        \PYG{k}{else} \PYG{p}{\PYGZob{}}
-            \PYG{k+kt}{varf} \PYG{n}{vPbNoPen} \PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{v}\PYG{p}{)}
-                \PYG{o}{=} \PYG{n}{intN}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{(}
-                      \PYG{n}{u} \PYG{o}{*} \PYG{n}{v}
-                    \PYG{o}{+} \PYG{n}{dt} \PYG{o}{*} \PYG{p}{(}\PYG{n}{grad}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{o}{\PYGZsq{}} \PYG{o}{*} \PYG{n}{grad}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}
-                \PYG{p}{)}
-                \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{u}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{)}
-                \PYG{p}{;}
-            \PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{noPen} \PYG{o}{=} \PYG{n}{vPbNoPen}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{solver}\PYG{o}{=}\PYG{k+kr}{CG}\PYG{p}{)}\PYG{p}{;}
-            \PYG{k}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{c+c1}{//standard GenEO, no need for RHS \PYGZhy{}\PYGZgt{} deduced from LHS (Neumann matrix)}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{n}{ret} \PYG{o}{=} \PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-            \PYG{k}{else} \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{dtn}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-                \PYG{k+kt}{varf} \PYG{n}{vMass} \PYG{p}{(}\PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{,} \PYG{n}{def}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)} \PYG{o}{=} \PYG{n}{intN1}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{fakeInterface}\PYG{p}{)}\PYG{p}{(}\PYG{n}{u} \PYG{o}{*} \PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
-                \PYG{k+kt}{matrix}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{massMatrix} \PYG{o}{=} \PYG{n}{vMass}\PYG{p}{(}\PYG{n}{Wh}\PYG{p}{,} \PYG{n}{Wh}\PYG{p}{,} \PYG{k+kp}{solver}\PYG{o}{=}\PYG{k+kr}{CG}\PYG{p}{)}\PYG{p}{;}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{k+kp}{B}\PYG{o}{=}\PYG{n}{massMatrix}\PYG{p}{,} \PYG{n}{pattern}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-            \PYG{p}{\PYGZcb{}}
-            \PYG{k}{else} \PYG{n+nf}{if}\PYG{p}{(}\PYG{n}{deflation} \PYG{o}{=}\PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{geneo\PYGZhy{}2}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)} \PYG{c+c1}{//GenEO\PYGZhy{}2 for optimized Schwarz methods, need for RHS (LHS is still Neumann matrix)}
-                \PYG{n}{attachCoarseOperator}\PYG{p}{(}\PYG{k+kr}{mpiCommWorld}\PYG{p}{,} \PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{A}\PYG{o}{=}\PYG{n}{noPen}\PYG{p}{,} \PYG{k+kp}{B}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{pattern}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{)}\PYG{p}{;}
-        \PYG{p}{\PYGZcb{}}
-    \PYG{p}{\PYGZcb{}}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{c+c1}{// Solve}
-\PYG{n+nf}{set}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}reuse\PYGZus{}preconditioner=1}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{Wh}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{real}\PYG{o}{\PYGZgt{}} \PYG{n}{def}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{=} \PYG{k+kp}{init}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//local solution}
-\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{iMax}\PYG{p}{;} \PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)}\PYG{p}{\PYGZob{}}
-    \PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{newRhs}\PYG{p}{(}\PYG{n}{rhs}\PYG{p}{.}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{dmv}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{n}{M}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{newRhs}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{//newRhs = M * u[]}
-    \PYG{n}{newRhs} \PYG{o}{+}\PYG{o}{=} \PYG{n}{rhs}\PYG{p}{;}
-
-    \PYG{k}{if} \PYG{p}{(}\PYG{n}{Opt}\PYG{p}{.}\PYG{k+kr}{n} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{//optimized Schwarz methods}
-    \PYG{n}{DDM}\PYG{p}{(}\PYG{k+kp}{A}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{n}{newRhs}\PYG{p}{,} \PYG{n}{excluded}\PYG{o}{=}\PYG{n}{excluded}\PYG{p}{,} \PYG{n}{ret}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{,} \PYG{n}{O}\PYG{o}{=}\PYG{n}{Opt}\PYG{p}{)}\PYG{p}{;}
-    \PYG{k}{else}
-    \PYG{n}{u}\PYG{p}{[}\PYG{p}{]} \PYG{o}{=} \PYG{k+kp}{A}\PYG{o}{\PYGZca{}}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{*} \PYG{n}{newRhs}\PYG{p}{;}
-
-    \PYG{n}{plotMPI}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{u}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Global solution}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{Pk}\PYG{p}{,} \PYG{n}{def}\PYG{p}{,} \PYG{k+kt}{real}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
-\PYG{p}{\PYGZcb{}}
-\end{sphinxVerbatim}
-\end{sphinxadmonition}
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments
+(preconditioners,
+numerical schemes)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/bratu-2d-PETSc.edp}{bratu-2d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-2d-PETSc.edp}{Newton-2d-PETSc.edp}
+&\\
+\hline
+{}`
+Newton-adaptmesh-2d-PETSc.edp \textless{}\sphinxurl{https://github}
+.com/FreeFem/FreeFem-sources/tree/develop/exa
+mples/hpddm/Newton-adaptmesh-2d-PETSc.edp\textgreater{}{}`\_\_
+&
+Newton method and
+\sphinxstyleemphasis{h} adaptivity
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-2d-PETSc.edp}{Newton-vi-2d-PETSc.edp}
+&
+Newton method and a
+variational
+inequality
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-adaptmesh-2d-PETSc.edp}{Newton
+-vi-adaptmesh-2d-PETSc.edp}
+&
+Newton method, \sphinxstyleemphasis{h}
+adaptivity, and a
+variational
+inequality
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-SNES-3d-PETSc.edp}{elasticity-SNES-3d-PETSc.edp}
+&
+Linear elasiticty
+with a Newton method
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/neo-Hookean-2d-PETSc.edp}{neo-Hookean-2d-PETSc.edp}
+&
+Nonlinear elasticity
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/natural-convection-fieldsplit-2d-PETSc.edp}{natural-convection-fieldsp
+lit-2d-PETSc.edp}
+&
+Newton method and
+\sphinxstyleemphasis{h} adaptivity
+\\
+\hline
+{\color{red}\bfseries{}{}`vi-2d-PETSc.edp \textless{}
+https://github.com/FreeFem/FreeFem-sources/tr
+ee/develop/examples/hpddm/vi-2d-PETSc.edp\textgreater{}{}`\_\_}
+&
+Variational
+inequalities
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
 
 
-\subsubsection{Distributed vectors in HPDDM}
-\label{\detokenize{documentation/parallelization:distributed-vectors-in-hpddm}}\label{\detokenize{documentation/parallelization:paralleldistributedvectorshpddm}}
-We give here some hints on the way vectors are distributed among \(np\) processes when using \sphinxstylestrong{FreeFEM} interfaced with HPDDM.
-The set of degrees of freedom \({\mathcal N}\) is decomposed into \(np\) overlapping sets \(({\mathcal N}_i)_{1\le i\le np}\).
+\subsubsection{Time steppers and optimizers}
+\label{\detokenize{documentation/petsc/examples:time-steppers-and-optimizers}}
 
-A MPI-process is in charge of each subset.
-Let \(n:=\#{\mathcal N}\) be the number of degrees of freedom of the global finite element space.
-Let \(R_i\) denote the restriction operator from \(\R^n\) onto \(\R^{\#{\mathcal N}_i}\).
-We have also defined local diagonal matrices \(D_i\in \R^{\#{\mathcal N}_i}\times \R^{\#{\mathcal N}_i}\) so that we have a partition of unity at the algebraic level:
-\begin{equation}\label{equation:documentation/parallelization:eq:hpddm:14}
-\begin{split}{\mathbf U} = \sum_{i=1}^{np} R_i^T\,D_i\,R_i\,{\mathbf U}\ \ \ \ \forall\ {\mathbf U}\in\R^n\,.\end{split}
-\end{equation}
-A global vector \({\mathbf U}\in\R^n\) is actually not stored.
-Rather, it is stored in a distributed way.
-Each process \(i\), \(1\le i\le N\), stores the local vector \({\mathbf U}_i:=R_i {\mathbf U}\in \R^{\#{\mathcal N}_i}\).
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabular}[t]{|*{2}{\X{1}{2}|}}
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments (preconditioners,
+numerical schemes)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/advection-TS-2d-PETSc.edp}{advection-TS-2d-PETSc.edp}
+&
+Implicit and explicit schemes
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-TS-2d-PETSc.edp}{heat-TS-2d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-TS-RHS-2d-PETSc.edp}{heat-TS-RHS-2d-PETSc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/minimal-surface-Tao-2d-PETSc.edp}{minimal-surfa
+ce-Tao-2d-PETSc.edp}
+&
+Minimal surface problem
+\\
+\hline\begin{description}
+\item[{{\color{red}\bfseries{}{}`}orego-Tao-PETSc.edp}] \leavevmode
+\textless{}\sphinxurl{https://github.com/FreeFem/Fre}
 
-It is important to ensure that the result of all linear algebra operators applied to this representation are coherent.
+\end{description}
 
-As an example, consider the scalar product of two distributed vectors \({\mathbf U}, {\mathbf V} \in \mathbb{R}^{n}\).
-Using the partition of unity \eqref{equation:documentation/parallelization:eq:hpddm:14}, we have:
-\begin{equation*}
-\begin{split}({\mathbf U}, {\mathbf V}) = \left({\mathbf U}, \sum_{i=1}^{np} R_i^T D_i R_i {\mathbf V}\right) &= \sum_{i=1}^{np} (R_i {\mathbf U}, D_i R_i {\mathbf V})\\
-&=\sum_{i=1}^{np} \left({\mathbf U}_i, D_i {\mathbf V}_i\right)\,.\end{split}
-\end{equation*}
-Thus, the formula for the scalar product is:
-\begin{equation*}
-\begin{split}({\mathbf U}, {\mathbf V}) = \sum_{i = 1}^{np} (R_i {\mathbf U}, D_i R_i {\mathbf V})\,.\end{split}
-\end{equation*}
-Local scalar products are performed concurrently.
-Thus, the implementation is parallel except for the sum which corresponds to a \sphinxcode{\sphinxupquote{MPI\_Reduce}} call across the \(np\) MPI processes.
+eFem-sources/tree/develop/exampl
+es/hpddm/orego-Tao-PETSc.edp\textgreater{}{}`\_\_
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/toy-Tao-PETSc.edp}{toy-Tao-PETSc.e
+dp}
+&\\
+\hline
+\end{tabular}
+\par
+\sphinxattableend\end{savenotes}
 
-Note also that the implementation relies on the knowledge of a partition of unity so that the \sphinxstylestrong{FreeFEM} syntax is \sphinxcode{\sphinxupquote{dscalprod(D, u, v)}}.
 
-A \sphinxcode{\sphinxupquote{axpy}} procedure \(y \leftarrow \alpha\,x+y\) for \(x,y\in \mathbb{R}^{n}\) and \(\alpha\in\R\) is easily implemented concurrently for distributed vectors in the form:
-\begin{equation*}
-\begin{split}y_i \leftarrow \alpha\,x_i+y_i\,, \forall\ 1\le i \le np\,.\end{split}
-\end{equation*}
-The matrix vector product is more involved and details are given in the SIAM book \sphinxhref{https://www.ljll.math.upmc.fr/nataf/OT144DoleanJolivetNataf\_full.pdf}{An Introduction to Domain Decomposition Methods: algorithms, theory and parallel implementation} and even more details are given in \sphinxhref{http://jolivet.perso.enseeiht.fr/thesis.pdf}{P. Jolivet’s PhD manuscrit}.
+\subsubsection{Eigenvalue problems}
+\label{\detokenize{documentation/petsc/examples:eigenvalue-problems}}
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments (preconditioners,
+numerical schemes)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc.edp}{laplace-2d-SLEPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-spherical-harmonics-2d-SLEPc.edp}{laplace-spherical-harmonics-2
+d-SLEPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-torus-2d-SLEPc.edp}{l
+aplace-torus-2d-SLEPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-axial-well-2d-SLEPc.edp}{schrodinger-axial-w
+ell-2d-SLEPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-1d-SLEPc.edp}{schro
+dinger-harmonic-oscillator-1d-SL
+EPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-2d-SLEPc.edp}{schro
+dinger-harmonic-oscillator-2d-SL
+EPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-square-well-1d-SLEPc.edp}{schrodinger-square-we
+ll-1d-SLEPc.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc-complex.edp}{lapla
+ce-2d-SLEPc-complex.edp}
+&\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+
+\subsubsection{Miscellaneous}
+\label{\detokenize{documentation/petsc/examples:miscellaneous}}
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments
+(preconditioners,
+numerical schemes)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/transpose-solve-PETSc.edp}{transpose-solve-PETSc.edp}
+&
+Solving a transposed
+system
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Schur-complement-PETSc.edp}{Schur-complement-PETSc.edp}
+&
+Computing an exact
+Schur complement
+\\
+\hline
+{\color{red}\bfseries{}{}`block-PETSc.edp \textless{}
+https://github.com/FreeFem/FreeFem-sources/tr
+ee/develop/examples/hpddm/block-PETSc.edp\textgreater{}{}`\_\_}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-io-2d.edp}{heat-io-2d.edp}
+&
+Automatic ParaView
+animation output
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-io-3d.edp}{stokes-io-3d.edp}
+&\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/buildRecursive.edp}{buildRecursive.edp}
+&
+Recursive mesh
+partitioning (for
+geometric multigrid)
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/withPartitioning.edp}{withPartitioning.edp}
+&
+Connectivity
+construction with a
+user-supplied
+partitioning
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+
+\subsubsection{Reproducible science}
+\label{\detokenize{documentation/petsc/examples:reproducible-science}}
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Article
+&\sphinxstyletheadfamily 
+Source code
+\\
+\hline
+\sphinxhref{https://www.sciencedirect.com/science/article/pii/S0045782519301914}{Augmented Lagrangian Preconditioner for
+Large-Scale Hydrodynamic Stability
+Analysis}
+&
+\sphinxhref{https://github.com/prj-/moulin2019al}{GitHub
+r
+epository}
+\\
+\hline
+\sphinxhref{https://hal.archives-ouvertes.fr/hal-02151184/document}{A Multilevel Schwarz Preconditioner Based on a
+Hierarchy of Robust Coarse
+Spaces}
+&
+\sphinxhref{https://github.com/prj-/aldaas2019multi}{GitHub
+repo
+sitory}
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
 
 
 \section{Plugins}
