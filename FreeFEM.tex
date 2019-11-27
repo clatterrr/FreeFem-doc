@@ -18782,7 +18782,7 @@ Note that, for all global operations, only \sphinxcode{\sphinxupquote{int{[}int{
 
 \section{PETSc and SLEPc}
 \label{\detokenize{documentation/petsc/index:petsc-and-slepc}}\label{\detokenize{documentation/petsc/index::doc}}
-FreeFEM is interfaced with PETSc and SLEPc which offer a wide range of sequential or parallel linear or nonlinear solvers, time steppers, optimizers, and eigensolvers. In particular, it gives access transparently (without much changes to user code) to: distributed and multithreaded direct solvers (PARDISO, MUMPS, SuperLU), multigrid solvers (hypre, GAMG), domain decomposition methods (block Jacobi, ASM, HPDDM). For a detailed introduction to these tools, interested readers are referred to the tutorial \sphinxhref{http://jolivet.perso.enseeiht.fr/FreeFem-tutorial/}{Introduction to FreeFEM with an emphasis on parallel computing}.
+FreeFEM is interfaced with \sphinxhref{https://www.mcs.anl.gov/petsc/}{PETSc} and \sphinxhref{http://slepc.upv.es/}{SLEPc} which offer a wide range of sequential or parallel linear or nonlinear solvers, time steppers, optimizers, and eigensolvers. In particular, it gives access transparently (without much changes to user code) to: distributed and multithreaded direct solvers (\sphinxhref{https://software.intel.com/en-us/mkl-developer-reference-fortran-intel-mkl-pardiso-parallel-direct-sparse-solver-interface}{PARDISO}, \sphinxhref{http://mumps.enseeiht.fr/}{MUMPS}, \sphinxhref{https://crd.lbl.gov/departments/applied-mathematics/scalable-solvers/research-areas/superlu-dist/}{SuperLU}), multigrid solvers (\sphinxhref{https://hypre.readthedocs.io/en/latest/}{hypre}, GAMG), domain decomposition methods (block Jacobi, ASM, \sphinxhref{https://github.com/hpddm/hpddm/}{HPDDM}). For a detailed introduction to these tools, interested readers are referred to the tutorial \sphinxhref{http://jolivet.perso.enseeiht.fr/FreeFem-tutorial/}{Introduction to FreeFEM with an emphasis on parallel computing}.
 \begin{description}
 \item[{In most of the scripts listed below, the following standard procedure is used.}] \leavevmode\begin{itemize}
 \item {} 
@@ -18798,7 +18798,7 @@ Provide these information to PETSc so that subsequent computations may be done i
 
 \end{description}
 
-Combining the power and flexibility of PETSc with the ease-of-use of FreeFEM may help design multiphysics solvers, e.g., for \sphinxtitleref{Navier\textendash{}Stokes equations \textless{}https://www.sciencedirect.com/science/article/pii/S0045782519301914\textgreater{}}, advanced matrix-free discretization and such.
+Combining the power and flexibility of PETSc with the ease-of-use of FreeFEM may help design multiphysics solvers, e.g., for \sphinxhref{https://www.sciencedirect.com/science/article/pii/S0045782519301914}{Navier\textendash{}Stokes equations}, advanced matrix-free discretizations, and such.
 
 
 \subsection{Examples}
@@ -18814,109 +18814,70 @@ Combining the power and flexibility of PETSc with the ease-of-use of FreeFEM may
 \sphinxstyletheadfamily 
 Filename
 &\sphinxstyletheadfamily 
-Comments
-(preconditioners,
-numerical schemes)
+Comments (preconditioners, numerical schemes)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc.edp}{diffusion-2d-PETSc.edp}
 &
-Distributed
-LU/Cholesky, domain
-decomposition and
-multigrid methods
+Distributed LU/Cholesky, domain decomposition and multigrid methods
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc-complex.edp}{di
-ffusion-2d-PETSc-complex.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc-complex.edp}{diffusion-2d-PETSc-complex.edp}
 &\\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-2d-PETSc.edp}{heat-2d-PETSc.edp}
 &
-Transient diffusion
-equation, same as
-above
+Transient diffusion equation, same as above
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-2d-PETSc.edp}{diff
-usion-periodic-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-2d-PETSc.edp}{diffusion-periodic-2d-PETSc.edp}
 &
-Periodic boundary
-conditions,
-multigrid methods
+Periodic boundary conditions, multigrid methods
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-balanced-2d-PETSc.edp}{diffusion-periodic-bal
-anced-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-periodic-balanced-2d-PETSc.edp}{diffusion-periodic-balanced-2d-PETSc.edp}
 &
-Better load
-balancing than above
-example
+Better load balancing than above example
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-substructuring-2d-PETSc.edp}{diffusion-substr
-ucturing-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-substructuring-2d-PETSc.edp}{diffusion-substructuring-2d-PETSc.edp}
 &
-Balancing Domain
-Decomposition with
-Constraints
+Balancing Domain Decomposition with Constraints
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-3d-PETSc.edp}{diffusion-3d-PETSc.edp}
 &
-Three-dimensional
-problem, domain
-decomposition and
-multigrid methods
+Three-dimensional problem, domain decomposition and multigrid methods
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-mg-3d-PETSc.edp}{diffusion-mg-3d-PETSc.edp}
 &
-Geometric multigrid
-methods
+Geometric multigrid methods
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-2d-PETSc-complex.edp}{he
-lmholtz-2d-PETSc-complex.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-2d-PETSc-complex.edp}{helmholtz-2d-PETSc-complex.edp}
 &
-Domain decomposition
-methods with
-optimized boundary
-conditions
+Domain decomposition methods with optimized boundary conditions
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-RT-2d-PETSc.edp}{laplace-RT-2d-PETSc.edp}
 &
-Vectorial
-two-dimensional
-problem with a block
-preconditioner
-(fieldsplit)
+Vectorial two-dimensional problem with a block preconditioner (fieldsplit)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-adapt-3d-PETSc.edp}{laplace-adapt-3d-PETSc.edp}
 &
-Three-dimensional
-problem with \sphinxstyleemphasis{h}
-adaptivity,
-multigrid methods
+Three-dimensional problem with \sphinxstyleemphasis{h} adaptivity, multigrid methods
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-lagrange-PETSc.edp}{laplace-lagrange-PETSc.edp}
 &
-Laplace equation
-with constraints and
-a block
-preconditioner
-(fieldsplit)
+Laplace equation with constraints and a block preconditioner (fieldsplit)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-2d-PETSc.edp}{elasticity-2d-PETSc.edp}
 &
-Vectorial problem,
-domain decomposition
-and multigrid
-methods
+Vectorial problem, domain decomposition and multigrid methods
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-3d-PETSc.edp}{elasticity-3d-PETSc.edp}
@@ -18924,8 +18885,7 @@ methods
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-2d-PETSc.edp}{stokes-2d-PETSc.edp}
 &
-Distributed
-LU/Cholesky
+Distributed LU/Cholesky
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-3d-PETSc.edp}{stokes-3d-PETSc.edp}
@@ -18933,22 +18893,15 @@ LU/Cholesky
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-block-2d-PETSc.edp}{stokes-block-2d-PETSc.edp}
 &
-Stokes equation
-defined as a block
-system with four
-matrices
-(fieldsplit)
+Stokes equation defined as a block system with four matrices (fieldsplit)
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-2d-PETSc.edp}{st
-okes-fieldsplit-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-2d-PETSc.edp}{stokes-fieldsplit-2d-PETSc.edp}
 &
-Block preconditioner
-(fieldsplit)
+Block preconditioner (fieldsplit)
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-3d-PETSc.edp}{st
-okes-fieldsplit-3d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-fieldsplit-3d-PETSc.edp}{stokes-fieldsplit-3d-PETSc.edp}
 &\\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/maxwell-2d-PETSc.edp}{maxwell-2d-PETSc.edp}
@@ -18976,9 +18929,7 @@ Multigrid method
 \sphinxstyletheadfamily 
 Filename
 &\sphinxstyletheadfamily 
-Comments
-(preconditioners,
-numerical schemes)
+Comments (preconditioners, numerical schemes)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/bratu-2d-PETSc.edp}{bratu-2d-PETSc.edp}
@@ -18987,35 +18938,24 @@ numerical schemes)
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-2d-PETSc.edp}{Newton-2d-PETSc.edp}
 &\\
 \hline
-{}`
-Newton-adaptmesh-2d-PETSc.edp \textless{}\sphinxurl{https://github}
-.com/FreeFem/FreeFem-sources/tree/develop/exa
-mples/hpddm/Newton-adaptmesh-2d-PETSc.edp\textgreater{}{}`\_\_
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-adaptmesh-2d-PETSc.edp}{Newton-adaptmesh-2d-PETSc.edp}
 &
-Newton method and
-\sphinxstyleemphasis{h} adaptivity
+Newton method and \sphinxstyleemphasis{h} adaptivity
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-2d-PETSc.edp}{Newton-vi-2d-PETSc.edp}
 &
-Newton method and a
-variational
-inequality
+Newton method and a variational inequality
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-adaptmesh-2d-PETSc.edp}{Newton
--vi-adaptmesh-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-adaptmesh-2d-PETSc.edp}{Newton-vi-adaptmesh-2d-PETSc.edp}
 &
-Newton method, \sphinxstyleemphasis{h}
-adaptivity, and a
-variational
-inequality
+Newton method, \sphinxstyleemphasis{h} adaptivity, and a variational inequality
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-SNES-3d-PETSc.edp}{elasticity-SNES-3d-PETSc.edp}
 &
-Linear elasiticty
-with a Newton method
+Linear elasiticty with a Newton method
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/neo-Hookean-2d-PETSc.edp}{neo-Hookean-2d-PETSc.edp}
@@ -19023,19 +18963,14 @@ with a Newton method
 Nonlinear elasticity
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/natural-convection-fieldsplit-2d-PETSc.edp}{natural-convection-fieldsp
-lit-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/natural-convection-fieldsplit-2d-PETSc.edp}{natural-convection-fieldsplit-2d-PETSc.edp}
 &
-Newton method and
-\sphinxstyleemphasis{h} adaptivity
+Newton method and \sphinxstyleemphasis{h} adaptivity
 \\
 \hline
-{\color{red}\bfseries{}{}`vi-2d-PETSc.edp \textless{}
-https://github.com/FreeFem/FreeFem-sources/tr
-ee/develop/examples/hpddm/vi-2d-PETSc.edp\textgreater{}{}`\_\_}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/vi-2d-PETSc.edp}{vi-2d-PETSc.edp}
 &
-Variational
-inequalities
+Variational inequalities
 \\
 \hline
 \end{tabulary}
@@ -19048,13 +18983,12 @@ inequalities
 
 \begin{savenotes}\sphinxattablestart
 \centering
-\begin{tabular}[t]{|*{2}{\X{1}{2}|}}
+\begin{tabulary}{\linewidth}[t]{|T|T|}
 \hline
 \sphinxstyletheadfamily 
 Filename
 &\sphinxstyletheadfamily 
-Comments (preconditioners,
-numerical schemes)
+Comments (preconditioners, numerical schemes)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/advection-TS-2d-PETSc.edp}{advection-TS-2d-PETSc.edp}
@@ -19068,26 +19002,18 @@ Implicit and explicit schemes
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-TS-RHS-2d-PETSc.edp}{heat-TS-RHS-2d-PETSc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/minimal-surface-Tao-2d-PETSc.edp}{minimal-surfa
-ce-Tao-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/minimal-surface-Tao-2d-PETSc.edp}{minimal-surface-Tao-2d-PETSc.edp}
 &
 Minimal surface problem
 \\
-\hline\begin{description}
-\item[{{\color{red}\bfseries{}{}`}orego-Tao-PETSc.edp}] \leavevmode
-\textless{}\sphinxurl{https://github.com/FreeFem/Fre}
-
-\end{description}
-
-eFem-sources/tree/develop/exampl
-es/hpddm/orego-Tao-PETSc.edp\textgreater{}{}`\_\_
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/orego-Tao-PETSc.edp}{orego-Tao-PETSc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/toy-Tao-PETSc.edp}{toy-Tao-PETSc.e
-dp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/toy-Tao-PETSc.edp}{toy-Tao-PETSc.edp}
 &\\
 \hline
-\end{tabular}
+\end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
 
@@ -19102,41 +19028,31 @@ dp}
 \sphinxstyletheadfamily 
 Filename
 &\sphinxstyletheadfamily 
-Comments (preconditioners,
-numerical schemes)
+Comments (preconditioners, numerical schemes)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc.edp}{laplace-2d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-spherical-harmonics-2d-SLEPc.edp}{laplace-spherical-harmonics-2
-d-SLEPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-spherical-harmonics-2d-SLEPc.edp}{laplace-spherical-harmonics-2d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-torus-2d-SLEPc.edp}{l
-aplace-torus-2d-SLEPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-torus-2d-SLEPc.edp}{laplace-torus-2d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-axial-well-2d-SLEPc.edp}{schrodinger-axial-w
-ell-2d-SLEPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-axial-well-2d-SLEPc.edp}{schrodinger-axial-well-2d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-1d-SLEPc.edp}{schro
-dinger-harmonic-oscillator-1d-SL
-EPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-1d-SLEPc.edp}{schrodinger-harmonic-oscillator-1d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-2d-SLEPc.edp}{schro
-dinger-harmonic-oscillator-2d-SL
-EPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-harmonic-oscillator-2d-SLEPc.edp}{schrodinger-harmonic-oscillator-2d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-square-well-1d-SLEPc.edp}{schrodinger-square-we
-ll-1d-SLEPc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/schrodinger-square-well-1d-SLEPc.edp}{schrodinger-square-well-1d-SLEPc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc-complex.edp}{lapla
-ce-2d-SLEPc-complex.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc-complex.edp}{laplace-2d-SLEPc-complex.edp}
 &\\
 \hline
 \end{tabulary}
@@ -19154,32 +19070,25 @@ ce-2d-SLEPc-complex.edp}
 \sphinxstyletheadfamily 
 Filename
 &\sphinxstyletheadfamily 
-Comments
-(preconditioners,
-numerical schemes)
+Comments (preconditioners, numerical schemes)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/transpose-solve-PETSc.edp}{transpose-solve-PETSc.edp}
 &
-Solving a transposed
-system
+Solving a transposed system
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Schur-complement-PETSc.edp}{Schur-complement-PETSc.edp}
 &
-Computing an exact
-Schur complement
+Computing an exact Schur complement
 \\
 \hline
-{\color{red}\bfseries{}{}`block-PETSc.edp \textless{}
-https://github.com/FreeFem/FreeFem-sources/tr
-ee/develop/examples/hpddm/block-PETSc.edp\textgreater{}{}`\_\_}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/block-PETSc.edp}{block-PETSc.edp}
 &\\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-io-2d.edp}{heat-io-2d.edp}
 &
-Automatic ParaView
-animation output
+Automatic ParaView animation output
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-io-3d.edp}{stokes-io-3d.edp}
@@ -19187,17 +19096,12 @@ animation output
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/buildRecursive.edp}{buildRecursive.edp}
 &
-Recursive mesh
-partitioning (for
-geometric multigrid)
+Recursive mesh partitioning (for geometric multigrid)
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/withPartitioning.edp}{withPartitioning.edp}
 &
-Connectivity
-construction with a
-user-supplied
-partitioning
+Connectivity construction with a user-supplied partitioning
 \\
 \hline
 \end{tabulary}
@@ -19218,22 +19122,14 @@ Article
 Source code
 \\
 \hline
-\sphinxhref{https://www.sciencedirect.com/science/article/pii/S0045782519301914}{Augmented Lagrangian Preconditioner for
-Large-Scale Hydrodynamic Stability
-Analysis}
+\sphinxhref{https://www.sciencedirect.com/science/article/pii/S0045782519301914}{Augmented Lagrangian Preconditioner for Large-Scale Hydrodynamic Stability Analysis}
 &
-\sphinxhref{https://github.com/prj-/moulin2019al}{GitHub
-r
-epository}
+\sphinxhref{https://github.com/prj-/moulin2019al}{GitHub repository}
 \\
 \hline
-\sphinxhref{https://hal.archives-ouvertes.fr/hal-02151184/document}{A Multilevel Schwarz Preconditioner Based on a
-Hierarchy of Robust Coarse
-Spaces}
+\sphinxhref{https://hal.archives-ouvertes.fr/hal-02151184/document}{A Multilevel Schwarz Preconditioner Based on a Hierarchy of Robust Coarse Spaces}
 &
-\sphinxhref{https://github.com/prj-/aldaas2019multi}{GitHub
-repo
-sitory}
+\sphinxhref{https://github.com/prj-/aldaas2019multi}{GitHub repository}
 \\
 \hline
 \end{tabulary}
