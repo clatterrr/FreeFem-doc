@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Dec 18, 2019}
+\date{Jan 18, 2020}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -18882,7 +18882,7 @@ Laplace equation with constraints and a block preconditioner (fieldsplit)
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-2d-PETSc.edp}{elasticity-2d-PETSc.edp}
 &
-Vectorial problem, domain decomposition and multigrid methods
+Vectorial problem, domain decomposition (GenEO) and multigrid methods
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/elasticity-3d-PETSc.edp}{elasticity-3d-PETSc.edp}
@@ -18945,20 +18945,25 @@ Comments (preconditioners, numerical schemes)
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/bratu-2d-PETSc.edp}{bratu-2d-PETSc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-2d-PETSc.edp}{newton-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/bratu-hpddm-2d-PETSc.edp}{bratu-hpddm-2d-PETSc.edp}
+&
+GenEO with reused coarse spaces
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/newton-2d-PETSc.edp}{newton-2d-PETSc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-adaptmesh-2d-PETSc.edp}{newton-adaptmesh-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/newton-adaptmesh-2d-PETSc.edp}{newton-adaptmesh-2d-PETSc.edp}
 &
 Newton method and \sphinxstyleemphasis{h} adaptivity
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-2d-PETSc.edp}{newton-vi-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/newton-vi-2d-PETSc.edp}{newton-vi-2d-PETSc.edp}
 &
 Newton method and a variational inequality
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/Newton-vi-adaptmesh-2d-PETSc.edp}{newton-vi-adaptmesh-2d-PETSc.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/newton-vi-adaptmesh-2d-PETSc.edp}{newton-vi-adaptmesh-2d-PETSc.edp}
 &
 Newton method, \sphinxstyleemphasis{h} adaptivity, and a variational inequality
 \\
@@ -19065,6 +19070,11 @@ Comments (preconditioners, numerical schemes)
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-2d-SLEPc-complex.edp}{laplace-2d-SLEPc-complex.edp}
 &\\
 \hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/laplace-beltrami-3d-surf-SLEPc.edp}{laplace-beltrami-3d-surf-SLEPc.edp}
+&
+Eigenvalue problem on a surface
+\\
+\hline
 \end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
@@ -19112,6 +19122,11 @@ Recursive mesh partitioning (for geometric multigrid)
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/withPartitioning.edp}{withPartitioning.edp}
 &
 Connectivity construction with a user-supplied partitioning
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/createPartition.edp}{createPartition.edp}
+&
+Creation of different partitions of unity using the same DD
 \\
 \hline
 \end{tabulary}
