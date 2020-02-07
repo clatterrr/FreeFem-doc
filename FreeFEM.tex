@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jan 18, 2020}
+\date{Feb 07, 2020}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -317,7 +317,7 @@ Problems involving partial differential equations from several branches of physi
 
 \subsection{Hash Matrix}
 \label{\detokenize{introduction/new-features:hash-matrix}}
-A new internal managment of matrix inside the FreeFEM core have been introduced in FreeFEM 4.0, for better performance.
+A new internal managment of matrix inside the FreeFEM core has been introduced in FreeFEM 4.0, for better performance.
 
 
 \bigskip\hrule\bigskip
@@ -326,13 +326,7 @@ A new internal managment of matrix inside the FreeFEM core have been introduced 
 
 \subsection{Surface Finite Element}
 \label{\detokenize{introduction/new-features:surface-finite-element}}
-The surface finite element method is available since FreeFEM V4.2.1.
-\textbar{} Some examples in examples/3dSurf.
-
-\begin{DUlineblock}{0em}
-\item[] 
-\item[] 
-\end{DUlineblock}
+The surface finite element method is available since FreeFEM V4.2.1. Some examples are given  in examples/3dSurf.
 
 Abstract about Surface FEM in FreeFEM.
 \begin{itemize}
@@ -1195,6 +1189,79 @@ For emacs editor you can download \sphinxhref{https://github.com/rrgalvan/freefe
 \label{\detokenize{introduction/download:latest-binary-packages}}
 FreeFEM v4.2.1 release runs under MacOS X, Ubuntu and Windows 64 bits.
 
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Operating System
+&\sphinxstyletheadfamily 
+FreeFEM Version
+&\sphinxstyletheadfamily 
+Size
+&\sphinxstyletheadfamily 
+Date
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem++-4.2-1-b-348-MacOS\_10.11.pkg}{MacOS 10.14}
+&
+\sphinxcode{\sphinxupquote{-}}
+&
+\sphinxcode{\sphinxupquote{-}}
+&
+\sphinxcode{\sphinxupquote{-}}
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.2.1/FreeFem++-4.2-1-b-348-MacOS\_10.11.pkg}{MacOS 10.10.5 up to 10.13.5}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+417 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.4.2/FreeFEM\_4.4.2\_Ubuntu\_16.04\_amd64.deb}{Ubuntu 16.04 or higher}
+&
+\sphinxcode{\sphinxupquote{4.4.2}}
+&
+80.7 Mb
+&
+Oct 15, 2019
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.4.2/FreeFem.-4.4-2-win64.exe}{Windows 64bits}
+&
+\sphinxcode{\sphinxupquote{4.2.1}}
+&
+130 Mb
+&
+Oct 15, 2019
+\\
+\hline
+{\color{red}\bfseries{}{}`Source\_4.4.2{}`\_}
+&
+\sphinxcode{\sphinxupquote{4.4.2}}
+&
+12.5 Mb
+&
+May 31, 2019
+\\
+\hline
+\sphinxhref{http://www3.freefem.org/ff++/ftp/}{previous releases}
+&
+\sphinxcode{\sphinxupquote{-}}
+&
+\sphinxcode{\sphinxupquote{-}}
+&
+\sphinxcode{\sphinxupquote{-}}
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
 The source code is available on the \sphinxhref{https://github.com/FreeFem/FreeFem-sources}{FreeFEM GitHub Repository}.
 
 \phantomsection\label{\detokenize{introduction/download:macos-10-14}}
@@ -1761,12 +1828,22 @@ then you will get the following message from \sphinxstylestrong{FreeFEM}:
  Error line number \PYG{l+m}{2}, in file bb.edp, before  token \PYG{p}{;}
 parse error
   current \PYG{n+nv}{line} \PYG{o}{=} \PYG{l+m}{2}
-Compile error : parse error
-        line number :2, \PYG{p}{;}
-error Compile error : parse error
-        line number :2, \PYG{p}{;}
- \PYG{n+nv}{code} \PYG{o}{=} \PYG{l+m}{1}
 \end{sphinxVerbatim}
+\begin{description}
+\item[{syntax error}] \leavevmode
+current line = 2
+
+\item[{Compile error}] \leavevmode{[}syntax error{]}
+line number :2, ;
+
+\item[{error Compile error}] \leavevmode{[}syntax error{]}\begin{quote}
+
+line number :2, ;
+\end{quote}
+
+code = 1 mpirank: 0
+
+\end{description}
 
 If you use the same symbol twice as in:
 
@@ -1995,7 +2072,7 @@ Then:
 \begin{split}V_h(\mathcal{T}_h,P_1)=\left\{w(x,y)\left|\; w(x,y)=\sum_{k=1}^{M}w_k\phi_k(x,y),\, w_k\textrm{ are real numbers}\right.\right\}\end{split}
 \end{equation}
 where \(M\) is the dimension of \(V_h\), i.e. the number of vertices.
-The \(w_k\) are called the \sphinxstyleemphasis{degree of freedom} of \(w\) and \(M\) the number of degree of freedom.
+The \(w_k\) are called the \sphinxstyleemphasis{degrees of freedom} of \(w\) and \(M\) the number of degree of freedom.
 
 It is said also that the \sphinxstyleemphasis{nodes} of this finite element method are the vertices.
 
