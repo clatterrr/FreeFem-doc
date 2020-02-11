@@ -29,15 +29,15 @@
 \contentsline {section}{\numberline {1.4}History}{16}{section.1.4}
 \contentsline {section}{\numberline {1.5}Citation}{17}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}If you use \sphinxstylestrong {FreeFEM}, please cite the following reference in your work:}{17}{subsection.1.5.1}
-\contentsline {subsubsection}{BibTeX}{17}{subsubsection*.18}
-\contentsline {subsubsection}{APA}{18}{subsubsection*.19}
-\contentsline {subsubsection}{ISO690}{18}{subsubsection*.20}
-\contentsline {subsubsection}{MLA}{18}{subsubsection*.21}
+\contentsline {subsubsection}{BibTeX}{17}{subsubsection*.17}
+\contentsline {subsubsection}{APA}{18}{subsubsection*.18}
+\contentsline {subsubsection}{ISO690}{18}{subsubsection*.19}
+\contentsline {subsubsection}{MLA}{18}{subsubsection*.20}
 \contentsline {section}{\numberline {1.6}Authors}{18}{section.1.6}
 \contentsline {section}{\numberline {1.7}Contributing}{19}{section.1.7}
 \contentsline {subsection}{\numberline {1.7.1}Bug report}{19}{subsection.1.7.1}
-\contentsline {subsubsection}{Concerning the \sphinxstylestrong {FreeFEM} documentation}{19}{subsubsection*.22}
-\contentsline {subsubsection}{Concerning the \sphinxstylestrong {FreeFEM} compilation or usage}{19}{subsubsection*.23}
+\contentsline {subsubsection}{Concerning the \sphinxstylestrong {FreeFEM} documentation}{19}{subsubsection*.21}
+\contentsline {subsubsection}{Concerning the \sphinxstylestrong {FreeFEM} compilation or usage}{19}{subsubsection*.22}
 \contentsline {subsection}{\numberline {1.7.2}Improve content}{20}{subsection.1.7.2}
 \contentsline {chapter}{\numberline {2}Learning by Examples}{21}{chapter.2}
 \contentsline {section}{\numberline {2.1}Getting started}{23}{section.2.1}
@@ -68,8 +68,8 @@
 \contentsline {subsection}{\numberline {2.19.1}Summary}{82}{subsection.2.19.1}
 \contentsline {subsection}{\numberline {2.19.2}Physics}{82}{subsection.2.19.2}
 \contentsline {subsection}{\numberline {2.19.3}Coding}{83}{subsection.2.19.3}
-\contentsline {subsubsection}{The domain}{83}{subsubsection*.93}
-\contentsline {subsubsection}{Let\IeC {\textquoteright }s create a mesh}{83}{subsubsection*.94}
+\contentsline {subsubsection}{The domain}{83}{subsubsection*.92}
+\contentsline {subsubsection}{Let\IeC {\textquoteright }s create a mesh}{83}{subsubsection*.93}
 \contentsline {section}{\numberline {2.20}Plotting in Matlab and Octave}{85}{section.2.20}
 \contentsline {subsection}{\numberline {2.20.1}Overview}{85}{subsection.2.20.1}
 \contentsline {subsection}{\numberline {2.20.2}2D Problem}{87}{subsection.2.20.2}
@@ -89,58 +89,58 @@
 \contentsline {subsection}{\numberline {3.1.7}Finite Element Spaces}{97}{subsection.3.1.7}
 \contentsline {section}{\numberline {3.2}Mesh Generation}{97}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}\sphinxstylestrong {The type mesh in 2 dimension}}{97}{subsection.3.2.1}
-\contentsline {subsubsection}{Commands for 2d mesh Generation}{97}{subsubsection*.110}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {square}}{97}{paragraph*.111}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {buildmesh}}{98}{paragraph*.113}
-\contentsline {subsubsection}{Mesh Connectivity and data}{102}{subsubsection*.123}
-\contentsline {subsubsection}{The keyword \IeC {\textquotedblleft }triangulate\IeC {\textquotedblright }}{106}{subsubsection*.124}
-\contentsline {subsubsection}{2d Finite Element space on a boundary}{108}{subsubsection*.129}
-\contentsline {subsubsection}{Remeshing}{108}{subsubsection*.133}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh}}{108}{paragraph*.134}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {hTriangle}}{111}{paragraph*.139}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {adaptmesh}}{111}{paragraph*.140}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{117}{paragraph*.150}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{117}{paragraph*.154}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {splitmesh}}{118}{paragraph*.155}
-\contentsline {subsubsection}{Meshing Examples}{119}{subsubsection*.159}
+\contentsline {subsubsection}{Commands for 2d mesh Generation}{97}{subsubsection*.109}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {square}}{97}{paragraph*.110}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildmesh}}{98}{paragraph*.112}
+\contentsline {subsubsection}{Mesh Connectivity and data}{102}{subsubsection*.122}
+\contentsline {subsubsection}{The keyword \IeC {\textquotedblleft }triangulate\IeC {\textquotedblright }}{106}{subsubsection*.123}
+\contentsline {subsubsection}{2d Finite Element space on a boundary}{108}{subsubsection*.128}
+\contentsline {subsubsection}{Remeshing}{108}{subsubsection*.132}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh}}{108}{paragraph*.133}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {hTriangle}}{111}{paragraph*.138}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {adaptmesh}}{111}{paragraph*.139}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{117}{paragraph*.149}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{117}{paragraph*.153}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {splitmesh}}{118}{paragraph*.154}
+\contentsline {subsubsection}{Meshing Examples}{119}{subsubsection*.158}
 \contentsline {subsection}{\numberline {3.2.2}\sphinxstylestrong {The type mesh3 in 3 dimension}}{126}{subsection.3.2.2}
-\contentsline {subsubsection}{3d mesh generation}{126}{subsubsection*.170}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {cube}}{126}{paragraph*.171}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {buildlayers}}{127}{paragraph*.173}
-\contentsline {subsubsection}{Remeshing}{133}{subsubsection*.177}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{133}{paragraph*.179}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{134}{paragraph*.180}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh3}}{135}{paragraph*.181}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {extract}}{136}{paragraph*.182}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{137}{paragraph*.183}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh23}}{137}{paragraph*.184}
-\contentsline {subsubsection}{3d Meshing examples}{138}{subsubsection*.185}
+\contentsline {subsubsection}{3d mesh generation}{126}{subsubsection*.169}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {cube}}{126}{paragraph*.170}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildlayers}}{127}{paragraph*.172}
+\contentsline {subsubsection}{Remeshing}{133}{subsubsection*.176}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{133}{paragraph*.178}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{134}{paragraph*.179}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh3}}{135}{paragraph*.180}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {extract}}{136}{paragraph*.181}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{137}{paragraph*.182}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemesh23}}{137}{paragraph*.183}
+\contentsline {subsubsection}{3d Meshing examples}{138}{subsubsection*.184}
 \contentsline {subsection}{\numberline {3.2.3}\sphinxstylestrong {The type meshS in 3 dimension}}{141}{subsection.3.2.3}
-\contentsline {subsubsection}{Commands for 3d surface mesh generation}{141}{subsubsection*.189}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {square3}}{141}{paragraph*.190}
-\contentsline {paragraph}{surface mesh builders}{142}{paragraph*.191}
-\contentsline {paragraph}{2D mesh generators combined with \sphinxstyleemphasis {movemesh23}}{144}{paragraph*.192}
-\contentsline {subsubsection}{Remeshing}{144}{subsubsection*.193}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{144}{paragraph*.194}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {movemeshS}}{145}{paragraph*.195}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{145}{paragraph*.196}
-\contentsline {subsubsection}{Link with a mesh3}{146}{subsubsection*.197}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {Gamma}}{146}{paragraph*.198}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{146}{paragraph*.199}
-\contentsline {paragraph}{The command \sphinxstyleemphasis {savesurfacemesh}}{147}{paragraph*.200}
-\contentsline {paragraph}{Glue of meshS meshes}{147}{paragraph*.201}
-\contentsline {subsubsection}{TetGen: A tetrahedral mesh generator}{148}{subsubsection*.202}
-\contentsline {subsubsection}{Reconstruct/Refine a 3d mesh with TetGen}{150}{subsubsection*.203}
+\contentsline {subsubsection}{Commands for 3d surface mesh generation}{141}{subsubsection*.188}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {square3}}{141}{paragraph*.189}
+\contentsline {paragraph}{surface mesh builders}{142}{paragraph*.190}
+\contentsline {paragraph}{2D mesh generators combined with \sphinxstyleemphasis {movemesh23}}{144}{paragraph*.191}
+\contentsline {subsubsection}{Remeshing}{144}{subsubsection*.192}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {trunc}}{144}{paragraph*.193}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {movemeshS}}{145}{paragraph*.194}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {change}}{145}{paragraph*.195}
+\contentsline {subsubsection}{Link with a mesh3}{146}{subsubsection*.196}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {Gamma}}{146}{paragraph*.197}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {buildSurface}}{146}{paragraph*.198}
+\contentsline {paragraph}{The command \sphinxstyleemphasis {savesurfacemesh}}{147}{paragraph*.199}
+\contentsline {paragraph}{Glue of meshS meshes}{147}{paragraph*.200}
+\contentsline {subsubsection}{TetGen: A tetrahedral mesh generator}{148}{subsubsection*.201}
+\contentsline {subsubsection}{Reconstruct/Refine a 3d mesh with TetGen}{150}{subsubsection*.202}
 \contentsline {subsection}{\numberline {3.2.4}Read/Write Statements for meshes}{151}{subsection.3.2.4}
-\contentsline {subsubsection}{2d case}{151}{subsubsection*.204}
-\contentsline {paragraph}{format of mesh data}{151}{paragraph*.205}
-\contentsline {paragraph}{Input/output for a mesh}{154}{paragraph*.208}
-\contentsline {subsubsection}{3d case}{155}{subsubsection*.209}
-\contentsline {paragraph}{format of mesh data}{155}{paragraph*.210}
-\contentsline {paragraph}{Input/output for a mesh3}{156}{paragraph*.211}
-\contentsline {subsubsection}{Surface 3d case}{157}{subsubsection*.212}
-\contentsline {paragraph}{format of mesh data}{157}{paragraph*.213}
-\contentsline {paragraph}{Input/output for a meshS}{158}{paragraph*.214}
+\contentsline {subsubsection}{2d case}{151}{subsubsection*.203}
+\contentsline {paragraph}{format of mesh data}{151}{paragraph*.204}
+\contentsline {paragraph}{Input/output for a mesh}{154}{paragraph*.207}
+\contentsline {subsubsection}{3d case}{155}{subsubsection*.208}
+\contentsline {paragraph}{format of mesh data}{155}{paragraph*.209}
+\contentsline {paragraph}{Input/output for a mesh3}{156}{paragraph*.210}
+\contentsline {subsubsection}{Surface 3d case}{157}{subsubsection*.211}
+\contentsline {paragraph}{format of mesh data}{157}{paragraph*.212}
+\contentsline {paragraph}{Input/output for a meshS}{158}{paragraph*.213}
 \contentsline {subsection}{\numberline {3.2.5}Medit}{159}{subsection.3.2.5}
 \contentsline {subsection}{\numberline {3.2.6}Mshmet}{161}{subsection.3.2.6}
 \contentsline {subsection}{\numberline {3.2.7}FreeYams}{163}{subsection.3.2.7}
@@ -154,18 +154,18 @@
 \contentsline {subsection}{\numberline {3.3.4}Use of fespace in surface 3D}{180}{subsection.3.3.4}
 \contentsline {subsection}{\numberline {3.3.5}Finite Element functions}{180}{subsection.3.3.5}
 \contentsline {subsection}{\numberline {3.3.6}Lagrangian Finite Elements}{181}{subsection.3.3.6}
-\contentsline {subsubsection}{P0-element}{181}{subsubsection*.219}
-\contentsline {subsubsection}{P1-element}{181}{subsubsection*.220}
-\contentsline {subsubsection}{P2-element}{182}{subsubsection*.225}
+\contentsline {subsubsection}{P0-element}{181}{subsubsection*.218}
+\contentsline {subsubsection}{P1-element}{181}{subsubsection*.219}
+\contentsline {subsubsection}{P2-element}{182}{subsubsection*.224}
 \contentsline {subsection}{\numberline {3.3.7}Surface Lagrangian Finite Elements}{184}{subsection.3.3.7}
-\contentsline {subsubsection}{Definition of the surface P1 Lagragian element}{184}{subsubsection*.229}
+\contentsline {subsubsection}{Definition of the surface P1 Lagragian element}{184}{subsubsection*.228}
 \contentsline {subsection}{\numberline {3.3.8}P1 Nonconforming Element}{187}{subsection.3.3.8}
 \contentsline {subsection}{\numberline {3.3.9}Other FE-space}{188}{subsection.3.3.9}
 \contentsline {subsection}{\numberline {3.3.10}Vector Valued FE-function}{189}{subsection.3.3.10}
-\contentsline {subsubsection}{Raviart-Thomas Element}{189}{subsubsection*.234}
+\contentsline {subsubsection}{Raviart-Thomas Element}{189}{subsubsection*.233}
 \contentsline {subsection}{\numberline {3.3.11}A Fast Finite Element Interpolator}{191}{subsection.3.3.11}
 \contentsline {subsection}{\numberline {3.3.12}Keywords: Problem and Solve}{193}{subsection.3.3.12}
-\contentsline {subsubsection}{Weak Form and Boundary Condition}{194}{subsubsection*.244}
+\contentsline {subsubsection}{Weak Form and Boundary Condition}{194}{subsubsection*.243}
 \contentsline {subsection}{\numberline {3.3.13}Parameters affecting solve and problem}{196}{subsection.3.3.13}
 \contentsline {subsection}{\numberline {3.3.14}Problem definition}{197}{subsection.3.3.14}
 \contentsline {subsection}{\numberline {3.3.15}Numerical Integration}{200}{subsection.3.3.15}
@@ -181,172 +181,172 @@
 \contentsline {section}{\numberline {3.5}Algorithms \& Optimization}{221}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Conjugate Gradient/GMRES}{221}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Algorithms for Unconstrained Optimization}{224}{subsection.3.5.2}
-\contentsline {subsubsection}{Example of usage for BFGS or CMAES}{224}{subsubsection*.258}
+\contentsline {subsubsection}{Example of usage for BFGS or CMAES}{224}{subsubsection*.257}
 \contentsline {subsection}{\numberline {3.5.3}IPOPT}{226}{subsection.3.5.3}
-\contentsline {subsubsection}{Short description of the algorithm}{226}{subsubsection*.259}
-\contentsline {subsubsection}{IPOPT in \sphinxstylestrong {FreeFEM}}{228}{subsubsection*.260}
+\contentsline {subsubsection}{Short description of the algorithm}{226}{subsubsection*.258}
+\contentsline {subsubsection}{IPOPT in \sphinxstylestrong {FreeFEM}}{228}{subsubsection*.259}
 \contentsline {subsection}{\numberline {3.5.4}Some short examples using IPOPT}{232}{subsection.3.5.4}
 \contentsline {subsection}{\numberline {3.5.5}3D constrained minimum surface with IPOPT}{235}{subsection.3.5.5}
-\contentsline {subsubsection}{Area and volume expressions}{235}{subsubsection*.264}
-\contentsline {subsubsection}{Derivatives}{236}{subsubsection*.265}
-\contentsline {subsubsection}{The problem and its script}{236}{subsubsection*.266}
+\contentsline {subsubsection}{Area and volume expressions}{235}{subsubsection*.263}
+\contentsline {subsubsection}{Derivatives}{236}{subsubsection*.264}
+\contentsline {subsubsection}{The problem and its script}{236}{subsubsection*.265}
 \contentsline {subsection}{\numberline {3.5.6}The nlOpt optimizers}{241}{subsection.3.5.6}
 \contentsline {subsection}{\numberline {3.5.7}Optimization with MPI}{248}{subsection.3.5.7}
 \contentsline {section}{\numberline {3.6}Parallelization}{249}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}MPI}{249}{subsection.3.6.1}
-\contentsline {subsubsection}{MPI Keywords}{249}{subsubsection*.267}
-\contentsline {subsubsection}{MPI Constants}{249}{subsubsection*.268}
-\contentsline {subsubsection}{MPI Constructor}{249}{subsubsection*.269}
-\contentsline {subsubsection}{MPI Functions}{250}{subsubsection*.270}
-\contentsline {subsubsection}{MPI Communicator operator}{251}{subsubsection*.271}
-\contentsline {subsubsection}{Schwarz example in parallel}{251}{subsubsection*.272}
-\contentsline {paragraph}{True parallel Schwarz example}{253}{paragraph*.273}
+\contentsline {subsubsection}{MPI Keywords}{249}{subsubsection*.266}
+\contentsline {subsubsection}{MPI Constants}{249}{subsubsection*.267}
+\contentsline {subsubsection}{MPI Constructor}{249}{subsubsection*.268}
+\contentsline {subsubsection}{MPI Functions}{250}{subsubsection*.269}
+\contentsline {subsubsection}{MPI Communicator operator}{251}{subsubsection*.270}
+\contentsline {subsubsection}{Schwarz example in parallel}{251}{subsubsection*.271}
+\contentsline {paragraph}{True parallel Schwarz example}{253}{paragraph*.272}
 \contentsline {subsection}{\numberline {3.6.2}Parallel sparse solvers}{259}{subsection.3.6.2}
-\contentsline {subsubsection}{Using parallel sparse solvers in \sphinxstylestrong {FreeFEM}}{259}{subsubsection*.274}
-\contentsline {subsubsection}{Sparse direct solver}{261}{subsubsection*.277}
-\contentsline {paragraph}{MUMPS solver}{262}{paragraph*.278}
-\contentsline {paragraph}{SuperLU distributed solver}{265}{paragraph*.279}
-\contentsline {paragraph}{PaStiX solver}{266}{paragraph*.280}
-\contentsline {subsubsection}{Parallel sparse iterative solver}{267}{subsubsection*.282}
-\contentsline {paragraph}{pARMS solver}{268}{paragraph*.283}
-\contentsline {paragraph}{Interfacing with HIPS}{272}{paragraph*.290}
-\contentsline {paragraph}{Interfacing with HYPRE}{275}{paragraph*.294}
-\contentsline {paragraph}{Conclusion}{278}{paragraph*.301}
-\contentsline {subsubsection}{Domain decomposition}{279}{subsubsection*.302}
-\contentsline {paragraph}{Communicators and groups}{279}{paragraph*.303}
-\contentsline {paragraph}{Process}{280}{paragraph*.304}
-\contentsline {paragraph}{Points to Points communicators}{280}{paragraph*.305}
-\contentsline {paragraph}{Global operations}{281}{paragraph*.306}
+\contentsline {subsubsection}{Using parallel sparse solvers in \sphinxstylestrong {FreeFEM}}{259}{subsubsection*.273}
+\contentsline {subsubsection}{Sparse direct solver}{261}{subsubsection*.276}
+\contentsline {paragraph}{MUMPS solver}{262}{paragraph*.277}
+\contentsline {paragraph}{SuperLU distributed solver}{265}{paragraph*.278}
+\contentsline {paragraph}{PaStiX solver}{266}{paragraph*.279}
+\contentsline {subsubsection}{Parallel sparse iterative solver}{267}{subsubsection*.281}
+\contentsline {paragraph}{pARMS solver}{268}{paragraph*.282}
+\contentsline {paragraph}{Interfacing with HIPS}{272}{paragraph*.289}
+\contentsline {paragraph}{Interfacing with HYPRE}{275}{paragraph*.293}
+\contentsline {paragraph}{Conclusion}{278}{paragraph*.300}
+\contentsline {subsubsection}{Domain decomposition}{279}{subsubsection*.301}
+\contentsline {paragraph}{Communicators and groups}{279}{paragraph*.302}
+\contentsline {paragraph}{Process}{280}{paragraph*.303}
+\contentsline {paragraph}{Points to Points communicators}{280}{paragraph*.304}
+\contentsline {paragraph}{Global operations}{281}{paragraph*.305}
 \contentsline {section}{\numberline {3.7}PETSc and SLEPc}{281}{section.3.7}
 \contentsline {subsection}{\numberline {3.7.1}Examples}{282}{subsection.3.7.1}
-\contentsline {subsubsection}{Linear problems}{282}{subsubsection*.307}
-\contentsline {subsubsection}{Nonlinear problems}{282}{subsubsection*.308}
-\contentsline {subsubsection}{Time steppers and optimizers}{283}{subsubsection*.309}
-\contentsline {subsubsection}{Eigenvalue problems}{283}{subsubsection*.310}
-\contentsline {subsubsection}{Miscellaneous}{283}{subsubsection*.311}
-\contentsline {subsubsection}{Reproducible science}{283}{subsubsection*.312}
+\contentsline {subsubsection}{Linear problems}{282}{subsubsection*.306}
+\contentsline {subsubsection}{Nonlinear problems}{282}{subsubsection*.307}
+\contentsline {subsubsection}{Time steppers and optimizers}{283}{subsubsection*.308}
+\contentsline {subsubsection}{Eigenvalue problems}{283}{subsubsection*.309}
+\contentsline {subsubsection}{Miscellaneous}{283}{subsubsection*.310}
+\contentsline {subsubsection}{Reproducible science}{283}{subsubsection*.311}
 \contentsline {section}{\numberline {3.8}Plugins}{284}{section.3.8}
 \contentsline {subsection}{\numberline {3.8.1}gsl}{284}{subsection.3.8.1}
 \contentsline {subsection}{\numberline {3.8.2}ffrandom}{284}{subsection.3.8.2}
 \contentsline {subsection}{\numberline {3.8.3}mmap / semaphore}{285}{subsection.3.8.3}
 \contentsline {section}{\numberline {3.9}Developers}{290}{section.3.9}
 \contentsline {subsection}{\numberline {3.9.1}File formats}{290}{subsection.3.9.1}
-\contentsline {subsubsection}{Mesh file data structure}{290}{subsubsection*.313}
-\contentsline {subsubsection}{bb file type to Store Solutions}{291}{subsubsection*.314}
-\contentsline {subsubsection}{BB file type to store solutions}{292}{subsubsection*.315}
-\contentsline {subsubsection}{Metric file}{292}{subsubsection*.316}
-\contentsline {subsubsection}{List of AM\_FMT, AMDBA Meshes}{293}{subsubsection*.317}
-\contentsline {subsubsection}{sol and solb files}{294}{subsubsection*.318}
+\contentsline {subsubsection}{Mesh file data structure}{290}{subsubsection*.312}
+\contentsline {subsubsection}{bb file type to Store Solutions}{291}{subsubsection*.313}
+\contentsline {subsubsection}{BB file type to store solutions}{292}{subsubsection*.314}
+\contentsline {subsubsection}{Metric file}{292}{subsubsection*.315}
+\contentsline {subsubsection}{List of AM\_FMT, AMDBA Meshes}{293}{subsubsection*.316}
+\contentsline {subsubsection}{sol and solb files}{294}{subsubsection*.317}
 \contentsline {subsection}{\numberline {3.9.2}Adding a new finite element}{296}{subsection.3.9.2}
-\contentsline {subsubsection}{Some notations}{296}{subsubsection*.319}
-\contentsline {subsubsection}{Which class to add?}{297}{subsubsection*.320}
+\contentsline {subsubsection}{Some notations}{296}{subsubsection*.318}
+\contentsline {subsubsection}{Which class to add?}{297}{subsubsection*.319}
 \contentsline {subsection}{\numberline {3.9.3}Dynamical link}{301}{subsection.3.9.3}
-\contentsline {subsubsection}{A first example myfunction.cpp}{301}{subsubsection*.321}
-\contentsline {subsubsection}{Example: Discrete Fast Fourier Transform}{303}{subsubsection*.322}
-\contentsline {subsubsection}{Load Module for Dervieux P0-P1 Finite Volume Method}{304}{subsubsection*.323}
-\contentsline {subsubsection}{More on Adding a new finite element}{304}{subsubsection*.324}
-\contentsline {paragraph}{The Bernardi-Raugel Element}{304}{paragraph*.325}
-\contentsline {paragraph}{The Morley Element}{306}{paragraph*.326}
+\contentsline {subsubsection}{A first example myfunction.cpp}{301}{subsubsection*.320}
+\contentsline {subsubsection}{Example: Discrete Fast Fourier Transform}{303}{subsubsection*.321}
+\contentsline {subsubsection}{Load Module for Dervieux P0-P1 Finite Volume Method}{304}{subsubsection*.322}
+\contentsline {subsubsection}{More on Adding a new finite element}{304}{subsubsection*.323}
+\contentsline {paragraph}{The Bernardi-Raugel Element}{304}{paragraph*.324}
+\contentsline {paragraph}{The Morley Element}{306}{paragraph*.325}
 \contentsline {section}{\numberline {3.10}ffddm}{306}{section.3.10}
 \contentsline {subsection}{\numberline {3.10.1}Domain Decomposition (DD)}{307}{subsection.3.10.1}
-\contentsline {subsubsection}{Mesh Decomposition}{307}{subsubsection*.327}
-\contentsline {subsubsection}{Distributed Linear Algebra}{307}{subsubsection*.328}
-\contentsline {subsubsection}{Partition of Unity Matrices (POUM)}{308}{subsubsection*.329}
-\contentsline {paragraph}{Distributed scalar product}{308}{paragraph*.330}
-\contentsline {paragraph}{Update}{308}{paragraph*.331}
-\contentsline {subsubsection}{Distributed Matrix and Vector resulting from a variational formulation}{309}{subsubsection*.332}
-\contentsline {subsubsection}{Distributed Linear Solvers}{309}{subsubsection*.333}
-\contentsline {paragraph}{Distributed Direct Solvers}{309}{paragraph*.334}
-\contentsline {paragraph}{Schwarz methods}{309}{paragraph*.335}
-\contentsline {subparagraph}{Restricted Additive Schwarz (RAS)}{309}{subparagraph*.336}
-\contentsline {subparagraph}{Optimized Restricted Additive Schwarz (ORAS)}{310}{subparagraph*.337}
-\contentsline {subparagraph}{Two level methods}{310}{subparagraph*.338}
-\contentsline {subparagraph}{Coarse Mesh}{310}{subparagraph*.339}
-\contentsline {subparagraph}{GenEO}{311}{subparagraph*.340}
+\contentsline {subsubsection}{Mesh Decomposition}{307}{subsubsection*.326}
+\contentsline {subsubsection}{Distributed Linear Algebra}{307}{subsubsection*.327}
+\contentsline {subsubsection}{Partition of Unity Matrices (POUM)}{308}{subsubsection*.328}
+\contentsline {paragraph}{Distributed scalar product}{308}{paragraph*.329}
+\contentsline {paragraph}{Update}{308}{paragraph*.330}
+\contentsline {subsubsection}{Distributed Matrix and Vector resulting from a variational formulation}{309}{subsubsection*.331}
+\contentsline {subsubsection}{Distributed Linear Solvers}{309}{subsubsection*.332}
+\contentsline {paragraph}{Distributed Direct Solvers}{309}{paragraph*.333}
+\contentsline {paragraph}{Schwarz methods}{309}{paragraph*.334}
+\contentsline {subparagraph}{Restricted Additive Schwarz (RAS)}{309}{subparagraph*.335}
+\contentsline {subparagraph}{Optimized Restricted Additive Schwarz (ORAS)}{310}{subparagraph*.336}
+\contentsline {subparagraph}{Two level methods}{310}{subparagraph*.337}
+\contentsline {subparagraph}{Coarse Mesh}{310}{subparagraph*.338}
+\contentsline {subparagraph}{GenEO}{311}{subparagraph*.339}
 \contentsline {subsection}{\numberline {3.10.2}ffddm documentation}{311}{subsection.3.10.2}
-\contentsline {subsubsection}{Minimal example}{311}{subsubsection*.341}
-\contentsline {subsubsection}{Overlapping mesh decomposition}{312}{subsubsection*.342}
-\contentsline {subsubsection}{Local finite element spaces}{313}{subsubsection*.343}
-\contentsline {subsubsection}{Define the problem to solve}{314}{subsubsection*.344}
-\contentsline {subsubsection}{One level preconditioners}{316}{subsubsection*.346}
-\contentsline {subsubsection}{Two level preconditioners}{317}{subsubsection*.347}
-\contentsline {paragraph}{Building the GenEO coarse space}{318}{paragraph*.348}
-\contentsline {paragraph}{Building the coarse space from a coarse mesh}{318}{paragraph*.349}
-\contentsline {subsubsection}{Solving the linear system}{319}{subsubsection*.350}
-\contentsline {subsubsection}{Using \sphinxstyleemphasis {HPDDM} within \sphinxstyleemphasis {ffddm}}{320}{subsubsection*.351}
-\contentsline {subsubsection}{Advanced use}{320}{subsubsection*.352}
-\contentsline {paragraph}{Local finite element spaces for non Lagrange finite elements}{320}{paragraph*.353}
-\contentsline {paragraph}{Inexact coarse solves for two level methods}{320}{paragraph*.354}
-\contentsline {subparagraph}{Coarse mesh and inexact coarse solve}{321}{subparagraph*.355}
+\contentsline {subsubsection}{Minimal example}{311}{subsubsection*.340}
+\contentsline {subsubsection}{Overlapping mesh decomposition}{312}{subsubsection*.341}
+\contentsline {subsubsection}{Local finite element spaces}{313}{subsubsection*.342}
+\contentsline {subsubsection}{Define the problem to solve}{314}{subsubsection*.343}
+\contentsline {subsubsection}{One level preconditioners}{316}{subsubsection*.345}
+\contentsline {subsubsection}{Two level preconditioners}{317}{subsubsection*.346}
+\contentsline {paragraph}{Building the GenEO coarse space}{318}{paragraph*.347}
+\contentsline {paragraph}{Building the coarse space from a coarse mesh}{318}{paragraph*.348}
+\contentsline {subsubsection}{Solving the linear system}{319}{subsubsection*.349}
+\contentsline {subsubsection}{Using \sphinxstyleemphasis {HPDDM} within \sphinxstyleemphasis {ffddm}}{320}{subsubsection*.350}
+\contentsline {subsubsection}{Advanced use}{320}{subsubsection*.351}
+\contentsline {paragraph}{Local finite element spaces for non Lagrange finite elements}{320}{paragraph*.352}
+\contentsline {paragraph}{Inexact coarse solves for two level methods}{320}{paragraph*.353}
+\contentsline {subparagraph}{Coarse mesh and inexact coarse solve}{321}{subparagraph*.354}
 \contentsline {subsection}{\numberline {3.10.3}Parameters}{322}{subsection.3.10.3}
-\contentsline {subsubsection}{Command-line arguments}{322}{subsubsection*.356}
-\contentsline {subsubsection}{Global parameters}{323}{subsubsection*.357}
+\contentsline {subsubsection}{Command-line arguments}{322}{subsubsection*.355}
+\contentsline {subsubsection}{Global parameters}{323}{subsubsection*.356}
 \contentsline {subsection}{\numberline {3.10.4}Tutorial}{324}{subsection.3.10.4}
-\contentsline {subsubsection}{What is \sphinxstylestrong {ffddm} ?}{324}{subsubsection*.358}
-\contentsline {subsubsection}{Why Domain Decomposition Methods ?}{324}{subsubsection*.359}
-\contentsline {paragraph}{Step 1: Decompose the mesh}{324}{paragraph*.360}
-\contentsline {paragraph}{Step 2: Define your finite element}{325}{paragraph*.361}
-\contentsline {subparagraph}{Distributed vectors and restriction operators}{326}{subparagraph*.362}
-\contentsline {subparagraph}{Partition of unity}{327}{subparagraph*.363}
-\contentsline {subparagraph}{Data exchange between neighbors}{327}{subparagraph*.364}
-\contentsline {paragraph}{Step 3: Define your problem}{328}{paragraph*.365}
-\contentsline {subsubsection}{Summary so far: translating your sequential \sphinxstyleemphasis {FreeFEM} script}{329}{subsubsection*.366}
-\contentsline {paragraph}{Step 1: Decompose the mesh}{329}{paragraph*.367}
-\contentsline {paragraph}{Solve the linear system}{330}{paragraph*.368}
-\contentsline {paragraph}{Solve the linear system with the parallel direct solver \sphinxstyleemphasis {MUMPS}}{330}{paragraph*.369}
-\contentsline {paragraph}{Step 4: Define the one level DD preconditioner}{330}{paragraph*.370}
-\contentsline {paragraph}{Step 5: Solve the linear system with preconditioned GMRES}{330}{paragraph*.371}
-\contentsline {subsubsection}{Define a two level DD preconditioner}{331}{subsubsection*.372}
-\contentsline {subsubsection}{Build the GenEO coarse space}{332}{subsubsection*.373}
-\contentsline {subsubsection}{Build the coarse space from a coarse mesh}{333}{subsubsection*.374}
-\contentsline {subsubsection}{Use \sphinxstylestrong {HPDDM} within \sphinxstylestrong {ffddm}}{333}{subsubsection*.375}
-\contentsline {subsubsection}{Some results: Heterogeneous 3D elasticity with GenEO}{334}{subsubsection*.376}
-\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{334}{subsubsection*.377}
-\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{335}{subsubsection*.378}
+\contentsline {subsubsection}{What is \sphinxstylestrong {ffddm} ?}{324}{subsubsection*.357}
+\contentsline {subsubsection}{Why Domain Decomposition Methods ?}{324}{subsubsection*.358}
+\contentsline {paragraph}{Step 1: Decompose the mesh}{324}{paragraph*.359}
+\contentsline {paragraph}{Step 2: Define your finite element}{325}{paragraph*.360}
+\contentsline {subparagraph}{Distributed vectors and restriction operators}{326}{subparagraph*.361}
+\contentsline {subparagraph}{Partition of unity}{327}{subparagraph*.362}
+\contentsline {subparagraph}{Data exchange between neighbors}{327}{subparagraph*.363}
+\contentsline {paragraph}{Step 3: Define your problem}{328}{paragraph*.364}
+\contentsline {subsubsection}{Summary so far: translating your sequential \sphinxstyleemphasis {FreeFEM} script}{329}{subsubsection*.365}
+\contentsline {paragraph}{Step 1: Decompose the mesh}{329}{paragraph*.366}
+\contentsline {paragraph}{Solve the linear system}{330}{paragraph*.367}
+\contentsline {paragraph}{Solve the linear system with the parallel direct solver \sphinxstyleemphasis {MUMPS}}{330}{paragraph*.368}
+\contentsline {paragraph}{Step 4: Define the one level DD preconditioner}{330}{paragraph*.369}
+\contentsline {paragraph}{Step 5: Solve the linear system with preconditioned GMRES}{330}{paragraph*.370}
+\contentsline {subsubsection}{Define a two level DD preconditioner}{331}{subsubsection*.371}
+\contentsline {subsubsection}{Build the GenEO coarse space}{332}{subsubsection*.372}
+\contentsline {subsubsection}{Build the coarse space from a coarse mesh}{333}{subsubsection*.373}
+\contentsline {subsubsection}{Use \sphinxstylestrong {HPDDM} within \sphinxstylestrong {ffddm}}{333}{subsubsection*.374}
+\contentsline {subsubsection}{Some results: Heterogeneous 3D elasticity with GenEO}{334}{subsubsection*.375}
+\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{334}{subsubsection*.376}
+\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{335}{subsubsection*.377}
 \contentsline {subsection}{\numberline {3.10.5}Examples}{336}{subsection.3.10.5}
 \contentsline {chapter}{\numberline {4}Language references}{337}{chapter.4}
 \contentsline {section}{\numberline {4.1}Types}{338}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Standard types}{338}{subsection.4.1.1}
-\contentsline {subsubsection}{int}{338}{subsubsection*.379}
-\contentsline {subsubsection}{bool}{338}{subsubsection*.380}
-\contentsline {subsubsection}{real}{338}{subsubsection*.381}
-\contentsline {subsubsection}{complex}{338}{subsubsection*.382}
-\contentsline {subsubsection}{string}{339}{subsubsection*.383}
+\contentsline {subsubsection}{int}{338}{subsubsection*.378}
+\contentsline {subsubsection}{bool}{338}{subsubsection*.379}
+\contentsline {subsubsection}{real}{338}{subsubsection*.380}
+\contentsline {subsubsection}{complex}{338}{subsubsection*.381}
+\contentsline {subsubsection}{string}{339}{subsubsection*.382}
 \contentsline {subsection}{\numberline {4.1.2}Mesh design}{339}{subsection.4.1.2}
-\contentsline {subsubsection}{border}{339}{subsubsection*.384}
-\contentsline {subsubsection}{mesh}{340}{subsubsection*.385}
-\contentsline {subsubsection}{mesh3}{340}{subsubsection*.386}
+\contentsline {subsubsection}{border}{339}{subsubsection*.383}
+\contentsline {subsubsection}{mesh}{340}{subsubsection*.384}
+\contentsline {subsubsection}{mesh3}{340}{subsubsection*.385}
 \contentsline {subsection}{\numberline {4.1.3}Finite element space design}{340}{subsection.4.1.3}
-\contentsline {subsubsection}{fespace}{340}{subsubsection*.387}
+\contentsline {subsubsection}{fespace}{340}{subsubsection*.386}
 \contentsline {subsection}{\numberline {4.1.4}Macro design}{342}{subsection.4.1.4}
-\contentsline {subsubsection}{macro}{342}{subsubsection*.388}
-\contentsline {subsubsection}{NewMacro / EndMacro}{342}{subsubsection*.389}
-\contentsline {subsubsection}{IFMACRO}{342}{subsubsection*.390}
-\contentsline {subsubsection}{ENDIFMACRO}{343}{subsubsection*.391}
+\contentsline {subsubsection}{macro}{342}{subsubsection*.387}
+\contentsline {subsubsection}{NewMacro / EndMacro}{342}{subsubsection*.388}
+\contentsline {subsubsection}{IFMACRO}{342}{subsubsection*.389}
+\contentsline {subsubsection}{ENDIFMACRO}{343}{subsubsection*.390}
 \contentsline {subsection}{\numberline {4.1.5}Functions design}{343}{subsection.4.1.5}
-\contentsline {subsubsection}{func}{343}{subsubsection*.392}
-\contentsline {subsubsection}{Elementary functions}{343}{subsubsection*.393}
-\contentsline {subsubsection}{Random functions}{343}{subsubsection*.394}
-\contentsline {subsubsection}{FE-functions}{344}{subsubsection*.395}
+\contentsline {subsubsection}{func}{343}{subsubsection*.391}
+\contentsline {subsubsection}{Elementary functions}{343}{subsubsection*.392}
+\contentsline {subsubsection}{Random functions}{343}{subsubsection*.393}
+\contentsline {subsubsection}{FE-functions}{344}{subsubsection*.394}
 \contentsline {subsection}{\numberline {4.1.6}Problem design}{344}{subsection.4.1.6}
-\contentsline {subsubsection}{problem}{344}{subsubsection*.396}
-\contentsline {subsubsection}{solve}{346}{subsubsection*.397}
-\contentsline {subsubsection}{varf}{346}{subsubsection*.398}
+\contentsline {subsubsection}{problem}{344}{subsubsection*.395}
+\contentsline {subsubsection}{solve}{346}{subsubsection*.396}
+\contentsline {subsubsection}{varf}{346}{subsubsection*.397}
 \contentsline {subsection}{\numberline {4.1.7}Array}{346}{subsection.4.1.7}
-\contentsline {subsubsection}{Array index}{347}{subsubsection*.399}
-\contentsline {subsubsection}{Array size}{347}{subsubsection*.400}
-\contentsline {subsubsection}{Array sort}{347}{subsubsection*.401}
-\contentsline {subsubsection}{Double array}{347}{subsubsection*.402}
-\contentsline {subsubsection}{Array of FE functions}{348}{subsubsection*.403}
-\contentsline {subsubsection}{Map arrays}{349}{subsubsection*.404}
+\contentsline {subsubsection}{Array index}{347}{subsubsection*.398}
+\contentsline {subsubsection}{Array size}{347}{subsubsection*.399}
+\contentsline {subsubsection}{Array sort}{347}{subsubsection*.400}
+\contentsline {subsubsection}{Double array}{347}{subsubsection*.401}
+\contentsline {subsubsection}{Array of FE functions}{348}{subsubsection*.402}
+\contentsline {subsubsection}{Map arrays}{349}{subsubsection*.403}
 \contentsline {subsection}{\numberline {4.1.8}matrix}{349}{subsection.4.1.8}
-\contentsline {subsubsection}{Matrix size}{351}{subsubsection*.405}
-\contentsline {subsubsection}{Matrix resize}{351}{subsubsection*.406}
-\contentsline {subsubsection}{Matrix diagonal}{352}{subsubsection*.407}
-\contentsline {subsubsection}{Matrix renumbering}{352}{subsubsection*.408}
-\contentsline {subsubsection}{Complex matrix}{352}{subsubsection*.409}
-\contentsline {subsubsection}{Dot product / Outer product}{352}{subsubsection*.410}
-\contentsline {subsubsection}{Matrix inversion}{352}{subsubsection*.411}
+\contentsline {subsubsection}{Matrix size}{351}{subsubsection*.404}
+\contentsline {subsubsection}{Matrix resize}{351}{subsubsection*.405}
+\contentsline {subsubsection}{Matrix diagonal}{352}{subsubsection*.406}
+\contentsline {subsubsection}{Matrix renumbering}{352}{subsubsection*.407}
+\contentsline {subsubsection}{Complex matrix}{352}{subsubsection*.408}
+\contentsline {subsubsection}{Dot product / Outer product}{352}{subsubsection*.409}
+\contentsline {subsubsection}{Matrix inversion}{352}{subsubsection*.410}
 \contentsline {section}{\numberline {4.2}Global variables}{352}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}area}{352}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}ARGV}{353}{subsection.4.2.2}
@@ -381,26 +381,26 @@
 \contentsline {subsection}{\numberline {4.2.31}z}{357}{subsection.4.2.31}
 \contentsline {section}{\numberline {4.3}Quadrature formulae}{357}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}int1d}{357}{subsection.4.3.1}
-\contentsline {subsubsection}{Notations}{357}{subsubsection*.412}
-\contentsline {subsubsection}{qf1pE}{358}{subsubsection*.413}
-\contentsline {subsubsection}{qf2pE}{358}{subsubsection*.414}
-\contentsline {subsubsection}{qf3pE}{358}{subsubsection*.415}
-\contentsline {subsubsection}{qf4pE}{358}{subsubsection*.416}
-\contentsline {subsubsection}{qf5pE}{359}{subsubsection*.417}
-\contentsline {subsubsection}{qf1pElump}{359}{subsubsection*.418}
+\contentsline {subsubsection}{Notations}{357}{subsubsection*.411}
+\contentsline {subsubsection}{qf1pE}{358}{subsubsection*.412}
+\contentsline {subsubsection}{qf2pE}{358}{subsubsection*.413}
+\contentsline {subsubsection}{qf3pE}{358}{subsubsection*.414}
+\contentsline {subsubsection}{qf4pE}{358}{subsubsection*.415}
+\contentsline {subsubsection}{qf5pE}{359}{subsubsection*.416}
+\contentsline {subsubsection}{qf1pElump}{359}{subsubsection*.417}
 \contentsline {subsection}{\numberline {4.3.2}int2d}{359}{subsection.4.3.2}
-\contentsline {subsubsection}{qf1pT}{359}{subsubsection*.419}
-\contentsline {subsubsection}{qf2pT}{359}{subsubsection*.420}
-\contentsline {subsubsection}{qf5pT}{360}{subsubsection*.421}
-\contentsline {subsubsection}{qf1pTlump}{360}{subsubsection*.422}
-\contentsline {subsubsection}{qf2pT4P1}{360}{subsubsection*.423}
-\contentsline {subsubsection}{qf7pT}{360}{subsubsection*.424}
-\contentsline {subsubsection}{qf9pT}{360}{subsubsection*.425}
+\contentsline {subsubsection}{qf1pT}{359}{subsubsection*.418}
+\contentsline {subsubsection}{qf2pT}{359}{subsubsection*.419}
+\contentsline {subsubsection}{qf5pT}{360}{subsubsection*.420}
+\contentsline {subsubsection}{qf1pTlump}{360}{subsubsection*.421}
+\contentsline {subsubsection}{qf2pT4P1}{360}{subsubsection*.422}
+\contentsline {subsubsection}{qf7pT}{360}{subsubsection*.423}
+\contentsline {subsubsection}{qf9pT}{360}{subsubsection*.424}
 \contentsline {subsection}{\numberline {4.3.3}int3d}{360}{subsection.4.3.3}
-\contentsline {subsubsection}{qfV1}{360}{subsubsection*.426}
-\contentsline {subsubsection}{qfV2}{361}{subsubsection*.427}
-\contentsline {subsubsection}{qfV5}{361}{subsubsection*.428}
-\contentsline {subsubsection}{qfV1lump}{361}{subsubsection*.429}
+\contentsline {subsubsection}{qfV1}{360}{subsubsection*.425}
+\contentsline {subsubsection}{qfV2}{361}{subsubsection*.426}
+\contentsline {subsubsection}{qfV5}{361}{subsubsection*.427}
+\contentsline {subsubsection}{qfV1lump}{361}{subsubsection*.428}
 \contentsline {section}{\numberline {4.4}Operators}{361}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Addition operator +}{361}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Increment operator ++}{361}{subsection.4.4.2}
@@ -445,15 +445,15 @@
 \contentsline {subsection}{\numberline {4.6.10}flush}{368}{subsection.4.6.10}
 \contentsline {subsection}{\numberline {4.6.11}getline}{369}{subsection.4.6.11}
 \contentsline {subsection}{\numberline {4.6.12}Output format}{369}{subsection.4.6.12}
-\contentsline {subsubsection}{precision}{369}{subsubsection*.430}
-\contentsline {subsubsection}{scientific}{369}{subsubsection*.431}
-\contentsline {subsubsection}{fixed}{369}{subsubsection*.432}
-\contentsline {subsubsection}{showbase}{369}{subsubsection*.433}
-\contentsline {subsubsection}{noshowbase}{369}{subsubsection*.434}
-\contentsline {subsubsection}{showpos}{370}{subsubsection*.435}
-\contentsline {subsubsection}{noshowpos}{370}{subsubsection*.436}
-\contentsline {subsubsection}{default}{370}{subsubsection*.437}
-\contentsline {subsubsection}{setw}{370}{subsubsection*.438}
+\contentsline {subsubsection}{precision}{369}{subsubsection*.429}
+\contentsline {subsubsection}{scientific}{369}{subsubsection*.430}
+\contentsline {subsubsection}{fixed}{369}{subsubsection*.431}
+\contentsline {subsubsection}{showbase}{369}{subsubsection*.432}
+\contentsline {subsubsection}{noshowbase}{369}{subsubsection*.433}
+\contentsline {subsubsection}{showpos}{370}{subsubsection*.434}
+\contentsline {subsubsection}{noshowpos}{370}{subsubsection*.435}
+\contentsline {subsubsection}{default}{370}{subsubsection*.436}
+\contentsline {subsubsection}{setw}{370}{subsubsection*.437}
 \contentsline {section}{\numberline {4.7}Functions}{370}{section.4.7}
 \contentsline {subsection}{\numberline {4.7.1}abs}{370}{subsection.4.7.1}
 \contentsline {subsection}{\numberline {4.7.2}acos}{370}{subsection.4.7.2}
@@ -586,621 +586,621 @@
 \contentsline {subsection}{\numberline {4.7.129}yn}{410}{subsection.4.7.129}
 \contentsline {section}{\numberline {4.8}External libraries}{411}{section.4.8}
 \contentsline {subsection}{\numberline {4.8.1}aniso}{411}{subsection.4.8.1}
-\contentsline {subsubsection}{boundaniso}{411}{subsubsection*.450}
+\contentsline {subsubsection}{boundaniso}{411}{subsubsection*.449}
 \contentsline {subsection}{\numberline {4.8.2}BEC}{411}{subsection.4.8.2}
-\contentsline {subsubsection}{BECtrap}{411}{subsubsection*.451}
-\contentsline {subsubsection}{GPvortex}{411}{subsubsection*.452}
-\contentsline {subsubsection}{dxGPVortex}{411}{subsubsection*.453}
-\contentsline {subsubsection}{dyGPVortex}{411}{subsubsection*.454}
+\contentsline {subsubsection}{BECtrap}{411}{subsubsection*.450}
+\contentsline {subsubsection}{GPvortex}{411}{subsubsection*.451}
+\contentsline {subsubsection}{dxGPVortex}{411}{subsubsection*.452}
+\contentsline {subsubsection}{dyGPVortex}{411}{subsubsection*.453}
 \contentsline {subsection}{\numberline {4.8.3}Binary I/O}{411}{subsection.4.8.3}
-\contentsline {subsubsection}{LoadVec}{411}{subsubsection*.455}
-\contentsline {subsubsection}{LoadFlag}{412}{subsubsection*.456}
-\contentsline {subsubsection}{SaveVec}{412}{subsubsection*.457}
-\contentsline {subsubsection}{flag}{412}{subsubsection*.458}
+\contentsline {subsubsection}{LoadVec}{411}{subsubsection*.454}
+\contentsline {subsubsection}{LoadFlag}{412}{subsubsection*.455}
+\contentsline {subsubsection}{SaveVec}{412}{subsubsection*.456}
+\contentsline {subsubsection}{flag}{412}{subsubsection*.457}
 \contentsline {subsection}{\numberline {4.8.4}buildlayer}{412}{subsection.4.8.4}
-\contentsline {subsubsection}{buildlayers}{412}{subsubsection*.459}
+\contentsline {subsubsection}{buildlayers}{412}{subsubsection*.458}
 \contentsline {subsection}{\numberline {4.8.5}ClosePoints}{412}{subsection.4.8.5}
-\contentsline {subsubsection}{radiusSearch}{412}{subsubsection*.460}
-\contentsline {subsubsection}{Voisinage}{412}{subsubsection*.461}
-\contentsline {subsubsection}{neighborhood}{412}{subsubsection*.462}
-\contentsline {subsubsection}{ClosePoints2}{413}{subsubsection*.463}
-\contentsline {subsubsection}{ClosePoint}{413}{subsubsection*.464}
-\contentsline {subsubsection}{ClosePoints1}{413}{subsubsection*.465}
+\contentsline {subsubsection}{radiusSearch}{412}{subsubsection*.459}
+\contentsline {subsubsection}{Voisinage}{412}{subsubsection*.460}
+\contentsline {subsubsection}{neighborhood}{412}{subsubsection*.461}
+\contentsline {subsubsection}{ClosePoints2}{413}{subsubsection*.462}
+\contentsline {subsubsection}{ClosePoint}{413}{subsubsection*.463}
+\contentsline {subsubsection}{ClosePoints1}{413}{subsubsection*.464}
 \contentsline {subsection}{\numberline {4.8.6}Curvature}{413}{subsection.4.8.6}
-\contentsline {subsubsection}{extractborder}{413}{subsubsection*.466}
-\contentsline {subsubsection}{curvature}{413}{subsubsection*.467}
-\contentsline {subsubsection}{raxicurvature}{413}{subsubsection*.468}
-\contentsline {subsubsection}{curves}{414}{subsubsection*.469}
-\contentsline {subsubsection}{setecurveabcisse}{414}{subsubsection*.470}
-\contentsline {subsubsection}{equiparameter}{414}{subsubsection*.471}
-\contentsline {subsubsection}{Tresca}{414}{subsubsection*.472}
-\contentsline {subsubsection}{VonMises}{414}{subsubsection*.473}
+\contentsline {subsubsection}{extractborder}{413}{subsubsection*.465}
+\contentsline {subsubsection}{curvature}{413}{subsubsection*.466}
+\contentsline {subsubsection}{raxicurvature}{413}{subsubsection*.467}
+\contentsline {subsubsection}{curves}{414}{subsubsection*.468}
+\contentsline {subsubsection}{setecurveabcisse}{414}{subsubsection*.469}
+\contentsline {subsubsection}{equiparameter}{414}{subsubsection*.470}
+\contentsline {subsubsection}{Tresca}{414}{subsubsection*.471}
+\contentsline {subsubsection}{VonMises}{414}{subsubsection*.472}
 \contentsline {subsection}{\numberline {4.8.7}dfft}{414}{subsection.4.8.7}
-\contentsline {subsubsection}{plandfft}{414}{subsubsection*.474}
-\contentsline {subsubsection}{execute}{414}{subsubsection*.475}
-\contentsline {subsubsection}{delete}{415}{subsubsection*.476}
-\contentsline {subsubsection}{dfft}{415}{subsubsection*.477}
-\contentsline {subsubsection}{map}{415}{subsubsection*.478}
+\contentsline {subsubsection}{plandfft}{414}{subsubsection*.473}
+\contentsline {subsubsection}{execute}{414}{subsubsection*.474}
+\contentsline {subsubsection}{delete}{415}{subsubsection*.475}
+\contentsline {subsubsection}{dfft}{415}{subsubsection*.476}
+\contentsline {subsubsection}{map}{415}{subsubsection*.477}
 \contentsline {subsection}{\numberline {4.8.8}distance}{415}{subsection.4.8.8}
-\contentsline {subsubsection}{distance}{415}{subsubsection*.479}
-\contentsline {subsubsection}{checkdist}{415}{subsubsection*.480}
+\contentsline {subsubsection}{distance}{415}{subsubsection*.478}
+\contentsline {subsubsection}{checkdist}{415}{subsubsection*.479}
 \contentsline {subsection}{\numberline {4.8.9}DxWriter}{416}{subsection.4.8.9}
-\contentsline {subsubsection}{Dxaddmesh}{416}{subsubsection*.481}
-\contentsline {subsubsection}{Dxaddtimeseries}{416}{subsubsection*.482}
-\contentsline {subsubsection}{Dxaddsol2ts}{416}{subsubsection*.483}
+\contentsline {subsubsection}{Dxaddmesh}{416}{subsubsection*.480}
+\contentsline {subsubsection}{Dxaddtimeseries}{416}{subsubsection*.481}
+\contentsline {subsubsection}{Dxaddsol2ts}{416}{subsubsection*.482}
 \contentsline {subsection}{\numberline {4.8.10}Element\_P1bl}{416}{subsection.4.8.10}
-\contentsline {subsubsection}{expert}{416}{subsubsection*.484}
+\contentsline {subsubsection}{expert}{416}{subsubsection*.483}
 \contentsline {subsection}{\numberline {4.8.11}exactpartition}{416}{subsection.4.8.11}
-\contentsline {subsubsection}{exactpartition}{416}{subsubsection*.485}
+\contentsline {subsubsection}{exactpartition}{416}{subsubsection*.484}
 \contentsline {subsection}{\numberline {4.8.12}ff-AiryBiry}{416}{subsection.4.8.12}
-\contentsline {subsubsection}{airy}{416}{subsubsection*.486}
-\contentsline {subsubsection}{biry}{416}{subsubsection*.487}
+\contentsline {subsubsection}{airy}{416}{subsubsection*.485}
+\contentsline {subsubsection}{biry}{416}{subsubsection*.486}
 \contentsline {subsection}{\numberline {4.8.13}ff-cmaes}{417}{subsection.4.8.13}
-\contentsline {subsubsection}{cmaes}{417}{subsubsection*.488}
+\contentsline {subsubsection}{cmaes}{417}{subsubsection*.487}
 \contentsline {subsection}{\numberline {4.8.14}ff\_gsl\_awk}{417}{subsection.4.8.14}
-\contentsline {subsubsection}{gslcdfugaussianP}{417}{subsubsection*.489}
-\contentsline {subsubsection}{gslcdfugaussianQ}{417}{subsubsection*.490}
-\contentsline {subsubsection}{gslcdfugaussianPinv}{417}{subsubsection*.491}
-\contentsline {subsubsection}{gslcdfugaussianQinv}{417}{subsubsection*.492}
-\contentsline {subsubsection}{gslcdfgaussianP}{417}{subsubsection*.493}
-\contentsline {subsubsection}{gslcdfgaussianQ}{417}{subsubsection*.494}
-\contentsline {subsubsection}{gslcdfgaussianPinv}{418}{subsubsection*.495}
-\contentsline {subsubsection}{gslcdfgaussianQinv}{418}{subsubsection*.496}
-\contentsline {subsubsection}{gslcdfgammaP}{418}{subsubsection*.497}
-\contentsline {subsubsection}{gslcdfgammaQ}{418}{subsubsection*.498}
-\contentsline {subsubsection}{gslcdfgammaPinv}{418}{subsubsection*.499}
-\contentsline {subsubsection}{gslcdfgammaQinv}{418}{subsubsection*.500}
-\contentsline {subsubsection}{gslcdfcauchyP}{418}{subsubsection*.501}
-\contentsline {subsubsection}{gslcdfcauchyQ}{418}{subsubsection*.502}
-\contentsline {subsubsection}{gslcdfcauchyPinv}{419}{subsubsection*.503}
-\contentsline {subsubsection}{gslcdfcauchyQinv}{419}{subsubsection*.504}
-\contentsline {subsubsection}{gslcdflaplaceP}{419}{subsubsection*.505}
-\contentsline {subsubsection}{gslcdflaplaceQ}{419}{subsubsection*.506}
-\contentsline {subsubsection}{gslcdflaplacePinv}{419}{subsubsection*.507}
-\contentsline {subsubsection}{gslcdflaplaceQinv}{419}{subsubsection*.508}
-\contentsline {subsubsection}{gslcdfrayleighP}{419}{subsubsection*.509}
-\contentsline {subsubsection}{gslcdfrayleighQ}{419}{subsubsection*.510}
-\contentsline {subsubsection}{gslcdfrayleighPinv}{420}{subsubsection*.511}
-\contentsline {subsubsection}{gslcdfrayleighQinv}{420}{subsubsection*.512}
-\contentsline {subsubsection}{gslcdfchisqP}{420}{subsubsection*.513}
-\contentsline {subsubsection}{gslcdfchisqQ}{420}{subsubsection*.514}
-\contentsline {subsubsection}{gslcdfchisqPinv}{420}{subsubsection*.515}
-\contentsline {subsubsection}{gslcdfchisqQinv}{420}{subsubsection*.516}
-\contentsline {subsubsection}{gslcdfexponentialP}{420}{subsubsection*.517}
-\contentsline {subsubsection}{gslcdfexponentialQ}{420}{subsubsection*.518}
-\contentsline {subsubsection}{gslcdfexponentialPinv}{421}{subsubsection*.519}
-\contentsline {subsubsection}{gslcdfexponentialQinv}{421}{subsubsection*.520}
-\contentsline {subsubsection}{gslcdfexppowP}{421}{subsubsection*.521}
-\contentsline {subsubsection}{gslcdfexppowQ}{421}{subsubsection*.522}
-\contentsline {subsubsection}{gslcdftdistP}{421}{subsubsection*.523}
-\contentsline {subsubsection}{gslcdftdistQ}{421}{subsubsection*.524}
-\contentsline {subsubsection}{gslcdftdistPinv}{421}{subsubsection*.525}
-\contentsline {subsubsection}{gslcdftdistQinv}{421}{subsubsection*.526}
-\contentsline {subsubsection}{gslcdffdistP}{422}{subsubsection*.527}
-\contentsline {subsubsection}{gslcdffdistQ}{422}{subsubsection*.528}
-\contentsline {subsubsection}{gslcdffdistPinv}{422}{subsubsection*.529}
-\contentsline {subsubsection}{gslcdffdistQinv}{422}{subsubsection*.530}
-\contentsline {subsubsection}{gslcdfbetaP}{422}{subsubsection*.531}
-\contentsline {subsubsection}{gslcdfbetaQ}{422}{subsubsection*.532}
-\contentsline {subsubsection}{gslcdfbetaPinv}{422}{subsubsection*.533}
-\contentsline {subsubsection}{gslcdfbetaQinv}{422}{subsubsection*.534}
-\contentsline {subsubsection}{gslcdfflatP}{423}{subsubsection*.535}
-\contentsline {subsubsection}{gslcdfflatQ}{423}{subsubsection*.536}
-\contentsline {subsubsection}{gslcdfflatPinv}{423}{subsubsection*.537}
-\contentsline {subsubsection}{gslcdfflatQinv}{423}{subsubsection*.538}
-\contentsline {subsubsection}{gslcdflognormalP}{423}{subsubsection*.539}
-\contentsline {subsubsection}{gslcdflognormalQ}{423}{subsubsection*.540}
-\contentsline {subsubsection}{gslcdflognormalPinv}{423}{subsubsection*.541}
-\contentsline {subsubsection}{gslcdflognormalQinv}{423}{subsubsection*.542}
-\contentsline {subsubsection}{gslcdfgumbel1P}{424}{subsubsection*.543}
-\contentsline {subsubsection}{gslcdfgumbel1Q}{424}{subsubsection*.544}
-\contentsline {subsubsection}{gslcdfgumbel1Pinv}{424}{subsubsection*.545}
-\contentsline {subsubsection}{gslcdfgumbel1Qinv}{424}{subsubsection*.546}
-\contentsline {subsubsection}{gslcdfgumbel2P}{424}{subsubsection*.547}
-\contentsline {subsubsection}{gslcdfgumbel2Q}{424}{subsubsection*.548}
-\contentsline {subsubsection}{gslcdfgumbel2Pinv}{424}{subsubsection*.549}
-\contentsline {subsubsection}{gslcdfgumbel2Qinv}{424}{subsubsection*.550}
-\contentsline {subsubsection}{gslcdfweibullP}{425}{subsubsection*.551}
-\contentsline {subsubsection}{gslcdfweibullQ}{425}{subsubsection*.552}
-\contentsline {subsubsection}{gslcdfweibullPinv}{425}{subsubsection*.553}
-\contentsline {subsubsection}{gslcdfweibullQinv}{425}{subsubsection*.554}
-\contentsline {subsubsection}{gslcdfparetoP}{425}{subsubsection*.555}
-\contentsline {subsubsection}{gslcdfparetoQ}{425}{subsubsection*.556}
-\contentsline {subsubsection}{gslcdfparetoPinv}{425}{subsubsection*.557}
-\contentsline {subsubsection}{gslcdfparetoQinv}{425}{subsubsection*.558}
-\contentsline {subsubsection}{gslcdflogisticP}{426}{subsubsection*.559}
-\contentsline {subsubsection}{gslcdflogisticQ}{426}{subsubsection*.560}
-\contentsline {subsubsection}{gslcdflogisticPinv}{426}{subsubsection*.561}
-\contentsline {subsubsection}{gslcdflogisticQinv}{426}{subsubsection*.562}
-\contentsline {subsubsection}{gslcdfbinomialP}{426}{subsubsection*.563}
-\contentsline {subsubsection}{gslcdfbinomialQ}{426}{subsubsection*.564}
-\contentsline {subsubsection}{gslcdfpoissonP}{426}{subsubsection*.565}
-\contentsline {subsubsection}{gslcdfpoissonQ}{426}{subsubsection*.566}
-\contentsline {subsubsection}{gslcdfgeometricP}{427}{subsubsection*.567}
-\contentsline {subsubsection}{gslcdfgeometricQ}{427}{subsubsection*.568}
-\contentsline {subsubsection}{gslcdfnegativebinomialP}{427}{subsubsection*.569}
-\contentsline {subsubsection}{gslcdfnegativebinomialQ}{427}{subsubsection*.570}
-\contentsline {subsubsection}{gslcdfpascalP}{427}{subsubsection*.571}
-\contentsline {subsubsection}{gslcdfpascalQ}{427}{subsubsection*.572}
-\contentsline {subsubsection}{gslranbernoullipdf}{427}{subsubsection*.573}
-\contentsline {subsubsection}{gslranbeta}{427}{subsubsection*.574}
-\contentsline {subsubsection}{gslranbetapdf}{428}{subsubsection*.575}
-\contentsline {subsubsection}{gslranbinomialpdf}{428}{subsubsection*.576}
-\contentsline {subsubsection}{gslranexponential}{428}{subsubsection*.577}
-\contentsline {subsubsection}{gslranexponentialpdf}{428}{subsubsection*.578}
-\contentsline {subsubsection}{gslranexppow}{428}{subsubsection*.579}
-\contentsline {subsubsection}{gslranexppowpdf}{428}{subsubsection*.580}
-\contentsline {subsubsection}{gslrancauchy}{428}{subsubsection*.581}
-\contentsline {subsubsection}{gslrancauchypdf}{428}{subsubsection*.582}
-\contentsline {subsubsection}{gslranchisq}{429}{subsubsection*.583}
-\contentsline {subsubsection}{gslranchisqpdf}{429}{subsubsection*.584}
-\contentsline {subsubsection}{gslranerlang}{429}{subsubsection*.585}
-\contentsline {subsubsection}{gslranerlangpdf}{429}{subsubsection*.586}
-\contentsline {subsubsection}{gslranfdist}{429}{subsubsection*.587}
-\contentsline {subsubsection}{gslranfdistpdf}{429}{subsubsection*.588}
-\contentsline {subsubsection}{gslranflat}{429}{subsubsection*.589}
-\contentsline {subsubsection}{gslranflatpdf}{429}{subsubsection*.590}
-\contentsline {subsubsection}{gslrangamma}{430}{subsubsection*.591}
-\contentsline {subsubsection}{gslrangammaint}{430}{subsubsection*.592}
-\contentsline {subsubsection}{gslrangammapdf}{430}{subsubsection*.593}
-\contentsline {subsubsection}{gslrangammamt}{430}{subsubsection*.594}
-\contentsline {subsubsection}{gslrangammaknuth}{430}{subsubsection*.595}
-\contentsline {subsubsection}{gslrangaussian}{430}{subsubsection*.596}
-\contentsline {subsubsection}{gslrangaussianratiomethod}{430}{subsubsection*.597}
-\contentsline {subsubsection}{gslrangaussianziggurat}{430}{subsubsection*.598}
-\contentsline {subsubsection}{gslrangaussianpdf}{431}{subsubsection*.599}
-\contentsline {subsubsection}{gslranugaussian}{431}{subsubsection*.600}
-\contentsline {subsubsection}{gslranugaussianratiomethod}{431}{subsubsection*.601}
-\contentsline {subsubsection}{gslranugaussianpdf}{431}{subsubsection*.602}
-\contentsline {subsubsection}{gslrangaussiantail}{431}{subsubsection*.603}
-\contentsline {subsubsection}{gslrangaussiantailpdf}{431}{subsubsection*.604}
-\contentsline {subsubsection}{gslranugaussiantail}{431}{subsubsection*.605}
-\contentsline {subsubsection}{gslranugaussiantailpdf}{431}{subsubsection*.606}
-\contentsline {subsubsection}{gslranlandau}{432}{subsubsection*.607}
-\contentsline {subsubsection}{gslranlandaupdf}{432}{subsubsection*.608}
-\contentsline {subsubsection}{gslrangeometricpdf}{432}{subsubsection*.609}
-\contentsline {subsubsection}{gslrangumbel1}{432}{subsubsection*.610}
-\contentsline {subsubsection}{gslrangumbel1pdf}{432}{subsubsection*.611}
-\contentsline {subsubsection}{gslrangumbel2}{432}{subsubsection*.612}
-\contentsline {subsubsection}{gslrangumbel2pdf}{432}{subsubsection*.613}
-\contentsline {subsubsection}{gslranlogistic}{432}{subsubsection*.614}
-\contentsline {subsubsection}{gslranlogisticpdf}{433}{subsubsection*.615}
-\contentsline {subsubsection}{gslranlognormal}{433}{subsubsection*.616}
-\contentsline {subsubsection}{gslranlognormalpdf}{433}{subsubsection*.617}
-\contentsline {subsubsection}{gslranlogarithmicpdf}{433}{subsubsection*.618}
-\contentsline {subsubsection}{gslrannegativebinomialpdf}{433}{subsubsection*.619}
-\contentsline {subsubsection}{gslranpascalpdf}{433}{subsubsection*.620}
-\contentsline {subsubsection}{gslranpareto}{433}{subsubsection*.621}
-\contentsline {subsubsection}{gslranparetopdf}{433}{subsubsection*.622}
-\contentsline {subsubsection}{gslranpoissonpdf}{434}{subsubsection*.623}
-\contentsline {subsubsection}{gslranrayleigh}{434}{subsubsection*.624}
-\contentsline {subsubsection}{gslranrayleighpdf}{434}{subsubsection*.625}
-\contentsline {subsubsection}{gslranrayleightail}{434}{subsubsection*.626}
-\contentsline {subsubsection}{gslranrayleightailpdf}{434}{subsubsection*.627}
-\contentsline {subsubsection}{gslrantdist}{434}{subsubsection*.628}
-\contentsline {subsubsection}{gslrantdistpdf}{434}{subsubsection*.629}
-\contentsline {subsubsection}{gslranlaplace}{434}{subsubsection*.630}
-\contentsline {subsubsection}{gslranlaplacepdf}{435}{subsubsection*.631}
-\contentsline {subsubsection}{gslranlevy}{435}{subsubsection*.632}
-\contentsline {subsubsection}{gslranweibull}{435}{subsubsection*.633}
-\contentsline {subsubsection}{gslranweibullpdf}{435}{subsubsection*.634}
-\contentsline {subsubsection}{gslsfairyAi}{435}{subsubsection*.635}
-\contentsline {subsubsection}{gslsfairyBi}{435}{subsubsection*.636}
-\contentsline {subsubsection}{gslsfairyAiscaled}{435}{subsubsection*.637}
-\contentsline {subsubsection}{gslsfairyBiscaled}{435}{subsubsection*.638}
-\contentsline {subsubsection}{gslsfairyAideriv}{436}{subsubsection*.639}
-\contentsline {subsubsection}{gslsfairyBideriv}{436}{subsubsection*.640}
-\contentsline {subsubsection}{gslsfairyAiderivscaled}{436}{subsubsection*.641}
-\contentsline {subsubsection}{gslsfairyBiderivscaled}{436}{subsubsection*.642}
-\contentsline {subsubsection}{gslsfairyzeroAi}{436}{subsubsection*.643}
-\contentsline {subsubsection}{gslsfairyzeroBi}{436}{subsubsection*.644}
-\contentsline {subsubsection}{gslsfairyzeroAideriv}{436}{subsubsection*.645}
-\contentsline {subsubsection}{gslsfairyzeroBideriv}{436}{subsubsection*.646}
-\contentsline {subsubsection}{gslsfbesselJ0}{437}{subsubsection*.647}
-\contentsline {subsubsection}{gslsfbesselJ1}{437}{subsubsection*.648}
-\contentsline {subsubsection}{gslsfbesselJn}{437}{subsubsection*.649}
-\contentsline {subsubsection}{gslsfbesselY0}{437}{subsubsection*.650}
-\contentsline {subsubsection}{gslsfbesselY1}{437}{subsubsection*.651}
-\contentsline {subsubsection}{gslsfbesselYn}{437}{subsubsection*.652}
-\contentsline {subsubsection}{gslsfbesselI0}{437}{subsubsection*.653}
-\contentsline {subsubsection}{gslsfbesselI1}{437}{subsubsection*.654}
-\contentsline {subsubsection}{gslsfbesselIn}{438}{subsubsection*.655}
-\contentsline {subsubsection}{gslsfbesselI0scaled}{438}{subsubsection*.656}
-\contentsline {subsubsection}{gslsfbesselI1scaled}{438}{subsubsection*.657}
-\contentsline {subsubsection}{gslsfbesselInscaled}{438}{subsubsection*.658}
-\contentsline {subsubsection}{gslsfbesselK0}{438}{subsubsection*.659}
-\contentsline {subsubsection}{gslsfbesselK1}{438}{subsubsection*.660}
-\contentsline {subsubsection}{gslsfbesselKn}{438}{subsubsection*.661}
-\contentsline {subsubsection}{gslsfbesselK0scaled}{438}{subsubsection*.662}
-\contentsline {subsubsection}{gslsfbesselK1scaled}{439}{subsubsection*.663}
-\contentsline {subsubsection}{gslsfbesselKnscaled}{439}{subsubsection*.664}
-\contentsline {subsubsection}{gslsfbesselj0}{439}{subsubsection*.665}
-\contentsline {subsubsection}{gslsfbesselj1}{439}{subsubsection*.666}
-\contentsline {subsubsection}{gslsfbesselj2}{439}{subsubsection*.667}
-\contentsline {subsubsection}{gslsfbesseljl}{439}{subsubsection*.668}
-\contentsline {subsubsection}{gslsfbessely0}{439}{subsubsection*.669}
-\contentsline {subsubsection}{gslsfbessely1}{439}{subsubsection*.670}
-\contentsline {subsubsection}{gslsfbessely2}{440}{subsubsection*.671}
-\contentsline {subsubsection}{gslsfbesselyl}{440}{subsubsection*.672}
-\contentsline {subsubsection}{gslsfbesseli0scaled}{440}{subsubsection*.673}
-\contentsline {subsubsection}{gslsfbesseli1scaled}{440}{subsubsection*.674}
-\contentsline {subsubsection}{gslsfbesseli2scaled}{440}{subsubsection*.675}
-\contentsline {subsubsection}{gslsfbesselilscaled}{440}{subsubsection*.676}
-\contentsline {subsubsection}{gslsfbesselk0scaled}{440}{subsubsection*.677}
-\contentsline {subsubsection}{gslsfbesselk1scaled}{440}{subsubsection*.678}
-\contentsline {subsubsection}{gslsfbesselk2scaled}{441}{subsubsection*.679}
-\contentsline {subsubsection}{gslsfbesselklscaled}{441}{subsubsection*.680}
-\contentsline {subsubsection}{gslsfbesselJnu}{441}{subsubsection*.681}
-\contentsline {subsubsection}{gslsfbesselYnu}{441}{subsubsection*.682}
-\contentsline {subsubsection}{gslsfbesselInuscaled}{441}{subsubsection*.683}
-\contentsline {subsubsection}{gslsfbesselInu}{441}{subsubsection*.684}
-\contentsline {subsubsection}{gslsfbesselKnuscaled}{441}{subsubsection*.685}
-\contentsline {subsubsection}{gslsfbesselKnu}{441}{subsubsection*.686}
-\contentsline {subsubsection}{gslsfbessellnKnu}{442}{subsubsection*.687}
-\contentsline {subsubsection}{gslsfbesselzeroJ0}{442}{subsubsection*.688}
-\contentsline {subsubsection}{gslsfbesselzeroJ1}{442}{subsubsection*.689}
-\contentsline {subsubsection}{gslsfbesselzeroJnu}{442}{subsubsection*.690}
-\contentsline {subsubsection}{gslsfclausen}{442}{subsubsection*.691}
-\contentsline {subsubsection}{gslsfhydrogenicR1}{442}{subsubsection*.692}
-\contentsline {subsubsection}{gslsfdawson}{442}{subsubsection*.693}
-\contentsline {subsubsection}{gslsfdebye1}{442}{subsubsection*.694}
-\contentsline {subsubsection}{gslsfdebye2}{443}{subsubsection*.695}
-\contentsline {subsubsection}{gslsfdebye3}{443}{subsubsection*.696}
-\contentsline {subsubsection}{gslsfdebye4}{443}{subsubsection*.697}
-\contentsline {subsubsection}{gslsfdebye5}{443}{subsubsection*.698}
-\contentsline {subsubsection}{gslsfdebye6}{443}{subsubsection*.699}
-\contentsline {subsubsection}{gslsfdilog}{443}{subsubsection*.700}
-\contentsline {subsubsection}{gslsfmultiply}{443}{subsubsection*.701}
-\contentsline {subsubsection}{gslsfellintKcomp}{443}{subsubsection*.702}
-\contentsline {subsubsection}{gslsfellintEcomp}{444}{subsubsection*.703}
-\contentsline {subsubsection}{gslsfellintPcomp}{444}{subsubsection*.704}
-\contentsline {subsubsection}{gslsfellintDcomp}{444}{subsubsection*.705}
-\contentsline {subsubsection}{gslsfellintF}{444}{subsubsection*.706}
-\contentsline {subsubsection}{gslsfellintE}{444}{subsubsection*.707}
-\contentsline {subsubsection}{gslsfellintRC}{444}{subsubsection*.708}
-\contentsline {subsubsection}{gslsferfc}{444}{subsubsection*.709}
-\contentsline {subsubsection}{gslsflogerfc}{444}{subsubsection*.710}
-\contentsline {subsubsection}{gslsferf}{445}{subsubsection*.711}
-\contentsline {subsubsection}{gslsferfZ}{445}{subsubsection*.712}
-\contentsline {subsubsection}{gslsferfQ}{445}{subsubsection*.713}
-\contentsline {subsubsection}{gslsfhazard}{445}{subsubsection*.714}
-\contentsline {subsubsection}{gslsfexp}{445}{subsubsection*.715}
-\contentsline {subsubsection}{gslsfexpmult}{445}{subsubsection*.716}
-\contentsline {subsubsection}{gslsfexpm1}{445}{subsubsection*.717}
-\contentsline {subsubsection}{gslsfexprel}{445}{subsubsection*.718}
-\contentsline {subsubsection}{gslsfexprel2}{446}{subsubsection*.719}
-\contentsline {subsubsection}{gslsfexpreln}{446}{subsubsection*.720}
-\contentsline {subsubsection}{gslsfexpintE1}{446}{subsubsection*.721}
-\contentsline {subsubsection}{gslsfexpintE2}{446}{subsubsection*.722}
-\contentsline {subsubsection}{gslsfexpintEn}{446}{subsubsection*.723}
-\contentsline {subsubsection}{gslsfexpintE1scaled}{446}{subsubsection*.724}
-\contentsline {subsubsection}{gslsfexpintE2scaled}{446}{subsubsection*.725}
-\contentsline {subsubsection}{gslsfexpintEnscaled}{446}{subsubsection*.726}
-\contentsline {subsubsection}{gslsfexpintEi}{447}{subsubsection*.727}
-\contentsline {subsubsection}{gslsfexpintEiscaled}{447}{subsubsection*.728}
-\contentsline {subsubsection}{gslsfShi}{447}{subsubsection*.729}
-\contentsline {subsubsection}{gslsfChi}{447}{subsubsection*.730}
-\contentsline {subsubsection}{gslsfexpint3}{447}{subsubsection*.731}
-\contentsline {subsubsection}{gslsfSi}{447}{subsubsection*.732}
-\contentsline {subsubsection}{gslsfCi}{447}{subsubsection*.733}
-\contentsline {subsubsection}{gslsfatanint}{447}{subsubsection*.734}
-\contentsline {subsubsection}{gslsffermidiracm1}{448}{subsubsection*.735}
-\contentsline {subsubsection}{gslsffermidirac0}{448}{subsubsection*.736}
-\contentsline {subsubsection}{gslsffermidirac1}{448}{subsubsection*.737}
-\contentsline {subsubsection}{gslsffermidirac2}{448}{subsubsection*.738}
-\contentsline {subsubsection}{gslsffermidiracint}{448}{subsubsection*.739}
-\contentsline {subsubsection}{gslsffermidiracmhalf}{448}{subsubsection*.740}
-\contentsline {subsubsection}{gslsffermidirachalf}{448}{subsubsection*.741}
-\contentsline {subsubsection}{gslsffermidirac3half}{448}{subsubsection*.742}
-\contentsline {subsubsection}{gslsffermidiracinc0}{449}{subsubsection*.743}
-\contentsline {subsubsection}{gslsflngamma}{449}{subsubsection*.744}
-\contentsline {subsubsection}{gslsfgamma}{449}{subsubsection*.745}
-\contentsline {subsubsection}{gslsfgammastar}{449}{subsubsection*.746}
-\contentsline {subsubsection}{gslsfgammainv}{449}{subsubsection*.747}
-\contentsline {subsubsection}{gslsftaylorcoeff}{449}{subsubsection*.748}
-\contentsline {subsubsection}{gslsffact}{449}{subsubsection*.749}
-\contentsline {subsubsection}{gslsfdoublefact}{449}{subsubsection*.750}
-\contentsline {subsubsection}{gslsflnfact}{450}{subsubsection*.751}
-\contentsline {subsubsection}{gslsflndoublefact}{450}{subsubsection*.752}
-\contentsline {subsubsection}{gslsflnchoose}{450}{subsubsection*.753}
-\contentsline {subsubsection}{gslsfchoose}{450}{subsubsection*.754}
-\contentsline {subsubsection}{gslsflnpoch}{450}{subsubsection*.755}
-\contentsline {subsubsection}{gslsfpoch}{450}{subsubsection*.756}
-\contentsline {subsubsection}{gslsfpochrel}{450}{subsubsection*.757}
-\contentsline {subsubsection}{gslsfgammaincQ}{450}{subsubsection*.758}
-\contentsline {subsubsection}{gslsfgammaincP}{451}{subsubsection*.759}
-\contentsline {subsubsection}{gslsfgammainc}{451}{subsubsection*.760}
-\contentsline {subsubsection}{gslsflnbeta}{451}{subsubsection*.761}
-\contentsline {subsubsection}{gslsfbeta}{451}{subsubsection*.762}
-\contentsline {subsubsection}{gslsfbetainc}{451}{subsubsection*.763}
-\contentsline {subsubsection}{gslsfgegenpoly1}{451}{subsubsection*.764}
-\contentsline {subsubsection}{gslsfgegenpoly2}{451}{subsubsection*.765}
-\contentsline {subsubsection}{gslsfgegenpoly3}{451}{subsubsection*.766}
-\contentsline {subsubsection}{gslsfgegenpolyn}{452}{subsubsection*.767}
-\contentsline {subsubsection}{gslsfhyperg0F1}{452}{subsubsection*.768}
-\contentsline {subsubsection}{gslsfhyperg1F1int}{452}{subsubsection*.769}
-\contentsline {subsubsection}{gslsfhyperg1F1}{452}{subsubsection*.770}
-\contentsline {subsubsection}{gslsfhypergUint}{452}{subsubsection*.771}
-\contentsline {subsubsection}{gslsfhypergU}{452}{subsubsection*.772}
-\contentsline {subsubsection}{gslsfhyperg2F0}{452}{subsubsection*.773}
-\contentsline {subsubsection}{gslsflaguerre1}{452}{subsubsection*.774}
-\contentsline {subsubsection}{gslsflaguerre2}{453}{subsubsection*.775}
-\contentsline {subsubsection}{gslsflaguerre3}{453}{subsubsection*.776}
-\contentsline {subsubsection}{gslsflaguerren}{453}{subsubsection*.777}
-\contentsline {subsubsection}{gslsflambertW0}{453}{subsubsection*.778}
-\contentsline {subsubsection}{gslsflambertWm1}{453}{subsubsection*.779}
-\contentsline {subsubsection}{gslsflegendrePl}{453}{subsubsection*.780}
-\contentsline {subsubsection}{gslsflegendreP1}{453}{subsubsection*.781}
-\contentsline {subsubsection}{gslsflegendreP2}{453}{subsubsection*.782}
-\contentsline {subsubsection}{gslsflegendreP3}{454}{subsubsection*.783}
-\contentsline {subsubsection}{gslsflegendreQ0}{454}{subsubsection*.784}
-\contentsline {subsubsection}{gslsflegendreQ1}{454}{subsubsection*.785}
-\contentsline {subsubsection}{gslsflegendreQl}{454}{subsubsection*.786}
-\contentsline {subsubsection}{gslsflegendrePlm}{454}{subsubsection*.787}
-\contentsline {subsubsection}{gslsflegendresphPlm}{454}{subsubsection*.788}
-\contentsline {subsubsection}{gslsflegendrearraysize}{454}{subsubsection*.789}
-\contentsline {subsubsection}{gslsfconicalPhalf}{454}{subsubsection*.790}
-\contentsline {subsubsection}{gslsfconicalPmhalf}{455}{subsubsection*.791}
-\contentsline {subsubsection}{gslsfconicalP0}{455}{subsubsection*.792}
-\contentsline {subsubsection}{gslsfconicalP1}{455}{subsubsection*.793}
-\contentsline {subsubsection}{gslsfconicalPsphreg}{455}{subsubsection*.794}
-\contentsline {subsubsection}{gslsfconicalPcylreg}{455}{subsubsection*.795}
-\contentsline {subsubsection}{gslsflegendreH3d0}{455}{subsubsection*.796}
-\contentsline {subsubsection}{gslsflegendreH3d1}{455}{subsubsection*.797}
-\contentsline {subsubsection}{gslsflegendreH3d}{455}{subsubsection*.798}
-\contentsline {subsubsection}{gslsflog}{456}{subsubsection*.799}
-\contentsline {subsubsection}{gslsflogabs}{456}{subsubsection*.800}
-\contentsline {subsubsection}{gslsflog1plusx}{456}{subsubsection*.801}
-\contentsline {subsubsection}{gslsflog1plusxmx}{456}{subsubsection*.802}
-\contentsline {subsubsection}{gslsfpowint}{456}{subsubsection*.803}
-\contentsline {subsubsection}{gslsfpsiint}{456}{subsubsection*.804}
-\contentsline {subsubsection}{gslsfpsi}{456}{subsubsection*.805}
-\contentsline {subsubsection}{gslsfpsi1piy}{456}{subsubsection*.806}
-\contentsline {subsubsection}{gslsfpsi1int}{457}{subsubsection*.807}
-\contentsline {subsubsection}{gslsfpsi1}{457}{subsubsection*.808}
-\contentsline {subsubsection}{gslsfpsin}{457}{subsubsection*.809}
-\contentsline {subsubsection}{gslsfsynchrotron1}{457}{subsubsection*.810}
-\contentsline {subsubsection}{gslsfsynchrotron2}{457}{subsubsection*.811}
-\contentsline {subsubsection}{gslsftransport2}{457}{subsubsection*.812}
-\contentsline {subsubsection}{gslsftransport3}{457}{subsubsection*.813}
-\contentsline {subsubsection}{gslsftransport4}{457}{subsubsection*.814}
-\contentsline {subsubsection}{gslsftransport5}{458}{subsubsection*.815}
-\contentsline {subsubsection}{gslsfsin}{458}{subsubsection*.816}
-\contentsline {subsubsection}{gslsfcos}{458}{subsubsection*.817}
-\contentsline {subsubsection}{gslsfhypot}{458}{subsubsection*.818}
-\contentsline {subsubsection}{gslsfsinc}{458}{subsubsection*.819}
-\contentsline {subsubsection}{gslsflnsinh}{458}{subsubsection*.820}
-\contentsline {subsubsection}{gslsflncosh}{458}{subsubsection*.821}
-\contentsline {subsubsection}{gslsfanglerestrictsymm}{458}{subsubsection*.822}
-\contentsline {subsubsection}{gslsfanglerestrictpos}{459}{subsubsection*.823}
-\contentsline {subsubsection}{gslsfzetaint}{459}{subsubsection*.824}
-\contentsline {subsubsection}{gslsfzeta}{459}{subsubsection*.825}
-\contentsline {subsubsection}{gslsfzetam1}{459}{subsubsection*.826}
-\contentsline {subsubsection}{gslsfzetam1int}{459}{subsubsection*.827}
-\contentsline {subsubsection}{gslsfhzeta}{459}{subsubsection*.828}
-\contentsline {subsubsection}{gslsfetaint}{459}{subsubsection*.829}
-\contentsline {subsubsection}{gslsfeta}{459}{subsubsection*.830}
+\contentsline {subsubsection}{gslcdfugaussianP}{417}{subsubsection*.488}
+\contentsline {subsubsection}{gslcdfugaussianQ}{417}{subsubsection*.489}
+\contentsline {subsubsection}{gslcdfugaussianPinv}{417}{subsubsection*.490}
+\contentsline {subsubsection}{gslcdfugaussianQinv}{417}{subsubsection*.491}
+\contentsline {subsubsection}{gslcdfgaussianP}{417}{subsubsection*.492}
+\contentsline {subsubsection}{gslcdfgaussianQ}{417}{subsubsection*.493}
+\contentsline {subsubsection}{gslcdfgaussianPinv}{418}{subsubsection*.494}
+\contentsline {subsubsection}{gslcdfgaussianQinv}{418}{subsubsection*.495}
+\contentsline {subsubsection}{gslcdfgammaP}{418}{subsubsection*.496}
+\contentsline {subsubsection}{gslcdfgammaQ}{418}{subsubsection*.497}
+\contentsline {subsubsection}{gslcdfgammaPinv}{418}{subsubsection*.498}
+\contentsline {subsubsection}{gslcdfgammaQinv}{418}{subsubsection*.499}
+\contentsline {subsubsection}{gslcdfcauchyP}{418}{subsubsection*.500}
+\contentsline {subsubsection}{gslcdfcauchyQ}{418}{subsubsection*.501}
+\contentsline {subsubsection}{gslcdfcauchyPinv}{419}{subsubsection*.502}
+\contentsline {subsubsection}{gslcdfcauchyQinv}{419}{subsubsection*.503}
+\contentsline {subsubsection}{gslcdflaplaceP}{419}{subsubsection*.504}
+\contentsline {subsubsection}{gslcdflaplaceQ}{419}{subsubsection*.505}
+\contentsline {subsubsection}{gslcdflaplacePinv}{419}{subsubsection*.506}
+\contentsline {subsubsection}{gslcdflaplaceQinv}{419}{subsubsection*.507}
+\contentsline {subsubsection}{gslcdfrayleighP}{419}{subsubsection*.508}
+\contentsline {subsubsection}{gslcdfrayleighQ}{419}{subsubsection*.509}
+\contentsline {subsubsection}{gslcdfrayleighPinv}{420}{subsubsection*.510}
+\contentsline {subsubsection}{gslcdfrayleighQinv}{420}{subsubsection*.511}
+\contentsline {subsubsection}{gslcdfchisqP}{420}{subsubsection*.512}
+\contentsline {subsubsection}{gslcdfchisqQ}{420}{subsubsection*.513}
+\contentsline {subsubsection}{gslcdfchisqPinv}{420}{subsubsection*.514}
+\contentsline {subsubsection}{gslcdfchisqQinv}{420}{subsubsection*.515}
+\contentsline {subsubsection}{gslcdfexponentialP}{420}{subsubsection*.516}
+\contentsline {subsubsection}{gslcdfexponentialQ}{420}{subsubsection*.517}
+\contentsline {subsubsection}{gslcdfexponentialPinv}{421}{subsubsection*.518}
+\contentsline {subsubsection}{gslcdfexponentialQinv}{421}{subsubsection*.519}
+\contentsline {subsubsection}{gslcdfexppowP}{421}{subsubsection*.520}
+\contentsline {subsubsection}{gslcdfexppowQ}{421}{subsubsection*.521}
+\contentsline {subsubsection}{gslcdftdistP}{421}{subsubsection*.522}
+\contentsline {subsubsection}{gslcdftdistQ}{421}{subsubsection*.523}
+\contentsline {subsubsection}{gslcdftdistPinv}{421}{subsubsection*.524}
+\contentsline {subsubsection}{gslcdftdistQinv}{421}{subsubsection*.525}
+\contentsline {subsubsection}{gslcdffdistP}{422}{subsubsection*.526}
+\contentsline {subsubsection}{gslcdffdistQ}{422}{subsubsection*.527}
+\contentsline {subsubsection}{gslcdffdistPinv}{422}{subsubsection*.528}
+\contentsline {subsubsection}{gslcdffdistQinv}{422}{subsubsection*.529}
+\contentsline {subsubsection}{gslcdfbetaP}{422}{subsubsection*.530}
+\contentsline {subsubsection}{gslcdfbetaQ}{422}{subsubsection*.531}
+\contentsline {subsubsection}{gslcdfbetaPinv}{422}{subsubsection*.532}
+\contentsline {subsubsection}{gslcdfbetaQinv}{422}{subsubsection*.533}
+\contentsline {subsubsection}{gslcdfflatP}{423}{subsubsection*.534}
+\contentsline {subsubsection}{gslcdfflatQ}{423}{subsubsection*.535}
+\contentsline {subsubsection}{gslcdfflatPinv}{423}{subsubsection*.536}
+\contentsline {subsubsection}{gslcdfflatQinv}{423}{subsubsection*.537}
+\contentsline {subsubsection}{gslcdflognormalP}{423}{subsubsection*.538}
+\contentsline {subsubsection}{gslcdflognormalQ}{423}{subsubsection*.539}
+\contentsline {subsubsection}{gslcdflognormalPinv}{423}{subsubsection*.540}
+\contentsline {subsubsection}{gslcdflognormalQinv}{423}{subsubsection*.541}
+\contentsline {subsubsection}{gslcdfgumbel1P}{424}{subsubsection*.542}
+\contentsline {subsubsection}{gslcdfgumbel1Q}{424}{subsubsection*.543}
+\contentsline {subsubsection}{gslcdfgumbel1Pinv}{424}{subsubsection*.544}
+\contentsline {subsubsection}{gslcdfgumbel1Qinv}{424}{subsubsection*.545}
+\contentsline {subsubsection}{gslcdfgumbel2P}{424}{subsubsection*.546}
+\contentsline {subsubsection}{gslcdfgumbel2Q}{424}{subsubsection*.547}
+\contentsline {subsubsection}{gslcdfgumbel2Pinv}{424}{subsubsection*.548}
+\contentsline {subsubsection}{gslcdfgumbel2Qinv}{424}{subsubsection*.549}
+\contentsline {subsubsection}{gslcdfweibullP}{425}{subsubsection*.550}
+\contentsline {subsubsection}{gslcdfweibullQ}{425}{subsubsection*.551}
+\contentsline {subsubsection}{gslcdfweibullPinv}{425}{subsubsection*.552}
+\contentsline {subsubsection}{gslcdfweibullQinv}{425}{subsubsection*.553}
+\contentsline {subsubsection}{gslcdfparetoP}{425}{subsubsection*.554}
+\contentsline {subsubsection}{gslcdfparetoQ}{425}{subsubsection*.555}
+\contentsline {subsubsection}{gslcdfparetoPinv}{425}{subsubsection*.556}
+\contentsline {subsubsection}{gslcdfparetoQinv}{425}{subsubsection*.557}
+\contentsline {subsubsection}{gslcdflogisticP}{426}{subsubsection*.558}
+\contentsline {subsubsection}{gslcdflogisticQ}{426}{subsubsection*.559}
+\contentsline {subsubsection}{gslcdflogisticPinv}{426}{subsubsection*.560}
+\contentsline {subsubsection}{gslcdflogisticQinv}{426}{subsubsection*.561}
+\contentsline {subsubsection}{gslcdfbinomialP}{426}{subsubsection*.562}
+\contentsline {subsubsection}{gslcdfbinomialQ}{426}{subsubsection*.563}
+\contentsline {subsubsection}{gslcdfpoissonP}{426}{subsubsection*.564}
+\contentsline {subsubsection}{gslcdfpoissonQ}{426}{subsubsection*.565}
+\contentsline {subsubsection}{gslcdfgeometricP}{427}{subsubsection*.566}
+\contentsline {subsubsection}{gslcdfgeometricQ}{427}{subsubsection*.567}
+\contentsline {subsubsection}{gslcdfnegativebinomialP}{427}{subsubsection*.568}
+\contentsline {subsubsection}{gslcdfnegativebinomialQ}{427}{subsubsection*.569}
+\contentsline {subsubsection}{gslcdfpascalP}{427}{subsubsection*.570}
+\contentsline {subsubsection}{gslcdfpascalQ}{427}{subsubsection*.571}
+\contentsline {subsubsection}{gslranbernoullipdf}{427}{subsubsection*.572}
+\contentsline {subsubsection}{gslranbeta}{427}{subsubsection*.573}
+\contentsline {subsubsection}{gslranbetapdf}{428}{subsubsection*.574}
+\contentsline {subsubsection}{gslranbinomialpdf}{428}{subsubsection*.575}
+\contentsline {subsubsection}{gslranexponential}{428}{subsubsection*.576}
+\contentsline {subsubsection}{gslranexponentialpdf}{428}{subsubsection*.577}
+\contentsline {subsubsection}{gslranexppow}{428}{subsubsection*.578}
+\contentsline {subsubsection}{gslranexppowpdf}{428}{subsubsection*.579}
+\contentsline {subsubsection}{gslrancauchy}{428}{subsubsection*.580}
+\contentsline {subsubsection}{gslrancauchypdf}{428}{subsubsection*.581}
+\contentsline {subsubsection}{gslranchisq}{429}{subsubsection*.582}
+\contentsline {subsubsection}{gslranchisqpdf}{429}{subsubsection*.583}
+\contentsline {subsubsection}{gslranerlang}{429}{subsubsection*.584}
+\contentsline {subsubsection}{gslranerlangpdf}{429}{subsubsection*.585}
+\contentsline {subsubsection}{gslranfdist}{429}{subsubsection*.586}
+\contentsline {subsubsection}{gslranfdistpdf}{429}{subsubsection*.587}
+\contentsline {subsubsection}{gslranflat}{429}{subsubsection*.588}
+\contentsline {subsubsection}{gslranflatpdf}{429}{subsubsection*.589}
+\contentsline {subsubsection}{gslrangamma}{430}{subsubsection*.590}
+\contentsline {subsubsection}{gslrangammaint}{430}{subsubsection*.591}
+\contentsline {subsubsection}{gslrangammapdf}{430}{subsubsection*.592}
+\contentsline {subsubsection}{gslrangammamt}{430}{subsubsection*.593}
+\contentsline {subsubsection}{gslrangammaknuth}{430}{subsubsection*.594}
+\contentsline {subsubsection}{gslrangaussian}{430}{subsubsection*.595}
+\contentsline {subsubsection}{gslrangaussianratiomethod}{430}{subsubsection*.596}
+\contentsline {subsubsection}{gslrangaussianziggurat}{430}{subsubsection*.597}
+\contentsline {subsubsection}{gslrangaussianpdf}{431}{subsubsection*.598}
+\contentsline {subsubsection}{gslranugaussian}{431}{subsubsection*.599}
+\contentsline {subsubsection}{gslranugaussianratiomethod}{431}{subsubsection*.600}
+\contentsline {subsubsection}{gslranugaussianpdf}{431}{subsubsection*.601}
+\contentsline {subsubsection}{gslrangaussiantail}{431}{subsubsection*.602}
+\contentsline {subsubsection}{gslrangaussiantailpdf}{431}{subsubsection*.603}
+\contentsline {subsubsection}{gslranugaussiantail}{431}{subsubsection*.604}
+\contentsline {subsubsection}{gslranugaussiantailpdf}{431}{subsubsection*.605}
+\contentsline {subsubsection}{gslranlandau}{432}{subsubsection*.606}
+\contentsline {subsubsection}{gslranlandaupdf}{432}{subsubsection*.607}
+\contentsline {subsubsection}{gslrangeometricpdf}{432}{subsubsection*.608}
+\contentsline {subsubsection}{gslrangumbel1}{432}{subsubsection*.609}
+\contentsline {subsubsection}{gslrangumbel1pdf}{432}{subsubsection*.610}
+\contentsline {subsubsection}{gslrangumbel2}{432}{subsubsection*.611}
+\contentsline {subsubsection}{gslrangumbel2pdf}{432}{subsubsection*.612}
+\contentsline {subsubsection}{gslranlogistic}{432}{subsubsection*.613}
+\contentsline {subsubsection}{gslranlogisticpdf}{433}{subsubsection*.614}
+\contentsline {subsubsection}{gslranlognormal}{433}{subsubsection*.615}
+\contentsline {subsubsection}{gslranlognormalpdf}{433}{subsubsection*.616}
+\contentsline {subsubsection}{gslranlogarithmicpdf}{433}{subsubsection*.617}
+\contentsline {subsubsection}{gslrannegativebinomialpdf}{433}{subsubsection*.618}
+\contentsline {subsubsection}{gslranpascalpdf}{433}{subsubsection*.619}
+\contentsline {subsubsection}{gslranpareto}{433}{subsubsection*.620}
+\contentsline {subsubsection}{gslranparetopdf}{433}{subsubsection*.621}
+\contentsline {subsubsection}{gslranpoissonpdf}{434}{subsubsection*.622}
+\contentsline {subsubsection}{gslranrayleigh}{434}{subsubsection*.623}
+\contentsline {subsubsection}{gslranrayleighpdf}{434}{subsubsection*.624}
+\contentsline {subsubsection}{gslranrayleightail}{434}{subsubsection*.625}
+\contentsline {subsubsection}{gslranrayleightailpdf}{434}{subsubsection*.626}
+\contentsline {subsubsection}{gslrantdist}{434}{subsubsection*.627}
+\contentsline {subsubsection}{gslrantdistpdf}{434}{subsubsection*.628}
+\contentsline {subsubsection}{gslranlaplace}{434}{subsubsection*.629}
+\contentsline {subsubsection}{gslranlaplacepdf}{435}{subsubsection*.630}
+\contentsline {subsubsection}{gslranlevy}{435}{subsubsection*.631}
+\contentsline {subsubsection}{gslranweibull}{435}{subsubsection*.632}
+\contentsline {subsubsection}{gslranweibullpdf}{435}{subsubsection*.633}
+\contentsline {subsubsection}{gslsfairyAi}{435}{subsubsection*.634}
+\contentsline {subsubsection}{gslsfairyBi}{435}{subsubsection*.635}
+\contentsline {subsubsection}{gslsfairyAiscaled}{435}{subsubsection*.636}
+\contentsline {subsubsection}{gslsfairyBiscaled}{435}{subsubsection*.637}
+\contentsline {subsubsection}{gslsfairyAideriv}{436}{subsubsection*.638}
+\contentsline {subsubsection}{gslsfairyBideriv}{436}{subsubsection*.639}
+\contentsline {subsubsection}{gslsfairyAiderivscaled}{436}{subsubsection*.640}
+\contentsline {subsubsection}{gslsfairyBiderivscaled}{436}{subsubsection*.641}
+\contentsline {subsubsection}{gslsfairyzeroAi}{436}{subsubsection*.642}
+\contentsline {subsubsection}{gslsfairyzeroBi}{436}{subsubsection*.643}
+\contentsline {subsubsection}{gslsfairyzeroAideriv}{436}{subsubsection*.644}
+\contentsline {subsubsection}{gslsfairyzeroBideriv}{436}{subsubsection*.645}
+\contentsline {subsubsection}{gslsfbesselJ0}{437}{subsubsection*.646}
+\contentsline {subsubsection}{gslsfbesselJ1}{437}{subsubsection*.647}
+\contentsline {subsubsection}{gslsfbesselJn}{437}{subsubsection*.648}
+\contentsline {subsubsection}{gslsfbesselY0}{437}{subsubsection*.649}
+\contentsline {subsubsection}{gslsfbesselY1}{437}{subsubsection*.650}
+\contentsline {subsubsection}{gslsfbesselYn}{437}{subsubsection*.651}
+\contentsline {subsubsection}{gslsfbesselI0}{437}{subsubsection*.652}
+\contentsline {subsubsection}{gslsfbesselI1}{437}{subsubsection*.653}
+\contentsline {subsubsection}{gslsfbesselIn}{438}{subsubsection*.654}
+\contentsline {subsubsection}{gslsfbesselI0scaled}{438}{subsubsection*.655}
+\contentsline {subsubsection}{gslsfbesselI1scaled}{438}{subsubsection*.656}
+\contentsline {subsubsection}{gslsfbesselInscaled}{438}{subsubsection*.657}
+\contentsline {subsubsection}{gslsfbesselK0}{438}{subsubsection*.658}
+\contentsline {subsubsection}{gslsfbesselK1}{438}{subsubsection*.659}
+\contentsline {subsubsection}{gslsfbesselKn}{438}{subsubsection*.660}
+\contentsline {subsubsection}{gslsfbesselK0scaled}{438}{subsubsection*.661}
+\contentsline {subsubsection}{gslsfbesselK1scaled}{439}{subsubsection*.662}
+\contentsline {subsubsection}{gslsfbesselKnscaled}{439}{subsubsection*.663}
+\contentsline {subsubsection}{gslsfbesselj0}{439}{subsubsection*.664}
+\contentsline {subsubsection}{gslsfbesselj1}{439}{subsubsection*.665}
+\contentsline {subsubsection}{gslsfbesselj2}{439}{subsubsection*.666}
+\contentsline {subsubsection}{gslsfbesseljl}{439}{subsubsection*.667}
+\contentsline {subsubsection}{gslsfbessely0}{439}{subsubsection*.668}
+\contentsline {subsubsection}{gslsfbessely1}{439}{subsubsection*.669}
+\contentsline {subsubsection}{gslsfbessely2}{440}{subsubsection*.670}
+\contentsline {subsubsection}{gslsfbesselyl}{440}{subsubsection*.671}
+\contentsline {subsubsection}{gslsfbesseli0scaled}{440}{subsubsection*.672}
+\contentsline {subsubsection}{gslsfbesseli1scaled}{440}{subsubsection*.673}
+\contentsline {subsubsection}{gslsfbesseli2scaled}{440}{subsubsection*.674}
+\contentsline {subsubsection}{gslsfbesselilscaled}{440}{subsubsection*.675}
+\contentsline {subsubsection}{gslsfbesselk0scaled}{440}{subsubsection*.676}
+\contentsline {subsubsection}{gslsfbesselk1scaled}{440}{subsubsection*.677}
+\contentsline {subsubsection}{gslsfbesselk2scaled}{441}{subsubsection*.678}
+\contentsline {subsubsection}{gslsfbesselklscaled}{441}{subsubsection*.679}
+\contentsline {subsubsection}{gslsfbesselJnu}{441}{subsubsection*.680}
+\contentsline {subsubsection}{gslsfbesselYnu}{441}{subsubsection*.681}
+\contentsline {subsubsection}{gslsfbesselInuscaled}{441}{subsubsection*.682}
+\contentsline {subsubsection}{gslsfbesselInu}{441}{subsubsection*.683}
+\contentsline {subsubsection}{gslsfbesselKnuscaled}{441}{subsubsection*.684}
+\contentsline {subsubsection}{gslsfbesselKnu}{441}{subsubsection*.685}
+\contentsline {subsubsection}{gslsfbessellnKnu}{442}{subsubsection*.686}
+\contentsline {subsubsection}{gslsfbesselzeroJ0}{442}{subsubsection*.687}
+\contentsline {subsubsection}{gslsfbesselzeroJ1}{442}{subsubsection*.688}
+\contentsline {subsubsection}{gslsfbesselzeroJnu}{442}{subsubsection*.689}
+\contentsline {subsubsection}{gslsfclausen}{442}{subsubsection*.690}
+\contentsline {subsubsection}{gslsfhydrogenicR1}{442}{subsubsection*.691}
+\contentsline {subsubsection}{gslsfdawson}{442}{subsubsection*.692}
+\contentsline {subsubsection}{gslsfdebye1}{442}{subsubsection*.693}
+\contentsline {subsubsection}{gslsfdebye2}{443}{subsubsection*.694}
+\contentsline {subsubsection}{gslsfdebye3}{443}{subsubsection*.695}
+\contentsline {subsubsection}{gslsfdebye4}{443}{subsubsection*.696}
+\contentsline {subsubsection}{gslsfdebye5}{443}{subsubsection*.697}
+\contentsline {subsubsection}{gslsfdebye6}{443}{subsubsection*.698}
+\contentsline {subsubsection}{gslsfdilog}{443}{subsubsection*.699}
+\contentsline {subsubsection}{gslsfmultiply}{443}{subsubsection*.700}
+\contentsline {subsubsection}{gslsfellintKcomp}{443}{subsubsection*.701}
+\contentsline {subsubsection}{gslsfellintEcomp}{444}{subsubsection*.702}
+\contentsline {subsubsection}{gslsfellintPcomp}{444}{subsubsection*.703}
+\contentsline {subsubsection}{gslsfellintDcomp}{444}{subsubsection*.704}
+\contentsline {subsubsection}{gslsfellintF}{444}{subsubsection*.705}
+\contentsline {subsubsection}{gslsfellintE}{444}{subsubsection*.706}
+\contentsline {subsubsection}{gslsfellintRC}{444}{subsubsection*.707}
+\contentsline {subsubsection}{gslsferfc}{444}{subsubsection*.708}
+\contentsline {subsubsection}{gslsflogerfc}{444}{subsubsection*.709}
+\contentsline {subsubsection}{gslsferf}{445}{subsubsection*.710}
+\contentsline {subsubsection}{gslsferfZ}{445}{subsubsection*.711}
+\contentsline {subsubsection}{gslsferfQ}{445}{subsubsection*.712}
+\contentsline {subsubsection}{gslsfhazard}{445}{subsubsection*.713}
+\contentsline {subsubsection}{gslsfexp}{445}{subsubsection*.714}
+\contentsline {subsubsection}{gslsfexpmult}{445}{subsubsection*.715}
+\contentsline {subsubsection}{gslsfexpm1}{445}{subsubsection*.716}
+\contentsline {subsubsection}{gslsfexprel}{445}{subsubsection*.717}
+\contentsline {subsubsection}{gslsfexprel2}{446}{subsubsection*.718}
+\contentsline {subsubsection}{gslsfexpreln}{446}{subsubsection*.719}
+\contentsline {subsubsection}{gslsfexpintE1}{446}{subsubsection*.720}
+\contentsline {subsubsection}{gslsfexpintE2}{446}{subsubsection*.721}
+\contentsline {subsubsection}{gslsfexpintEn}{446}{subsubsection*.722}
+\contentsline {subsubsection}{gslsfexpintE1scaled}{446}{subsubsection*.723}
+\contentsline {subsubsection}{gslsfexpintE2scaled}{446}{subsubsection*.724}
+\contentsline {subsubsection}{gslsfexpintEnscaled}{446}{subsubsection*.725}
+\contentsline {subsubsection}{gslsfexpintEi}{447}{subsubsection*.726}
+\contentsline {subsubsection}{gslsfexpintEiscaled}{447}{subsubsection*.727}
+\contentsline {subsubsection}{gslsfShi}{447}{subsubsection*.728}
+\contentsline {subsubsection}{gslsfChi}{447}{subsubsection*.729}
+\contentsline {subsubsection}{gslsfexpint3}{447}{subsubsection*.730}
+\contentsline {subsubsection}{gslsfSi}{447}{subsubsection*.731}
+\contentsline {subsubsection}{gslsfCi}{447}{subsubsection*.732}
+\contentsline {subsubsection}{gslsfatanint}{447}{subsubsection*.733}
+\contentsline {subsubsection}{gslsffermidiracm1}{448}{subsubsection*.734}
+\contentsline {subsubsection}{gslsffermidirac0}{448}{subsubsection*.735}
+\contentsline {subsubsection}{gslsffermidirac1}{448}{subsubsection*.736}
+\contentsline {subsubsection}{gslsffermidirac2}{448}{subsubsection*.737}
+\contentsline {subsubsection}{gslsffermidiracint}{448}{subsubsection*.738}
+\contentsline {subsubsection}{gslsffermidiracmhalf}{448}{subsubsection*.739}
+\contentsline {subsubsection}{gslsffermidirachalf}{448}{subsubsection*.740}
+\contentsline {subsubsection}{gslsffermidirac3half}{448}{subsubsection*.741}
+\contentsline {subsubsection}{gslsffermidiracinc0}{449}{subsubsection*.742}
+\contentsline {subsubsection}{gslsflngamma}{449}{subsubsection*.743}
+\contentsline {subsubsection}{gslsfgamma}{449}{subsubsection*.744}
+\contentsline {subsubsection}{gslsfgammastar}{449}{subsubsection*.745}
+\contentsline {subsubsection}{gslsfgammainv}{449}{subsubsection*.746}
+\contentsline {subsubsection}{gslsftaylorcoeff}{449}{subsubsection*.747}
+\contentsline {subsubsection}{gslsffact}{449}{subsubsection*.748}
+\contentsline {subsubsection}{gslsfdoublefact}{449}{subsubsection*.749}
+\contentsline {subsubsection}{gslsflnfact}{450}{subsubsection*.750}
+\contentsline {subsubsection}{gslsflndoublefact}{450}{subsubsection*.751}
+\contentsline {subsubsection}{gslsflnchoose}{450}{subsubsection*.752}
+\contentsline {subsubsection}{gslsfchoose}{450}{subsubsection*.753}
+\contentsline {subsubsection}{gslsflnpoch}{450}{subsubsection*.754}
+\contentsline {subsubsection}{gslsfpoch}{450}{subsubsection*.755}
+\contentsline {subsubsection}{gslsfpochrel}{450}{subsubsection*.756}
+\contentsline {subsubsection}{gslsfgammaincQ}{450}{subsubsection*.757}
+\contentsline {subsubsection}{gslsfgammaincP}{451}{subsubsection*.758}
+\contentsline {subsubsection}{gslsfgammainc}{451}{subsubsection*.759}
+\contentsline {subsubsection}{gslsflnbeta}{451}{subsubsection*.760}
+\contentsline {subsubsection}{gslsfbeta}{451}{subsubsection*.761}
+\contentsline {subsubsection}{gslsfbetainc}{451}{subsubsection*.762}
+\contentsline {subsubsection}{gslsfgegenpoly1}{451}{subsubsection*.763}
+\contentsline {subsubsection}{gslsfgegenpoly2}{451}{subsubsection*.764}
+\contentsline {subsubsection}{gslsfgegenpoly3}{451}{subsubsection*.765}
+\contentsline {subsubsection}{gslsfgegenpolyn}{452}{subsubsection*.766}
+\contentsline {subsubsection}{gslsfhyperg0F1}{452}{subsubsection*.767}
+\contentsline {subsubsection}{gslsfhyperg1F1int}{452}{subsubsection*.768}
+\contentsline {subsubsection}{gslsfhyperg1F1}{452}{subsubsection*.769}
+\contentsline {subsubsection}{gslsfhypergUint}{452}{subsubsection*.770}
+\contentsline {subsubsection}{gslsfhypergU}{452}{subsubsection*.771}
+\contentsline {subsubsection}{gslsfhyperg2F0}{452}{subsubsection*.772}
+\contentsline {subsubsection}{gslsflaguerre1}{452}{subsubsection*.773}
+\contentsline {subsubsection}{gslsflaguerre2}{453}{subsubsection*.774}
+\contentsline {subsubsection}{gslsflaguerre3}{453}{subsubsection*.775}
+\contentsline {subsubsection}{gslsflaguerren}{453}{subsubsection*.776}
+\contentsline {subsubsection}{gslsflambertW0}{453}{subsubsection*.777}
+\contentsline {subsubsection}{gslsflambertWm1}{453}{subsubsection*.778}
+\contentsline {subsubsection}{gslsflegendrePl}{453}{subsubsection*.779}
+\contentsline {subsubsection}{gslsflegendreP1}{453}{subsubsection*.780}
+\contentsline {subsubsection}{gslsflegendreP2}{453}{subsubsection*.781}
+\contentsline {subsubsection}{gslsflegendreP3}{454}{subsubsection*.782}
+\contentsline {subsubsection}{gslsflegendreQ0}{454}{subsubsection*.783}
+\contentsline {subsubsection}{gslsflegendreQ1}{454}{subsubsection*.784}
+\contentsline {subsubsection}{gslsflegendreQl}{454}{subsubsection*.785}
+\contentsline {subsubsection}{gslsflegendrePlm}{454}{subsubsection*.786}
+\contentsline {subsubsection}{gslsflegendresphPlm}{454}{subsubsection*.787}
+\contentsline {subsubsection}{gslsflegendrearraysize}{454}{subsubsection*.788}
+\contentsline {subsubsection}{gslsfconicalPhalf}{454}{subsubsection*.789}
+\contentsline {subsubsection}{gslsfconicalPmhalf}{455}{subsubsection*.790}
+\contentsline {subsubsection}{gslsfconicalP0}{455}{subsubsection*.791}
+\contentsline {subsubsection}{gslsfconicalP1}{455}{subsubsection*.792}
+\contentsline {subsubsection}{gslsfconicalPsphreg}{455}{subsubsection*.793}
+\contentsline {subsubsection}{gslsfconicalPcylreg}{455}{subsubsection*.794}
+\contentsline {subsubsection}{gslsflegendreH3d0}{455}{subsubsection*.795}
+\contentsline {subsubsection}{gslsflegendreH3d1}{455}{subsubsection*.796}
+\contentsline {subsubsection}{gslsflegendreH3d}{455}{subsubsection*.797}
+\contentsline {subsubsection}{gslsflog}{456}{subsubsection*.798}
+\contentsline {subsubsection}{gslsflogabs}{456}{subsubsection*.799}
+\contentsline {subsubsection}{gslsflog1plusx}{456}{subsubsection*.800}
+\contentsline {subsubsection}{gslsflog1plusxmx}{456}{subsubsection*.801}
+\contentsline {subsubsection}{gslsfpowint}{456}{subsubsection*.802}
+\contentsline {subsubsection}{gslsfpsiint}{456}{subsubsection*.803}
+\contentsline {subsubsection}{gslsfpsi}{456}{subsubsection*.804}
+\contentsline {subsubsection}{gslsfpsi1piy}{456}{subsubsection*.805}
+\contentsline {subsubsection}{gslsfpsi1int}{457}{subsubsection*.806}
+\contentsline {subsubsection}{gslsfpsi1}{457}{subsubsection*.807}
+\contentsline {subsubsection}{gslsfpsin}{457}{subsubsection*.808}
+\contentsline {subsubsection}{gslsfsynchrotron1}{457}{subsubsection*.809}
+\contentsline {subsubsection}{gslsfsynchrotron2}{457}{subsubsection*.810}
+\contentsline {subsubsection}{gslsftransport2}{457}{subsubsection*.811}
+\contentsline {subsubsection}{gslsftransport3}{457}{subsubsection*.812}
+\contentsline {subsubsection}{gslsftransport4}{457}{subsubsection*.813}
+\contentsline {subsubsection}{gslsftransport5}{458}{subsubsection*.814}
+\contentsline {subsubsection}{gslsfsin}{458}{subsubsection*.815}
+\contentsline {subsubsection}{gslsfcos}{458}{subsubsection*.816}
+\contentsline {subsubsection}{gslsfhypot}{458}{subsubsection*.817}
+\contentsline {subsubsection}{gslsfsinc}{458}{subsubsection*.818}
+\contentsline {subsubsection}{gslsflnsinh}{458}{subsubsection*.819}
+\contentsline {subsubsection}{gslsflncosh}{458}{subsubsection*.820}
+\contentsline {subsubsection}{gslsfanglerestrictsymm}{458}{subsubsection*.821}
+\contentsline {subsubsection}{gslsfanglerestrictpos}{459}{subsubsection*.822}
+\contentsline {subsubsection}{gslsfzetaint}{459}{subsubsection*.823}
+\contentsline {subsubsection}{gslsfzeta}{459}{subsubsection*.824}
+\contentsline {subsubsection}{gslsfzetam1}{459}{subsubsection*.825}
+\contentsline {subsubsection}{gslsfzetam1int}{459}{subsubsection*.826}
+\contentsline {subsubsection}{gslsfhzeta}{459}{subsubsection*.827}
+\contentsline {subsubsection}{gslsfetaint}{459}{subsubsection*.828}
+\contentsline {subsubsection}{gslsfeta}{459}{subsubsection*.829}
 \contentsline {subsection}{\numberline {4.8.15}ff-Ipopt}{460}{subsection.4.8.15}
-\contentsline {subsubsection}{IPOPT}{460}{subsubsection*.831}
+\contentsline {subsubsection}{IPOPT}{460}{subsubsection*.830}
 \contentsline {subsection}{\numberline {4.8.16}fflapack}{460}{subsection.4.8.16}
-\contentsline {subsubsection}{inv}{460}{subsubsection*.832}
-\contentsline {subsubsection}{dgeev}{460}{subsubsection*.833}
-\contentsline {subsubsection}{zgeev}{460}{subsubsection*.834}
+\contentsline {subsubsection}{inv}{460}{subsubsection*.831}
+\contentsline {subsubsection}{dgeev}{460}{subsubsection*.832}
+\contentsline {subsubsection}{zgeev}{460}{subsubsection*.833}
+\contentsline {subsubsection}{geev}{460}{subsubsection*.834}
 \contentsline {subsubsection}{geev}{460}{subsubsection*.835}
-\contentsline {subsubsection}{geev}{460}{subsubsection*.836}
-\contentsline {subsubsection}{dggev}{460}{subsubsection*.837}
-\contentsline {subsubsection}{zggev}{461}{subsubsection*.838}
-\contentsline {subsubsection}{dsygvd}{461}{subsubsection*.839}
-\contentsline {subsubsection}{dgesdd}{461}{subsubsection*.840}
-\contentsline {subsubsection}{zhegv}{461}{subsubsection*.841}
-\contentsline {subsubsection}{dsyev}{461}{subsubsection*.842}
-\contentsline {subsubsection}{zheev}{461}{subsubsection*.843}
+\contentsline {subsubsection}{dggev}{460}{subsubsection*.836}
+\contentsline {subsubsection}{zggev}{461}{subsubsection*.837}
+\contentsline {subsubsection}{dsygvd}{461}{subsubsection*.838}
+\contentsline {subsubsection}{dgesdd}{461}{subsubsection*.839}
+\contentsline {subsubsection}{zhegv}{461}{subsubsection*.840}
+\contentsline {subsubsection}{dsyev}{461}{subsubsection*.841}
+\contentsline {subsubsection}{zheev}{461}{subsubsection*.842}
 \contentsline {subsection}{\numberline {4.8.17}ff-mmap-semaphore}{461}{subsection.4.8.17}
-\contentsline {subsubsection}{Wait}{461}{subsubsection*.844}
-\contentsline {subsubsection}{trywait}{461}{subsubsection*.845}
-\contentsline {subsubsection}{Post}{462}{subsubsection*.846}
-\contentsline {subsubsection}{msync}{462}{subsubsection*.847}
-\contentsline {subsubsection}{Read}{462}{subsubsection*.848}
-\contentsline {subsubsection}{Write}{462}{subsubsection*.849}
+\contentsline {subsubsection}{Wait}{461}{subsubsection*.843}
+\contentsline {subsubsection}{trywait}{461}{subsubsection*.844}
+\contentsline {subsubsection}{Post}{462}{subsubsection*.845}
+\contentsline {subsubsection}{msync}{462}{subsubsection*.846}
+\contentsline {subsubsection}{Read}{462}{subsubsection*.847}
+\contentsline {subsubsection}{Write}{462}{subsubsection*.848}
 \contentsline {subsection}{\numberline {4.8.18}ffnewuoa}{462}{subsection.4.8.18}
-\contentsline {subsubsection}{newuoa}{462}{subsubsection*.850}
+\contentsline {subsubsection}{newuoa}{462}{subsubsection*.849}
 \contentsline {subsection}{\numberline {4.8.19}ff-NLopt}{462}{subsection.4.8.19}
-\contentsline {subsubsection}{nloptDIRECT}{462}{subsubsection*.851}
-\contentsline {subsubsection}{nloptDIRECTL}{462}{subsubsection*.852}
-\contentsline {subsubsection}{nloptDIRECTLRand}{463}{subsubsection*.853}
-\contentsline {subsubsection}{nloptDIRECTScal}{463}{subsubsection*.854}
-\contentsline {subsubsection}{nloptDIRECTNoScal}{463}{subsubsection*.855}
-\contentsline {subsubsection}{nloptDIRECTLNoScal}{463}{subsubsection*.856}
-\contentsline {subsubsection}{nloptDIRECTLRandNoScal}{463}{subsubsection*.857}
-\contentsline {subsubsection}{nloptOrigDIRECT}{463}{subsubsection*.858}
-\contentsline {subsubsection}{nloptOrigDIRECTL}{463}{subsubsection*.859}
-\contentsline {subsubsection}{nloptStoGO}{463}{subsubsection*.860}
-\contentsline {subsubsection}{nloptStoGORand}{464}{subsubsection*.861}
-\contentsline {subsubsection}{nloptLBFGS}{464}{subsubsection*.862}
-\contentsline {subsubsection}{nloptPRAXIS}{464}{subsubsection*.863}
-\contentsline {subsubsection}{nloptVar1}{464}{subsubsection*.864}
-\contentsline {subsubsection}{nloptVar2}{464}{subsubsection*.865}
-\contentsline {subsubsection}{nloptTNewton}{464}{subsubsection*.866}
-\contentsline {subsubsection}{nloptTNewtonRestart}{464}{subsubsection*.867}
-\contentsline {subsubsection}{nloptTNewtonPrecond}{464}{subsubsection*.868}
-\contentsline {subsubsection}{nloptTNewtonPrecondRestart}{465}{subsubsection*.869}
-\contentsline {subsubsection}{nloptCRS2}{465}{subsubsection*.870}
-\contentsline {subsubsection}{nloptMMA}{465}{subsubsection*.871}
-\contentsline {subsubsection}{nloptCOBYLA}{465}{subsubsection*.872}
-\contentsline {subsubsection}{nloptNEWUOA}{465}{subsubsection*.873}
-\contentsline {subsubsection}{nloptNEWUOABound}{465}{subsubsection*.874}
-\contentsline {subsubsection}{nloptNelderMead}{465}{subsubsection*.875}
-\contentsline {subsubsection}{nloptSbplx}{465}{subsubsection*.876}
-\contentsline {subsubsection}{nloptBOBYQA}{466}{subsubsection*.877}
-\contentsline {subsubsection}{nloptISRES}{466}{subsubsection*.878}
-\contentsline {subsubsection}{nloptSLSQP}{466}{subsubsection*.879}
-\contentsline {subsubsection}{nloptMLSL}{466}{subsubsection*.880}
-\contentsline {subsubsection}{nloptMLSLLDS}{466}{subsubsection*.881}
-\contentsline {subsubsection}{nloptAUGLAG}{466}{subsubsection*.882}
-\contentsline {subsubsection}{nloptAUGLAGEQ}{466}{subsubsection*.883}
+\contentsline {subsubsection}{nloptDIRECT}{462}{subsubsection*.850}
+\contentsline {subsubsection}{nloptDIRECTL}{462}{subsubsection*.851}
+\contentsline {subsubsection}{nloptDIRECTLRand}{463}{subsubsection*.852}
+\contentsline {subsubsection}{nloptDIRECTScal}{463}{subsubsection*.853}
+\contentsline {subsubsection}{nloptDIRECTNoScal}{463}{subsubsection*.854}
+\contentsline {subsubsection}{nloptDIRECTLNoScal}{463}{subsubsection*.855}
+\contentsline {subsubsection}{nloptDIRECTLRandNoScal}{463}{subsubsection*.856}
+\contentsline {subsubsection}{nloptOrigDIRECT}{463}{subsubsection*.857}
+\contentsline {subsubsection}{nloptOrigDIRECTL}{463}{subsubsection*.858}
+\contentsline {subsubsection}{nloptStoGO}{463}{subsubsection*.859}
+\contentsline {subsubsection}{nloptStoGORand}{464}{subsubsection*.860}
+\contentsline {subsubsection}{nloptLBFGS}{464}{subsubsection*.861}
+\contentsline {subsubsection}{nloptPRAXIS}{464}{subsubsection*.862}
+\contentsline {subsubsection}{nloptVar1}{464}{subsubsection*.863}
+\contentsline {subsubsection}{nloptVar2}{464}{subsubsection*.864}
+\contentsline {subsubsection}{nloptTNewton}{464}{subsubsection*.865}
+\contentsline {subsubsection}{nloptTNewtonRestart}{464}{subsubsection*.866}
+\contentsline {subsubsection}{nloptTNewtonPrecond}{464}{subsubsection*.867}
+\contentsline {subsubsection}{nloptTNewtonPrecondRestart}{465}{subsubsection*.868}
+\contentsline {subsubsection}{nloptCRS2}{465}{subsubsection*.869}
+\contentsline {subsubsection}{nloptMMA}{465}{subsubsection*.870}
+\contentsline {subsubsection}{nloptCOBYLA}{465}{subsubsection*.871}
+\contentsline {subsubsection}{nloptNEWUOA}{465}{subsubsection*.872}
+\contentsline {subsubsection}{nloptNEWUOABound}{465}{subsubsection*.873}
+\contentsline {subsubsection}{nloptNelderMead}{465}{subsubsection*.874}
+\contentsline {subsubsection}{nloptSbplx}{465}{subsubsection*.875}
+\contentsline {subsubsection}{nloptBOBYQA}{466}{subsubsection*.876}
+\contentsline {subsubsection}{nloptISRES}{466}{subsubsection*.877}
+\contentsline {subsubsection}{nloptSLSQP}{466}{subsubsection*.878}
+\contentsline {subsubsection}{nloptMLSL}{466}{subsubsection*.879}
+\contentsline {subsubsection}{nloptMLSLLDS}{466}{subsubsection*.880}
+\contentsline {subsubsection}{nloptAUGLAG}{466}{subsubsection*.881}
+\contentsline {subsubsection}{nloptAUGLAGEQ}{466}{subsubsection*.882}
 \contentsline {subsection}{\numberline {4.8.20}ffrandom}{466}{subsection.4.8.20}
-\contentsline {subsubsection}{srandomdev}{466}{subsubsection*.884}
-\contentsline {subsubsection}{srandom}{467}{subsubsection*.885}
-\contentsline {subsubsection}{random}{467}{subsubsection*.886}
+\contentsline {subsubsection}{srandomdev}{466}{subsubsection*.883}
+\contentsline {subsubsection}{srandom}{467}{subsubsection*.884}
+\contentsline {subsubsection}{random}{467}{subsubsection*.885}
 \contentsline {subsection}{\numberline {4.8.21}FreeFemQA}{467}{subsection.4.8.21}
-\contentsline {subsubsection}{MeshGenQA}{467}{subsubsection*.887}
+\contentsline {subsubsection}{MeshGenQA}{467}{subsubsection*.886}
 \contentsline {subsection}{\numberline {4.8.22}freeyams}{467}{subsection.4.8.22}
-\contentsline {subsubsection}{freeyams}{467}{subsubsection*.888}
+\contentsline {subsubsection}{freeyams}{467}{subsubsection*.887}
 \contentsline {subsection}{\numberline {4.8.23}gmsh}{467}{subsection.4.8.23}
-\contentsline {subsubsection}{gmshload}{467}{subsubsection*.889}
-\contentsline {subsubsection}{gmshload3}{468}{subsubsection*.890}
-\contentsline {subsubsection}{savegmsh}{468}{subsubsection*.891}
+\contentsline {subsubsection}{gmshload}{467}{subsubsection*.888}
+\contentsline {subsubsection}{gmshload3}{468}{subsubsection*.889}
+\contentsline {subsubsection}{savegmsh}{468}{subsubsection*.890}
 \contentsline {subsection}{\numberline {4.8.24}gsl}{468}{subsection.4.8.24}
-\contentsline {subsubsection}{gslpolysolvequadratic}{468}{subsubsection*.892}
-\contentsline {subsubsection}{gslpolysolvecubic}{468}{subsubsection*.893}
-\contentsline {subsubsection}{gslpolycomplexsolve}{468}{subsubsection*.894}
-\contentsline {subsubsection}{gslrnguniform}{468}{subsubsection*.895}
-\contentsline {subsubsection}{gslrnguniformpos}{469}{subsubsection*.896}
-\contentsline {subsubsection}{gslname}{469}{subsubsection*.897}
-\contentsline {subsubsection}{gslrngget}{469}{subsubsection*.898}
-\contentsline {subsubsection}{gslrngmin}{469}{subsubsection*.899}
-\contentsline {subsubsection}{gslrngmax}{469}{subsubsection*.900}
-\contentsline {subsubsection}{gslrngset}{469}{subsubsection*.901}
-\contentsline {subsubsection}{gslrngtype}{469}{subsubsection*.902}
+\contentsline {subsubsection}{gslpolysolvequadratic}{468}{subsubsection*.891}
+\contentsline {subsubsection}{gslpolysolvecubic}{468}{subsubsection*.892}
+\contentsline {subsubsection}{gslpolycomplexsolve}{468}{subsubsection*.893}
+\contentsline {subsubsection}{gslrnguniform}{468}{subsubsection*.894}
+\contentsline {subsubsection}{gslrnguniformpos}{469}{subsubsection*.895}
+\contentsline {subsubsection}{gslname}{469}{subsubsection*.896}
+\contentsline {subsubsection}{gslrngget}{469}{subsubsection*.897}
+\contentsline {subsubsection}{gslrngmin}{469}{subsubsection*.898}
+\contentsline {subsubsection}{gslrngmax}{469}{subsubsection*.899}
+\contentsline {subsubsection}{gslrngset}{469}{subsubsection*.900}
+\contentsline {subsubsection}{gslrngtype}{469}{subsubsection*.901}
 \contentsline {subsection}{\numberline {4.8.25}ilut}{469}{subsection.4.8.25}
-\contentsline {subsubsection}{applyIlutPrecond}{469}{subsubsection*.903}
-\contentsline {subsubsection}{makeIlutPrecond}{470}{subsubsection*.904}
+\contentsline {subsubsection}{applyIlutPrecond}{469}{subsubsection*.902}
+\contentsline {subsubsection}{makeIlutPrecond}{470}{subsubsection*.903}
 \contentsline {subsection}{\numberline {4.8.26}iohdf5}{470}{subsection.4.8.26}
-\contentsline {subsubsection}{savehdf5sol}{470}{subsubsection*.905}
+\contentsline {subsubsection}{savehdf5sol}{470}{subsubsection*.904}
 \contentsline {subsection}{\numberline {4.8.27}iovtk}{470}{subsection.4.8.27}
-\contentsline {subsubsection}{savevtk}{470}{subsubsection*.906}
-\contentsline {subsubsection}{vtkload}{470}{subsubsection*.907}
-\contentsline {subsubsection}{vtkload3}{471}{subsubsection*.908}
+\contentsline {subsubsection}{savevtk}{470}{subsubsection*.905}
+\contentsline {subsubsection}{vtkload}{470}{subsubsection*.906}
+\contentsline {subsubsection}{vtkload3}{471}{subsubsection*.907}
 \contentsline {subsection}{\numberline {4.8.28}isoline}{471}{subsection.4.8.28}
-\contentsline {subsubsection}{isoline}{471}{subsubsection*.909}
-\contentsline {subsubsection}{Curve}{471}{subsubsection*.910}
-\contentsline {subsubsection}{Area}{471}{subsubsection*.911}
-\contentsline {subsubsection}{findallocalmin}{471}{subsubsection*.912}
+\contentsline {subsubsection}{isoline}{471}{subsubsection*.908}
+\contentsline {subsubsection}{Curve}{471}{subsubsection*.909}
+\contentsline {subsubsection}{Area}{471}{subsubsection*.910}
+\contentsline {subsubsection}{findallocalmin}{471}{subsubsection*.911}
 \contentsline {subsection}{\numberline {4.8.29}lapack}{471}{subsection.4.8.29}
-\contentsline {subsubsection}{inv}{471}{subsubsection*.913}
-\contentsline {subsubsection}{dgeev}{472}{subsubsection*.914}
-\contentsline {subsubsection}{zgeev}{472}{subsubsection*.915}
-\contentsline {subsubsection}{geev}{472}{subsubsection*.916}
-\contentsline {subsubsection}{dggev}{472}{subsubsection*.917}
-\contentsline {subsubsection}{zggev}{472}{subsubsection*.918}
-\contentsline {subsubsection}{dsygvd}{472}{subsubsection*.919}
-\contentsline {subsubsection}{dgesdd}{472}{subsubsection*.920}
-\contentsline {subsubsection}{zhegv}{472}{subsubsection*.921}
-\contentsline {subsubsection}{dsyev}{473}{subsubsection*.922}
-\contentsline {subsubsection}{zheev}{473}{subsubsection*.923}
-\contentsline {subsubsection}{dgelsy}{473}{subsubsection*.924}
+\contentsline {subsubsection}{inv}{471}{subsubsection*.912}
+\contentsline {subsubsection}{dgeev}{472}{subsubsection*.913}
+\contentsline {subsubsection}{zgeev}{472}{subsubsection*.914}
+\contentsline {subsubsection}{geev}{472}{subsubsection*.915}
+\contentsline {subsubsection}{dggev}{472}{subsubsection*.916}
+\contentsline {subsubsection}{zggev}{472}{subsubsection*.917}
+\contentsline {subsubsection}{dsygvd}{472}{subsubsection*.918}
+\contentsline {subsubsection}{dgesdd}{472}{subsubsection*.919}
+\contentsline {subsubsection}{zhegv}{472}{subsubsection*.920}
+\contentsline {subsubsection}{dsyev}{473}{subsubsection*.921}
+\contentsline {subsubsection}{zheev}{473}{subsubsection*.922}
+\contentsline {subsubsection}{dgelsy}{473}{subsubsection*.923}
 \contentsline {subsection}{\numberline {4.8.30}lgbmo}{473}{subsection.4.8.30}
-\contentsline {subsubsection}{bmo}{473}{subsubsection*.925}
+\contentsline {subsubsection}{bmo}{473}{subsubsection*.924}
 \contentsline {subsection}{\numberline {4.8.31}mat\_dervieux}{473}{subsection.4.8.31}
-\contentsline {subsubsection}{MatUpWind1}{473}{subsubsection*.926}
+\contentsline {subsubsection}{MatUpWind1}{473}{subsubsection*.925}
 \contentsline {subsection}{\numberline {4.8.32}mat\_psi}{473}{subsection.4.8.32}
-\contentsline {subsubsection}{MatUpWind0}{473}{subsubsection*.927}
+\contentsline {subsubsection}{MatUpWind0}{473}{subsubsection*.926}
 \contentsline {subsection}{\numberline {4.8.33}medit}{473}{subsection.4.8.33}
-\contentsline {subsubsection}{medit}{473}{subsubsection*.928}
-\contentsline {subsubsection}{savesol}{474}{subsubsection*.929}
-\contentsline {subsubsection}{readsol}{474}{subsubsection*.930}
+\contentsline {subsubsection}{medit}{473}{subsubsection*.927}
+\contentsline {subsubsection}{savesol}{474}{subsubsection*.928}
+\contentsline {subsubsection}{readsol}{474}{subsubsection*.929}
 \contentsline {subsection}{\numberline {4.8.34}metis}{474}{subsection.4.8.34}
-\contentsline {subsubsection}{metisnodal}{474}{subsubsection*.931}
-\contentsline {subsubsection}{metisdual}{474}{subsubsection*.932}
+\contentsline {subsubsection}{metisnodal}{474}{subsubsection*.930}
+\contentsline {subsubsection}{metisdual}{474}{subsubsection*.931}
 \contentsline {subsection}{\numberline {4.8.35}MetricKuate}{474}{subsection.4.8.35}
-\contentsline {subsubsection}{MetricKuate}{474}{subsubsection*.933}
+\contentsline {subsubsection}{MetricKuate}{474}{subsubsection*.932}
 \contentsline {subsection}{\numberline {4.8.36}MetricPk}{474}{subsection.4.8.36}
-\contentsline {subsubsection}{MetricPk}{474}{subsubsection*.934}
+\contentsline {subsubsection}{MetricPk}{474}{subsubsection*.933}
 \contentsline {subsection}{\numberline {4.8.37}mmg3d}{474}{subsection.4.8.37}
-\contentsline {subsubsection}{mmg3d}{474}{subsubsection*.935}
+\contentsline {subsubsection}{mmg3d}{474}{subsubsection*.934}
 \contentsline {subsection}{\numberline {4.8.38}mmg3d-v4.0}{475}{subsection.4.8.38}
-\contentsline {subsubsection}{mmg3d}{475}{subsubsection*.936}
+\contentsline {subsubsection}{mmg3d}{475}{subsubsection*.935}
 \contentsline {subsection}{\numberline {4.8.39}msh3}{475}{subsection.4.8.39}
-\contentsline {subsubsection}{change}{475}{subsubsection*.937}
-\contentsline {subsubsection}{movemesh23}{475}{subsubsection*.938}
-\contentsline {subsubsection}{movemesh2D3Dsurf}{475}{subsubsection*.939}
-\contentsline {subsubsection}{movemesh3}{475}{subsubsection*.940}
-\contentsline {subsubsection}{movemesh}{475}{subsubsection*.941}
-\contentsline {subsubsection}{movemesh3D}{475}{subsubsection*.942}
-\contentsline {subsubsection}{deplacement}{476}{subsubsection*.943}
-\contentsline {subsubsection}{checkbemesh}{476}{subsubsection*.944}
-\contentsline {subsubsection}{buildlayers}{476}{subsubsection*.945}
-\contentsline {subsubsection}{bcube}{476}{subsubsection*.946}
-\contentsline {subsubsection}{cube}{476}{subsubsection*.947}
-\contentsline {subsubsection}{trunc}{477}{subsubsection*.948}
-\contentsline {subsubsection}{gluemesh}{477}{subsubsection*.949}
-\contentsline {subsubsection}{extract}{477}{subsubsection*.950}
-\contentsline {subsubsection}{showborder}{477}{subsubsection*.951}
-\contentsline {subsubsection}{getborder}{477}{subsubsection*.952}
-\contentsline {subsubsection}{AddLayers}{477}{subsubsection*.953}
+\contentsline {subsubsection}{change}{475}{subsubsection*.936}
+\contentsline {subsubsection}{movemesh23}{475}{subsubsection*.937}
+\contentsline {subsubsection}{movemesh2D3Dsurf}{475}{subsubsection*.938}
+\contentsline {subsubsection}{movemesh3}{475}{subsubsection*.939}
+\contentsline {subsubsection}{movemesh}{475}{subsubsection*.940}
+\contentsline {subsubsection}{movemesh3D}{475}{subsubsection*.941}
+\contentsline {subsubsection}{deplacement}{476}{subsubsection*.942}
+\contentsline {subsubsection}{checkbemesh}{476}{subsubsection*.943}
+\contentsline {subsubsection}{buildlayers}{476}{subsubsection*.944}
+\contentsline {subsubsection}{bcube}{476}{subsubsection*.945}
+\contentsline {subsubsection}{cube}{476}{subsubsection*.946}
+\contentsline {subsubsection}{trunc}{477}{subsubsection*.947}
+\contentsline {subsubsection}{gluemesh}{477}{subsubsection*.948}
+\contentsline {subsubsection}{extract}{477}{subsubsection*.949}
+\contentsline {subsubsection}{showborder}{477}{subsubsection*.950}
+\contentsline {subsubsection}{getborder}{477}{subsubsection*.951}
+\contentsline {subsubsection}{AddLayers}{477}{subsubsection*.952}
 \contentsline {subsection}{\numberline {4.8.40}mshmet}{477}{subsection.4.8.40}
-\contentsline {subsubsection}{mshmet}{477}{subsubsection*.954}
+\contentsline {subsubsection}{mshmet}{477}{subsubsection*.953}
 \contentsline {subsection}{\numberline {4.8.41}MUMPS}{478}{subsection.4.8.41}
-\contentsline {subsubsection}{defaulttoMUMPSseq}{478}{subsubsection*.955}
+\contentsline {subsubsection}{defaulttoMUMPSseq}{478}{subsubsection*.954}
 \contentsline {subsection}{\numberline {4.8.42}MUMPS\_seq}{478}{subsection.4.8.42}
-\contentsline {subsubsection}{defaulttoMUMPSseq}{478}{subsubsection*.956}
+\contentsline {subsubsection}{defaulttoMUMPSseq}{478}{subsubsection*.955}
 \contentsline {subsection}{\numberline {4.8.43}netgen}{478}{subsection.4.8.43}
-\contentsline {subsubsection}{netg}{478}{subsubsection*.957}
-\contentsline {subsubsection}{netgstl}{478}{subsubsection*.958}
-\contentsline {subsubsection}{netgload}{478}{subsubsection*.959}
+\contentsline {subsubsection}{netg}{478}{subsubsection*.956}
+\contentsline {subsubsection}{netgstl}{478}{subsubsection*.957}
+\contentsline {subsubsection}{netgload}{478}{subsubsection*.958}
 \contentsline {subsection}{\numberline {4.8.44}NewSolver}{478}{subsection.4.8.44}
-\contentsline {subsubsection}{defaulttoUMFPACK}{478}{subsubsection*.960}
+\contentsline {subsubsection}{defaulttoUMFPACK}{478}{subsubsection*.959}
 \contentsline {subsection}{\numberline {4.8.45}PARDISO}{479}{subsection.4.8.45}
-\contentsline {subsubsection}{defaulttoPARDISO}{479}{subsubsection*.961}
-\contentsline {subsubsection}{ompsetnumthreads}{479}{subsubsection*.962}
-\contentsline {subsubsection}{ompgetnumthreads}{479}{subsubsection*.963}
-\contentsline {subsubsection}{ompgetmaxthreads}{479}{subsubsection*.964}
+\contentsline {subsubsection}{defaulttoPARDISO}{479}{subsubsection*.960}
+\contentsline {subsubsection}{ompsetnumthreads}{479}{subsubsection*.961}
+\contentsline {subsubsection}{ompgetnumthreads}{479}{subsubsection*.962}
+\contentsline {subsubsection}{ompgetmaxthreads}{479}{subsubsection*.963}
 \contentsline {subsection}{\numberline {4.8.46}pcm2rnm}{479}{subsection.4.8.46}
-\contentsline {subsubsection}{readpcm}{479}{subsubsection*.965}
+\contentsline {subsubsection}{readpcm}{479}{subsubsection*.964}
 \contentsline {subsection}{\numberline {4.8.47}pipe}{479}{subsection.4.8.47}
-\contentsline {subsubsection}{flush}{479}{subsubsection*.966}
-\contentsline {subsubsection}{sleep}{479}{subsubsection*.967}
-\contentsline {subsubsection}{usleep}{480}{subsubsection*.968}
+\contentsline {subsubsection}{flush}{479}{subsubsection*.965}
+\contentsline {subsubsection}{sleep}{479}{subsubsection*.966}
+\contentsline {subsubsection}{usleep}{480}{subsubsection*.967}
 \contentsline {subsection}{\numberline {4.8.48}qf11to25}{480}{subsection.4.8.48}
-\contentsline {subsubsection}{QF1d}{480}{subsubsection*.969}
-\contentsline {subsubsection}{QF2d}{480}{subsubsection*.970}
-\contentsline {subsubsection}{QF3d}{480}{subsubsection*.971}
-\contentsline {subsubsection}{tripleQF}{480}{subsubsection*.972}
+\contentsline {subsubsection}{QF1d}{480}{subsubsection*.968}
+\contentsline {subsubsection}{QF2d}{480}{subsubsection*.969}
+\contentsline {subsubsection}{QF3d}{480}{subsubsection*.970}
+\contentsline {subsubsection}{tripleQF}{480}{subsubsection*.971}
 \contentsline {subsection}{\numberline {4.8.49}scotch}{480}{subsection.4.8.49}
-\contentsline {subsubsection}{scotch}{480}{subsubsection*.973}
+\contentsline {subsubsection}{scotch}{480}{subsubsection*.972}
 \contentsline {subsection}{\numberline {4.8.50}shell}{480}{subsection.4.8.50}
-\contentsline {subsubsection}{readdir}{480}{subsubsection*.974}
-\contentsline {subsubsection}{unlink}{480}{subsubsection*.975}
-\contentsline {subsubsection}{rmdir}{481}{subsubsection*.976}
-\contentsline {subsubsection}{cddir}{481}{subsubsection*.977}
-\contentsline {subsubsection}{chdir}{481}{subsubsection*.978}
-\contentsline {subsubsection}{basename}{481}{subsubsection*.979}
-\contentsline {subsubsection}{dirname}{481}{subsubsection*.980}
-\contentsline {subsubsection}{mkdir}{481}{subsubsection*.981}
-\contentsline {subsubsection}{chmod}{481}{subsubsection*.982}
-\contentsline {subsubsection}{cpfile}{481}{subsubsection*.983}
-\contentsline {subsubsection}{stat}{482}{subsubsection*.984}
-\contentsline {subsubsection}{isdir}{482}{subsubsection*.985}
-\contentsline {subsubsection}{getenv}{482}{subsubsection*.986}
-\contentsline {subsubsection}{setenv}{482}{subsubsection*.987}
-\contentsline {subsubsection}{unsetenv}{482}{subsubsection*.988}
+\contentsline {subsubsection}{readdir}{480}{subsubsection*.973}
+\contentsline {subsubsection}{unlink}{480}{subsubsection*.974}
+\contentsline {subsubsection}{rmdir}{481}{subsubsection*.975}
+\contentsline {subsubsection}{cddir}{481}{subsubsection*.976}
+\contentsline {subsubsection}{chdir}{481}{subsubsection*.977}
+\contentsline {subsubsection}{basename}{481}{subsubsection*.978}
+\contentsline {subsubsection}{dirname}{481}{subsubsection*.979}
+\contentsline {subsubsection}{mkdir}{481}{subsubsection*.980}
+\contentsline {subsubsection}{chmod}{481}{subsubsection*.981}
+\contentsline {subsubsection}{cpfile}{481}{subsubsection*.982}
+\contentsline {subsubsection}{stat}{482}{subsubsection*.983}
+\contentsline {subsubsection}{isdir}{482}{subsubsection*.984}
+\contentsline {subsubsection}{getenv}{482}{subsubsection*.985}
+\contentsline {subsubsection}{setenv}{482}{subsubsection*.986}
+\contentsline {subsubsection}{unsetenv}{482}{subsubsection*.987}
 \contentsline {subsection}{\numberline {4.8.51}splitedges}{482}{subsection.4.8.51}
-\contentsline {subsubsection}{SplitedgeMesh}{482}{subsubsection*.989}
+\contentsline {subsubsection}{SplitedgeMesh}{482}{subsubsection*.988}
 \contentsline {subsection}{\numberline {4.8.52}splitmesh12}{482}{subsection.4.8.52}
-\contentsline {subsubsection}{splitmesh12}{482}{subsubsection*.990}
+\contentsline {subsubsection}{splitmesh12}{482}{subsubsection*.989}
 \contentsline {subsection}{\numberline {4.8.53}splitmesh3}{483}{subsection.4.8.53}
-\contentsline {subsubsection}{splitmesh3}{483}{subsubsection*.991}
+\contentsline {subsubsection}{splitmesh3}{483}{subsubsection*.990}
 \contentsline {subsection}{\numberline {4.8.54}splitmesh4}{483}{subsection.4.8.54}
-\contentsline {subsubsection}{splimesh4}{483}{subsubsection*.992}
+\contentsline {subsubsection}{splimesh4}{483}{subsubsection*.991}
 \contentsline {subsection}{\numberline {4.8.55}splitmesh6}{483}{subsection.4.8.55}
-\contentsline {subsubsection}{splitmesh6}{483}{subsubsection*.993}
+\contentsline {subsubsection}{splitmesh6}{483}{subsubsection*.992}
 \contentsline {subsection}{\numberline {4.8.56}SuperLu}{483}{subsection.4.8.56}
-\contentsline {subsubsection}{defaulttoSuperLu}{483}{subsubsection*.994}
+\contentsline {subsubsection}{defaulttoSuperLu}{483}{subsubsection*.993}
 \contentsline {subsection}{\numberline {4.8.57}symmetrizeCSR}{483}{subsection.4.8.57}
-\contentsline {subsubsection}{symmetrizeCSR}{483}{subsubsection*.995}
+\contentsline {subsubsection}{symmetrizeCSR}{483}{subsubsection*.994}
 \contentsline {subsection}{\numberline {4.8.58}tetgen}{483}{subsection.4.8.58}
-\contentsline {subsubsection}{tetgconvexhull}{484}{subsubsection*.996}
-\contentsline {subsubsection}{tetgtransfo}{484}{subsubsection*.997}
-\contentsline {subsubsection}{tetg}{484}{subsubsection*.998}
-\contentsline {subsubsection}{tetgreconstruction}{484}{subsubsection*.999}
+\contentsline {subsubsection}{tetgconvexhull}{484}{subsubsection*.995}
+\contentsline {subsubsection}{tetgtransfo}{484}{subsubsection*.996}
+\contentsline {subsubsection}{tetg}{484}{subsubsection*.997}
+\contentsline {subsubsection}{tetgreconstruction}{484}{subsubsection*.998}
 \contentsline {subsection}{\numberline {4.8.59}UMFPACK64}{484}{subsection.4.8.59}
-\contentsline {subsubsection}{defaulttoUMFPACK64}{484}{subsubsection*.1000}
+\contentsline {subsubsection}{defaulttoUMFPACK64}{484}{subsubsection*.999}
 \contentsline {subsection}{\numberline {4.8.60}VTK\_writer\_3d}{484}{subsection.4.8.60}
-\contentsline {subsubsection}{Vtkaddmesh}{484}{subsubsection*.1001}
-\contentsline {subsubsection}{Vtkaddscalar}{485}{subsubsection*.1002}
+\contentsline {subsubsection}{Vtkaddmesh}{484}{subsubsection*.1000}
+\contentsline {subsubsection}{Vtkaddscalar}{485}{subsubsection*.1001}
 \contentsline {subsection}{\numberline {4.8.61}VTK\_writer}{485}{subsection.4.8.61}
-\contentsline {subsubsection}{Vtkaddmesh}{485}{subsubsection*.1003}
-\contentsline {subsubsection}{Vtkaddscalar}{485}{subsubsection*.1004}
+\contentsline {subsubsection}{Vtkaddmesh}{485}{subsubsection*.1002}
+\contentsline {subsubsection}{Vtkaddscalar}{485}{subsubsection*.1003}
 \contentsline {chapter}{\numberline {5}Mathematical Models}{487}{chapter.5}
 \contentsline {section}{\numberline {5.1}Static problems}{487}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Soap Film}{487}{subsection.5.1.1}
@@ -1299,4 +1299,4 @@
 \contentsline {subsection}{\numberline {6.7.15}Macro}{653}{subsection.6.7.15}
 \contentsline {subsection}{\numberline {6.7.16}Basic error handling}{656}{subsection.6.7.16}
 \contentsline {subsection}{\numberline {6.7.17}Error handling}{656}{subsection.6.7.17}
-\contentsline {chapter}{Bibliography}{659}{chapter*.1132}
+\contentsline {chapter}{Bibliography}{659}{chapter*.1131}
