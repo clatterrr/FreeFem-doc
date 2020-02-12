@@ -2003,26 +2003,6 @@ For example, if you forget parenthesis as in:</p>
 </pre></div>
 </td></tr></table></div>
 <p>then you will get the following message from <strong>FreeFEM</strong>:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="m">2</span> : mesh <span class="nv">Th</span> <span class="o">=</span> square<span class="o">(</span><span class="m">10</span>,10<span class="p">;</span>
- Error line number <span class="m">2</span>, in file bb.edp, before  token <span class="p">;</span>
-parse error
-  current <span class="nv">line</span> <span class="o">=</span> <span class="m">2</span>
-</pre></div>
-</td></tr></table></div>
-<dl class="docutils">
-<dt>syntax error</dt>
-<dd>current line = 2</dd>
-<dt>Compile error <span class="classifier-delimiter">:</span> <span class="classifier">syntax error</span></dt>
-<dd>line number :2, ;</dd>
-<dt>error Compile error <span class="classifier-delimiter">:</span> <span class="classifier">syntax error</span></dt>
-<dd><blockquote class="first">
-<div>line number :2, ;</div></blockquote>
-<p class="last">code = 1 mpirank: 0</p>
-</dd>
-</dl>
 <p>If you use the same symbol twice as in:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">real</span> <span class="n">aaa</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
