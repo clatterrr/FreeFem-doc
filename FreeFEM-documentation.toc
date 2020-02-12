@@ -42,41 +42,41 @@
 \contentsline {chapter}{\numberline {2}Learning by Examples}{21}{chapter.2}
 \contentsline {section}{\numberline {2.1}Getting started}{23}{section.2.1}
 \contentsline {section}{\numberline {2.2}Classification of partial differential equations}{28}{section.2.2}
-\contentsline {section}{\numberline {2.3}Membrane}{31}{section.2.3}
-\contentsline {section}{\numberline {2.4}Heat Exchanger}{36}{section.2.4}
+\contentsline {section}{\numberline {2.3}Membrane}{30}{section.2.3}
+\contentsline {section}{\numberline {2.4}Heat Exchanger}{35}{section.2.4}
 \contentsline {section}{\numberline {2.5}Acoustics}{39}{section.2.5}
-\contentsline {section}{\numberline {2.6}Thermal Conduction}{41}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Axisymmetry: 3D Rod with circular section}{43}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.6}Thermal Conduction}{40}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Axisymmetry: 3D Rod with circular section}{42}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}A Nonlinear Problem : Radiation}{44}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Irrotational Fan Blade Flow and Thermal effects}{45}{section.2.7}
+\contentsline {section}{\numberline {2.7}Irrotational Fan Blade Flow and Thermal effects}{44}{section.2.7}
 \contentsline {subsection}{\numberline {2.7.1}Heat Convection around the airfoil}{46}{subsection.2.7.1}
-\contentsline {section}{\numberline {2.8}Pure Convection : The Rotating Hill}{48}{section.2.8}
+\contentsline {section}{\numberline {2.8}Pure Convection : The Rotating Hill}{47}{section.2.8}
 \contentsline {subsection}{\numberline {2.8.1}Solution by a Characteristics-Galerkin Method}{48}{subsection.2.8.1}
 \contentsline {subsection}{\numberline {2.8.2}Solution by Discontinuous-Galerkin FEM}{49}{subsection.2.8.2}
 \contentsline {subsection}{\numberline {2.8.3}\sphinxstylestrong {Finite Volume Methods} can also be handled with \sphinxstylestrong {FreeFEM} but it requires programming.}{51}{subsection.2.8.3}
 \contentsline {section}{\numberline {2.9}The System of elasticity}{53}{section.2.9}
 \contentsline {section}{\numberline {2.10}The System of Stokes for Fluids}{55}{section.2.10}
 \contentsline {section}{\numberline {2.11}A projection algorithm for the Navier-Stokes equations}{56}{section.2.11}
-\contentsline {section}{\numberline {2.12}Newton Method for the Steady Navier-Stokes equations}{61}{section.2.12}
+\contentsline {section}{\numberline {2.12}Newton Method for the Steady Navier-Stokes equations}{60}{section.2.12}
 \contentsline {section}{\numberline {2.13}A Large Fluid Problem}{64}{section.2.13}
-\contentsline {section}{\numberline {2.14}An Example with Complex Numbers}{70}{section.2.14}
+\contentsline {section}{\numberline {2.14}An Example with Complex Numbers}{68}{section.2.14}
 \contentsline {section}{\numberline {2.15}Optimal Control}{71}{section.2.15}
-\contentsline {section}{\numberline {2.16}A Flow with Shocks}{75}{section.2.16}
+\contentsline {section}{\numberline {2.16}A Flow with Shocks}{74}{section.2.16}
 \contentsline {section}{\numberline {2.17}Time dependent schema optimization for heat equations}{77}{section.2.17}
-\contentsline {section}{\numberline {2.18}Tutorial to write a transient Stokes solver in matrix form}{80}{section.2.18}
-\contentsline {section}{\numberline {2.19}Wifi Propagation}{82}{section.2.19}
-\contentsline {subsection}{\numberline {2.19.1}Summary}{82}{subsection.2.19.1}
-\contentsline {subsection}{\numberline {2.19.2}Physics}{82}{subsection.2.19.2}
-\contentsline {subsection}{\numberline {2.19.3}Coding}{83}{subsection.2.19.3}
-\contentsline {subsubsection}{The domain}{83}{subsubsection*.92}
-\contentsline {subsubsection}{Let\IeC {\textquoteright }s create a mesh}{83}{subsubsection*.93}
-\contentsline {section}{\numberline {2.20}Plotting in Matlab and Octave}{85}{section.2.20}
-\contentsline {subsection}{\numberline {2.20.1}Overview}{85}{subsection.2.20.1}
-\contentsline {subsection}{\numberline {2.20.2}2D Problem}{87}{subsection.2.20.2}
-\contentsline {subsection}{\numberline {2.20.3}Exporting Data}{88}{subsection.2.20.3}
-\contentsline {subsection}{\numberline {2.20.4}Importing Data}{88}{subsection.2.20.4}
+\contentsline {section}{\numberline {2.18}Tutorial to write a transient Stokes solver in matrix form}{79}{section.2.18}
+\contentsline {section}{\numberline {2.19}Wifi Propagation}{81}{section.2.19}
+\contentsline {subsection}{\numberline {2.19.1}Summary}{81}{subsection.2.19.1}
+\contentsline {subsection}{\numberline {2.19.2}Physics}{81}{subsection.2.19.2}
+\contentsline {subsection}{\numberline {2.19.3}Coding}{82}{subsection.2.19.3}
+\contentsline {subsubsection}{The domain}{82}{subsubsection*.92}
+\contentsline {subsubsection}{Let\IeC {\textquoteright }s create a mesh}{82}{subsubsection*.93}
+\contentsline {section}{\numberline {2.20}Plotting in Matlab and Octave}{86}{section.2.20}
+\contentsline {subsection}{\numberline {2.20.1}Overview}{86}{subsection.2.20.1}
+\contentsline {subsection}{\numberline {2.20.2}2D Problem}{86}{subsection.2.20.2}
+\contentsline {subsection}{\numberline {2.20.3}Exporting Data}{87}{subsection.2.20.3}
+\contentsline {subsection}{\numberline {2.20.4}Importing Data}{87}{subsection.2.20.4}
 \contentsline {subsection}{\numberline {2.20.5}2D Plot Examples}{88}{subsection.2.20.5}
-\contentsline {subsection}{\numberline {2.20.6}3D Plot Examples}{91}{subsection.2.20.6}
+\contentsline {subsection}{\numberline {2.20.6}3D Plot Examples}{90}{subsection.2.20.6}
 \contentsline {subsection}{\numberline {2.20.7}References}{91}{subsection.2.20.7}
 \contentsline {chapter}{\numberline {3}Documentation}{93}{chapter.3}
 \contentsline {section}{\numberline {3.1}Notations}{94}{section.3.1}
