@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Feb 12, 2020}
+\date{Feb 13, 2020}
 \release{4.2.1}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2017,7 +2017,7 @@ However, we notice that all corners of \(\Gamma_h = \partial\Omega_h\) are on \(
 A finite element space is, usually, a space of polynomial functions on elements, triangles here only, with certain matching properties at edges, vertices etc. Here \sphinxcode{\sphinxupquote{fespace Vh(Th, P1)}} defines \(V_h\) to be the space of continuous functions which are affine in \(x,y\) on each triangle of \(T_h\).
 
 As it is a linear vector space of finite dimension, basis can be found.
-The canonical basis is made of functions, called the \sphinxstyleemphasis{hat function} \(\phi_k\) which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on \hyperref[\detokenize{tutorials/poisson:figpoissonhat}]{Fig.\@ \ref{\detokenize{tutorials/poisson:figpoissonhat}}}.
+The canonical basis is made of functions, called the \sphinxstyleemphasis{hat function} \(\phi_k\), which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on \hyperref[\detokenize{tutorials/poisson:figpoissonhat}]{Fig.\@ \ref{\detokenize{tutorials/poisson:figpoissonhat}}}.
 
 \begin{figure}
 \centering
@@ -2175,7 +2175,7 @@ So we have:
 \begin{split}\mathtt{u}(x,y) = \sum_{i=0}^{M-1} \mathtt{u[][}i\mathtt{]} \phi_i(x,y) ,
 \qquad \mathtt{F}(x,y) = \sum_{i=0}^{M-1} \mathtt{F[][}i\mathtt{]} \phi_i(x,y)\end{split}
 \end{equation*}
-where \(\phi_i, i=0...,,M-1\) are the basis functions of \sphinxtitleref{Vh} like in equation (ref\{equation3\}), and \(M = \mathtt{Vh.ndof}\) is the number of degree of freedom (i.e. the dimension of the space \sphinxtitleref{Vh}).
+where \(\phi_i, i=0...,,M-1\) are the basis functions of \sphinxtitleref{Vh} like in equation :eq: \sphinxtitleref{equation3}, and \(M = \mathtt{Vh.ndof}\) is the number of degree of freedom (i.e. the dimension of the space \sphinxtitleref{Vh}).
 \end{sphinxadmonition}
 
 The linear system \eqref{equation:tutorials/poisson:eqn:Equation} is solved by \sphinxcode{\sphinxupquote{UMFPACK}} unless another option is mentioned specifically as in:
@@ -2224,12 +2224,13 @@ If \(F\) and \(\varphi\) are vector valued functions, then the PDE is actually a
 Unless indicated otherwise, here by convention \sphinxstyleemphasis{one} PDE corresponds to one scalar valued \(F\) and \(\varphi\).
 If \(F\) is linear with respect to its arguments, then the PDE is said to be \sphinxstyleemphasis{linear}.
 
-The general form of a second order, linear scalar PDE is \({\partial^2\varphi\over\partial x_i\partial x_j}\) and \(A:B\) means \(\sum^d_{i,j=1} a_{ij} b_{ij}.\)
+The general form of a second order, linear scalar PDE is
 \begin{equation*}
 \begin{split}\alpha\varphi + a\cdot\nabla\varphi + B :\nabla(\nabla\varphi) =
 f{\quad\hbox{ in }\quad}\Omega\subset \mathbb{R}^d,\end{split}
 \end{equation*}
-where \(f(x),\alpha(x)\in \mathbb{R}\), \(a(x)\in \mathbb{R}^d\), \(B(x)\in \mathbb{R}^{d\times d}\) are the PDE \sphinxstyleemphasis{coefficients}.
+where \({\partial^2\varphi\over\partial x_i\partial x_j}\) and \(A:B\) means \(\sum^d_{i,j=1} a_{ij} b_{ij}.\),
+\(f(x),\alpha(x)\in \mathbb{R}\), \(a(x)\in \mathbb{R}^d\), \(B(x)\in \mathbb{R}^{d\times d}\) are the PDE \sphinxstyleemphasis{coefficients}.
 If the coefficients are independent of \(x\), the PDE is said to have \sphinxstyleemphasis{constant coefficients}.
 
 To a PDE we associate a quadratic form, by replacing \(\varphi\) by \(1\), \(\partial\varphi/\partial x_i\) by \(z_i\) and \(\partial^2\varphi/\partial x_i\partial x_j\) by \(z_i z_j\), where \(z\) is a vector in \(\mathbb{R}^d\):
@@ -2238,12 +2239,12 @@ To a PDE we associate a quadratic form, by replacing \(\varphi\) by \(1\), \(\pa
 \end{equation*}
 If it is the equation of an ellipse (ellipsoid if \(d \geq 2\)), the PDE is said to be \sphinxstyleemphasis{elliptic}; if it is the equation of a parabola or a hyperbola, the PDE is said to be \sphinxstyleemphasis{parabolic} or \sphinxstyleemphasis{hyperbolic}.
 
-If \(A \equiv 0\), the degree is no longer 2 but 1, and for reasons that will appear more clearly later, the PDE is still said to be hyperbolic.
+If \(B \equiv 0\), the degree is no longer 2 but 1, and for reasons that will appear more clearly later, the PDE is still said to be hyperbolic.
 
 These concepts can be generalized to systems, by studying whether or not the polynomial system \(P(z)\) associated with the PDE system has branches at infinity (ellipsoids have no branches at infinity, paraboloids have one, and hyperboloids have several).
 
 If the PDE is not linear, it is said to be \sphinxstyleemphasis{non-linear}.
-Those are said to be locally elliptic, parabolic, or hyperbolic according to the type of the linearized equation.
+These are said to be locally elliptic, parabolic, or hyperbolic according to the type of the linearized equation.
 
 For example, for the non-linear equation
 \begin{equation*}
@@ -2306,15 +2307,15 @@ For example:
 \end{equation*}
 is called a \sphinxstyleemphasis{Dirichlet boundary condition}. The \sphinxstyleemphasis{Neumann} condition is
 \begin{equation*}
-\begin{split}{\partial\varphi\over\partial \mathbf{n}}(x) \ \hbox{given on }\
-\Gamma \hbox{ (or } \mathbf{n}\cdot B\nabla\varphi,\hbox{given on }\
+\begin{split}{\partial\varphi\over\partial \boldsymbol{n}}(x) \ \hbox{given on }\
+\Gamma \hbox{ (or } \boldsymbol{n}\cdot B\nabla\varphi,\hbox{given on }\
 \Gamma\hbox{ for a general second order PDE)}\end{split}
 \end{equation*}
-where \(\mathbf{n}\) is the normal at \(x\in\Gamma\) directed towards the exterior of \(\Omega\) (by definition \({\partial\varphi\over\partial \mathbf{n}}=\nabla\varphi\cdot \mathbf{n}\)).
+where \(\boldsymbol{n}\) is the normal at \(x\in\Gamma\) directed towards the exterior of \(\Omega\) (by definition \({\partial\varphi\over\partial \boldsymbol{n}}=\nabla\varphi\cdot \boldsymbol{n}\)).
 
 Another classical condition, called a \sphinxstyleemphasis{Robin} (or \sphinxstyleemphasis{Fourier}) condition is written as:
 \begin{equation*}
-\begin{split}\varphi(x) + \beta(x) {\partial\varphi\over\partial n}(x) \ \hbox{given on}\ \Gamma.\end{split}
+\begin{split}\varphi(x) + \beta(x) {\partial\varphi\over\partial \boldsymbol{n}}(x) \ \hbox{given on}\ \Gamma.\end{split}
 \end{equation*}
 Finding a set of boundary conditions that defines a unique \(\varphi\) is a difficult art.
 
@@ -2322,7 +2323,7 @@ In general, an elliptic equation is well posed (\sphinxstyleemphasis{i.e.} \(\va
 
 Thus, Laplace’s equation is well posed with a Dirichlet or Neumann condition but also with :
 \begin{equation*}
-\begin{split}\varphi \ \hbox{given on}\ \Gamma_1,\ {\partial\varphi\over\partial n} \ \hbox{given on}\ \Gamma_2, \ \Gamma_1\cup\Gamma_2 =\Gamma,\ {\dot{\Gamma_1}\cap\dot{\Gamma_2}} =\emptyset.\end{split}
+\begin{split}\varphi \ \hbox{given on}\ \Gamma_1,\ {\partial\varphi\over\partial \boldsymbol{n}} \ \hbox{given on}\ \Gamma_2, \ \Gamma_1\cup\Gamma_2 =\Gamma,\ {\dot{\Gamma_1}\cap\dot{\Gamma_2}} =\emptyset.\end{split}
 \end{equation*}
 Parabolic and hyperbolic equations rarely require boundary conditions on all of \(\Gamma\times]0,T[\).
 For instance, the heat equation is well posed with :
@@ -2362,9 +2363,9 @@ If the support wasn’t planar but had an elevation \(z(x_1,x_2)\) then the boun
 \end{equation*}
 If a part \(\Gamma_2\) of the membrane border \(\Gamma\) is not fixed to the support but is left hanging, then due to the membrane’s rigidity the angle with the normal vector \(n\) is zero; thus the boundary conditions are:
 \begin{equation*}
-\begin{split}\varphi|_{\Gamma_1}=z,~~~~\frac{\partial\varphi}{\partial n}|_{\Gamma_2}=0\end{split}
+\begin{split}\varphi|_{\Gamma_1}=z,~~~~\frac{\partial\varphi}{\partial\boldsymbol{n}}|_{\Gamma_2}=0\end{split}
 \end{equation*}
-where \(\Gamma_1=\Gamma-\Gamma_2\); recall that \(\frac{\partial\varphi}{\partial n}=\nabla\varphi\cdot n\)
+where \(\Gamma_1=\Gamma-\Gamma_2\); recall that \(\frac{\partial\varphi}{\partial\boldsymbol{n}}=\nabla\varphi\cdot n\)
 Let us recall also that the Laplace operator \(\Delta\) is defined by:
 \begin{equation*}
 \begin{split}\Delta \varphi = {\partial ^{2}\varphi \over \partial x^{2}_{1} }
@@ -2797,7 +2798,7 @@ When the solution wave is monochromatic (and that depends on the boundary and in
 \begin{equation*}
 \begin{split}\begin{array}{rcl}
     k^{2}v + c^{2}\Delta v &= 0 &\hbox{ in } \Omega\\
-    \frac{\partial v}{\partial n}|_\Gamma &= g &
+    \frac{\partial v}{\partial\boldsymbol{n}}|_\Gamma &= g &
 \end{array}\end{split}
 \end{equation*}
 where \(g\) is the source.
@@ -2905,7 +2906,7 @@ To find all the \(u_e\) one can do the following :
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{acoustics}.png}
-\caption{First eigen state (\(\lambda=(k/c)^2=19.4256\)) close to \(20\) of eigenvalue problem: \(-\Delta \varphi = \lambda\varphi\) and \(\frac{\partial \varphi}{\partial n} = 0\) on \(\Gamma\)\}}\label{\detokenize{tutorials/acoustics:id2}}\label{\detokenize{tutorials/acoustics:figacoustics2}}\end{subfigure}
+\caption{First eigen state (\(\lambda=(k/c)^2=19.4256\)) close to \(20\) of eigenvalue problem: \(-\Delta \varphi = \lambda\varphi\) and \(\frac{\partial \varphi}{\partial\boldsymbol{n}} = 0\) on \(\Gamma\)\}}\label{\detokenize{tutorials/acoustics:id2}}\label{\detokenize{tutorials/acoustics:figacoustics2}}\end{subfigure}
 \caption{Acoustics}\phantomsection\label{\detokenize{tutorials/acoustics:figAcoustics0}}
 
 \end{figure}
@@ -2928,7 +2929,7 @@ We must solve the temperature equation in \(\Omega\) in a time interval (0,T).
 \begin{split}\begin{array}{rcl}
     \partial_t u -\nabla\cdot(\kappa\nabla u) &= 0 & \hbox{ in } \Omega\times(0,T)\\
     u(x,y,0) &= u_0+x u_1 &\\
-    \kappa\frac{\partial u}{\partial n} +\alpha(u-u_e) &= 0 & \hbox{ on } \Gamma\times(0,T)
+    \kappa\frac{\partial u}{\partial \boldsymbol{n}} +\alpha(u-u_e) &= 0 & \hbox{ on } \Gamma\times(0,T)
 \end{array}\end{split}
 \end{equation*}
 Here the diffusion \(\kappa\) will take two values, one below the middle horizontal line and ten times less above, so as to simulate a thermostat.
@@ -3042,7 +3043,7 @@ We take the convention of numbering of the edges as in \sphinxcode{\sphinxupquot
     u(t=0) &= u_0 + \frac z{L_z} (u_1-u)&\\
     u|_{\Gamma_4} &= u_0&\\
     u|_{\Gamma_2} &= u_1&\\
-    \alpha(u-u_e) + {\partial u\over \partial n} |_{\Gamma_1\cup\Gamma_3} &= 0&
+    \alpha(u-u_e) + {\partial u\over \partial\boldsymbol{n}} |_{\Gamma_1\cup\Gamma_3} &= 0&
 \end{array}\end{split}
 \end{equation*}
 Note that the PDE has been multiplied by \(r\).
@@ -3077,12 +3078,12 @@ Still one can prove existence and uniqueness for \(u\) and because of this degen
 Heat loss through radiation is a loss proportional to the absolute temperature to the fourth power (Stefan’s Law).
 This adds to the loss by convection and gives the following boundary condition:
 \begin{equation*}
-\begin{split}\kappa{\partial u\over \partial n} +\alpha(u-u_e) + c[(u + 273)^4 - (u_e+273)^4] = 0\end{split}
+\begin{split}\kappa{\partial u\over \partial\boldsymbol{n}} +\alpha(u-u_e) + c[(u + 273)^4 - (u_e+273)^4] = 0\end{split}
 \end{equation*}
 The problem is nonlinear, and must be solved iteratively.
 If \(m\) denotes the iteration index, a semi-linearization of the radiation condition gives
 \begin{equation*}
-\begin{split}{\partial u^{m+1}\over \partial n} + \alpha(u^{m+1}-u_e)+ c(u^{m+1}-u_e)
+\begin{split}{\partial u^{m+1}\over \partial\boldsymbol{n}} + \alpha(u^{m+1}-u_e)+ c(u^{m+1}-u_e)
 (u^m+u_e +546) ((u^m + 273)^2 + (u_e+273)^2) = 0,\end{split}
 \end{equation*}
 because we have the identity \(a^4 - b^4 = (a-b)(a+b)(a^2+b^2)\).
@@ -3226,7 +3227,7 @@ Note that an incidence angle has been added here.}\label{\detokenize{tutorials/f
 Now let us assume that the airfoil is hot and that air is there to cool it.
 Much like in the previous section the heat equation for the temperature \(v\) is
 \begin{equation*}
-\begin{split}\partial_t v -\nabla\cdot(\kappa\nabla v) + u\cdot\nabla v =0,~~v(t=0)=v_0, ~~\frac{\partial v}{\partial n}|_C=0\end{split}
+\begin{split}\partial_t v -\nabla\cdot(\kappa\nabla v) + u\cdot\nabla v =0,~~v(t=0)=v_0, ~~\frac{\partial v}{\partial\boldsymbol{n}}|_C=0\end{split}
 \end{equation*}
 But now the domain is outside AND inside \(S\) and \(\kappa\) takes a different value in air and in steel.
 Furthermore there is convection of heat by the flow, hence the term \(u\cdot\nabla v\) above.
