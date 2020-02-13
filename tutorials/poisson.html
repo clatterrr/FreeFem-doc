@@ -2078,7 +2078,7 @@ However, we notice that all corners of <span class="math notranslate nohighlight
 <p><strong>On line 8:</strong></p>
 <p>A finite element space is, usually, a space of polynomial functions on elements, triangles here only, with certain matching properties at edges, vertices etc. Here <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">fespace</span> <span class="n">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P1</span><span class="p">)</span></code> defines <span class="math notranslate nohighlight">\(V_h\)</span> to be the space of continuous functions which are affine in <span class="math notranslate nohighlight">\(x,y\)</span> on each triangle of <span class="math notranslate nohighlight">\(T_h\)</span>.</p>
 <p>As it is a linear vector space of finite dimension, basis can be found.
-The canonical basis is made of functions, called the <em>hat function</em> <span class="math notranslate nohighlight">\(\phi_k\)</span> which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a class="reference internal" href="#figpoissonhat"><span class="std std-numref">Fig. 4</span></a>.</p>
+The canonical basis is made of functions, called the <em>hat function</em> <span class="math notranslate nohighlight">\(\phi_k\)</span>, which are continuous piecewise affine and are equal to 1 on one vertex and 0 on all others. A typical hat function is shown on <a class="reference internal" href="#figpoissonhat"><span class="std std-numref">Fig. 4</span></a>.</p>
 <div class="figure compound align-center" id="HatFunctions">
 <div style="width: 49%" class="subfigure" id="id3">
 <span id="figpoissonmesh2"></span><a class="reference internal image-reference" href="../_images/meshTh_2.png"><img alt="meshTh2" src="../_images/meshTh_2.png" style="width: 90%;" /></a>
@@ -2204,7 +2204,7 @@ If the user wants to access <span class="math notranslate nohighlight">\(A\)</sp
 <div class="math notranslate nohighlight">
 \[\mathtt{u}(x,y) = \sum_{i=0}^{M-1} \mathtt{u[][}i\mathtt{]} \phi_i(x,y) ,
 \qquad \mathtt{F}(x,y) = \sum_{i=0}^{M-1} \mathtt{F[][}i\mathtt{]} \phi_i(x,y)\]</div>
-<p class="last">where <span class="math notranslate nohighlight">\(\phi_i, i=0...,,M-1\)</span> are the basis functions of <cite>Vh</cite> like in equation (ref{equation3}), and <span class="math notranslate nohighlight">\(M = \mathtt{Vh.ndof}\)</span> is the number of degree of freedom (i.e. the dimension of the space <cite>Vh</cite>).</p>
+<p class="last">where <span class="math notranslate nohighlight">\(\phi_i, i=0...,,M-1\)</span> are the basis functions of <cite>Vh</cite> like in equation :eq: <cite>equation3</cite>, and <span class="math notranslate nohighlight">\(M = \mathtt{Vh.ndof}\)</span> is the number of degree of freedom (i.e. the dimension of the space <cite>Vh</cite>).</p>
 </div>
 <p>The linear system <a class="reference internal" href="#equation-eqn-equation">(5)</a> is solved by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">UMFPACK</span></code> unless another option is mentioned specifically as in:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1

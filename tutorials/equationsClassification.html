@@ -1950,20 +1950,21 @@ The highest derivation index, here <span class="math notranslate nohighlight">\(
 If <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\varphi\)</span> are vector valued functions, then the PDE is actually a <em>system</em> of PDEs.</p>
 <p>Unless indicated otherwise, here by convention <em>one</em> PDE corresponds to one scalar valued <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\varphi\)</span>.
 If <span class="math notranslate nohighlight">\(F\)</span> is linear with respect to its arguments, then the PDE is said to be <em>linear</em>.</p>
-<p>The general form of a second order, linear scalar PDE is <span class="math notranslate nohighlight">\({\partial^2\varphi\over\partial x_i\partial x_j}\)</span> and <span class="math notranslate nohighlight">\(A:B\)</span> means <span class="math notranslate nohighlight">\(\sum^d_{i,j=1} a_{ij} b_{ij}.\)</span></p>
+<p>The general form of a second order, linear scalar PDE is</p>
 <div class="math notranslate nohighlight">
 \[\alpha\varphi + a\cdot\nabla\varphi + B :\nabla(\nabla\varphi) =
 f{\quad\hbox{ in }\quad}\Omega\subset \mathbb{R}^d,\]</div>
-<p>where <span class="math notranslate nohighlight">\(f(x),\alpha(x)\in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(a(x)\in \mathbb{R}^d\)</span>, <span class="math notranslate nohighlight">\(B(x)\in \mathbb{R}^{d\times d}\)</span> are the PDE <em>coefficients</em>.
+<p>where <span class="math notranslate nohighlight">\({\partial^2\varphi\over\partial x_i\partial x_j}\)</span> and <span class="math notranslate nohighlight">\(A:B\)</span> means <span class="math notranslate nohighlight">\(\sum^d_{i,j=1} a_{ij} b_{ij}.\)</span>,
+<span class="math notranslate nohighlight">\(f(x),\alpha(x)\in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(a(x)\in \mathbb{R}^d\)</span>, <span class="math notranslate nohighlight">\(B(x)\in \mathbb{R}^{d\times d}\)</span> are the PDE <em>coefficients</em>.
 If the coefficients are independent of <span class="math notranslate nohighlight">\(x\)</span>, the PDE is said to have <em>constant coefficients</em>.</p>
 <p>To a PDE we associate a quadratic form, by replacing <span class="math notranslate nohighlight">\(\varphi\)</span> by <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(\partial\varphi/\partial x_i\)</span> by <span class="math notranslate nohighlight">\(z_i\)</span> and <span class="math notranslate nohighlight">\(\partial^2\varphi/\partial x_i\partial x_j\)</span> by <span class="math notranslate nohighlight">\(z_i z_j\)</span>, where <span class="math notranslate nohighlight">\(z\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\alpha + A\cdot z + z^T Bz = f.\]</div>
 <p>If it is the equation of an ellipse (ellipsoid if <span class="math notranslate nohighlight">\(d \geq 2\)</span>), the PDE is said to be <em>elliptic</em>; if it is the equation of a parabola or a hyperbola, the PDE is said to be <em>parabolic</em> or <em>hyperbolic</em>.</p>
-<p>If <span class="math notranslate nohighlight">\(A \equiv 0\)</span>, the degree is no longer 2 but 1, and for reasons that will appear more clearly later, the PDE is still said to be hyperbolic.</p>
+<p>If <span class="math notranslate nohighlight">\(B \equiv 0\)</span>, the degree is no longer 2 but 1, and for reasons that will appear more clearly later, the PDE is still said to be hyperbolic.</p>
 <p>These concepts can be generalized to systems, by studying whether or not the polynomial system <span class="math notranslate nohighlight">\(P(z)\)</span> associated with the PDE system has branches at infinity (ellipsoids have no branches at infinity, paraboloids have one, and hyperboloids have several).</p>
 <p>If the PDE is not linear, it is said to be <em>non-linear</em>.
-Those are said to be locally elliptic, parabolic, or hyperbolic according to the type of the linearized equation.</p>
+These are said to be locally elliptic, parabolic, or hyperbolic according to the type of the linearized equation.</p>
 <p>For example, for the non-linear equation</p>
 <div class="math notranslate nohighlight">
 \[{\partial^2\varphi\over\partial t^2} - {\partial\varphi\over\partial x}{\partial^2\varphi\over\partial x^2} = 1\]</div>
@@ -2019,18 +2020,18 @@ Such information is called a <em>boundary condition</em>.</p>
 \[\varphi(x) \ \hbox{given},\ \forall x\in \Gamma,\]</div>
 <p>is called a <em>Dirichlet boundary condition</em>. The <em>Neumann</em> condition is</p>
 <div class="math notranslate nohighlight">
-\[{\partial\varphi\over\partial \mathbf{n}}(x) \ \hbox{given on }\
-\Gamma \hbox{ (or } \mathbf{n}\cdot B\nabla\varphi,\hbox{given on }\
+\[{\partial\varphi\over\partial \boldsymbol{n}}(x) \ \hbox{given on }\
+\Gamma \hbox{ (or } \boldsymbol{n}\cdot B\nabla\varphi,\hbox{given on }\
 \Gamma\hbox{ for a general second order PDE)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is the normal at <span class="math notranslate nohighlight">\(x\in\Gamma\)</span> directed towards the exterior of <span class="math notranslate nohighlight">\(\Omega\)</span> (by definition <span class="math notranslate nohighlight">\({\partial\varphi\over\partial \mathbf{n}}=\nabla\varphi\cdot \mathbf{n}\)</span>).</p>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{n}\)</span> is the normal at <span class="math notranslate nohighlight">\(x\in\Gamma\)</span> directed towards the exterior of <span class="math notranslate nohighlight">\(\Omega\)</span> (by definition <span class="math notranslate nohighlight">\({\partial\varphi\over\partial \boldsymbol{n}}=\nabla\varphi\cdot \boldsymbol{n}\)</span>).</p>
 <p>Another classical condition, called a <em>Robin</em> (or <em>Fourier</em>) condition is written as:</p>
 <div class="math notranslate nohighlight">
-\[\varphi(x) + \beta(x) {\partial\varphi\over\partial n}(x) \ \hbox{given on}\ \Gamma.\]</div>
+\[\varphi(x) + \beta(x) {\partial\varphi\over\partial \boldsymbol{n}}(x) \ \hbox{given on}\ \Gamma.\]</div>
 <p>Finding a set of boundary conditions that defines a unique <span class="math notranslate nohighlight">\(\varphi\)</span> is a difficult art.</p>
 <p>In general, an elliptic equation is well posed (<em>i.e.</em> <span class="math notranslate nohighlight">\(\varphi\)</span> is unique) with one Dirichlet, Neumann or Robin condition on the whole boundary.</p>
 <p>Thus, Laplace’s equation is well posed with a Dirichlet or Neumann condition but also with :</p>
 <div class="math notranslate nohighlight">
-\[\varphi \ \hbox{given on}\ \Gamma_1,\ {\partial\varphi\over\partial n} \ \hbox{given on}\ \Gamma_2, \ \Gamma_1\cup\Gamma_2 =\Gamma,\ {\dot{\Gamma_1}\cap\dot{\Gamma_2}} =\emptyset.\]</div>
+\[\varphi \ \hbox{given on}\ \Gamma_1,\ {\partial\varphi\over\partial \boldsymbol{n}} \ \hbox{given on}\ \Gamma_2, \ \Gamma_1\cup\Gamma_2 =\Gamma,\ {\dot{\Gamma_1}\cap\dot{\Gamma_2}} =\emptyset.\]</div>
 <p>Parabolic and hyperbolic equations rarely require boundary conditions on all of <span class="math notranslate nohighlight">\(\Gamma\times]0,T[\)</span>.
 For instance, the heat equation is well posed with :</p>
 <div class="math notranslate nohighlight">

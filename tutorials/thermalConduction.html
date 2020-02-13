@@ -1943,7 +1943,7 @@ In the plane perpendicular to the plate at <span class="math notranslate nohighl
 \[\begin{split}\begin{array}{rcl}
     \partial_t u -\nabla\cdot(\kappa\nabla u) &amp;= 0 &amp; \hbox{ in } \Omega\times(0,T)\\
     u(x,y,0) &amp;= u_0+x u_1 &amp;\\
-    \kappa\frac{\partial u}{\partial n} +\alpha(u-u_e) &amp;= 0 &amp; \hbox{ on } \Gamma\times(0,T)
+    \kappa\frac{\partial u}{\partial \boldsymbol{n}} +\alpha(u-u_e) &amp;= 0 &amp; \hbox{ on } \Gamma\times(0,T)
 \end{array}\end{split}\]</div>
 <p>Here the diffusion <span class="math notranslate nohighlight">\(\kappa\)</span> will take two values, one below the middle horizontal line and ten times less above, so as to simulate a thermostat.</p>
 <p>The term <span class="math notranslate nohighlight">\(\alpha(u-u_e)\)</span> accounts for the loss of temperature by convection in air.
@@ -2081,7 +2081,7 @@ We take the convention of numbering of the edges as in <code class="code freefem
     u(t=0) &amp;= u_0 + \frac z{L_z} (u_1-u)&amp;\\
     u|_{\Gamma_4} &amp;= u_0&amp;\\
     u|_{\Gamma_2} &amp;= u_1&amp;\\
-    \alpha(u-u_e) + {\partial u\over \partial n} |_{\Gamma_1\cup\Gamma_3} &amp;= 0&amp;
+    \alpha(u-u_e) + {\partial u\over \partial\boldsymbol{n}} |_{\Gamma_1\cup\Gamma_3} &amp;= 0&amp;
 \end{array}\end{split}\]</div>
 <p>Note that the PDE has been multiplied by <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <p>After discretization in time with an implicit scheme, with time steps <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">dt</span></code>, in the <strong>FreeFEM</strong> syntax <span class="math notranslate nohighlight">\(r\)</span> becomes <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> becomes <span class="math notranslate nohighlight">\(y\)</span> and the problem is:</p>
@@ -2125,11 +2125,11 @@ Still one can prove existence and uniqueness for <span class="math notranslate n
 <p>Heat loss through radiation is a loss proportional to the absolute temperature to the fourth power (Stefan’s Law).
 This adds to the loss by convection and gives the following boundary condition:</p>
 <div class="math notranslate nohighlight">
-\[\kappa{\partial u\over \partial n} +\alpha(u-u_e) + c[(u + 273)^4 - (u_e+273)^4] = 0\]</div>
+\[\kappa{\partial u\over \partial\boldsymbol{n}} +\alpha(u-u_e) + c[(u + 273)^4 - (u_e+273)^4] = 0\]</div>
 <p>The problem is nonlinear, and must be solved iteratively.
 If <span class="math notranslate nohighlight">\(m\)</span> denotes the iteration index, a semi-linearization of the radiation condition gives</p>
 <div class="math notranslate nohighlight">
-\[{\partial u^{m+1}\over \partial n} + \alpha(u^{m+1}-u_e)+ c(u^{m+1}-u_e)
+\[{\partial u^{m+1}\over \partial\boldsymbol{n}} + \alpha(u^{m+1}-u_e)+ c(u^{m+1}-u_e)
 (u^m+u_e +546) ((u^m + 273)^2 + (u_e+273)^2) = 0,\]</div>
 <p>because we have the identity <span class="math notranslate nohighlight">\(a^4 - b^4 = (a-b)(a+b)(a^2+b^2)\)</span>.</p>
 <p>The iterative process will work with <span class="math notranslate nohighlight">\(v=u-u_e\)</span>.</p>
