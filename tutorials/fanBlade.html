@@ -77,7 +77,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#compilation-on-windows">Compilation on Windows</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#freefem-continuous-integration"><strong>FreeFEM</strong> continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#environment-variables-and-init-file">Environment variables and init file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#coloring-syntax-freefem">Coloring Syntax FreeFem++</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#atom">Atom</a></li>
@@ -135,7 +135,6 @@
 <li class="toctree-l2"><a class="reference internal" href="rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with <strong>FreeFEM</strong> but it requires programming.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="elasticity.html">The System of elasticity</a></li>
@@ -1937,8 +1936,8 @@ We also learn how to manipulate the region indicator and see how smooth is the p
 <p><strong>Incompressible flow</strong></p>
 <p>Without viscosity and vorticity incompressible flows have a velocity given by:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}u=\left(\begin{matrix}{\partial \psi \over \partial x_{2} }\\ -{\partial \psi
-\over \partial x_{1}} \end{matrix}\right), \quad
+\[\begin{split}\boldsymbol{u}=\left(\begin{matrix}{\partial \psi \over \partial x }\\
+-\partial \psi \over \partial y \end{matrix}\right), \quad
 \mbox{ where }\psi\mbox{ is solution of }\quad \Delta \psi =0\end{split}\]</div>
 <p>This equation expresses both incompressibility (<span class="math notranslate nohighlight">\(\nabla\cdot u=0\)</span>) and absence of vortex (<span class="math notranslate nohighlight">\(\nabla\times u =0\)</span>).</p>
 <p>As the fluid slips along the walls, normal velocity is zero, which means that <span class="math notranslate nohighlight">\(\psi\)</span> satisfies:</p>
@@ -1949,10 +1948,10 @@ We also learn how to manipulate the region indicator and see how smooth is the p
 <p>Let us consider a wing profile <span class="math notranslate nohighlight">\(S\)</span> in a uniform flow.
 Infinity will be represented by a large circle <span class="math notranslate nohighlight">\(C\)</span> where the flow is assumed to be of uniform velocity; one way to model this problem is to write:</p>
 <div class="math notranslate nohighlight">
-\[\Delta \psi =0 ~\hbox{~in~}~ \Omega, \qquad
-\psi |_{S}=0, \quad
-\psi|_{C}= {u_\infty}y\]</div>
-<p>where <span class="math notranslate nohighlight">\(\partial\Omega=C\cup S\)</span></p>
+\[\Delta \psi =0 \hbox{ in } \Omega, \qquad
+\psi |_{S}=-l, \quad
+\psi|_{C}= {\boldsymbol{u}_\infty}.\boldsymbol{x}^\perp\]</div>
+<p>where <span class="math notranslate nohighlight">\(\partial\Omega=C\cup S\)</span> and <span class="math notranslate nohighlight">\(l\)</span> is the lift force.</p>
 <p><strong>The NACA0012 Airfoil</strong></p>
 <p>An equation for the upper surface of a NACA0012 (this is a classical wing profile in aerodynamics) is:</p>
 <div class="math notranslate nohighlight">
@@ -1982,29 +1981,31 @@ Infinity will be represented by a large circle <span class="math notranslate noh
 23
 24
 25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Parameters</span>
-<span class="kt">real</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
-
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Parameters</span>
+<span class="kt">int</span>  <span class="n">S</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span><span class="c1">// wing label</span>
+<span class="c1">// u infty</span>
+<span class="kt">real</span> <span class="n">theta</span> <span class="o">=</span> <span class="mi">8</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">;</span><span class="c1">// // 1 degree on incidence =&gt;  lift</span>
+<span class="kt">real</span> <span class="n">lift</span> <span class="o">=</span> <span class="n">theta</span><span class="o">*</span><span class="mf">0.151952</span><span class="o">/</span><span class="mf">0.0872665</span><span class="p">;</span> <span class="c1">//  lift approximation formula</span>
+<span class="kt">real</span>  <span class="n">uinfty1</span><span class="o">=</span> <span class="nf">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">uinfty2</span><span class="o">=</span> <span class="nf">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
 <span class="c1">// Mesh</span>
+<span class="kt">func</span> <span class="n">naca12</span> <span class="o">=</span> <span class="mf">0.17735</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="kr">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.075597</span><span class="o">*</span><span class="kr">x</span> <span class="o">-</span> <span class="mf">0.212836</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17363</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.06254</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">^</span><span class="mi">4</span><span class="p">);</span>
 <span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
-<span class="kt">border</span> <span class="nf">Splus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.17735</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="kp">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.075597</span><span class="o">*</span><span class="kp">t</span>
-   <span class="o">-</span> <span class="mf">0.212836</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17363</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.06254</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">4</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
-<span class="kt">border</span> <span class="nf">Sminus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="p">(</span><span class="mf">0.17735</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="kp">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.075597</span><span class="o">*</span><span class="kp">t</span>
-   <span class="o">-</span><span class="mf">0.212836</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17363</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.06254</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">4</span><span class="p">));</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">Splus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="n">naca12</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">Sminus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="n">naca12</span><span class="p">;</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
 <span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">Splus</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="o">+</span> <span class="n">Sminus</span><span class="p">(</span><span class="mi">70</span><span class="p">));</span>
 
 <span class="c1">// Fespace</span>
-<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
-<span class="n">Vh</span> <span class="n">psi</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
-
+<span class="kt">fespace</span> <span class="nf">Xh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
+<span class="n">Xh</span> <span class="n">psi</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+<span class="kt">macro</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span><span class="c1">// def of grad operator</span>
 <span class="c1">// Solve</span>
-<span class="kt">solve</span> <span class="nf">potential</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="kt">solve</span> <span class="n">potential</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Th</span><span class="p">)(</span>
-        <span class="nf">dx</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-      <span class="o">+</span><span class="nf">dy</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">grad</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">grad</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="c1">//  scalar product</span>
    <span class="p">)</span>
-   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">psi</span> <span class="o">=</span> <span class="kr">y</span><span class="p">)</span>
-   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">psi</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">psi</span> <span class="o">=</span> <span class="p">[</span><span class="n">uinfty1</span><span class="p">,</span><span class="n">uinfty2</span><span class="p">]</span><span class="o">&#39;*</span><span class="p">[</span><span class="kr">y</span><span class="p">,</span><span class="o">-</span><span class="kr">x</span><span class="p">])</span>
+   <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">psi</span><span class="o">=-</span><span class="n">lift</span><span class="p">)</span> <span class="c1">// to get a correct value</span>
    <span class="p">;</span>
 
 <span class="nf">plot</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="kp">wait</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
@@ -2019,8 +2020,7 @@ To obtain such a plot use the interactive graphic command: “+” and p.</span>
 </div>
 <div style="width: 49%" class="subfigure" id="id2">
 <span id="figfantemperature"></span><a class="reference internal image-reference" href="../_images/potential_heat.png"><img alt="PotentialHeat" src="../_images/potential_heat.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).
-Note that an incidence angle has been added here.</span></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).</span></p>
 </div>
 <p class="caption"><span class="caption-text">The NACA0012 Airfoil</span></p>
 </div><div class="section" id="heat-convection-around-the-airfoil">
@@ -2070,30 +2070,18 @@ Furthermore there is convection of heat by the flow, hence the term <span class=
 36
 37
 38
-39
-40
-41
-42
-43
-44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Parameters</span>
-<span class="kt">real</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Parameters</span>
 <span class="kt">real</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">;</span>
 <span class="kt">real</span> <span class="n">nbT</span><span class="o">=</span><span class="mi">50</span><span class="p">;</span>
 
 <span class="c1">// Mesh</span>
-<span class="kt">border</span> <span class="nf">C</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=</span><span class="mf">5.</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);}</span>
-<span class="kt">border</span> <span class="nf">Splus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.17735</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="kp">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.075597</span><span class="o">*</span><span class="kp">t</span>
-   <span class="o">-</span> <span class="mf">0.212836</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17363</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.06254</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">4</span><span class="p">);</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
-<span class="kt">border</span> <span class="nf">Sminus</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="p">(</span><span class="mf">0.17735</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="kp">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.075597</span><span class="o">*</span><span class="kp">t</span>
-   <span class="o">-</span><span class="mf">0.212836</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.17363</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.06254</span><span class="o">*</span><span class="p">(</span><span class="kp">t</span><span class="o">^</span><span class="mi">4</span><span class="p">));</span> <span class="kr">label</span><span class="o">=</span><span class="n">S</span><span class="p">;}</span>
-<span class="kt">border</span> <span class="nf">D</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="o">+</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mf">0.</span><span class="p">;}</span> <span class="c1">// Added to have a fine mesh at trail</span>
+<span class="kt">border</span> <span class="nf">D</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=+</span><span class="nf">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;}</span> <span class="c1">// Added to have a fine mesh at trail</span>
 <span class="kt">mesh</span> <span class="n">Sh</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="o">+</span> <span class="n">Splus</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">Sminus</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">D</span><span class="p">(</span><span class="mi">200</span><span class="p">));</span>
 <span class="kt">int</span> <span class="n">steel</span><span class="o">=</span><span class="n">Sh</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="kr">region</span><span class="p">,</span> <span class="n">air</span><span class="o">=</span><span class="n">Sh</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="kr">region</span><span class="p">;</span>
 
 <span class="c1">// Fespaces</span>
 <span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
-<span class="n">Vh</span> <span class="n">psi</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+
 
 <span class="kt">fespace</span> <span class="nf">Wh</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
 <span class="n">Wh</span> <span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
@@ -2108,7 +2096,7 @@ Furthermore there is convection of heat by the flow, hence the term <span class=
 <span class="kt">problem</span> <span class="nf">thermic</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
    <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Sh</span><span class="p">)(</span>
         <span class="n">v</span><span class="o">*</span><span class="n">vv</span><span class="o">/</span><span class="n">dt</span>
-      <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dx</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span> <span class="o">+</span> <span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="nf">dy</span><span class="p">(</span><span class="n">vv</span><span class="p">))</span>
+      <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">grad</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
       <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="n">u2</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="n">vv</span>
    <span class="p">)</span>
    <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Sh</span><span class="p">)(</span>

@@ -77,7 +77,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><strong>FreeFEM</strong> continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#atom">Atom</a></li>
@@ -135,7 +135,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rotatingHill.html">Pure Convection : The Rotating Hill</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/rotatingHill.html#solution-by-a-characteristics-galerkin-method">Solution by a Characteristics-Galerkin Method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/rotatingHill.html#solution-by-discontinuous-galerkin-fem">Solution by Discontinuous-Galerkin FEM</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/rotatingHill.html#finite-volume-methods-can-also-be-handled-with-freefem-but-it-requires-programming"><strong>Finite Volume Methods</strong> can also be handled with <strong>FreeFEM</strong> but it requires programming.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/elasticity.html">The System of elasticity</a></li>
@@ -1894,7 +1893,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-binaries-package">Using binaries package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compiling-source-code">Compiling source code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><strong>FreeFEM</strong> continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a></li>
 </ul>
@@ -2375,31 +2374,23 @@ Repeatedly run the following command until it says there are no further updates.
 <ol class="arabic" start="5">
 <li><p class="first">Now that MSYS2 is fully up-to-date, install the following dependancies</p>
 <ul class="simple">
-<li>for 64bits system (all <em>FreeFEM</em> release version):</li>
+<li>for 64 bit systems:</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf automake-wrapper bash bash-completion <span class="se">\</span>
-  bison bsdcpio bsdtar bzip2 coreutils curl dash file filesystem <span class="se">\</span>
-  findutils flex gawk gcc gcc-fortran gcc-libs grep gzip inetutils <span class="se">\</span>
-  info less lndir make man-db git mingw-w64-x86_64-freeglut <span class="se">\</span>
-  mingw-w64-x86_64-toolchain  mingw-w64-x86_64-gsl mingw-w64-x86_64-hdf5 <span class="se">\</span>
-  mingw-w64-x86_64-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
-  msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch <span class="se">\</span>
-  pax-git python perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> <span class="se">\</span>
-  tzcode unzip util-linux which mingw-w64-x86_64-libmicroutils <span class="se">\</span>
-  mingw-w64-x86_64-arpack cmake python2
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -S autoconf make automake-wrapper bison git cmake <span class="se">\</span>
+  mingw-w64-x86_64-freeglut mingw-w64-x86_64-toolchain <span class="se">\</span>
+  mingw-w64-x86_64-openblas patch python perl pkg-config pkgfile <span class="se">\</span>
+  rebase tar <span class="nb">time</span> tzcode unzip which mingw-w64-x86_64-libmicroutils <span class="se">\</span>
+  --ignore mingw-w64-x86_64-gcc-ada --ignore mingw-w64-x86_64-gcc-objc <span class="se">\</span>
+  --ignore mingw-w64-x86_64-gdb --noconfirm
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li>for 32bits system (less <em>FreeFEM</em> release V4 is not currently supported):</li>
+<li>for 32 bit systems (<strong>FreeFEM</strong> lower than version 4):</li>
 </ul>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -2417,11 +2408,11 @@ Repeatedly run the following command until it says there are no further updates.
   mingw-w64-i686-openblas mintty msys2-keyring msys2-launcher-git <span class="se">\</span>
   msys2-runtime ncurses pacman pacman-mirrors pactoys-git patch pax-git <span class="se">\</span>
   perl pkg-config pkgfile rebase sed tar tftp-hpa <span class="nb">time</span> tzcode unzip <span class="se">\</span>
-          util-linux which
+  util-linux which
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Open a <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code> for old 32 bits <strong>FreeFEM</strong> version) and compile the <strong>FreeFEM</strong> source</p>
+<li><p class="first">Open a <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code> for old 32 bit <strong>FreeFEM</strong> version) and compile the <strong>FreeFEM</strong> source</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -2452,7 +2443,7 @@ are in <code class="docutils literal highlight highlight-freefem"><span></span>C
 </div>
 </div>
 <div class="section" id="freefem-continuous-integration">
-<h2><em>FreeFEM</em> continuous integration<a class="headerlink" href="#freefem-continuous-integration" title="Permalink to this headline"> </a></h2>
+<h2><strong>FreeFEM</strong> continuous integration<a class="headerlink" href="#freefem-continuous-integration" title="Permalink to this headline"> </a></h2>
 <p>The Inria Jenkins platform is used for the CI/CD integration of the source code.</p>
 <p>Compilation results of the develop branch by OS type and configuration of FreeFEM are here</p>
 <table border="1" class="docutils">
@@ -2637,7 +2628,7 @@ freefem++.pref
 <li><a class="reference internal" href="#compilation-on-windows">Compilation on Windows</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#freefem-continuous-integration"><em>FreeFEM</em> continuous integration</a></li>
+<li><a class="reference internal" href="#freefem-continuous-integration"><strong>FreeFEM</strong> continuous integration</a></li>
 <li><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
 <li><a class="reference internal" href="#coloring-syntax-freefem">Coloring Syntax FreeFem++</a><ul>
 <li><a class="reference internal" href="#atom">Atom</a></li>
