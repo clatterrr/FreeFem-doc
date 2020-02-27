@@ -8688,9 +8688,6 @@ The parameters for this command line are:
 \sphinxcode{\sphinxupquote{fregion=}} is an integer function given the new value of the region.
 
 \item {} 
-\sphinxcode{\sphinxupquote{rmInternalEdges=}} is a boolean, equal true to remove the internal edges.
-
-\item {} 
 \sphinxcode{\sphinxupquote{rmledges=}} is a vector of integer, where edge’s label given are remove of the mesh
 
 \end{itemize}
@@ -9028,15 +9025,15 @@ Example of using
 
 \paragraph{The command \sphinxstyleemphasis{change}}
 \label{\detokenize{documentation/mesh-generation:id15}}
-Equivalent for a 2d or 3d mesh, the command \sphinxcode{\sphinxupquote{change}} changes the label of elements and border elements of a \sphinxcode{\sphinxupquote{meshS}}.
+The command \sphinxcode{\sphinxupquote{change}} changes the label of elements and border elements of a \sphinxcode{\sphinxupquote{meshL}}.
 
 The parameters for this command line are:
 \begin{itemize}
 \item {} 
-\sphinxcode{\sphinxupquote{reftri=}} is a vector of integer that contains successive pairs of the old label number to the new label number for elements.
+\sphinxcode{\sphinxupquote{refedge=}} is a vector of integer that contains successive pairs of the old label number to the new label number for elements.
 
 \item {} 
-\sphinxcode{\sphinxupquote{refedge=}} is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.
+\sphinxcode{\sphinxupquote{refpoint=}} is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.
 
 \item {} 
 \sphinxcode{\sphinxupquote{flabel=}} is an integer function given the new value of the label.
@@ -9045,10 +9042,7 @@ The parameters for this command line are:
 \sphinxcode{\sphinxupquote{fregion=}} is an integer function given the new value of the region.
 
 \item {} 
-\sphinxcode{\sphinxupquote{rmInternalEdges=}} is a boolean, equal true to remove the internal edges.
-
-\item {} 
-\sphinxcode{\sphinxupquote{rmledges=}} is a vector of integer, where edge’s label given are remove of the mesh
+\sphinxcode{\sphinxupquote{rmlpoint=}} is a vector of integer, where edge’s label given are remove of the mesh
 
 \end{itemize}
 
@@ -9097,6 +9091,28 @@ For the moment, the case of no manifold mesh are not considered in FreeFEM. To c
 \paragraph{The commands \sphinxstyleemphasis{rebuildBorder}}
 \label{\detokenize{documentation/mesh-generation:the-commands-rebuildborder}}
 This operator, used in the last example, allows to reconstruted the border elements following a special criteria \sphinxcode{\sphinxupquote{ridgeangledetection}}. By default, it value is \(\frac{8}{9}*arctan(1)\approx40°\), the diedral angle for a decahedron.
+
+
+\subsubsection{The commands \sphinxstyleemphasis{checkmesh}}
+\label{\detokenize{documentation/mesh-generation:the-commands-checkmesh}}
+This function is avalaible for all 3D meshes. It checkes and validates the a given mesh, allows to remove duplicate vertices and/or elements and border elements. The possible arguments are
+\begin{itemize}
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{precismesh}} this parameter is the criteria to define two merging points.}] \leavevmode
+By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of \(\Omega\)
+
+\end{description}
+
+\item {} 
+\sphinxcode{\sphinxupquote{removeduplicate=}} is a boolean, allowing remove the duplicated elements and border elements
+
+\end{itemize}
+
+Example:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{k+kt}{mesh3} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{checkmesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
 
 
 \subsubsection{TetGen: A tetrahedral mesh generator}
