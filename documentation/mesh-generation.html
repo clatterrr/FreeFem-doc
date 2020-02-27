@@ -253,7 +253,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#id14">The command <em>movemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id15">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#tottototototot">tottototototot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#glue-of-meshl-meshes">Glue of meshL meshes</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
@@ -5715,10 +5715,9 @@ With this function, the constructed border mesh contains the full geometric desc
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="tottototototot">
-<h4>tottototototot<a class="headerlink" href="#tottototototot" title="Permalink to this headline"> </a></h4>
-<p>An assembling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> is possible thanks to the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code>.
-The result returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, with caution of the right orientation at the merged interfaces. Here, the function :freefem:<a href="#id16"><span class="problematic" id="id17">`</span></a>checkMesh`can be called.</p>
+<div class="section" id="glue-of-meshl-meshes">
+<h4>Glue of meshL meshes<a class="headerlink" href="#glue-of-meshl-meshes" title="Permalink to this headline"> </a></h4>
+<p>An assembling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> is possible thanks to the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code>. The result returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, with caution of the right orientation at the merged interfaces. Here, the function :freefem:<a href="#id16"><span class="problematic" id="id17">`</span></a>checkMesh`can be called.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -5733,7 +5732,7 @@ The result returns a <code class="code freefem docutils literal highlight highli
  <span class="kt">meshL</span> <span class="n">Th4</span> <span class="o">=</span> <span class="nf">segment</span><span class="p">(</span><span class="kr">n</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="kr">x</span><span class="p">],</span><span class="kp">orientation</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 
  <span class="kt">meshL</span> <span class="n">Th</span> <span class="o">=</span> <span class="n">Th1</span><span class="o">+</span><span class="n">Th2</span><span class="o">+</span><span class="n">Th3</span><span class="o">+</span><span class="n">Th4</span><span class="p">;</span>
- <span class="n">Th</span><span class="o">=</span><span class="n">rebuildBorder</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">ridgeangledetection</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mf">2.</span><span class="o">+</span><span class="mf">0.0001</span><span class="p">);</span>
+ <span class="n">Th</span><span class="o">=</span><span class="n">rebuildBorder</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="kp">ridgeangledetection</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mf">2.</span><span class="o">+</span><span class="mf">0.0001</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition warning">
@@ -5743,7 +5742,7 @@ The result returns a <code class="code freefem docutils literal highlight highli
 </div>
 <div class="section" id="the-commands-rebuildborder">
 <h4>The commands <em>rebuildBorder</em><a class="headerlink" href="#the-commands-rebuildborder" title="Permalink to this headline"> </a></h4>
-<p>This operator, used in the last example, allows to reconstruted the border elements following a special criteria <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ridgeangledetection</span></code>. By default, it value is <span class="math notranslate nohighlight">\(\frac{8}{9}*arctan(1)\approx40°\)</span>, the diedral angle for a decahedron.</p>
+<p>This operator, used in the last example, allows to reconstruted the border elements following a special criteria <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">ridgeangledetection</span></code>. By default, it value is <span class="math notranslate nohighlight">\(\frac{8}{9}*arctan(1)\approx40°\)</span>, the diedral angle for a decahedron.</p>
 </div>
 </div>
 <div class="section" id="tetgen-a-tetrahedral-mesh-generator">
@@ -7860,7 +7859,7 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#id14">The command <em>movemesh</em></a></li>
 <li><a class="reference internal" href="#id15">The command <em>change</em></a></li>
 <li><a class="reference internal" href="#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
-<li><a class="reference internal" href="#tottototototot">tottototototot</a></li>
+<li><a class="reference internal" href="#glue-of-meshl-meshes">Glue of meshL meshes</a></li>
 <li><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
