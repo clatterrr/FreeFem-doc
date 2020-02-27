@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Feb 22, 2020}
+\date{Feb 27, 2020}
 \release{4.5}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -209,7 +209,7 @@
 
 \chapter{\sphinxstylestrong{Introduction}}
 \label{\detokenize{introduction/index:introduction}}\label{\detokenize{introduction/index::doc}}
-\sphinxstylestrong{FreeFEM} is a partial differential equation solver for non-linear multi-physics systems in 2D and 3D.
+\sphinxstylestrong{FreeFEM} is a partial differential equation solver for non-linear multi-physics systems in 1D, 2D, 3D and 3D border domains (surface and curve).
 
 Problems involving partial differential equations from several branches of physics, such as fluid-structure interactions, require interpolations of data on several meshes and their manipulation within one program.
 \sphinxstylestrong{FreeFEM} includes a fast interpolation algorithm and a language for the manipulation of data on multiple meshes.
@@ -278,13 +278,19 @@ Problems involving partial differential equations from several branches of physi
 \sphinxhref{http://www.tetgen.org/}{TetGen V1.5.1}
 
 \item {} 
-\sphinxhref{https://www.mcs.anl.gov/petsc/}{PETSc V3.11.2}
+\sphinxhref{https://www.mcs.anl.gov/petsc/}{PETSc V3.12.4}
 
 \item {} 
 \sphinxhref{https://pierremarchand.netlify.com/project/htool/}{HTool}
 
 \item {} 
 \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM}
+
+\item {} 
+\sphinxhref{https://github.com/PierreMarchand20/BemTool}{BemTool}
+
+\item {} 
+\sphinxhref{https://github.com/MmgTools/ParMmg}{ParMmg}
 
 \end{itemize}
 
@@ -307,88 +313,67 @@ Problems involving partial differential equations from several branches of physi
 \begin{center}\sphinxincludegraphics[scale=0.4]{{logo_cnrs_SU_UP}.png}  \sphinxincludegraphics[scale=0.2]{{inr_logo_rouge_300}.jpg}  \sphinxincludegraphics[scale=0.6]{{logo_LJLL}.png}    \sphinxincludegraphics[scale=0.45]{{logo_alpines}.png}
 \end{center}
 
-\section{Version 4: new features}
-\label{\detokenize{introduction/new-features:version-4-new-features}}\label{\detokenize{introduction/new-features::doc}}
+\section{Version 4.5: new features}
+\label{\detokenize{introduction/new-features:version-4-5-new-features}}\label{\detokenize{introduction/new-features::doc}}
 \begin{DUlineblock}{0em}
 \item[] 
 \item[] 
 \end{DUlineblock}
 
 
-\subsection{Hash Matrix}
-\label{\detokenize{introduction/new-features:hash-matrix}}
-A new internal managment of matrix inside the FreeFEM core has been introduced in FreeFEM 4.0, for better performance.
+\subsection{Release, binaries packages}
+\label{\detokenize{introduction/new-features:release-binaries-packages}}\begin{itemize}
+\item {} 
+Since the version 4.5, the FreeFEM binary packages provides with a compiled PETSc library.
+
+\item {} 
+FreeFEM is now interfaced with ParMmg.
+
+\end{itemize}
+
+
+\subsection{New meshes and FEM border}
+\label{\detokenize{introduction/new-features:new-meshes-and-fem-border}}
+After Surface FEM, Line FEM is possible with a new mesh type \sphinxcode{\sphinxupquote{meshL}}, \sphinxcode{\sphinxupquote{P0}} \sphinxcode{\sphinxupquote{P1}} \sphinxcode{\sphinxupquote{P2}} \sphinxcode{\sphinxupquote{P1dc}} FE, basic FEM, mesh generation
+This new development allows to treat a 1d problem, such as a problem described on a 3d curve.
 
 
 \bigskip\hrule\bigskip
 
 
-
-\subsection{Surface Finite Element}
-\label{\detokenize{introduction/new-features:surface-finite-element}}
-The surface finite element method is available since FreeFEM V4.2.1. Some examples are given  in examples/3dSurf.
-
-Abstract about Surface FEM in FreeFEM.
+Abstract about Line FEM in FreeFEM.
 \begin{itemize}
 \item {} 
-new \sphinxstylestrong{meshS} type, refer to the section {\hyperref[\detokenize{documentation/mesh-generation:meshstype}]{\sphinxcrossref{\DUrole{std,std-ref}{The type meshS in 3 dimension}}}}
+new \sphinxstylestrong{meshL} type, refer to the section {\hyperref[\detokenize{documentation/mesh-generation:meshstype}]{\sphinxcrossref{\DUrole{std,std-ref}{The type meshL in 3 dimension}}}}
 \begin{itemize}
 \item {} 
-new type of surface mesh: \sphinxcode{\sphinxupquote{meshS}}
+new type of surface mesh: \sphinxcode{\sphinxupquote{meshL}}
 
 \item {} 
-the functionalities on the \sphinxcode{\sphinxupquote{meshS}} type, it is necessary to load the plugin ”msh3”.
+the functionalities on the \sphinxcode{\sphinxupquote{meshL}} type, it is necessary to load the plugin ”msh3”.
 
 \item {} 
-generator of meshS \sphinxcode{\sphinxupquote{square3}}, \sphinxcode{\sphinxupquote{sphere}}, \sphinxcode{\sphinxupquote{ellipsoide}} or from a \sphinxcode{\sphinxupquote{mesh}} using the command \sphinxcode{\sphinxupquote{movemesh23}}.
+generator of meshL \sphinxcode{\sphinxupquote{segment}}, define multi \sphinxcode{\sphinxupquote{border}} and \sphinxcode{\sphinxupquote{buildmesh}} function.
 
 \item {} 
-the old surface \sphinxcode{\sphinxupquote{mesh3}} object is removed and replaced by \sphinxcode{\sphinxupquote{meshS}} type
+basic transformation are avalaible: \sphinxcode{\sphinxupquote{movemesh}}, \sphinxcode{\sphinxupquote{trunc}}, \sphinxcode{\sphinxupquote{extract}}, \sphinxcode{\sphinxupquote{checkmesh}}, \sphinxcode{\sphinxupquote{change}}, \sphinxcode{\sphinxupquote{AddLayers}}, glue of \sphinxcode{\sphinxupquote{meshL}}.
 
-\item {} 
-two possibilities to define a \sphinxcode{\sphinxupquote{meshS}} :
-\begin{itemize}
-\item {} 
-the considered domain is a 3D surface, so naturally the FreeFEM type is a \sphinxcode{\sphinxupquote{meshS}}
-
-\item {} 
-let Th3 be a volume mesh (\sphinxcode{\sphinxupquote{mesh3}}) and its border \(\Gamma\). FreeFEM allows to define the volume part with a \sphinxcode{\sphinxupquote{mesh3}} type, and can extract and generate the entire border surface domain with \sphinxcode{\sphinxupquote{meshS ThS=Th3.Gamma}} or specific borders with \sphinxcode{\sphinxupquote{meshS ThS=extract(Th3,label=llabs)}}.
-
-\end{itemize}
-
-It is possible to build the underlying \sphinxcode{\sphinxupquote{meshS}} from a \sphinxcode{\sphinxupquote{mesh3}} with the function \sphinxcode{\sphinxupquote{buildSurface}}: \sphinxcode{\sphinxupquote{Th3=buildSurface(Th3)}} builds the surface domain associated to the \sphinxcode{\sphinxupquote{mesh3}} Th3.
-
-\item {} 
-link with the \sphinxcode{\sphinxupquote{mesh3}} type
-\begin{itemize}
-\item {} 
-by the command \sphinxcode{\sphinxupquote{meshS}} ThS=Th3. \sphinxcode{\sphinxupquote{Gamma}}
-
-\item {} 
-operator on \sphinxcode{\sphinxupquote{meshS}} type such as \sphinxcode{\sphinxupquote{movemeshS}}, \sphinxcode{\sphinxupquote{trunc}}, \sphinxcode{\sphinxupquote{change}}…
-
-\item {} 
-operator in relation \sphinxcode{\sphinxupquote{mesh3}} / \sphinxcode{\sphinxupquote{meshS}} such as \sphinxcode{\sphinxupquote{extract}}, \sphinxcode{\sphinxupquote{buildSurface}}, gluing of meshS with the operator \sphinxcode{\sphinxupquote{+}}
-
-\item {} 
-\sphinxcode{\sphinxupquote{tetg}} allows to tetrahedralize the interior of the surface mesh with tetgen
-
-\end{itemize}
+It is possible to build the underlying \sphinxcode{\sphinxupquote{meshL}} from a \sphinxcode{\sphinxupquote{meshS}} with the function \sphinxcode{\sphinxupquote{buildBdMesh}}: \sphinxcode{\sphinxupquote{ThS=buildBdMesh(ThS)}} builds the boundary domain associated to the \sphinxcode{\sphinxupquote{meshS}} ThS and extract it by the command \sphinxcode{\sphinxupquote{meshL}} ThL=ThS. \sphinxcode{\sphinxupquote{Gamma}}.
 
 \end{itemize}
 
 \item {} 
-new FESpace with surface finite element type, see the section {\hyperref[\detokenize{documentation/finite-element:surfacepklagrange}]{\sphinxcrossref{\DUrole{std,std-ref}{surface Lagrangian Finite Elements}}}}
+new FESpace with curve finite element type
 
 \end{itemize}
 \begin{itemize}
 \item {} 
-\sphinxcode{\sphinxupquote{FESpace}} \sphinxcode{\sphinxupquote{P0}} \sphinxcode{\sphinxupquote{P1}}, \sphinxcode{\sphinxupquote{P2}}, \sphinxcode{\sphinxupquote{P1b}} Lagrange finite elements
+\sphinxcode{\sphinxupquote{FESpace}} \sphinxcode{\sphinxupquote{P0}} \sphinxcode{\sphinxupquote{P1}}, \sphinxcode{\sphinxupquote{P2}}, \sphinxcode{\sphinxupquote{P1dc}} Lagrange finite elements and possible to add a custumed finite element with the classical method (like a plugin).
 
 \end{itemize}
 \begin{itemize}
 \item {} 
-as in the standard 2d or 3d case, the variational problem associated to surface PDE can be defined by using the keywords
+as in the standard 2d, 3d, surface 3d case, the variational problem associated to surface PDE can be defined by using the keywords
 \begin{itemize}
 \item {} 
 \sphinxcode{\sphinxupquote{problem}}
@@ -397,7 +382,7 @@ as in the standard 2d or 3d case, the variational problem associated to surface 
 \sphinxcode{\sphinxupquote{varf}} to access to matrix and RHS vector
 
 \item {} 
-available operators are \sphinxcode{\sphinxupquote{int1d}}, \sphinxcode{\sphinxupquote{int2d}}, \sphinxcode{\sphinxupquote{on}}
+available operators are \sphinxcode{\sphinxupquote{int1d}}, \sphinxcode{\sphinxupquote{on}} and the operator \sphinxcode{\sphinxupquote{int0d}} to defien a Neumann boundary condition
 
 \end{itemize}
 
@@ -405,10 +390,13 @@ available operators are \sphinxcode{\sphinxupquote{int1d}}, \sphinxcode{\sphinxu
 visualisation tools
 \begin{itemize}
 \item {} 
-plot with \sphinxcode{\sphinxupquote{plot}} of ffglut, \sphinxcode{\sphinxupquote{medit}} meshes meshS and surface solutions
+plot with \sphinxcode{\sphinxupquote{plot}} of ffglut, \sphinxcode{\sphinxupquote{medit}} meshes meshL and solutions
 
 \item {} 
-loading, saving of meshes and solution at freefem’s format
+2d or 3d view, with in 3d the option to visualize the elememt Normal (touch ‘T’) and the deformed domain according to it (touch ‘2’).
+
+\item {} 
+loading, saving of meshes and solution at FreeFEM’s format
 \begin{itemize}
 \item {} 
 “.mesh”  mesh format file of Medit (P. Frey LJLL)
@@ -428,23 +416,20 @@ vtk format for meshes and solutions (load “iovtk”)
 
 \end{itemize}
 
-\begin{sphinxadmonition}{warning}{Warning:}
-Since the release 4.2.1, the surface \sphinxcode{\sphinxupquote{mesh3}} object (list of vertices and border elements, without tetahedra elements) is remplaced by \sphinxcode{\sphinxupquote{meshS}} type.  For a FreeFEM V3 script working with surface meshes, try to change \sphinxcode{\sphinxupquote{mesh3}} by \sphinxcode{\sphinxupquote{meshS}}.
-\end{sphinxadmonition}
-
 
 \bigskip\hrule\bigskip
 
 
 
-\subsection{CMake}
-\label{\detokenize{introduction/new-features:cmake}}
-A compilation process using CMake is under development
+\subsection{Boundary Element Method}
+\label{\detokenize{introduction/new-features:boundary-element-method}}
+Allows to define and solve a 2d/3d BEM formulation and rebuild the associated potential.
+The document is in construction.
 
 
 \section{Installation guide}
 \label{\detokenize{introduction/installation:installation-guide}}\label{\detokenize{introduction/installation::doc}}
-To use FreeFEM, two installation methods are available: user access (binarie package) and access developers (from the source code).
+To use FreeFEM, two installation methods are available: user access (binary package) and access developers (from the source code).
 Follow the section corresponding to your type of installation.
 
 \begin{DUlineblock}{0em}
@@ -453,8 +438,8 @@ Follow the section corresponding to your type of installation.
 \end{DUlineblock}
 
 
-\subsection{Using binaries package}
-\label{\detokenize{introduction/installation:using-binaries-package}}
+\subsection{Using binary package}
+\label{\detokenize{introduction/installation:using-binary-package}}
 First, open the following web page {\hyperref[\detokenize{introduction/download:download}]{\sphinxcrossref{\DUrole{std,std-ref}{download page}}}} and choose your platform: Linux, MacOS or Windows.
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -466,6 +451,10 @@ Install \sphinxstylestrong{FreeFEM} by double-clicking on the appropriate file. 
 
 \subsubsection{Windows installation}
 \label{\detokenize{introduction/installation:windows-installation}}
+\begin{sphinxadmonition}{note}{Note:}
+The windows package is build for Window 7 64bits
+\end{sphinxadmonition}
+
 First download the windows installation executable, then double click to install \sphinxstylestrong{FreeFEM}.
 
 In most cases just answer yes (or type return) to all questions.
@@ -489,24 +478,30 @@ By default, the installed files are in \sphinxcode{\sphinxupquote{C:\textbacksla
 
 \subsubsection{macOS X installation}
 \label{\detokenize{introduction/installation:macos-x-installation}}
-Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the \sphinxcode{\sphinxupquote{FreeFem++.app}} application in the \sphinxcode{\sphinxupquote{/Applications}} directory.
+Download the macOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the \sphinxcode{\sphinxupquote{FreeFem++.app}} application in the \sphinxcode{\sphinxupquote{/Applications}} directory.
 
 If you want terminal access to \sphinxstylestrong{FreeFEM} just copy the file \sphinxcode{\sphinxupquote{FreeFem++}} in a directory of your \sphinxcode{\sphinxupquote{\$PATH}} shell environment variable.
 
 
-\subsubsection{Ubuntu binary installation}
-\label{\detokenize{introduction/installation:ubuntu-binary-installation}}
+\subsubsection{Ubuntu installation}
+\label{\detokenize{introduction/installation:ubuntu-installation}}
 \begin{sphinxadmonition}{note}{Note:}
-The Debian package is build for Ubuntu 18.04
+The Debian package is built for Ubuntu 16.04
 \end{sphinxadmonition}
 
 Beforehand, install the following dependances libraries using the apt tool:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo apt\PYGZhy{}get install libhdf5\PYGZhy{}dev libsuitesparse\PYGZhy{}dev libarpack2\PYGZhy{}dev
+sudo apt\PYGZhy{}get install libgsl\PYGZhy{}dev libhdf5\PYGZhy{}dev
+             liblapack\PYGZhy{}dev libopenmpi\PYGZhy{}dev freeglut3\PYGZhy{}dev
 \end{sphinxVerbatim}
 
-Download the package FreeFEM .deb, install it by double clicking on the icon of the file.
+Download the package FreeFEM .deb, install it by the command
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+dpkg \PYGZhy{}i FreeFEM\PYGZus{}VERSION\PYGZus{}Ubuntu\PYGZus{}withPETSc\PYGZus{}amd64.deb
+\end{sphinxVerbatim}
+
 FreeFEM is directly available in your terminal by the command “FreeFem++”.
 
 
@@ -544,46 +539,41 @@ Thanks to \sphinxhref{https://github.com/stefanhusmann}{Stephan Husmann}
 Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the \sphinxhref{https://developer.apple.com/download/more/}{Apple website}
 
 \item {} 
-Install gcc and gfortran from Homebrew
+Install gfortran from Homebrew
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
- brew install gcc
+ brew install gfortran
 \end{sphinxVerbatim}
 
 \item {} 
-To use \sphinxstylestrong{FreeFEM} parallel version, install the \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi} source code
+To use \sphinxstylestrong{FreeFEM} parallel version, install \sphinxhref{https://www.open-mpi.org/software/ompi/v4.0/}{openmpi}  or  \sphinxhref{http://www.mpich.org/downloads/}{mpich}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{c+c1}{\PYGZsh{} to install openmpi}
  curl \PYGZhy{}L https://download.open\PYGZhy{}mpi.org/release/open\PYGZhy{}mpi/v4.0/openmpi\PYGZhy{}4.0.1.tar.gz \PYGZhy{}\PYGZhy{}output openmpi\PYGZhy{}4.0.1.tar.gz
  tar xf openmpi\PYGZhy{}4.0.1
  \PYG{n+nb}{cd} openmpi\PYGZhy{}4.0.1/
+ \PYG{c+c1}{\PYGZsh{} to install mpich}
+ curl \PYGZhy{}L http://www.mpich.org/static/downloads/3.3.2/mpich\PYGZhy{}3.3.2.tar.gz \PYGZhy{}\PYGZhy{}output mpich\PYGZhy{}3.3.2.tar.gz
+ tar xf mpich\PYGZhy{}3.3.2
+ \PYG{n+nb}{cd} mpich\PYGZhy{}3.3.2
 \end{sphinxVerbatim}
-\begin{itemize}
-\item {} 
-with brew gcc gfortran compilers
-
-\end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=4,stepnumber=1]
- ./configure \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/usr/local
-\end{sphinxVerbatim}
-\begin{itemize}
-\item {} 
-with LLVM gcc and brew gfortran compilers
+ \PYG{c+c1}{\PYGZsh{} with brew gcc gfortran compilers}
+ ./configure \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 
-\end{itemize}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=4,stepnumber=1]
-./configure \PYG{n+nv}{CC}\PYG{o}{=}gcc\PYGZhy{}9 \PYG{n+nv}{CXX}\PYG{o}{=}g++\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/usr/local
+ \PYG{c+c1}{\PYGZsh{} with LLVM gcc and brew gfortran compilers}
+ ./configure \PYG{n+nv}{CC}\PYG{o}{=}gcc\PYGZhy{}9 \PYG{n+nv}{CXX}\PYG{o}{=}g++\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=5,stepnumber=1]
- make
- sudo make install
+ make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
+ make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} install
 \end{sphinxVerbatim}
 
 \item {} 
-Install the required libraries for \sphinxstylestrong{FreeFEM}
+Install the minimal libraries for \sphinxstylestrong{FreeFEM}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 brew install m4 git flex bison
@@ -593,12 +583,11 @@ brew install m4 git flex bison
 If you want build your own configure according your system, install autoconf and automake from Homebrew (optional, see note in step 10)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-brew install autoconf
-brew install automake
+brew install autoconf automake
 \end{sphinxVerbatim}
 
 \item {} 
-To use \sphinxstylestrong{FreeFEM} with its plugins, install rom Homebrew suitesparse, hdf5, cmake, wget
+To use \sphinxstylestrong{FreeFEM} with its plugins, install from Homebrew suitesparse, hdf5, cmake, wget
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 brew install suitesparse hdf5 cmake wget
@@ -612,8 +601,8 @@ curl \PYGZhy{}O http://mirror.cyberbits.eu/gnu/gsl/gsl\PYGZhy{}2.5.tar.gz
 tar zxvf gsl\PYGZhy{}2.5.tar.gz
 \PYG{n+nb}{cd} gsl\PYGZhy{}2.5
 ./configure
-make
-sudo make install
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} install \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \item {} 
@@ -641,16 +630,11 @@ with LLVM gcc and brew gfortran compilers
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9
-\end{sphinxVerbatim}
-\begin{itemize}
-\item {} 
-with brew gcc and brew gfortran compilers
+    // with brew gcc gfortran compilers
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 
-\end{itemize}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}gcc\PYGZhy{}9 \PYG{n+nv}{CXX}\PYG{o}{=}g++\PYGZhy{}9 \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9
+// with LLVM gcc and brew gfortran compilers
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \item {} 
@@ -673,14 +657,14 @@ All the third party packages have their own licence
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \setcounter{enumi}{10}
 \item {} 
-If you want use \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc
+If you want use PETSc/SLEPc and \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods)
 
 \end{enumerate}
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
-make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
+make petsc\PYGZhy{}slepc // add \PYG{n+nv}{SUDO}\PYG{o}{=}sudo \PYG{k}{if} your installation directory is the default /usr/local
 \PYG{n+nb}{cd} \PYGZhy{}
 ./reconfigure
 \end{sphinxVerbatim}
@@ -699,7 +683,7 @@ Build your \sphinxstylestrong{FreeFEM} library and executable
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
-make check
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
 
     .. note:: \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}make check\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`} is optionnally, but advise to check the validity of your **FreeFEM** building
 \end{sphinxVerbatim}
@@ -711,11 +695,11 @@ make check
 \setcounter{enumi}{12}
 \item {} \begin{description}
 \item[{Install the \sphinxstylestrong{FreeFEM} apllication}] \leavevmode
-sudo make install
+make install
 \begin{quote}
 
 \begin{sphinxadmonition}{note}{Note:}
-To install FreeFEM, it is recommanded to change the user ID of your installation directory instead of using SUDO.
+it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your\_installation/src/nw/FreeFem++ and mpi executable here your\_installation/src/mpi/ff-mpirun
 \end{sphinxadmonition}
 \end{quote}
 
@@ -731,18 +715,16 @@ To install FreeFEM, it is recommanded to change the user ID of your installation
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \item {} 
-Install the following packages on you system
+Install the following packages on your system
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 sudo apt\PYGZhy{}get update \PYG{o}{\PYGZam{}\PYGZam{}} sudo apt\PYGZhy{}get upgrade
 sudo apt\PYGZhy{}get install cpp freeglut3\PYGZhy{}dev g++ gcc gfortran \PYG{l+s+se}{\PYGZbs{}}
     m4 make patch pkg\PYGZhy{}config wget python unzip \PYG{l+s+se}{\PYGZbs{}}
-    libopenblas\PYGZhy{}dev liblapack\PYGZhy{}dev libhdf5\PYGZhy{}dev libgsl\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    libscotch\PYGZhy{}dev libfftw3\PYGZhy{}dev libarpack2\PYGZhy{}dev libsuitesparse\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    libmumps\PYGZhy{}seq\PYGZhy{}dev libnlopt\PYGZhy{}dev coinor\PYGZhy{}libipopt\PYGZhy{}dev libgmm++\PYGZhy{}dev libtet1.5\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
-    gnuplot\PYGZhy{}qt autoconf automake autotools\PYGZhy{}dev bison flex gdb valgrind git cmake
+    liblapack\PYGZhy{}dev libhdf5\PYGZhy{}dev libgsl\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
+    autoconf automake autotools\PYGZhy{}dev bison flex gdb git cmake
 
-\PYG{c+c1}{\PYGZsh{} mpich is required for the FreeFem parallel computing version}
+\PYG{c+c1}{\PYGZsh{} mpich is required for the FreeFEM parallel computing version}
 sudo apt\PYGZhy{}get install mpich
 \end{sphinxVerbatim}
 
@@ -773,7 +755,7 @@ if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf Au
 Configure
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -792,11 +774,11 @@ All the third party packages have their own licence
 \end{sphinxadmonition}
 
 \item {} 
-If you want use \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc
+If you want use PETSc/SLEPc and \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
-make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
+make petsc\PYGZhy{}slepc // add \PYG{n+nv}{SUDO}\PYG{o}{=}sudo \PYG{k}{if} your installation directory is the default /usr/local
 \PYG{n+nb}{cd} \PYGZhy{}
 ./reconfigure
 \end{sphinxVerbatim}
@@ -806,25 +788,23 @@ Build your \sphinxstylestrong{FreeFEM} library and executable
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
-make check
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
 \sphinxcode{\sphinxupquote{make check}} is optionnally, but advise to check the validity of your \sphinxstylestrong{FreeFEM} building
 \end{sphinxadmonition}
 
-\end{enumerate}
-\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi .}
-\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
-\setcounter{enumi}{8}
 \item {} 
 Install the executable
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-sudo make install
+make install
 \end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your\_installation/src/nw/FreeFem++ and mpi executable here your\_installation/src/mpi/ff-mpirun
+\end{sphinxadmonition}
 
 \end{enumerate}
 
@@ -892,18 +872,12 @@ All the third party packages have their own licence
 \end{sphinxadmonition}
 
 \item {} 
-Compile petsc \& slepc
+If you want use \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
 make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
 \PYG{n+nb}{cd} \PYGZhy{}
-\end{sphinxVerbatim}
-
-\item {} 
-If you want use \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc
-
-\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 ./reconfigure
 \end{sphinxVerbatim}
 
@@ -948,27 +922,8 @@ We assume your development machine is 64-bit, and you want your compiler to targ
 \def\labelenumi{\theenumi .}
 \makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
 \item {} 
-Install the \sphinxhref{https://www.microsoft.com/en-us/download/details.aspx?id=49926}{Microsoft MPI v7.0 (archived)} (msmpisdk.msi and MSMpiSetup.exe)
+Install the \sphinxhref{https://www.microsoft.com/en-us/download/details.aspx?id=100593}{Microsoft MPI v10.1.2 (archived)} (msmpisdk.msi and MSMpiSetup.exe)
 
-\end{enumerate}
-
-\begin{sphinxadmonition}{note}{Note:}\begin{description}
-\item[{2019/07/07}] \leavevmode\begin{itemize}
-\item {} 
-Microsoft MPI v10.0 isn’t usable in MSYS/mingw64 with gfortran \sphinxhref{https://github.com/Microsoft/Microsoft-MPI/issues/7}{more information here}
-
-\item {} 
-Microsoft MPI v9: mpiexec.exe doesn’t run
-
-\end{itemize}
-
-\end{description}
-\end{sphinxadmonition}
-\begin{enumerate}
-\def\theenumi{\arabic{enumi}}
-\def\labelenumi{\theenumi .}
-\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
-\setcounter{enumi}{1}
 \item {} 
 Download \sphinxhref{http://repo.msys2.org/distrib/msys2-x86\_64-latest.exe}{msys2-x86\_64-latest.exe} (x86\_64 version) and run it.
 
@@ -1046,14 +1001,31 @@ autoreconf \PYGZhy{}i
   \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode \PYG{l+s+se}{\PYGZbs{}}
   \PYG{n+nv}{CXXFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{n+nv}{CFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{l+s+se}{\PYGZbs{}}
   \PYG{n+nv}{FFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
+\end{sphinxVerbatim}
+
+\item {} 
+If you want use \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
+make petsc\PYGZhy{}slepc \PYG{n+nv}{SUDO}\PYG{o}{=}sudo
+\PYG{n+nb}{cd} \PYGZhy{}
+./reconfigure
+\end{sphinxVerbatim}
+
+\item {} 
+Download the 3rd party packages and build your \sphinxstylestrong{FreeFEM} library and executable
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 ./3rdparty/getall \PYGZhy{}a
-make \PYGZhy{}j4
+make
 make check
 make install
 \end{sphinxVerbatim}
 
-The \sphinxstylestrong{FreeFEM} executable (and some other like \sphinxcode{\sphinxupquote{ffmedit}}, …)
-are in \sphinxcode{\sphinxupquote{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin}} (or \sphinxcode{\sphinxupquote{C:\textbackslash{}msys32\textbackslash{}mingw32\textbackslash{}bin}}).
+\begin{sphinxadmonition}{note}{Note:}
+The \sphinxstylestrong{FreeFEM} executable (and some other like \sphinxcode{\sphinxupquote{ffmedit}}, …) are in \sphinxcode{\sphinxupquote{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin}} (or \sphinxcode{\sphinxupquote{C:\textbackslash{}msys32\textbackslash{}mingw32\textbackslash{}bin}}).
+\end{sphinxadmonition}
 
 \end{enumerate}
 
@@ -1817,6 +1789,20 @@ For example, if you forget parenthesis as in:
 \end{sphinxVerbatim}
 
 then you will get the following message from \sphinxstylestrong{FreeFEM}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{l+m}{2} : mesh \PYG{n+nv}{Th} \PYG{o}{=} square\PYG{o}{(}\PYG{l+m}{10},10\PYG{p}{;}
+Error line number \PYG{l+m}{2}, in file bb.edp, before  token \PYG{p}{;}
+parse error
+current \PYG{n+nv}{line} \PYG{o}{=} \PYG{l+m}{2}
+syntax error
+current \PYG{n+nv}{line} \PYG{o}{=} \PYG{l+m}{2}
+Compile error : syntax error
+line number :2, \PYG{p}{;}
+error Compile error : syntax error
+line number :2, \PYG{p}{;}
+\PYG{n+nv}{code} \PYG{o}{=} \PYG{l+m}{1} mpirank: \PYG{l+m}{0}
+\end{sphinxVerbatim}
 
 If you use the same symbol twice as in:
 
@@ -5569,7 +5555,7 @@ Contour (isovalue) and quiver (vector field) plot:
 
 \chapter{Documentation}
 \label{\detokenize{documentation/index:documentation}}\label{\detokenize{documentation/index::doc}}
-The fruit of a long maturing process, \sphinxstylestrong{freefem}, in its last avatar, \sphinxstylestrong{FreeFEM} , is a high level integrated development environment (IDE) for numerically solving partial differential equations (PDE) in dimension 2 and 3.
+The fruit of a long maturing process, \sphinxstylestrong{freefem}, in its last avatar, \sphinxstylestrong{FreeFEM} , is a high level integrated development environment (IDE) for numerically solving partial differential equations (PDE) in dimension 1,2 3 and surface and line 3D.
 It is the ideal tool for teaching the finite element method but it is also perfect for research to quickly test new ideas or multi-physics and complex applications.
 
 \sphinxstylestrong{FreeFEM} has an advanced automatic mesh generator, capable of a posteriori mesh adaptation; it has a general purpose elliptic solver interfaced with fast algorithms, such as the multi-frontal method UMFPACK, SuperLU, MUMPS.
@@ -5879,17 +5865,29 @@ In this section, operators and tools on meshes are presented.
 FreeFEM type for mesh variable:
 \begin{itemize}
 \item {} 
-2d mesh: \sphinxcode{\sphinxupquote{mesh}}
+1D mesh: \sphinxcode{\sphinxupquote{meshL}}
 
 \item {} 
-3d mesh: \sphinxcode{\sphinxupquote{mesh3}}
+2D mesh: \sphinxcode{\sphinxupquote{mesh}}
 
 \item {} 
-3d surface \sphinxcode{\sphinxupquote{meshS}}
+3D volume mesh: \sphinxcode{\sphinxupquote{mesh3}}
+
+\item {} \begin{description}
+\item[{3D border meshes}] \leavevmode\begin{itemize}
+\item {} 
+3D surface \sphinxcode{\sphinxupquote{meshS}}
+
+\item {} 
+3D curve \sphinxcode{\sphinxupquote{meshL}}
 
 \end{itemize}
 
-Through this presentation, the principal commands for the mesh generation and links between \sphinxcode{\sphinxupquote{mesh}} - \sphinxcode{\sphinxupquote{mesh3}} - \sphinxcode{\sphinxupquote{meshS}}  are described.
+\end{description}
+
+\end{itemize}
+
+Through this presentation, the principal commands for the mesh generation and links between \sphinxcode{\sphinxupquote{mesh}} - \sphinxcode{\sphinxupquote{mesh3}} - \sphinxcode{\sphinxupquote{meshS}} - \sphinxcode{\sphinxupquote{meshL}} are described.
 
 
 \subsection{\sphinxstylestrong{The type mesh in 2 dimension}}
@@ -6021,13 +6019,13 @@ Borders and mesh are respectively shown in \hyperref[\detokenize{documentation/m
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border1}.png}
-\caption{Multiple border ends intersect}\label{\detokenize{documentation/mesh-generation:id23}}\label{\detokenize{documentation/mesh-generation:figmultipleborder}}\end{subfigure}
+\caption{Multiple border ends intersect}\label{\detokenize{documentation/mesh-generation:id31}}\label{\detokenize{documentation/mesh-generation:figmultipleborder}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border2}.png}
-\caption{Generated mesh}\label{\detokenize{documentation/mesh-generation:id24}}\label{\detokenize{documentation/mesh-generation:figgeneratedmesh}}\end{subfigure}
+\caption{Generated mesh}\label{\detokenize{documentation/mesh-generation:id32}}\label{\detokenize{documentation/mesh-generation:figgeneratedmesh}}\end{subfigure}
 \caption{Border}\phantomsection\label{\detokenize{documentation/mesh-generation:MeshGeneration_Border}}
 
 \end{figure}
@@ -6088,13 +6086,13 @@ Notice that the orientation is changed by \sphinxcode{\sphinxupquote{b(-30)}} in
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border4}.png}
-\caption{Mesh without hole}\label{\detokenize{documentation/mesh-generation:id25}}\label{\detokenize{documentation/mesh-generation:figmeswithouthhole}}\end{subfigure}
+\caption{Mesh without hole}\label{\detokenize{documentation/mesh-generation:id33}}\label{\detokenize{documentation/mesh-generation:figmeswithouthhole}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border5}.png}
-\caption{Mesh with hole}\label{\detokenize{documentation/mesh-generation:id26}}\label{\detokenize{documentation/mesh-generation:figmeshwithhole}}\end{subfigure}
+\caption{Mesh with hole}\label{\detokenize{documentation/mesh-generation:id34}}\label{\detokenize{documentation/mesh-generation:figmeshwithhole}}\end{subfigure}
 \caption{Mesh with a hole}\phantomsection\label{\detokenize{documentation/mesh-generation:MeshWithHole}}
 
 \end{figure}
@@ -6449,13 +6447,13 @@ The coordinates of the points and the value of the table function are defined se
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Triangulate1}.png}
-\caption{Delaunay mesh of the convex hull of point set in file xy}\label{\detokenize{documentation/mesh-generation:id27}}\label{\detokenize{documentation/mesh-generation:figdelaunaymesh}}\end{subfigure}
+\caption{Delaunay mesh of the convex hull of point set in file xy}\label{\detokenize{documentation/mesh-generation:id35}}\label{\detokenize{documentation/mesh-generation:figdelaunaymesh}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Triangulate2}.png}
-\caption{Isolvalue of table function}\label{\detokenize{documentation/mesh-generation:id28}}\label{\detokenize{documentation/mesh-generation:figisovalue}}\end{subfigure}
+\caption{Isolvalue of table function}\label{\detokenize{documentation/mesh-generation:id36}}\label{\detokenize{documentation/mesh-generation:figisovalue}}\end{subfigure}
 \caption{Triangulate}\phantomsection\label{\detokenize{documentation/mesh-generation:Triangulate}}
 
 \end{figure}
@@ -6546,13 +6544,13 @@ It is also possible to build an empty mesh of a pseudo subregion with \sphinxcod
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_EmptyMesh1}.png}
-\caption{The empty mesh with boundary}\label{\detokenize{documentation/mesh-generation:id29}}\label{\detokenize{documentation/mesh-generation:figemptymesh1}}\end{subfigure}
+\caption{The empty mesh with boundary}\label{\detokenize{documentation/mesh-generation:id37}}\label{\detokenize{documentation/mesh-generation:figemptymesh1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_EmptyMesh2}.png}
-\caption{An empty mesh defined from a pseudo region numbering of triangle}\label{\detokenize{documentation/mesh-generation:id30}}\label{\detokenize{documentation/mesh-generation:figemptymesh2}}\end{subfigure}
+\caption{An empty mesh defined from a pseudo region numbering of triangle}\label{\detokenize{documentation/mesh-generation:id38}}\label{\detokenize{documentation/mesh-generation:figemptymesh2}}\end{subfigure}
 \caption{Empty mesh}
 
 \end{figure}
@@ -6627,13 +6625,13 @@ for a big number \(k>1\).
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_MoveMesh1}.png}
-\caption{L-shape}\label{\detokenize{documentation/mesh-generation:id31}}\label{\detokenize{documentation/mesh-generation:figlshape}}\end{subfigure}
+\caption{L-shape}\label{\detokenize{documentation/mesh-generation:id39}}\label{\detokenize{documentation/mesh-generation:figlshape}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_MoveMesh2}.png}
-\caption{Moved L-shape}\label{\detokenize{documentation/mesh-generation:id32}}\label{\detokenize{documentation/mesh-generation:figmovedlshape}}\end{subfigure}
+\caption{Moved L-shape}\label{\detokenize{documentation/mesh-generation:id40}}\label{\detokenize{documentation/mesh-generation:figmovedlshape}}\end{subfigure}
 \caption{Move mesh}\phantomsection\label{\detokenize{documentation/mesh-generation:MoveMesh}}
 
 \end{figure}
@@ -6778,13 +6776,13 @@ Here we solve the {\hyperref[\detokenize{tutorials/poisson:tutorialpoisson}]{\sp
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh2}.png}
-\caption{L-shape domain and its boundary name}\label{\detokenize{documentation/mesh-generation:id33}}\label{\detokenize{documentation/mesh-generation:adaptmesh2}}\end{subfigure}
+\caption{L-shape domain and its boundary name}\label{\detokenize{documentation/mesh-generation:id41}}\label{\detokenize{documentation/mesh-generation:adaptmesh2}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh3}.png}
-\caption{Final solution after 4-times adaptation}\label{\detokenize{documentation/mesh-generation:id34}}\label{\detokenize{documentation/mesh-generation:adaptmesh3}}\end{subfigure}
+\caption{Final solution after 4-times adaptation}\label{\detokenize{documentation/mesh-generation:id42}}\label{\detokenize{documentation/mesh-generation:adaptmesh3}}\end{subfigure}
 \caption{Mesh adaptation}\phantomsection\label{\detokenize{documentation/mesh-generation:AdaptMesh}}
 
 \end{figure}
@@ -7031,19 +7029,19 @@ To build a mesh with a constant mesh size equal to \(\frac{1}{30}\) try:
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh4}.png}
-\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id35}}\label{\detokenize{documentation/mesh-generation:adaptmesh4}}\end{subfigure}
+\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id43}}\label{\detokenize{documentation/mesh-generation:adaptmesh4}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh5}.png}
-\caption{First iteration}\label{\detokenize{documentation/mesh-generation:id36}}\label{\detokenize{documentation/mesh-generation:adaptmesh5}}\end{subfigure}
+\caption{First iteration}\label{\detokenize{documentation/mesh-generation:id44}}\label{\detokenize{documentation/mesh-generation:adaptmesh5}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh6}.png}
-\caption{Last iteration}\label{\detokenize{documentation/mesh-generation:id37}}\label{\detokenize{documentation/mesh-generation:adaptmesh6}}\end{subfigure}
+\caption{Last iteration}\label{\detokenize{documentation/mesh-generation:id45}}\label{\detokenize{documentation/mesh-generation:adaptmesh6}}\end{subfigure}
 \caption{Mesh adaptation}
 
 \end{figure}
@@ -7104,13 +7102,13 @@ The following example construct all “trunced” meshes to the support of the b
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.490\linewidth]{{MeshGeneration_Trunc1}.png}
-\caption{Mesh of support the function P1 number 0, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id38}}\label{\detokenize{documentation/mesh-generation:trunc1}}\end{subfigure}
+\caption{Mesh of support the function P1 number 0, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id46}}\label{\detokenize{documentation/mesh-generation:trunc1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.490\linewidth]{{MeshGeneration_Trunc1}.png}
-\caption{Mesh of support the function P1 number 6, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id39}}\label{\detokenize{documentation/mesh-generation:trunc6}}\end{subfigure}
+\caption{Mesh of support the function P1 number 6, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id47}}\label{\detokenize{documentation/mesh-generation:trunc6}}\end{subfigure}
 \caption{Trunc}
 
 \end{figure}
@@ -7205,13 +7203,13 @@ Another way to split mesh triangles is to use \sphinxcode{\sphinxupquote{splitme
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_SplitMesh1}.png}
-\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id40}}\label{\detokenize{documentation/mesh-generation:splitmesh1}}\end{subfigure}
+\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id48}}\label{\detokenize{documentation/mesh-generation:splitmesh1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_SplitMesh2}.png}
-\caption{All left mesh triangle is split conformaly in \sphinxcode{\sphinxupquote{int(1+5*(square(x-0.5)+y*y)\textasciicircum{}2}} triangles}\label{\detokenize{documentation/mesh-generation:id41}}\label{\detokenize{documentation/mesh-generation:splitmesh2}}\end{subfigure}
+\caption{All left mesh triangle is split conformaly in \sphinxcode{\sphinxupquote{int(1+5*(square(x-0.5)+y*y)\textasciicircum{}2}} triangles}\label{\detokenize{documentation/mesh-generation:id49}}\label{\detokenize{documentation/mesh-generation:splitmesh2}}\end{subfigure}
 \caption{Split mesh}
 
 \end{figure}
@@ -7949,7 +7947,7 @@ An example of use:
 
 \paragraph{The command \sphinxstyleemphasis{trunc}}
 \label{\detokenize{documentation/mesh-generation:meshgenerationtrunc}}\label{\detokenize{documentation/mesh-generation:id5}}
-This operator have been introduce to remove peace of mesh and split all element or for a particular label element
+This operator have been introduce to remove a piece of mesh or/and split all element or for a particular label element
 The three named parameter
 - boolean function to keep or remove elements
 - \sphinxcode{\sphinxupquote{split=}} sets the level n of triangle splitting. each triangle is splitted in n × n ( one by default)
@@ -7958,35 +7956,18 @@ The three named parameter
 An example of use
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{msh3}\PYG{l+s}{\PYGZdq{}}\PYG{c+c1}{// buildlayer}
-\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{n+nf}{medit}\PYG{l+s}{\PYGZdq{}}\PYG{c+c1}{// medit}
+\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{msh3}\PYG{l+s}{\PYGZdq{}}
+\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{n+nf}{medit}\PYG{l+s}{\PYGZdq{}}
 \PYG{k+kt}{int} \PYG{n}{nn}\PYG{o}{=}\PYG{l+m+mi}{8}\PYG{p}{;}
-\PYG{k+kt}{mesh} \PYG{n}{Th2}\PYG{o}{=}\PYG{n+nf}{square}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{,}\PYG{n}{nn}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{fespace} \PYG{n+nf}{Vh2}\PYG{p}{(}\PYG{n}{Th2}\PYG{p}{,}\PYG{n+nc}{P2}\PYG{p}{)}\PYG{p}{;}
-\PYG{n}{Vh2} \PYG{n}{ux}\PYG{p}{,}\PYG{n}{uz}\PYG{p}{,}\PYG{n}{p2}\PYG{p}{;}
-\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{rup}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,}  \PYG{c+c1}{//  upper face  2d region 0 \PYGZhy{}\PYGZgt{} 3d label 2}
-   \PYG{n}{rdown}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}      \PYG{c+c1}{//  lower face  2d region 0 \PYGZhy{}\PYGZgt{} 3d label 1}
-   \PYG{n}{rmid}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}  \PYG{c+c1}{//  vert face.  2d label 1 \PYGZhy{}\PYGZgt{} 3d label 1}
-        \PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}  \PYG{c+c1}{//  vert face.  2d label 2 \PYGZhy{}\PYGZgt{} 3d label 1}
-        \PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}  \PYG{c+c1}{//  vert face.  2d label 3 \PYGZhy{}\PYGZgt{} 3d label 1}
-        \PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}  \PYG{c+c1}{//  vert face.  2d label 4 \PYGZhy{}\PYGZgt{} 3d label 1}
-   \PYG{n}{rtet}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{;}  \PYG{c+c1}{//  2d region  0\PYGZhy{}\PYGZgt{} 3d region  0}
-\PYG{k+kt}{real} \PYG{n}{zmin}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{zmax}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
-
-\PYG{k+kt}{mesh3} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{buildlayers}\PYG{p}{(}\PYG{n}{Th2}\PYG{p}{,}\PYG{n}{nn}\PYG{p}{,}
-   \PYG{k+kp}{zbound}\PYG{o}{=}\PYG{p}{[}\PYG{n}{zmin}\PYG{p}{,}\PYG{n}{zmax}\PYG{p}{]}\PYG{p}{,}
-   \PYG{k+kr}{region}\PYG{o}{=}\PYG{n}{rtet}\PYG{p}{,} \PYG{c+c1}{//  region number}
-   \PYG{k+kp}{labelmid}\PYG{o}{=}\PYG{n}{rmid}\PYG{p}{,}  \PYG{c+c1}{// 4 vert.  faces labels number}
-   \PYG{k+kp}{labelup} \PYG{o}{=} \PYG{n}{rup}\PYG{p}{,}
-   \PYG{k+kp}{labeldown} \PYG{o}{=} \PYG{n}{rdown}\PYG{p}{)}\PYG{p}{;}
- \PYG{c+c1}{//  remove the small cube \PYGZdl{}]1/2,1[\PYGZca{}2\PYGZdl{}}
+\PYG{k+kt}{mesh3} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{cube}\PYG{p}{(}\PYG{n}{nn}\PYG{p}{,}\PYG{n}{nn}\PYG{p}{,}\PYG{n}{nn}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+c1}{//  remove the small cube \PYGZdl{}]1/2,1[\PYGZca{}2\PYGZdl{}}
 \PYG{n}{Th}\PYG{o}{=} \PYG{n+nf}{trunc}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,}\PYG{p}{(}\PYG{p}{(}\PYG{k+kr}{x}\PYG{o}{\PYGZlt{}}\PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{o}{\textbar{}}\PYG{p}{(}\PYG{k+kr}{y}\PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.5}\PYG{p}{)}\PYG{o}{\textbar{}} \PYG{p}{(}\PYG{k+kr}{z}\PYG{o}{\PYGZlt{}}\PYG{l+m+mf}{0.5}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{k+kp}{split}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{k+kr}{label}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{;}
 \PYG{n+nf}{medit}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{n+nf}{cube}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 
-\paragraph{The command \sphinxstyleemphasis{movemesh3}}
-\label{\detokenize{documentation/mesh-generation:the-command-movemesh3}}
+\paragraph{The command \sphinxstyleemphasis{movemesh}}
+\label{\detokenize{documentation/mesh-generation:id6}}
 3D meshes  can be translated, rotated, and deformed using the command line \sphinxcode{\sphinxupquote{movemesh}} as in the 2D case (see {\hyperref[\detokenize{documentation/mesh-generation:meshgenerationmovemesh}]{\sphinxcrossref{\DUrole{std,std-ref}{section movemesh}}}}).
 If \(\Omega\) is tetrahedrized as \(T_{h}(\Omega)\), and \(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\) is the transformation vector then \(\Phi(T_{h})\) is obtained by:
 
@@ -8370,13 +8351,13 @@ Build a 3d mesh of a cube with a balloon
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_CubeSphere1}.png}
-\caption{The surface mesh of the hex with internal sphere}\label{\detokenize{documentation/mesh-generation:id42}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere1}}\end{subfigure}
+\caption{The surface mesh of the hex with internal sphere}\label{\detokenize{documentation/mesh-generation:id50}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_CubeSphere2}.png}
-\caption{The tetrahedral mesh of the cube with internal ball}\label{\detokenize{documentation/mesh-generation:id43}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere2}}\end{subfigure}
+\caption{The tetrahedral mesh of the cube with internal ball}\label{\detokenize{documentation/mesh-generation:id51}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere2}}\end{subfigure}
 \caption{Cube sphere}
 
 \end{figure}
@@ -8404,7 +8385,7 @@ The parameters of this command line are:
 n,m  generates a n×m grid in the unit square
 
 \item {} 
-\sphinxcode{\sphinxupquote{.,.,.{]}}} is  {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} is the geometric transformation from \(\mathbb{R^2}\) to \(\mathbb{R^3}\). By default, {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} = {[}x,y,0{]}
+\sphinxcode{\sphinxupquote{{[}.,.,.{]}}} is  {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} is the geometric transformation from \(\mathbb{R^2}\) to \(\mathbb{R^3}\). By default, {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} = {[}x,y,0{]}
 
 \item {} 
 \sphinxcode{\sphinxupquote{orientation=}}
@@ -8587,10 +8568,10 @@ The operation is a projection of a 2d plane in \(\mathbb{R^3}\) following the ge
 
 
 \subsubsection{Remeshing}
-\label{\detokenize{documentation/mesh-generation:id6}}
+\label{\detokenize{documentation/mesh-generation:id7}}
 
 \paragraph{The command \sphinxstyleemphasis{trunc}}
-\label{\detokenize{documentation/mesh-generation:id7}}
+\label{\detokenize{documentation/mesh-generation:id8}}
 This operator allows to define a \sphinxcode{\sphinxupquote{meshS}} by truncating another one, i.e. by removing triangles, and/or by splitting each triangle by a given positive integer s.
 In a FreeFEM script, this function must be called as follows:
 
@@ -8625,8 +8606,8 @@ An example of how to call the function
 \end{sphinxVerbatim}
 
 
-\paragraph{The command \sphinxstyleemphasis{movemeshS}}
-\label{\detokenize{documentation/mesh-generation:the-command-movemeshs}}
+\paragraph{The command \sphinxstyleemphasis{movemesh}}
+\label{\detokenize{documentation/mesh-generation:id9}}
 Like 2d and 3d type meshes in \sphinxstylestrong{FreeFEM}, \sphinxcode{\sphinxupquote{meshS}} can be translated, rotated or deformated by an application \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]}.
 The image \(T_{h}(\Omega)\) is obtained by the command \sphinxcode{\sphinxupquote{movemeshS}}.
 
@@ -8648,7 +8629,7 @@ This parameter is initialized as the label for the keyword {\hyperref[\detokeniz
 \end{description}
 
 \item {} \begin{description}
-\item[{\sphinxcode{\sphinxupquote{facemerge=}} An integer expression.}] \leavevmode
+\item[{\sphinxcode{\sphinxupquote{edgemerge=}} An integer expression.}] \leavevmode
 When you transform a mesh, some triangles can be merged and fix the parameter to 1, else 0
 By default, this parameter is equal to 1.
 
@@ -8684,12 +8665,12 @@ Example of using
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{meshS} \PYG{n}{Th1} \PYG{o}{=} \PYG{n+nf}{square3}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{k+kr}{n}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{,}\PYG{k+kr}{y}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 \PYG{k+kt}{meshS} \PYG{n}{Th2}\PYG{o}{=}\PYG{n}{movemeshS}\PYG{p}{(}\PYG{n}{Th1}\PYG{p}{,} \PYG{k+kp}{transfo}\PYG{o}{=}\PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,}\PYG{k+kr}{y}\PYG{p}{,}\PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{k+kt}{meshS} \PYG{n}{Th2}\PYG{o}{=}\PYG{n+nf}{movemesh}\PYG{p}{(}\PYG{n}{Th1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,}\PYG{k+kr}{y}\PYG{p}{,}\PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{meshS} \PYG{n}{Th3}\PYG{o}{=}\PYG{n+nf}{movemesh}\PYG{p}{(}\PYG{n}{Th1}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,}\PYG{k+kr}{y}\PYG{p}{,}\PYG{k+kr}{z}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 
 \paragraph{The command \sphinxstyleemphasis{change}}
-\label{\detokenize{documentation/mesh-generation:id8}}
+\label{\detokenize{documentation/mesh-generation:id10}}
 Equivalent for a 2d or 3d mesh, the command \sphinxcode{\sphinxupquote{change}} changes the label of elements and border elements of a \sphinxcode{\sphinxupquote{meshS}}.
 
 The parameters for this command line are:
@@ -8773,14 +8754,14 @@ The command \sphinxcode{\sphinxupquote{Gamma}} allows to build and manipulate th
  \PYG{k+kt}{int} \PYG{n}{nvb} \PYG{o}{=} \PYG{p}{(}\PYG{k+kr}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{3} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{k+kr}{n}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{c+c1}{// Nb boundary vertices}
  \PYG{k+kt}{int} \PYG{n}{ntb} \PYG{o}{=} \PYG{k+kr}{n}\PYG{o}{*}\PYG{k+kr}{n}\PYG{o}{*}\PYG{l+m+mi}{12}\PYG{p}{;} \PYG{c+c1}{// Nb of Boundary triangle}
  \PYG{k+kt}{mesh3} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{cube}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{k+kr}{n}\PYG{p}{,}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;}
- \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildSurface}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{// build the surface mesh}
+ \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildBdMesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{// build the surface mesh}
  \PYG{c+c1}{// build Th1, the surface of Th, defined by triangles elements and edges border elements list}
  \PYG{k+kt}{meshS} \PYG{n}{Th1} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{n+nf}{Gamma}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 
-\paragraph{The command \sphinxstyleemphasis{buildSurface}}
-\label{\detokenize{documentation/mesh-generation:id9}}
+\paragraph{The command \sphinxstyleemphasis{buildBdMesh}}
+\label{\detokenize{documentation/mesh-generation:the-command-buildbdmesh}}
 Let Th3 a volume mesh (mesh3 type) ; such as the geometry description is a list of vertices, tetrahedra elements and triangle border elements.
 \sphinxstylestrong{FreeFEM} can generate the surface mesh associated to Th3. The intern mechanism of \sphinxstylestrong{FreeFEM} created directly the \sphinxcode{\sphinxupquote{meshS}} associated to Th3 and accessible by the command \sphinxcode{\sphinxupquote{meshS ThS = Th3.Gamma;}}.
 
@@ -8838,6 +8819,285 @@ A surface 3d mesh can be the result of the generation of several assembled meshe
 \begin{sphinxadmonition}{warning}{Warning:}
 For the moment, the case of no manifold mesh are not considered in FreeFEM. To check if the meshS contains no manifold elements, the command \sphinxcode{\sphinxupquote{nbnomanifold}}.
 \end{sphinxadmonition}
+
+
+\subsection{\sphinxstylestrong{The type meshL in 3 dimension}}
+\label{\detokenize{documentation/mesh-generation:the-type-meshl-in-3-dimension}}\label{\detokenize{documentation/mesh-generation:meshltype}}
+
+\subsubsection{Commands for 3d curve mesh generation}
+\label{\detokenize{documentation/mesh-generation:commands-for-3d-curve-mesh-generation}}
+
+\paragraph{The command \sphinxstyleemphasis{segment}}
+\label{\detokenize{documentation/mesh-generation:the-command-segment}}
+The function \sphinxcode{\sphinxupquote{segment}} is a basic command to define a curve in 3D space.
+
+The parameters of this command line are:
+\begin{quote}
+\begin{itemize}
+\item {} 
+n generates a n subsegments from the unit line
+
+\item {} 
+\sphinxcode{\sphinxupquote{{[}.,.,.{]}}} is  {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} is the geometric transformation from \(\mathbb{R^1}\) to \(\mathbb{R^3}\). By default, {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]} = {[}x,0,0{]}
+
+\item {} 
+\sphinxcode{\sphinxupquote{orientation=}}
+equal 1, gives the orientation of the triangulation, elements are in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles
+it’s the global orientation of the surface 1 extern (-1 intern)
+
+\item {} 
+\sphinxcode{\sphinxupquote{cleanmesh=}} is a boolean, allowing remove the duplicated nodes
+
+\item {} 
+\sphinxcode{\sphinxupquote{removeduplicate=}} is a boolean, allowing remove the duplicated elements and border elements
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{precismesh}} this parameter is the criteria to define two merging points.}] \leavevmode
+By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of \(\Omega\)
+
+\end{description}
+
+\end{itemize}
+
+By defaut, the border points are marked by label 1 and 2.
+\end{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+     \PYG{k+kt}{real} \PYG{n}{R} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{r}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+     \PYG{k+kt}{real} \PYG{n}{h} \PYG{o}{=} \PYG{l+m+mf}{0.1}\PYG{p}{;} \PYG{c+c1}{//}
+     \PYG{k+kt}{int} \PYG{n}{nx} \PYG{o}{=} \PYG{n}{R}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{n}{h}\PYG{p}{;}
+     \PYG{k+kt}{func} \PYG{n}{torex}\PYG{o}{=} \PYG{p}{(}\PYG{n}{R}\PYG{o}{+}\PYG{n}{r}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{y}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{x}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
+     \PYG{k+kt}{func} \PYG{n}{torey}\PYG{o}{=} \PYG{p}{(}\PYG{n}{R}\PYG{o}{+}\PYG{n}{r}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{y}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{sin}\PYG{p}{(}\PYG{k+kr}{x}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
+     \PYG{k+kt}{func} \PYG{n}{torez}\PYG{o}{=} \PYG{n}{r}\PYG{o}{*}\PYG{n+nf}{sin}\PYG{p}{(}\PYG{k+kr}{y}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
+     \PYG{k+kt}{meshL} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{segment}\PYG{p}{(}\PYG{n}{nx}\PYG{p}{,}\PYG{p}{[}\PYG{n}{torex}\PYG{p}{,}\PYG{n}{torey}\PYG{p}{,}\PYG{n}{torez}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{removeduplicate}\PYG{o}{=}\PYG{k+kr}{true}\PYG{p}{)} \PYG{p}{;}
+\end{sphinxVerbatim}
+
+The following code generates a 10 subsegments from the unit line with a clock wise triangulation, according to the geometric transformation {[}torex,torey,torez{]} and removing the duplicated points/elements
+
+
+\paragraph{The command \sphinxstyleemphasis{buildmesh}}
+\label{\detokenize{documentation/mesh-generation:id11}}
+This operator allows to define a curve mesh from multi-borders.
+The domain can be defined by a parametrized curve (keyword \sphinxcode{\sphinxupquote{border}}), such as Th1 in the following example
+or piecewise by parametrized curves, such as the construction of the mesh Th2.
+
+The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{msh3}\PYG{l+s}{\PYGZdq{}}
+
+\PYG{c+c1}{// conical helix}
+\PYG{k+kt}{border} \PYG{n}{E1}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mf}{10.}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{p}{)}\PYG{o}{*}\PYG{k+kp}{t}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mf}{1.}\PYG{p}{)}\PYG{o}{*}\PYG{k+kp}{t}\PYG{o}{*}\PYG{n+nf}{sin}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{k+kp}{t}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{meshL} \PYG{n}{Th1}\PYG{o}{=}\PYG{n}{buildmeshL}\PYG{p}{(}\PYG{n}{E1}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n}{upper} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{others} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{inner} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{k+kr}{n} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{k+kt}{border} \PYG{n+nf}{D01}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{k+kp}{t}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D02}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{1.5}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{upper}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D03}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{1.5}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{upper}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D04}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{others}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D05}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{o}{+}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{others}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D06}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{others}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D11}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{inner}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D12}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{o}{+}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{inner}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{D13}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{o}{+}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{z}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{inner}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{meshL} \PYG{n}{Th2}\PYG{o}{=}\PYG{n}{buildmeshL}\PYG{p}{(}\PYG{n}{D01}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D02}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D03}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D04}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D05}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)}
+   \PYG{o}{+} \PYG{n}{D06}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D11}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D12}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D13}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Remeshing}
+\label{\detokenize{documentation/mesh-generation:id12}}
+
+\paragraph{The command \sphinxstyleemphasis{trunc}}
+\label{\detokenize{documentation/mesh-generation:id13}}
+This operator allows to define a \sphinxcode{\sphinxupquote{meshL}} by truncating another one, i.e. by removing segments, and/or by splitting each element by a given positive integer s.
+Here, an example to use this function:
+
+\sphinxcode{\sphinxupquote{meshL}} ThL2= \sphinxcode{\sphinxupquote{trunc}} (ThL1, boolean function to keep or remove elements, split = s, label = …)
+
+The command has the following arguments:
+\begin{itemize}
+\item {} 
+boolean function to keep or remove elements
+
+\item {} 
+\sphinxcode{\sphinxupquote{split=}} sets the level n of edge splitting, each edge is splitted in n subpart( one by default)
+
+\item {} 
+\sphinxcode{\sphinxupquote{label=}}   sets the label number of new boundary item (1 by default)
+
+\item {} 
+\sphinxcode{\sphinxupquote{new2old}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{old2new}}
+
+\item {} 
+\sphinxcode{\sphinxupquote{renum}}
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{orientation=}}}] \leavevmode
+equal 1, gives the orientation of the triangulation, elements are in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles
+it’s the global orientation of the surface 1 extern (-1 intern)
+
+\end{description}
+
+\item {} 
+\sphinxcode{\sphinxupquote{cleanmesh=}} is a boolean, allowing remove the duplicated nodes
+
+\item {} 
+\sphinxcode{\sphinxupquote{removeduplicate=}} is a boolean, allowing remove the duplicated elements and border elements
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{precismesh}} this parameter is the criteria to define two merging points.}] \leavevmode
+By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of \(\Omega\)
+
+\end{description}
+
+\end{itemize}
+
+An example of how to call this function
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{n}{nx}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{k+kt}{meshL} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{segment}\PYG{p}{(}\PYG{n}{nx}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mf}{5.}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{,}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{)}\PYG{p}{,}\PYG{n+nf}{sin}\PYG{p}{(}\PYG{k+kr}{pi}\PYG{o}{*}\PYG{k+kr}{x}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{trunc}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{p}{(}\PYG{k+kr}{x} \PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{o}{\textbar{}} \PYG{p}{(}\PYG{k+kr}{y} \PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{o}{\textbar{}} \PYG{p}{(}\PYG{k+kr}{z} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{1.}\PYG{p}{)}\PYG{p}{,} \PYG{k+kp}{split}\PYG{o}{=}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\paragraph{The command \sphinxstyleemphasis{movemesh}}
+\label{\detokenize{documentation/mesh-generation:id14}}
+This is the classical mesh transformation \sphinxstylestrong{FreeFEM} function, \sphinxcode{\sphinxupquote{meshL}} can be deformed by an application {[} \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]}.
+The image \(T_{h}(\Omega)\) is obtained by the command \sphinxcode{\sphinxupquote{movemeshL}}.
+
+The parameters of movemesh are:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{transfo=}} sets the geometric transformation \(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\)
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{refedge=}} sets the integer labels of the triangles.}] \leavevmode
+0 by default.
+
+\end{description}
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{refpoint=}} sets the labels of the border points.}] \leavevmode
+This parameter is initialized as the label for the keyword {\hyperref[\detokenize{documentation/mesh-generation:meshgenerationchangelabel}]{\sphinxcrossref{\DUrole{std,std-ref}{change}}}}.
+
+\end{description}
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{precismesh}} this parameter is the criteria to define two merging points.}] \leavevmode
+By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of \(\Omega\)
+
+\end{description}
+
+\item {} \begin{description}
+\item[{\sphinxcode{\sphinxupquote{orientation =}} An integer expression}] \leavevmode
+equal 1, give the oientation of the triangulation, elements must be in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles. It’s the global orientation of the normals at the surface 1 extern (-1 intern)
+
+\end{description}
+
+\item {} 
+\sphinxcode{\sphinxupquote{cleanmesh=}} is a boolean, allowing remove the duplicated nodes
+
+\item {} 
+\sphinxcode{\sphinxupquote{removeduplicate=}} is a boolean, allowing remove the duplicated elements and border elements
+
+\end{itemize}
+
+\begin{sphinxadmonition}{note}{Note:}
+The definition of the geometric transformation depends on the space dimension of the studied problem. It means that, with curve FEM, it’s possible to treat a real 1D problem (space coordinate is x) then the transformation is given by x: -\textgreater{}F(x), that means {[}F\_x{]} and F\_y=F\_z=0 in FreeFEM function.
+\end{sphinxadmonition}
+
+Example of using
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{int} \PYG{n}{nx}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{;}
+\PYG{k+kt}{meshL} \PYG{n}{Th}\PYG{o}{=}\PYG{n}{Sline}\PYG{p}{(}\PYG{n}{nx}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{meshL} \PYG{n}{Th31}\PYG{o}{=}\PYG{n+nf}{movemesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{meshL} \PYG{n}{Th32}\PYG{o}{=}\PYG{n+nf}{movemesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{x}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{meshL} \PYG{n}{Th3}\PYG{o}{=}\PYG{n}{Th31}\PYG{o}{+}\PYG{n}{Th32}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\paragraph{The command \sphinxstyleemphasis{change}}
+\label{\detokenize{documentation/mesh-generation:id15}}
+Equivalent for a 2d or 3d mesh, the command \sphinxcode{\sphinxupquote{change}} changes the label of elements and border elements of a \sphinxcode{\sphinxupquote{meshS}}.
+
+The parameters for this command line are:
+\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{reftri=}} is a vector of integer that contains successive pairs of the old label number to the new label number for elements.
+
+\item {} 
+\sphinxcode{\sphinxupquote{refedge=}} is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.
+
+\item {} 
+\sphinxcode{\sphinxupquote{flabel=}} is an integer function given the new value of the label.
+
+\item {} 
+\sphinxcode{\sphinxupquote{fregion=}} is an integer function given the new value of the region.
+
+\item {} 
+\sphinxcode{\sphinxupquote{rmInternalEdges=}} is a boolean, equal true to remove the internal edges.
+
+\item {} 
+\sphinxcode{\sphinxupquote{rmledges=}} is a vector of integer, where edge’s label given are remove of the mesh
+
+\end{itemize}
+
+These vectors are composed of \(n_{l}\) successive pairs of numbers \(O,N\) where \(n_{l}\) is the number (label or region) that we want to change.
+For example, we have:
+\begin{equation*}
+\begin{split}\mathtt{label} &= [ O_{1}, N_{1}, ..., O_{n_{l}},N_{n_{l}} ] \\
+\mathtt{region} &= [ O_{1}, N_{1}, ..., O_{n_{l}},N_{n_{l}} ]\end{split}
+\end{equation*}
+
+\paragraph{The commands \sphinxstyleemphasis{buildBdMesh} and \sphinxstyleemphasis{Gamma}}
+\label{\detokenize{documentation/mesh-generation:the-commands-buildbdmesh-and-gamma}}
+The command \sphinxcode{\sphinxupquote{Gamma}} allows to extract the border mesh independly of a surface mesh.
+With this function, the constructed border mesh contains the full geometric description of th eboundary surface. In case where the border mesh doesn’t exist, before calling \sphinxcode{\sphinxupquote{Gamma}}, must build it by calling the \sphinxcode{\sphinxupquote{buildBdMesh}} function (see the next function description).
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{c+cp}{load} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{msh3}\PYG{l+s}{\PYGZdq{}}
+\PYG{k+kt}{int} \PYG{k+kr}{n}\PYG{o}{=} \PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{k+kt}{meshS} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{square3}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildBdMesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{;} \PYG{c+c1}{// build the border mesh}
+\PYG{c+c1}{// build Th1, the border of Th, defined by edges elements and point border elements}
+\PYG{k+kt}{meshL} \PYG{n}{Th1} \PYG{o}{=} \PYG{n}{Th}\PYG{p}{.}\PYG{n+nf}{Gamma}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\paragraph{tottototototot}
+\label{\detokenize{documentation/mesh-generation:tottototototot}}
+An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the operator \sphinxcode{\sphinxupquote{+}}.
+The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the right orientation at the merged interfaces. Here, the function :freefem:{\color{red}\bfseries{}{}`}checkMesh{}`can be called.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+ \PYG{k+kt}{int} \PYG{k+kr}{n}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{;}
+ \PYG{k+kt}{meshL} \PYG{n}{Th1} \PYG{o}{=} \PYG{n+nf}{segment}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{)}\PYG{p}{;}
+ \PYG{k+kt}{meshL} \PYG{n}{Th2} \PYG{o}{=} \PYG{n+nf}{segment}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k+kr}{x}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+ \PYG{k+kt}{meshL} \PYG{n}{Th3} \PYG{o}{=} \PYG{n+nf}{segment}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{p}{[}\PYG{k+kr}{x}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+ \PYG{k+kt}{meshL} \PYG{n}{Th4} \PYG{o}{=} \PYG{n+nf}{segment}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k+kr}{x}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+
+ \PYG{k+kt}{meshL} \PYG{n}{Th} \PYG{o}{=} \PYG{n}{Th1}\PYG{o}{+}\PYG{n}{Th2}\PYG{o}{+}\PYG{n}{Th3}\PYG{o}{+}\PYG{n}{Th4}\PYG{p}{;}
+ \PYG{n}{Th}\PYG{o}{=}\PYG{n}{rebuildBorder}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{ridgeangledetection}\PYG{o}{=}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mf}{2.}\PYG{o}{+}\PYG{l+m+mf}{0.0001}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{warning}{Warning:}
+For the moment, the case of no manifold mesh are not considered in FreeFEM. To check if the meshL contains no manifold elements, the command \sphinxcode{\sphinxupquote{nbnomanifold}}.
+\end{sphinxadmonition}
+
+
+\paragraph{The commands \sphinxstyleemphasis{rebuildBorder}}
+\label{\detokenize{documentation/mesh-generation:the-commands-rebuildborder}}
+This operator, used in the last example, allows to reconstruted the border elements following a special criteria \sphinxcode{\sphinxupquote{ridgeangledetection}}. By default, it value is \(\frac{8}{9}*arctan(1)\approx40°\), the diedral angle for a decahedron.
 
 
 \subsubsection{TetGen: A tetrahedral mesh generator}
@@ -9441,10 +9701,10 @@ the command \sphinxstyleemphasis{savegmsh}
 
 
 \subsubsection{3d case}
-\label{\detokenize{documentation/mesh-generation:id20}}
+\label{\detokenize{documentation/mesh-generation:id28}}
 
 \paragraph{format of  mesh data}
-\label{\detokenize{documentation/mesh-generation:id21}}
+\label{\detokenize{documentation/mesh-generation:id29}}
 In three dimensions, the file mesh format supported for input and output files by \sphinxstylestrong{FreeFEM} are the extension .msh and .mesh.
 These formats are described in the {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
 
@@ -9573,7 +9833,7 @@ the command \sphinxstyleemphasis{savegmsh}
 \label{\detokenize{documentation/mesh-generation:surface-3d-case}}
 
 \paragraph{format of  mesh data}
-\label{\detokenize{documentation/mesh-generation:id22}}
+\label{\detokenize{documentation/mesh-generation:id30}}
 Like 2d and 3d, the input and output format files supported by \sphinxstylestrong{FreeFEM} are the extension .msh and .mesh.
 These formats are described in the {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
 
@@ -10700,13 +10960,13 @@ Leman lake
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Isoline1}.jpg}
-\caption{The image of the Leman lake meshes}\label{\detokenize{documentation/mesh-generation:id44}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline1}}\end{subfigure}
+\caption{The image of the Leman lake meshes}\label{\detokenize{documentation/mesh-generation:id52}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Isoline2}.png}
-\caption{The mesh of the lake}\label{\detokenize{documentation/mesh-generation:id45}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline2}}\end{subfigure}
+\caption{The mesh of the lake}\label{\detokenize{documentation/mesh-generation:id53}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline2}}\end{subfigure}
 \caption{Isoline}\phantomsection\label{\detokenize{documentation/mesh-generation:Isoline}}
 
 \end{figure}
