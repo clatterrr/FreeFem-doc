@@ -257,6 +257,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#the-commands-checkmesh">The commands <em>checkmesh</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reconstruct-refine-a-3d-mesh-with-tetgen">Reconstruct/Refine a 3d mesh with TetGen</a></li>
 </ul>
@@ -5375,7 +5376,6 @@ equal -1 reverse the orientation of the triangles. It’s the global orientation
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refedge</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">flabel</span><span class="o">=</span></code> is an integer function given the new value of the label.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">fregion</span><span class="o">=</span></code> is an integer function given the new value of the region.</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmInternalEdges</span><span class="o">=</span></code> is a boolean, equal true to remove the internal edges.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmledges</span><span class="o">=</span></code> is a vector of integer, where edge’s label given are remove of the mesh</li>
 </ul>
 <p>These vectors are composed of <span class="math notranslate nohighlight">\(n_{l}\)</span> successive pairs of numbers <span class="math notranslate nohighlight">\(O,N\)</span> where <span class="math notranslate nohighlight">\(n_{l}\)</span> is the number (label or region) that we want to change.
@@ -5681,15 +5681,14 @@ equal -1 reverse the orientation of the triangles. It’s the global orientation
 </div>
 <div class="section" id="id15">
 <h4>The command <em>change</em><a class="headerlink" href="#id15" title="Permalink to this headline"> </a></h4>
-<p>Equivalent for a 2d or 3d mesh, the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code> changes the label of elements and border elements of a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code>.</p>
+<p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code> changes the label of elements and border elements of a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>.</p>
 <p>The parameters for this command line are:</p>
 <ul class="simple">
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">reftri</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old label number to the new label number for elements.</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refedge</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refedge</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old label number to the new label number for elements.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refpoint</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">flabel</span><span class="o">=</span></code> is an integer function given the new value of the label.</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">fregion</span><span class="o">=</span></code> is an integer function given the new value of the region.</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmInternalEdges</span><span class="o">=</span></code> is a boolean, equal true to remove the internal edges.</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmledges</span><span class="o">=</span></code> is a vector of integer, where edge’s label given are remove of the mesh</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">rmlpoint</span><span class="o">=</span></code> is a vector of integer, where edge’s label given are remove of the mesh</li>
 </ul>
 <p>These vectors are composed of <span class="math notranslate nohighlight">\(n_{l}\)</span> successive pairs of numbers <span class="math notranslate nohighlight">\(O,N\)</span> where <span class="math notranslate nohighlight">\(n_{l}\)</span> is the number (label or region) that we want to change.
 For example, we have:</p>
@@ -5744,6 +5743,22 @@ With this function, the constructed border mesh contains the full geometric desc
 <h4>The commands <em>rebuildBorder</em><a class="headerlink" href="#the-commands-rebuildborder" title="Permalink to this headline"> </a></h4>
 <p>This operator, used in the last example, allows to reconstruted the border elements following a special criteria <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">ridgeangledetection</span></code>. By default, it value is <span class="math notranslate nohighlight">\(\frac{8}{9}*arctan(1)\approx40°\)</span>, the diedral angle for a decahedron.</p>
 </div>
+</div>
+<div class="section" id="the-commands-checkmesh">
+<h3>The commands <em>checkmesh</em><a class="headerlink" href="#the-commands-checkmesh" title="Permalink to this headline"> </a></h3>
+<p>This function is avalaible for all 3D meshes. It checkes and validates the a given mesh, allows to remove duplicate vertices and/or elements and border elements. The possible arguments are</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span></code> this parameter is the criteria to define two merging points.</dt>
+<dd>By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of <span class="math notranslate nohighlight">\(\Omega\)</span></dd>
+</dl>
+</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">removeduplicate</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated elements and border elements</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">checkmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="tetgen-a-tetrahedral-mesh-generator">
 <h3>TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permalink to this headline"> </a></h3>
@@ -7863,6 +7878,7 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#the-commands-checkmesh">The commands <em>checkmesh</em></a></li>
 <li><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
 <li><a class="reference internal" href="#reconstruct-refine-a-3d-mesh-with-tetgen">Reconstruct/Refine a 3d mesh with TetGen</a></li>
 </ul>
