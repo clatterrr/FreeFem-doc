@@ -55,17 +55,17 @@
 	<div style="display: none;">
 		<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html"><strong>Introduction</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../introduction/new-features.html">Version 4: new features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#cmake">CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/new-features.html">Version 4.5: new features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/new-features.html#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction/installation.html">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/installation.html#using-binary-package">Using binary package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#windows-installation">Windows installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#macos-x-installation">macOS X installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#ubuntu-installation">Ubuntu installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../introduction/installation.html#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
@@ -211,7 +211,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id3">Remeshing</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id4">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#meshgenerationtrunc">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#the-command-movemesh3">The command <em>movemesh3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id6">The command <em>movemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-command-extract">The command <em>extract</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-command-buildsurface">The command <em>buildSurface</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-command-movemesh23">The command <em>movemesh23</em></a></li>
@@ -227,17 +227,34 @@
 <li class="toctree-l5"><a class="reference internal" href="#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">Remeshing</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id7">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#the-command-movemeshs">The command <em>movemeshS</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id8">The command <em>change</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id8">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id10">The command <em>change</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#link-with-a-mesh3">Link with a mesh3</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#the-command-gamma">The command <em>Gamma</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id9">The command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#the-command-buildbdmesh">The command <em>buildBdMesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#the-command-savesurfacemesh">The command <em>savesurfacemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commands-for-3d-curve-mesh-generation">Commands for 3d curve mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#the-command-segment">The command <em>segment</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id11">The command <em>buildmesh</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id13">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id14">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id15">The command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#tottototototot">tottototototot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
@@ -250,13 +267,13 @@
 <li class="toctree-l5"><a class="reference internal" href="#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#id20">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id21">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id22">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id30">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -1896,6 +1913,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#the-type-mesh-in-2-dimension"><strong>The type mesh in 2 dimension</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-type-mesh3-in-3-dimension"><strong>The type mesh3 in 3 dimension</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-type-meshs-in-3-dimension"><strong>The type meshS in 3 dimension</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#read-write-statements-for-meshes">Read/Write Statements for meshes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#medit">Medit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mshmet">Mshmet</a></li>
@@ -1933,12 +1951,21 @@
 <p>FreeFEM type for mesh variable:</p>
 <blockquote>
 <div><ul class="simple">
-<li>2d mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code></li>
-<li>3d mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code></li>
-<li>3d surface <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code></li>
+<li>1D mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code></li>
+<li>2D mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code></li>
+<li>3D volume mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code></li>
+<li><dl class="first docutils">
+<dt>3D border meshes</dt>
+<dd><ul class="first last">
+<li>3D surface <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code></li>
+<li>3D curve <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
-<p>Through this presentation, the principal commands for the mesh generation and links between <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code> - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code>  are described.</p>
+<p>Through this presentation, the principal commands for the mesh generation and links between <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code> - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> are described.</p>
 <div class="section" id="the-type-mesh-in-2-dimension">
 <span id="mesh2d"></span><h2><strong>The type mesh in 2 dimension</strong><a class="headerlink" href="#the-type-mesh-in-2-dimension" title="Permalink to this headline"> </a></h2>
 <div class="section" id="commands-for-2d-mesh-generation">
@@ -2063,11 +2090,11 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 </td></tr></table></div>
 <p>Borders and mesh are respectively shown in <a class="reference internal" href="#figmultipleborder"><span class="std std-numref">Fig. 58</span></a> and <a class="reference internal" href="#figgeneratedmesh"><span class="std std-numref">Fig. 59</span></a>.</p>
 <div class="figure compound align-center" id="MeshGeneration_Border">
-<div style="width: 49%" class="subfigure" id="id23">
+<div style="width: 49%" class="subfigure" id="id31">
 <span id="figmultipleborder"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border1.png"><img alt="MeshGeneration_Border1" src="../_images/MeshGeneration_Border1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Multiple border ends intersect</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id24">
+<div style="width: 49%" class="subfigure" id="id32">
 <span id="figgeneratedmesh"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border2.png"><img alt="MeshGeneration_Border2" src="../_images/MeshGeneration_Border2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Generated mesh</span></p>
 </div>
@@ -2111,11 +2138,11 @@ to <span class="math notranslate nohighlight">\(10\)</span>, for instance (v 3.8
 <p class="last">Notice that the orientation is changed by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">b</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span></code> in the 5th line. In the 7th line, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">ps</span><span class="o">=</span><span class="s">&quot;fileName&quot;</span></code> is used to generate a postscript file with identification shown on the figure.</p>
 </div>
 <div class="figure compound align-center" id="MeshWithHole">
-<div style="width: 49%" class="subfigure" id="id25">
+<div style="width: 49%" class="subfigure" id="id33">
 <span id="figmeswithouthhole"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border4.png"><img alt="MeshGeneration_Border4" src="../_images/MeshGeneration_Border4.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Mesh without hole</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id26">
+<div style="width: 49%" class="subfigure" id="id34">
 <span id="figmeshwithhole"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Border5.png"><img alt="MeshGeneration_Border5" src="../_images/MeshGeneration_Border5.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Mesh with hole</span></p>
 </div>
@@ -2729,11 +2756,11 @@ It can be useful to build a mesh from a table function.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="Triangulate">
-<div style="width: 49%" class="subfigure" id="id27">
+<div style="width: 49%" class="subfigure" id="id35">
 <span id="figdelaunaymesh"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Triangulate1.png"><img alt="MeshGeneration_Triangulate1" src="../_images/MeshGeneration_Triangulate1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Delaunay mesh of the convex hull of point set in file xy</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id28">
+<div style="width: 49%" class="subfigure" id="id36">
 <span id="figisovalue"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Triangulate2.png"><img alt="MeshGeneration_Triangulate2" src="../_images/MeshGeneration_Triangulate2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Isolvalue of table function</span></p>
 </div>
@@ -2849,11 +2876,11 @@ It can be useful to handle Lagrange multipliers in mixed and mortar methods.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="EmptyMesh">
-<div style="width: 49%" class="subfigure" id="id29">
+<div style="width: 49%" class="subfigure" id="id37">
 <span id="figemptymesh1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_EmptyMesh1.png"><img alt="MeshGeneration_EmptyMesh1" src="../_images/MeshGeneration_EmptyMesh1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">The empty mesh with boundary</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id30">
+<div style="width: 49%" class="subfigure" id="id38">
 <span id="figemptymesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_EmptyMesh2.png"><img alt="MeshGeneration_EmptyMesh2" src="../_images/MeshGeneration_EmptyMesh2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">An empty mesh defined from a pseudo region numbering of triangle</span></p>
 </div>
@@ -2940,11 +2967,11 @@ To spot such problems, one may check the minimum triangle area in the transforme
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="MoveMesh">
-<div style="width: 49%" class="subfigure" id="id31">
+<div style="width: 49%" class="subfigure" id="id39">
 <span id="figlshape"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_MoveMesh1.png"><img alt="MeshGeneration_MoveMesh1" src="../_images/MeshGeneration_MoveMesh1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">L-shape</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id32">
+<div style="width: 49%" class="subfigure" id="id40">
 <span id="figmovedlshape"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_MoveMesh2.png"><img alt="MeshGeneration_MoveMesh2" src="../_images/MeshGeneration_MoveMesh2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Moved L-shape</span></p>
 </div>
@@ -3105,11 +3132,11 @@ A statement like <span class="math notranslate nohighlight">\(u=u\)</span> redef
 <p>Mesh adaptation is a very powerful tool when the solution of a problem varies locally and sharply.</p>
 <p>Here we solve the <a class="reference internal" href="../tutorials/poisson.html#tutorialpoisson"><span class="std std-ref">Poisson’s problem</span></a>, when <span class="math notranslate nohighlight">\(f=1\)</span> and <span class="math notranslate nohighlight">\(\Omega\)</span> is an L-shape domain.</p>
 <div class="figure compound align-center" id="AdaptMesh">
-<div style="width: 49%" class="subfigure" id="id33">
+<div style="width: 49%" class="subfigure" id="id41">
 <span id="adaptmesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh2.png"><img alt="MeshGeneration_AdaptMesh2" src="../_images/MeshGeneration_AdaptMesh2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">L-shape domain and its boundary name</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id34">
+<div style="width: 49%" class="subfigure" id="id42">
 <span id="adaptmesh3"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh3.png"><img alt="MeshGeneration_AdaptMesh3" src="../_images/MeshGeneration_AdaptMesh3.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Final solution after 4-times adaptation</span></p>
 </div>
@@ -3374,15 +3401,15 @@ To build a mesh with a constant mesh size equal to <span class="math notranslate
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="AdaptMesh2">
-<div style="width: 49%" class="subfigure" id="id35">
+<div style="width: 49%" class="subfigure" id="id43">
 <span id="adaptmesh4"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh4.png"><img alt="MeshGeneration_AdaptMesh4" src="../_images/MeshGeneration_AdaptMesh4.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Initial mesh</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id36">
+<div style="width: 49%" class="subfigure" id="id44">
 <span id="adaptmesh5"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh5.png"><img alt="MeshGeneration_AdaptMesh5" src="../_images/MeshGeneration_AdaptMesh5.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">First iteration</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id37">
+<div style="width: 49%" class="subfigure" id="id45">
 <span id="adaptmesh6"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_AdaptMesh6.png"><img alt="MeshGeneration_AdaptMesh6" src="../_images/MeshGeneration_AdaptMesh6.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Last iteration</span></p>
 </div>
@@ -3440,11 +3467,11 @@ Operator <code class="code freefem docutils literal highlight highlight-freefem"
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="Trunc">
-<div style="width: 49%" class="subfigure" id="id38">
+<div style="width: 49%" class="subfigure" id="id46">
 <span id="trunc1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Trunc1.png"><img alt="MeshGeneration_Trunc1" src="../_images/MeshGeneration_Trunc1.png" style="width: 49%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Mesh of support the function P1 number 0, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id39">
+<div style="width: 49%" class="subfigure" id="id47">
 <span id="trunc6"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Trunc1.png"><img alt="MeshGeneration_Trunc1" src="../_images/MeshGeneration_Trunc1.png" style="width: 49%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">Mesh of support the function P1 number 6, split in <span class="math notranslate nohighlight">\(5{\times}5\)</span></span></p>
 </div>
@@ -3524,11 +3551,11 @@ For example, we have :</p>
 </pre></div>
 </td></tr></table></div>
 <div class="figure compound align-center" id="SplitMesh">
-<div style="width: 49%" class="subfigure" id="id40">
+<div style="width: 49%" class="subfigure" id="id48">
 <span id="splitmesh1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_SplitMesh1.png"><img alt="MeshGeneration_SplitMesh1" src="../_images/MeshGeneration_SplitMesh1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Initial mesh</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id41">
+<div style="width: 49%" class="subfigure" id="id49">
 <span id="splitmesh2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_SplitMesh2.png"><img alt="MeshGeneration_SplitMesh2" src="../_images/MeshGeneration_SplitMesh2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">All left mesh triangle is split conformaly in <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="nf">square</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="kr">y</span><span class="o">*</span><span class="kr">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span></code> triangles</span></p>
 </div>
@@ -4422,64 +4449,30 @@ For example, we have:</p>
 </div>
 <div class="section" id="meshgenerationtrunc">
 <span id="id5"></span><h4>The command <em>trunc</em><a class="headerlink" href="#meshgenerationtrunc" title="Permalink to this headline"> </a></h4>
-<p>This operator have been introduce to remove peace of mesh and split all element or for a particular label element
+<p>This operator have been introduce to remove a piece of mesh or/and split all element or for a particular label element
 The three named parameter
 - boolean function to keep or remove elements
 - <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">split</span><span class="o">=</span></code> sets the level n of triangle splitting. each triangle is splitted in n × n ( one by default)
 - freefem:<cite>label=</cite>   sets the label number of new boundary item (1 by default)</p>
 <p>An example of use</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;msh3&quot;</span><span class="c1">// buildlayer</span>
-<span class="cp">load</span> <span class="s">&quot;</span><span class="nf">medit</span><span class="s">&quot;</span><span class="c1">// medit</span>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;msh3&quot;</span>
+<span class="cp">load</span> <span class="s">&quot;</span><span class="nf">medit</span><span class="s">&quot;</span>
 <span class="kt">int</span> <span class="n">nn</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span>
-<span class="kt">mesh</span> <span class="n">Th2</span><span class="o">=</span><span class="nf">square</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">nn</span><span class="p">);</span>
-<span class="kt">fespace</span> <span class="nf">Vh2</span><span class="p">(</span><span class="n">Th2</span><span class="p">,</span><span class="nc">P2</span><span class="p">);</span>
-<span class="n">Vh2</span> <span class="n">ux</span><span class="p">,</span><span class="n">uz</span><span class="p">,</span><span class="n">p2</span><span class="p">;</span>
-<span class="kt">int</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span> <span class="n">rup</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>  <span class="c1">//  upper face  2d region 0 -&gt; 3d label 2</span>
-   <span class="n">rdown</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>      <span class="c1">//  lower face  2d region 0 -&gt; 3d label 1</span>
-   <span class="n">rmid</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>  <span class="c1">//  vert face.  2d label 1 -&gt; 3d label 1</span>
-        <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>  <span class="c1">//  vert face.  2d label 2 -&gt; 3d label 1</span>
-        <span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>  <span class="c1">//  vert face.  2d label 3 -&gt; 3d label 1</span>
-        <span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  <span class="c1">//  vert face.  2d label 4 -&gt; 3d label 1</span>
-   <span class="n">rtet</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">];</span>  <span class="c1">//  2d region  0-&gt; 3d region  0</span>
-<span class="kt">real</span> <span class="n">zmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">zmax</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-
-<span class="kt">mesh3</span> <span class="n">Th</span><span class="o">=</span><span class="nf">buildlayers</span><span class="p">(</span><span class="n">Th2</span><span class="p">,</span><span class="n">nn</span><span class="p">,</span>
-   <span class="kp">zbound</span><span class="o">=</span><span class="p">[</span><span class="n">zmin</span><span class="p">,</span><span class="n">zmax</span><span class="p">],</span>
-   <span class="kr">region</span><span class="o">=</span><span class="n">rtet</span><span class="p">,</span> <span class="c1">//  region number</span>
-   <span class="kp">labelmid</span><span class="o">=</span><span class="n">rmid</span><span class="p">,</span>  <span class="c1">// 4 vert.  faces labels number</span>
-   <span class="kp">labelup</span> <span class="o">=</span> <span class="n">rup</span><span class="p">,</span>
-   <span class="kp">labeldown</span> <span class="o">=</span> <span class="n">rdown</span><span class="p">);</span>
- <span class="c1">//  remove the small cube $]1/2,1[^2$</span>
+<span class="kt">mesh3</span> <span class="n">Th</span><span class="o">=</span><span class="nf">cube</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">nn</span><span class="p">,</span><span class="n">nn</span><span class="p">);</span>
+<span class="c1">//  remove the small cube $]1/2,1[^2$</span>
 <span class="n">Th</span><span class="o">=</span> <span class="nf">trunc</span><span class="p">(</span><span class="n">Th</span><span class="p">,((</span><span class="kr">x</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">|</span><span class="p">(</span><span class="kr">y</span><span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">|</span> <span class="p">(</span><span class="kr">z</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">)),</span> <span class="kp">split</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="kr">label</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
 <span class="nf">medit</span><span class="p">(</span><span class="s">&quot;</span><span class="nf">cube</span><span class="s">&quot;</span><span class="p">,</span><span class="n">Th</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="the-command-movemesh3">
-<h4>The command <em>movemesh3</em><a class="headerlink" href="#the-command-movemesh3" title="Permalink to this headline"> </a></h4>
+<div class="section" id="id6">
+<h4>The command <em>movemesh</em><a class="headerlink" href="#id6" title="Permalink to this headline"> </a></h4>
 <p>3D meshes  can be translated, rotated, and deformed using the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">movemesh</span></code> as in the 2D case (see <a class="reference internal" href="#meshgenerationmovemesh"><span class="std std-ref">section movemesh</span></a>).
 If <span class="math notranslate nohighlight">\(\Omega\)</span> is tetrahedrized as <span class="math notranslate nohighlight">\(T_{h}(\Omega)\)</span>, and <span class="math notranslate nohighlight">\(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\)</span> is the transformation vector then <span class="math notranslate nohighlight">\(\Phi(T_{h})\)</span> is obtained by:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -5036,11 +5029,11 @@ An example to obtain a three dimensional mesh using the command line <code class
 </td></tr></table></div>
 </div>
 <div class="figure compound align-center" id="CubeSphere">
-<div style="width: 49%" class="subfigure" id="id42">
+<div style="width: 49%" class="subfigure" id="id50">
 <span id="meshgenerationcubesphere1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_CubeSphere1.png"><img alt="MeshGeneration_CubeSphere1" src="../_images/MeshGeneration_CubeSphere1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">The surface mesh of the hex with internal sphere</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id43">
+<div style="width: 49%" class="subfigure" id="id51">
 <span id="meshgenerationcubesphere2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_CubeSphere2.png"><img alt="MeshGeneration_CubeSphere2" src="../_images/MeshGeneration_CubeSphere2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">The tetrahedral mesh of the cube with internal ball</span></p>
 </div>
@@ -5064,7 +5057,7 @@ The parameters of this command line are:</p>
 <blockquote>
 <div><ul class="simple">
 <li>n,m  generates a n×m grid in the unit square</li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">.,.,.]</span></code> is  [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] is the geometric transformation from <span class="math notranslate nohighlight">\(\mathbb{R^2}\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R^3}\)</span>. By default, [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] = [x,y,0]</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[.,.,.]</span></code> is  [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] is the geometric transformation from <span class="math notranslate nohighlight">\(\mathbb{R^2}\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R^3}\)</span>. By default, [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] = [x,y,0]</li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">orientation</span><span class="o">=</span></code>
 equal 1, gives the orientation of the triangulation, elements are in the reference orientation (counter clock wise)
 equal -1 reverse the orientation of the triangles
@@ -5277,10 +5270,10 @@ The operation is a projection of a 2d plane in <span class="math notranslate noh
 </td></tr></table></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Remeshing<a class="headerlink" href="#id6" title="Permalink to this headline"> </a></h3>
 <div class="section" id="id7">
-<h4>The command <em>trunc</em><a class="headerlink" href="#id7" title="Permalink to this headline"> </a></h4>
+<h3>Remeshing<a class="headerlink" href="#id7" title="Permalink to this headline"> </a></h3>
+<div class="section" id="id8">
+<h4>The command <em>trunc</em><a class="headerlink" href="#id8" title="Permalink to this headline"> </a></h4>
 <p>This operator allows to define a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> by truncating another one, i.e. by removing triangles, and/or by splitting each triangle by a given positive integer s.
 In a FreeFEM script, this function must be called as follows:</p>
 <p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> TS2= <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">trunc</span></code> (TS1, boolean function to keep or remove elements, split = s, label = …)</p>
@@ -5313,8 +5306,8 @@ In a FreeFEM script, this function must be called as follows:</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="the-command-movemeshs">
-<h4>The command <em>movemeshS</em><a class="headerlink" href="#the-command-movemeshs" title="Permalink to this headline"> </a></h4>
+<div class="section" id="id9">
+<h4>The command <em>movemesh</em><a class="headerlink" href="#id9" title="Permalink to this headline"> </a></h4>
 <p>Like 2d and 3d type meshes in <strong>FreeFEM</strong>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> can be translated, rotated or deformated by an application <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ].
 The image <span class="math notranslate nohighlight">\(T_{h}(\Omega)\)</span> is obtained by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">movemeshS</span></code>.</p>
 <p>The parameters of movemeshS are:</p>
@@ -5334,7 +5327,7 @@ The image <span class="math notranslate nohighlight">\(T_{h}(\Omega)\)</span> is
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facemerge</span><span class="o">=</span></code> An integer expression.</dt>
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">edgemerge</span><span class="o">=</span></code> An integer expression.</dt>
 <dd><p class="first last">When you transform a mesh, some triangles can be merged and fix the parameter to 1, else 0
 By default, this parameter is equal to 1.</p>
 </dd>
@@ -5369,12 +5362,12 @@ equal -1 reverse the orientation of the triangles. It’s the global orientation
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">meshS</span> <span class="n">Th1</span> <span class="o">=</span> <span class="nf">square3</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span><span class="kr">n</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="kp">orientation</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 <span class="kt">meshS</span> <span class="n">Th2</span><span class="o">=</span><span class="n">movemeshS</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="kp">transfo</span><span class="o">=</span><span class="p">[</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">,</span><span class="kr">z</span><span class="p">]);</span>
-<span class="kt">meshS</span> <span class="n">Th2</span><span class="o">=</span><span class="nf">movemesh</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">,</span><span class="kr">z</span><span class="p">]);</span>
+<span class="kt">meshS</span> <span class="n">Th3</span><span class="o">=</span><span class="nf">movemesh</span><span class="p">(</span><span class="n">Th1</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span><span class="kr">y</span><span class="p">,</span><span class="kr">z</span><span class="p">]);</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="id8">
-<h4>The command <em>change</em><a class="headerlink" href="#id8" title="Permalink to this headline"> </a></h4>
+<div class="section" id="id10">
+<h4>The command <em>change</em><a class="headerlink" href="#id10" title="Permalink to this headline"> </a></h4>
 <p>Equivalent for a 2d or 3d mesh, the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code> changes the label of elements and border elements of a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code>.</p>
 <p>The parameters for this command line are:</p>
 <ul class="simple">
@@ -5424,7 +5417,7 @@ The general definitions to the boundary of a subset S of a topological space X a
 </div>
 <div class="section" id="the-command-gamma">
 <h4>The command <em>Gamma</em><a class="headerlink" href="#the-command-gamma" title="Permalink to this headline"> </a></h4>
-<p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code> allows to build and manipulate the border mesh independly of a volume mesh such as the surface is described by triangle elements and edges border elements in 3d. Use this function, suppose that the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> object even contains the geometric description of its surface. That means, the input mesh explicitly contains the list of vertices, tetrahedra, triangles and edges. In case where the surface mesh doesn’t exist, before calling <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code>, must build it by calling the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildSurface</span></code> function (see the next function description).</p>
+<p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code> allows to build and manipulate the border mesh independly of a volume mesh such as the surface is described by triangle elements and edges border elements in 3d. Use this function, suppose that the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> object even contains the geometric description of its surface. That means, the input mesh explicitly contains the list of vertices, tetrahedra, triangles and edges. In case where the surface mesh doesn’t exist, before calling <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code>, must build it by calling the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">buildSurface</span></code> function (see the next function description).</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -5437,14 +5430,14 @@ The general definitions to the boundary of a subset S of a topological space X a
  <span class="kt">int</span> <span class="n">nvb</span> <span class="o">=</span> <span class="p">(</span><span class="kr">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="p">(</span><span class="kr">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span><span class="p">;</span><span class="c1">// Nb boundary vertices</span>
  <span class="kt">int</span> <span class="n">ntb</span> <span class="o">=</span> <span class="kr">n</span><span class="o">*</span><span class="kr">n</span><span class="o">*</span><span class="mi">12</span><span class="p">;</span> <span class="c1">// Nb of Boundary triangle</span>
  <span class="kt">mesh3</span> <span class="n">Th</span><span class="o">=</span><span class="nf">cube</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span><span class="kr">n</span><span class="p">,</span><span class="kr">n</span><span class="p">);</span>
- <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildSurface</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span> <span class="c1">// build the surface mesh</span>
+ <span class="n">Th</span> <span class="o">=</span> <span class="nf">buildBdMesh</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span> <span class="c1">// build the surface mesh</span>
  <span class="c1">// build Th1, the surface of Th, defined by triangles elements and edges border elements list</span>
  <span class="kt">meshS</span> <span class="n">Th1</span> <span class="o">=</span> <span class="n">Th</span><span class="p">.</span><span class="nf">Gamma</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="id9">
-<h4>The command <em>buildSurface</em><a class="headerlink" href="#id9" title="Permalink to this headline"> </a></h4>
+<div class="section" id="the-command-buildbdmesh">
+<h4>The command <em>buildBdMesh</em><a class="headerlink" href="#the-command-buildbdmesh" title="Permalink to this headline"> </a></h4>
 <p>Let Th3 a volume mesh (mesh3 type) ; such as the geometry description is a list of vertices, tetrahedra elements and triangle border elements.
 <strong>FreeFEM</strong> can generate the surface mesh associated to Th3. The intern mechanism of <strong>FreeFEM</strong> created directly the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> associated to Th3 and accessible by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span> <span class="n">ThS</span> <span class="o">=</span> <span class="n">Th3</span><span class="p">.</span><span class="nf">Gamma</span><span class="p">;</span></code>.</p>
 </div>
@@ -5455,7 +5448,7 @@ Two possibilies about the mesh3 surface:</p>
 <blockquote>
 <div><ul class="simple">
 <li>the geometric surface isn’t explicite, that means the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> doesn’t contain surface elements (triangles) and border surface elements (edge). The surface is defined by the border of the volume. Hence, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">savesurfacemesh</span></code> returns the list of vertices and faces of the volume mesh, according to a local numbring at the border mesh.</li>
-<li>the geometric surface is explicite and known by the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> type. This may be due to the nature of the data mesh (list of vertices, tetrahedra, triangles, edges) or a surface building by <strong>FreeFEM</strong> with the calling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildSurface</span></code> operator. In this case, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">savesurfacemesh</span></code> allows to save the real geometry of the surface 3d mesh (list of vertices, triangles, edges)</li>
+<li>the geometric surface is explicite and known by the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> type. This may be due to the nature of the data mesh (list of vertices, tetrahedra, triangles, edges) or a surface building by <strong>FreeFEM</strong> with the calling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">buildSurface</span></code> operator. In this case, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">savesurfacemesh</span></code> allows to save the real geometry of the surface 3d mesh (list of vertices, triangles, edges)</li>
 </ul>
 </div></blockquote>
 <p>Example of use</p>
@@ -5508,16 +5501,261 @@ The operation does the same thing that the first exept to</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="the-type-meshl-in-3-dimension">
+<span id="meshltype"></span><h2><strong>The type meshL in 3 dimension</strong><a class="headerlink" href="#the-type-meshl-in-3-dimension" title="Permalink to this headline"> </a></h2>
+<div class="section" id="commands-for-3d-curve-mesh-generation">
+<h3>Commands for 3d curve mesh generation<a class="headerlink" href="#commands-for-3d-curve-mesh-generation" title="Permalink to this headline"> </a></h3>
+<div class="section" id="the-command-segment">
+<h4>The command <em>segment</em><a class="headerlink" href="#the-command-segment" title="Permalink to this headline"> </a></h4>
+<p>The function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">segment</span></code> is a basic command to define a curve in 3D space.</p>
+<p>The parameters of this command line are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>n generates a n subsegments from the unit line</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="p">[.,.,.]</span></code> is  [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] is the geometric transformation from <span class="math notranslate nohighlight">\(\mathbb{R^1}\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R^3}\)</span>. By default, [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ] = [x,0,0]</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">orientation</span><span class="o">=</span></code>
+equal 1, gives the orientation of the triangulation, elements are in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles
+it’s the global orientation of the surface 1 extern (-1 intern)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">cleanmesh</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated nodes</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">removeduplicate</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated elements and border elements</li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span></code> this parameter is the criteria to define two merging points.</dt>
+<dd>By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of <span class="math notranslate nohighlight">\(\Omega\)</span></dd>
+</dl>
+</li>
+</ul>
+<p>By defaut, the border points are marked by label 1 and 2.</p>
+</div></blockquote>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="kt">real</span> <span class="n">R</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+     <span class="kt">real</span> <span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c1">//</span>
+     <span class="kt">int</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="kr">pi</span><span class="o">/</span><span class="n">h</span><span class="p">;</span>
+     <span class="kt">func</span> <span class="n">torex</span><span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="o">+</span><span class="n">r</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kr">y</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kr">x</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+     <span class="kt">func</span> <span class="n">torey</span><span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="o">+</span><span class="n">r</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kr">y</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kr">x</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+     <span class="kt">func</span> <span class="n">torez</span><span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kr">y</span><span class="o">*</span><span class="kr">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+     <span class="kt">meshL</span> <span class="n">Th</span><span class="o">=</span><span class="nf">segment</span><span class="p">(</span><span class="n">nx</span><span class="p">,[</span><span class="n">torex</span><span class="p">,</span><span class="n">torey</span><span class="p">,</span><span class="n">torez</span><span class="p">],</span><span class="kp">removeduplicate</span><span class="o">=</span><span class="kr">true</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The following code generates a 10 subsegments from the unit line with a clock wise triangulation, according to the geometric transformation [torex,torey,torez] and removing the duplicated points/elements</p>
+</div>
+<div class="section" id="id11">
+<h4>The command <em>buildmesh</em><a class="headerlink" href="#id11" title="Permalink to this headline"> </a></h4>
+<p>This operator allows to define a curve mesh from multi-borders.
+The domain can be defined by a parametrized curve (keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">border</span></code>), such as Th1 in the following example
+or piecewise by parametrized curves, such as the construction of the mesh Th2.</p>
+<p>The pieces can only intersect at their endpoints, but it is possible to join more than two endpoints.</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;msh3&quot;</span>
+
+<span class="c1">// conical helix</span>
+<span class="kt">border</span> <span class="n">E1</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mf">10.</span><span class="o">*</span><span class="kr">pi</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">y</span><span class="o">=-</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="o">*</span><span class="nf">sin</span><span class="p">(</span><span class="kp">t</span><span class="p">);</span> <span class="kr">z</span><span class="o">=</span><span class="kp">t</span><span class="p">;}</span>
+<span class="kt">meshL</span> <span class="n">Th1</span><span class="o">=</span><span class="n">buildmeshL</span><span class="p">(</span><span class="n">E1</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+
+<span class="kt">int</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">others</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">inner</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="kr">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">border</span> <span class="nf">D01</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="kr">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mi">1</span><span class="o">+</span><span class="kp">t</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">border</span> <span class="nf">D02</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.5</span><span class="o">-</span><span class="mf">1.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">upper</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D03</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.5</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="kp">t</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">upper</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D04</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">others</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D05</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">others</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D06</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">others</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D11</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">inner</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D12</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">inner</span><span class="p">;}</span>
+<span class="kt">border</span> <span class="nf">D13</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="kr">y</span><span class="o">=-</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="kr">label</span><span class="o">=</span><span class="n">inner</span><span class="p">;}</span>
+
+<span class="kt">meshL</span> <span class="n">Th2</span><span class="o">=</span><span class="n">buildmeshL</span><span class="p">(</span><span class="n">D01</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D02</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D03</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D04</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D05</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span>
+   <span class="o">+</span> <span class="n">D06</span><span class="p">(</span><span class="o">-</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D11</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D12</span><span class="p">(</span><span class="kr">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D13</span><span class="p">(</span><span class="kr">n</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>Remeshing<a class="headerlink" href="#id12" title="Permalink to this headline"> </a></h3>
+<div class="section" id="id13">
+<h4>The command <em>trunc</em><a class="headerlink" href="#id13" title="Permalink to this headline"> </a></h4>
+<p>This operator allows to define a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> by truncating another one, i.e. by removing segments, and/or by splitting each element by a given positive integer s.
+Here, an example to use this function:</p>
+<p><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> ThL2= <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">trunc</span></code> (ThL1, boolean function to keep or remove elements, split = s, label = …)</p>
+<p>The command has the following arguments:</p>
+<ul class="simple">
+<li>boolean function to keep or remove elements</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">split</span><span class="o">=</span></code> sets the level n of edge splitting, each edge is splitted in n subpart( one by default)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">label</span><span class="o">=</span></code>   sets the label number of new boundary item (1 by default)</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">new2old</span></code></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">old2new</span></code></li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">renum</span></code></li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">orientation</span><span class="o">=</span></code></dt>
+<dd>equal 1, gives the orientation of the triangulation, elements are in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles
+it’s the global orientation of the surface 1 extern (-1 intern)</dd>
+</dl>
+</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">cleanmesh</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated nodes</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">removeduplicate</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated elements and border elements</li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span></code> this parameter is the criteria to define two merging points.</dt>
+<dd>By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of <span class="math notranslate nohighlight">\(\Omega\)</span></dd>
+</dl>
+</li>
+</ul>
+<p>An example of how to call this function</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">nx</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">meshL</span> <span class="n">Th</span><span class="o">=</span><span class="nf">segment</span><span class="p">(</span><span class="n">nx</span><span class="p">,[</span><span class="mf">5.</span><span class="o">*</span><span class="kr">x</span><span class="p">,</span><span class="nf">cos</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span><span class="p">),</span><span class="nf">sin</span><span class="p">(</span><span class="kr">pi</span><span class="o">*</span><span class="kr">x</span><span class="p">)]);</span>
+<span class="n">Th</span><span class="o">=</span><span class="nf">trunc</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">(</span><span class="kr">x</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="kr">y</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="kr">z</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">),</span> <span class="kp">split</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id14">
+<h4>The command <em>movemesh</em><a class="headerlink" href="#id14" title="Permalink to this headline"> </a></h4>
+<p>This is the classical mesh transformation <strong>FreeFEM</strong> function, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> can be deformed by an application [ <span class="math notranslate nohighlight">\(\Phi 1\)</span>, <span class="math notranslate nohighlight">\(\Phi 2\)</span>, <span class="math notranslate nohighlight">\(\Phi 3\)</span> ].
+The image <span class="math notranslate nohighlight">\(T_{h}(\Omega)\)</span> is obtained by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">movemeshL</span></code>.</p>
+<p>The parameters of movemesh are:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">transfo</span><span class="o">=</span></code> sets the geometric transformation <span class="math notranslate nohighlight">\(\Phi(x,y)=(\Phi1(x,y,z), \Phi2(x,y,z), \Phi3(x,y,z))\)</span></li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refedge</span><span class="o">=</span></code> sets the integer labels of the triangles.</dt>
+<dd>0 by default.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refpoint</span><span class="o">=</span></code> sets the labels of the border points.</dt>
+<dd>This parameter is initialized as the label for the keyword <a class="reference internal" href="#meshgenerationchangelabel"><span class="std std-ref">change</span></a>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span></code> this parameter is the criteria to define two merging points.</dt>
+<dd>By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of <span class="math notranslate nohighlight">\(\Omega\)</span></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">orientation</span> <span class="o">=</span></code> An integer expression</dt>
+<dd>equal 1, give the oientation of the triangulation, elements must be in the reference orientation (counter clock wise)
+equal -1 reverse the orientation of the triangles. It’s the global orientation of the normals at the surface 1 extern (-1 intern)</dd>
+</dl>
+</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">cleanmesh</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated nodes</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">removeduplicate</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated elements and border elements</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The definition of the geometric transformation depends on the space dimension of the studied problem. It means that, with curve FEM, it’s possible to treat a real 1D problem (space coordinate is x) then the transformation is given by x: -&gt;F(x), that means [F_x] and F_y=F_z=0 in FreeFEM function.</p>
+</div>
+<p>Example of using</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">nx</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="kt">meshL</span> <span class="n">Th</span><span class="o">=</span><span class="n">Sline</span><span class="p">(</span><span class="n">nx</span><span class="p">);</span>
+<span class="kt">meshL</span> <span class="n">Th31</span><span class="o">=</span><span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">]);</span>
+<span class="kt">meshL</span> <span class="n">Th32</span><span class="o">=</span><span class="nf">movemesh</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="p">[</span><span class="kr">x</span><span class="p">,</span><span class="o">-</span><span class="kr">x</span><span class="o">*</span><span class="p">(</span><span class="kr">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)]);</span>
+<span class="kt">meshL</span> <span class="n">Th3</span><span class="o">=</span><span class="n">Th31</span><span class="o">+</span><span class="n">Th32</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id15">
+<h4>The command <em>change</em><a class="headerlink" href="#id15" title="Permalink to this headline"> </a></h4>
+<p>Equivalent for a 2d or 3d mesh, the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code> changes the label of elements and border elements of a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code>.</p>
+<p>The parameters for this command line are:</p>
+<ul class="simple">
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">reftri</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old label number to the new label number for elements.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">refedge</span><span class="o">=</span></code> is a vector of integer that contains successive pairs of the old region number to new region number for boundary elements.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">flabel</span><span class="o">=</span></code> is an integer function given the new value of the label.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">fregion</span><span class="o">=</span></code> is an integer function given the new value of the region.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmInternalEdges</span><span class="o">=</span></code> is a boolean, equal true to remove the internal edges.</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">rmledges</span><span class="o">=</span></code> is a vector of integer, where edge’s label given are remove of the mesh</li>
+</ul>
+<p>These vectors are composed of <span class="math notranslate nohighlight">\(n_{l}\)</span> successive pairs of numbers <span class="math notranslate nohighlight">\(O,N\)</span> where <span class="math notranslate nohighlight">\(n_{l}\)</span> is the number (label or region) that we want to change.
+For example, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathtt{label} &amp;= [ O_{1}, N_{1}, ..., O_{n_{l}},N_{n_{l}} ] \\
+\mathtt{region} &amp;= [ O_{1}, N_{1}, ..., O_{n_{l}},N_{n_{l}} ]\end{split}\]</div>
+</div>
+<div class="section" id="the-commands-buildbdmesh-and-gamma">
+<h4>The commands <em>buildBdMesh</em> and <em>Gamma</em><a class="headerlink" href="#the-commands-buildbdmesh-and-gamma" title="Permalink to this headline"> </a></h4>
+<p>The command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code> allows to extract the border mesh independly of a surface mesh.
+With this function, the constructed border mesh contains the full geometric description of th eboundary surface. In case where the border mesh doesn’t exist, before calling <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code>, must build it by calling the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildBdMesh</span></code> function (see the next function description).</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;msh3&quot;</span>
+<span class="kt">int</span> <span class="kr">n</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">meshS</span> <span class="n">Th</span><span class="o">=</span><span class="nf">square3</span><span class="p">(</span><span class="kr">n</span><span class="p">,</span><span class="kr">n</span><span class="p">);</span>
+<span class="n">Th</span> <span class="o">=</span> <span class="nf">buildBdMesh</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span> <span class="c1">// build the border mesh</span>
+<span class="c1">// build Th1, the border of Th, defined by edges elements and point border elements</span>
+<span class="kt">meshL</span> <span class="n">Th1</span> <span class="o">=</span> <span class="n">Th</span><span class="p">.</span><span class="nf">Gamma</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="tottototototot">
+<h4>tottototototot<a class="headerlink" href="#tottototototot" title="Permalink to this headline"> </a></h4>
+<p>An assembling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> is possible thanks to the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code>.
+The result returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, with caution of the right orientation at the merged interfaces. Here, the function :freefem:<a href="#id16"><span class="problematic" id="id17">`</span></a>checkMesh`can be called.</p>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kt">int</span> <span class="kr">n</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+ <span class="kt">meshL</span> <span class="n">Th1</span> <span class="o">=</span> <span class="nf">segment</span><span class="p">(</span><span class="kr">n</span><span class="p">);</span>
+ <span class="kt">meshL</span> <span class="n">Th2</span> <span class="o">=</span> <span class="nf">segment</span><span class="p">(</span><span class="kr">n</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="kr">x</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="kp">orientation</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+ <span class="kt">meshL</span> <span class="n">Th3</span> <span class="o">=</span> <span class="nf">segment</span><span class="p">(</span><span class="kr">n</span><span class="p">,[</span><span class="kr">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="kp">orientation</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+ <span class="kt">meshL</span> <span class="n">Th4</span> <span class="o">=</span> <span class="nf">segment</span><span class="p">(</span><span class="kr">n</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="kr">x</span><span class="p">],</span><span class="kp">orientation</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
+
+ <span class="kt">meshL</span> <span class="n">Th</span> <span class="o">=</span> <span class="n">Th1</span><span class="o">+</span><span class="n">Th2</span><span class="o">+</span><span class="n">Th3</span><span class="o">+</span><span class="n">Th4</span><span class="p">;</span>
+ <span class="n">Th</span><span class="o">=</span><span class="n">rebuildBorder</span><span class="p">(</span><span class="n">Th</span><span class="p">,</span> <span class="n">ridgeangledetection</span><span class="o">=</span><span class="kr">pi</span><span class="o">/</span><span class="mf">2.</span><span class="o">+</span><span class="mf">0.0001</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For the moment, the case of no manifold mesh are not considered in FreeFEM. To check if the meshL contains no manifold elements, the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">nbnomanifold</span></code>.</p>
+</div>
+</div>
+<div class="section" id="the-commands-rebuildborder">
+<h4>The commands <em>rebuildBorder</em><a class="headerlink" href="#the-commands-rebuildborder" title="Permalink to this headline"> </a></h4>
+<p>This operator, used in the last example, allows to reconstruted the border elements following a special criteria <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ridgeangledetection</span></code>. By default, it value is <span class="math notranslate nohighlight">\(\frac{8}{9}*arctan(1)\approx40°\)</span>, the diedral angle for a decahedron.</p>
+</div>
+</div>
 <div class="section" id="tetgen-a-tetrahedral-mesh-generator">
 <h3>TetGen: A tetrahedral mesh generator<a class="headerlink" href="#tetgen-a-tetrahedral-mesh-generator" title="Permalink to this headline"> </a></h3>
-<p>TetGen is a software developed by Dr.&nbsp;Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a class="reference internal" href="../bibliography.html#hang2006" id="id10">[HANG2006]</a>.
+<p>TetGen is a software developed by Dr.&nbsp;Hang Si of Weierstrass Institute for Applied Analysis and Stochastics in Berlin, Germany <a class="reference internal" href="../bibliography.html#hang2006" id="id18">[HANG2006]</a>.
 TetGen is free for research and non-commercial use.
 For any commercial license utilization, a commercial license is available upon request to Hang Si.</p>
 <p>This software is a tetrahedral mesh generator of a three dimensional domain defined by its boundary (a surface).
 The input domain takes into account a polyhedral or a piecewise linear complex.
 This tetrahedralization is a constrained Delaunay tetrahedralization.</p>
-<p>The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk <a class="reference internal" href="../bibliography.html#shewchuk1998" id="id11">[SHEWCHUK1998]</a>.
-The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 <a class="reference internal" href="../bibliography.html#hang2006" id="id12">[HANG2006]</a> for more details).
+<p>The method used in TetGen to control the quality of the mesh is a Delaunay refinement due to Shewchuk <a class="reference internal" href="../bibliography.html#shewchuk1998" id="id19">[SHEWCHUK1998]</a>.
+The quality measure of this algorithm is the Radius-Edge Ratio (see Section 1.3.1 <a class="reference internal" href="../bibliography.html#hang2006" id="id20">[HANG2006]</a> for more details).
 A theoretical bound of this ratio of the Shewchuk algorithm is obtained for a given complex of vertices, constrained segments and facets of surface mesh, with no input angle less than 90 degrees.
 This theoretical bound is 2.0.</p>
 <p>The launch of TetGen is done with the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetg</span></code>.
@@ -5533,14 +5771,14 @@ The parameters of this command line is:</p>
 </li>
 <li><dl class="first docutils">
 <dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code> A string expression.</dt>
-<dd><p class="first last">This string corresponds to the command line switch of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id13">[HANG2006]</a>.</p>
+<dd><p class="first last">This string corresponds to the command line switch of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id21">[HANG2006]</a>.</p>
 </dd>
 </dl>
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofholes</span><span class="o">=</span></code> Number of holes (default value: “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> / 3”).</p>
 </li>
 <li><dl class="first docutils">
-<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id14">[HANG2006]</a>.</dt>
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">holelist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id22">[HANG2006]</a>.</dt>
 <dd><p class="first last">A real vector of size <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="mi">3</span> <span class="o">*</span> <span class="kp">nbofholes</span></code>.
 In TetGen, each hole is associated with a point inside this domain.
 This vector is <span class="math notranslate nohighlight">\(x_{1}^{h}, y_{1}^{h}, z_{1}^{h}, x_{2}^{h}, y_{2}^{h}, z_{2}^{h}, \cdots,\)</span> where <span class="math notranslate nohighlight">\(x_{i}^{h},y_{i}^{h},z_{i}^{h}\)</span> is the associated point with the <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> hole.</p>
@@ -5549,14 +5787,14 @@ This vector is <span class="math notranslate nohighlight">\(x_{1}^{h}, y_{1}^{h}
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span><span class="o">=</span></code> Number of regions (default value: “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> / 5”).</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id15">[HANG2006]</a>.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id23">[HANG2006]</a>.</p>
 <p>The attribute and the volume constraint of region are given in this real vector of size <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="mi">5</span> <span class="o">*</span> <span class="kp">nbofregions</span></code>.
 The <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> region is described by five elements: <span class="math notranslate nohighlight">\(x-\)</span>coordinate, <span class="math notranslate nohighlight">\(y-\)</span>coordinate and <span class="math notranslate nohighlight">\(z-\)</span>coordinate of a point inside this domain (<span class="math notranslate nohighlight">\(x_{i},y_{i},z_{i}\)</span>); the attribute (<span class="math notranslate nohighlight">\(at_{i}\)</span>) and the maximum volume for tetrahedra (<span class="math notranslate nohighlight">\(mvol_{i}\)</span>) for this region.</p>
 <p>The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> vector is: <span class="math notranslate nohighlight">\(x_{1}, y_{1}, z_{1}, at_{1}, mvol_{1}, x_{2}, y_{2}, z_{2}, at_{2}, mvol_{2}, \cdots\)</span>.</p>
 </li>
 <li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nboffacetcl</span><span class="o">=</span></code> Number of facets constraints “size of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> / 2”).</p>
 </li>
-<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">facetconstraintlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id16">[HANG2006]</a>.</p>
+<li><p class="first"><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span><span class="o">=</span></code> This array corresponds to <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">facetconstraintlist</span></code> of TetGenio data structure <a class="reference internal" href="../bibliography.html#hang2006" id="id24">[HANG2006]</a>.</p>
 <p>The <span class="math notranslate nohighlight">\(i^{th}\)</span> facet constraint is defined by the facet marker <span class="math notranslate nohighlight">\(Ref_{i}^{fc}\)</span> and the maximum area for faces <span class="math notranslate nohighlight">\(marea_{i}^{fc}\)</span>.
 The <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> array is: <span class="math notranslate nohighlight">\(Ref_{1}^{fc}, marea_{1}^{fc}, Ref_{2}^{fc}, marea_{2}^{fc}, \cdots\)</span>.</p>
 <p>This parameters has no effect if switch <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">q</span></code> is not selected.</p>
@@ -5655,7 +5893,7 @@ x_{n_v} &amp; y_{n_v} &amp; z_{n_v}
 <ul class="simple">
 <li><dl class="first docutils">
 <dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code> A string expression.</dt>
-<dd>This string corresponds to the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code> of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id17">[HANG2006]</a>.</dd>
+<dd>This string corresponds to the command line <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code> of TetGen see Section 3.2 of <a class="reference internal" href="../bibliography.html#hang2006" id="id25">[HANG2006]</a>.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
@@ -5694,7 +5932,7 @@ x_{n_v} &amp; y_{n_v} &amp; z_{n_v}
 </ul>
 <p>The parameters <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nboffacetcl</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">facetcl</span></code> of the command line which call TetGen (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetg</span></code>) is used for <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">tetgrefine</span></code>.</p>
 <p>In the parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">switch</span><span class="o">=</span></code>, the character <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> should be used without the character <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">p</span></code>.</p>
-<p>For instance, see the manual of TetGen <a class="reference internal" href="../bibliography.html#hang2006" id="id18">[HANG2006]</a> for effect of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> to other character.</p>
+<p>For instance, see the manual of TetGen <a class="reference internal" href="../bibliography.html#hang2006" id="id26">[HANG2006]</a> for effect of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">r</span></code> to other character.</p>
 <p>The parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> defines a new volume constraint in the region.
 The label in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">regionlist</span></code> will be the previous label of region.</p>
 <p>This parameter and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">nbofregions</span></code> can’t be used with the parameter <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">sizeofvolume</span></code>.</p>
@@ -5908,7 +6146,7 @@ An external file contains a mesh at format .mesh can be read by the ommand <code
 </table>
 <p>In <strong>FreeFEM</strong> there are many mesh file formats available for communication with other tools such as <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">emc2</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">modulef</span></code>, … (see <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh format chapter</span></a> ).</p>
 <p>The extension of a file implies its format.
-More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” <a class="reference internal" href="../bibliography.html#hecht1998-2" id="id19">[HECHT1998_2]</a>.</p>
+More details can be found on the file format .msh in the article by F. Hecht “bamg : a bidimensional anisotropic mesh generator” <a class="reference internal" href="../bibliography.html#hecht1998-2" id="id27">[HECHT1998_2]</a>.</p>
 <p>A mesh file can be read into <strong>FreeFEM</strong> except that the names of the borders are lost and only their reference numbers are kept.
 So these borders have to be referenced by the number which corresponds to their order of appearance in the program, unless this number is overwritten by the keyword <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kr">label</span></code>. Here are some examples:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -6130,10 +6368,10 @@ So these borders have to be referenced by the number which corresponds to their 
 </dl>
 </div>
 </div>
-<div class="section" id="id20">
-<h3>3d case<a class="headerlink" href="#id20" title="Permalink to this headline"> </a></h3>
-<div class="section" id="id21">
-<h4>format of  mesh data<a class="headerlink" href="#id21" title="Permalink to this headline"> </a></h4>
+<div class="section" id="id28">
+<h3>3d case<a class="headerlink" href="#id28" title="Permalink to this headline"> </a></h3>
+<div class="section" id="id29">
+<h4>format of  mesh data<a class="headerlink" href="#id29" title="Permalink to this headline"> </a></h4>
 <p>In three dimensions, the file mesh format supported for input and output files by <strong>FreeFEM</strong> are the extension .msh and .mesh.
 These formats are described in the <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh Format section</span></a>.</p>
 <p><strong>Extension file .msh</strong> The structure of the files with extension .msh in 3D is given by:</p>
@@ -6255,8 +6493,8 @@ Vertex1 Vertex2 Vertex3 Label
 </div>
 <div class="section" id="surface-3d-case">
 <h3>Surface 3d case<a class="headerlink" href="#surface-3d-case" title="Permalink to this headline"> </a></h3>
-<div class="section" id="id22">
-<h4>format of  mesh data<a class="headerlink" href="#id22" title="Permalink to this headline"> </a></h4>
+<div class="section" id="id30">
+<h4>format of  mesh data<a class="headerlink" href="#id30" title="Permalink to this headline"> </a></h4>
 <p>Like 2d and 3d, the input and output format files supported by <strong>FreeFEM</strong> are the extension .msh and .mesh.
 These formats are described in the <a class="reference internal" href="developers.html#meshfiledatastructure"><span class="std std-ref">Mesh Format section</span></a>.</p>
 <p><strong>Extension file .msh</strong> The structure of the files with extension .msh in surface 3D is given by:</p>
@@ -7525,11 +7763,11 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 </pre></div>
 </td></tr></table></div>
 <div class="last figure compound align-center" id="Isoline">
-<div style="width: 49%" class="subfigure" id="id44">
+<div style="width: 49%" class="subfigure" id="id52">
 <span id="meshgenerationisoline1"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Isoline1.jpg"><img alt="MeshGeneration_Isoline1" src="../_images/MeshGeneration_Isoline1.jpg" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">The image of the Leman lake meshes</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id45">
+<div style="width: 49%" class="subfigure" id="id53">
 <span id="meshgenerationisoline2"></span><a class="reference internal image-reference" href="../_images/MeshGeneration_Isoline2.png"><img alt="MeshGeneration_Isoline2" src="../_images/MeshGeneration_Isoline2.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">The mesh of the lake</span></p>
 </div>
@@ -7580,7 +7818,7 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#id3">Remeshing</a><ul>
 <li><a class="reference internal" href="#id4">The command <em>change</em></a></li>
 <li><a class="reference internal" href="#meshgenerationtrunc">The command <em>trunc</em></a></li>
-<li><a class="reference internal" href="#the-command-movemesh3">The command <em>movemesh3</em></a></li>
+<li><a class="reference internal" href="#id6">The command <em>movemesh</em></a></li>
 <li><a class="reference internal" href="#the-command-extract">The command <em>extract</em></a></li>
 <li><a class="reference internal" href="#the-command-buildsurface">The command <em>buildSurface</em></a></li>
 <li><a class="reference internal" href="#the-command-movemesh23">The command <em>movemesh23</em></a></li>
@@ -7596,17 +7834,34 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">Remeshing</a><ul>
-<li><a class="reference internal" href="#id7">The command <em>trunc</em></a></li>
-<li><a class="reference internal" href="#the-command-movemeshs">The command <em>movemeshS</em></a></li>
-<li><a class="reference internal" href="#id8">The command <em>change</em></a></li>
+<li><a class="reference internal" href="#id7">Remeshing</a><ul>
+<li><a class="reference internal" href="#id8">The command <em>trunc</em></a></li>
+<li><a class="reference internal" href="#id9">The command <em>movemesh</em></a></li>
+<li><a class="reference internal" href="#id10">The command <em>change</em></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#link-with-a-mesh3">Link with a mesh3</a><ul>
 <li><a class="reference internal" href="#the-command-gamma">The command <em>Gamma</em></a></li>
-<li><a class="reference internal" href="#id9">The command <em>buildSurface</em></a></li>
+<li><a class="reference internal" href="#the-command-buildbdmesh">The command <em>buildBdMesh</em></a></li>
 <li><a class="reference internal" href="#the-command-savesurfacemesh">The command <em>savesurfacemesh</em></a></li>
 <li><a class="reference internal" href="#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a><ul>
+<li><a class="reference internal" href="#commands-for-3d-curve-mesh-generation">Commands for 3d curve mesh generation</a><ul>
+<li><a class="reference internal" href="#the-command-segment">The command <em>segment</em></a></li>
+<li><a class="reference internal" href="#id11">The command <em>buildmesh</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">Remeshing</a><ul>
+<li><a class="reference internal" href="#id13">The command <em>trunc</em></a></li>
+<li><a class="reference internal" href="#id14">The command <em>movemesh</em></a></li>
+<li><a class="reference internal" href="#id15">The command <em>change</em></a></li>
+<li><a class="reference internal" href="#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
+<li><a class="reference internal" href="#tottototototot">tottototototot</a></li>
+<li><a class="reference internal" href="#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
@@ -7619,13 +7874,13 @@ So here : the minimum is a point <span class="math notranslate nohighlight">\(0.
 <li><a class="reference internal" href="#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id20">3d case</a><ul>
-<li><a class="reference internal" href="#id21">format of  mesh data</a></li>
+<li><a class="reference internal" href="#id28">3d case</a><ul>
+<li><a class="reference internal" href="#id29">format of  mesh data</a></li>
 <li><a class="reference internal" href="#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#surface-3d-case">Surface 3d case</a><ul>
-<li><a class="reference internal" href="#id22">format of  mesh data</a></li>
+<li><a class="reference internal" href="#id30">format of  mesh data</a></li>
 <li><a class="reference internal" href="#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>

@@ -55,17 +55,17 @@
 	<div style="display: none;">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Introduction</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#cmake">CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4.5: new features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#using-binary-package">Using binary package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#windows-installation">Windows installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#macos-x-installation">macOS X installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="installation.html#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#ubuntu-installation">Ubuntu installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
@@ -211,7 +211,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id3">Remeshing</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id4">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#meshgenerationtrunc">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh3">The command <em>movemesh3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id6">The command <em>movemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-extract">The command <em>extract</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildsurface">The command <em>buildSurface</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh23">The command <em>movemesh23</em></a></li>
@@ -227,17 +227,34 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id6">Remeshing</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id7">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemeshs">The command <em>movemeshS</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>change</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id7">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id10">The command <em>change</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#link-with-a-mesh3">Link with a mesh3</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-gamma">The command <em>Gamma</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildbdmesh">The command <em>buildBdMesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-savesurfacemesh">The command <em>savesurfacemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#commands-for-3d-curve-mesh-generation">Commands for 3d curve mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-segment">The command <em>segment</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id11">The command <em>buildmesh</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id12">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id13">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id14">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id15">The command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#tottototototot">tottototototot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
@@ -250,13 +267,13 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id20">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id21">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id28">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id22">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id30">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -1889,7 +1906,7 @@
 	<div style="display: none">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Introduction</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4.5: new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="download.html">Download</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html">History</a></li>
@@ -1949,7 +1966,7 @@ t {
     </p>
     <p>
       <a href="/_static/pdf/FreeFEM-doc-v3.pdf" target="_blank">Official version</a> (English)<br/>
-      <a href="/_static/pdf/FreeFEM-doc-v3_Spanish.pdf" target="_blank">Spanish version</a>, by Eliseo Chac ́on Vera <br/>
+      <a href="/_static/pdf/FreeFEM-doc-v3_Spanish.pdf" target="_blank">Spanish version</a>, by Eliseo Chacón Vera <br/>
       <a href="/_static/pdf/FreeFEM-doc-v3_Chinese.pdf" target="_blank">Chinese version</a> (中文) <br/>
               <a href="http://comfos.org/jp/ffempp/index.html" target="_blank">Japanese version</a>, by Kohji Ohtsuka
     </p>
@@ -1962,7 +1979,7 @@ t {
 </div>
 <div class="section" id="introduction">
 <h1><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Permalink to this headline"> </a></h1>
-<p><strong>FreeFEM</strong> is a partial differential equation solver for non-linear multi-physics systems in 2D and 3D.</p>
+<p><strong>FreeFEM</strong> is a partial differential equation solver for non-linear multi-physics systems in 1D, 2D, 3D and 3D border domains (surface and curve).</p>
 <p>Problems involving partial differential equations from several branches of physics, such as fluid-structure interactions, require interpolations of data on several meshes and their manipulation within one program.
 <strong>FreeFEM</strong> includes a fast interpolation algorithm and a language for the manipulation of data on multiple meshes.</p>
 <p><strong>FreeFEM</strong> is written in C++ and its language is a C++ idiom.</p>
@@ -1979,24 +1996,26 @@ t {
 <li><a class="reference external" href="https://github.com/coin-or/Ipopt">Ipopt V3.12.4</a></li>
 <li><a class="reference external" href="http://getfem.org/gmm.html">Gmm++ V4.2</a></li>
 <li><a class="reference external" href="https://www.ljll.math.upmc.fr/frey/software.html">freeYams</a></li>
+<li><a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/metis/metis/overview">METIS V5.1.0</a></li>
 </ul>
 </td><td><ul class="simple">
-<li><a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/metis/metis/overview">METIS V5.1.0</a></li>
 <li><a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview">ParMETIS V4.0.3</a></li>
 <li><a class="reference external" href="https://www.mmgtools.org">MMG3D V4.0</a></li>
 <li><a class="reference external" href="https://www.ljll.math.upmc.fr/frey/software.html">mshmet</a></li>
 <li><a class="reference external" href="http://mumps.enseeiht.fr/">MUMPS V5.0.2</a></li>
 <li><a class="reference external" href="http://ab-initio.mit.edu/wiki/index.php/NLopt">NLopt V2.2.4</a></li>
 <li><a class="reference external" href="http://www.netlib.org/scalapack/">ScaLAPACK</a></li>
-</ul>
-</td><td><ul class="simple">
 <li><a class="reference external" href="https://gforge.inria.fr/projects/scotch/">Scotch V6.0.4</a></li>
 <li><a class="reference external" href="http://faculty.cse.tamu.edu/davis/suitesparse.html">SuiteSparse V4.4.4</a></li>
+</ul>
+</td><td><ul class="simple">
 <li><a class="reference external" href="http://crd-legacy.lbl.gov/~xiaoye/SuperLU/">SuperLU V5.2.1</a></li>
 <li><a class="reference external" href="http://www.tetgen.org/">TetGen V1.5.1</a></li>
-<li><a class="reference external" href="https://www.mcs.anl.gov/petsc/">PETSc V3.11.2</a></li>
+<li><a class="reference external" href="https://www.mcs.anl.gov/petsc/">PETSc V3.12.4</a></li>
 <li><a class="reference external" href="https://pierremarchand.netlify.com/project/htool/">HTool</a></li>
 <li><a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a></li>
+<li><a class="reference external" href="https://github.com/PierreMarchand20/BemTool">BemTool</a></li>
+<li><a class="reference external" href="https://github.com/MmgTools/ParMmg">ParMmg</a></li>
 </ul>
 </td></tr></table>
 <div class="line-block">
@@ -2015,17 +2034,17 @@ t {
 <p class="centered">
 <strong><a class="reference internal" href="../_images/logo_cnrs_SU_UP.png"><img alt="logo1" src="../_images/logo_cnrs_SU_UP.png" style="width: 85.6px; height: 143.6px;" /></a>  <a class="reference internal" href="../_images/inr_logo_rouge_300.jpg"><img alt="logo2" src="../_images/inr_logo_rouge_300.jpg" style="width: 257.8px; height: 90.6px;" /></a>  <a class="reference internal" href="../_images/logo_LJLL.png"><img alt="logo3" src="../_images/logo_LJLL.png" style="width: 76.8px; height: 83.4px;" /></a>    <a class="reference internal" href="../_images/logo_alpines.png"><img alt="logo4" src="../_images/logo_alpines.png" style="width: 225.0px; height: 89.55px;" /></a></strong></p><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="new-features.html">Version 4: new features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="new-features.html#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="new-features.html#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l2"><a class="reference internal" href="new-features.html#cmake">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new-features.html">Version 4.5: new features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-binary-package">Using binary package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#windows-installation">Windows installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#macos-x-installation">macOS X installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#ubuntu-installation">Ubuntu installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
@@ -2082,7 +2101,7 @@ t {
 
 		<div class="content-nav-buttons" role="navigation">
 			<a href="../index.html" class="btn-neutral" title="previous topic" rel="previous"><span class="fa fa-arrow-circle-left"></span> Previous topic: Welcome to FreeFEM documentation</a>
-			<a href="new-features.html" class="btn-neutral" title="next topic" rel="next">Next topic: Version 4: new features <span class="fa fa-arrow-circle-right"></span></a>
+			<a href="new-features.html" class="btn-neutral" title="next topic" rel="next">Next topic: Version 4.5: new features <span class="fa fa-arrow-circle-right"></span></a>
 		</div>
 	</div>
 	

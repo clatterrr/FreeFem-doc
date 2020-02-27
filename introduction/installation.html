@@ -55,17 +55,17 @@
 	<div style="display: none;">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="new-features.html#cmake">CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4.5: new features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="new-features.html#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-binary-package">Using binary package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#windows-installation">Windows installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#macos-x-installation">macOS X installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-installation">Ubuntu installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
@@ -211,7 +211,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id3">Remeshing</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id4">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#meshgenerationtrunc">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh3">The command <em>movemesh3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id6">The command <em>movemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-extract">The command <em>extract</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildsurface">The command <em>buildSurface</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh23">The command <em>movemesh23</em></a></li>
@@ -227,17 +227,34 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id6">Remeshing</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id7">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemeshs">The command <em>movemeshS</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>change</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id7">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id10">The command <em>change</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#link-with-a-mesh3">Link with a mesh3</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-gamma">The command <em>Gamma</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildbdmesh">The command <em>buildBdMesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-savesurfacemesh">The command <em>savesurfacemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#commands-for-3d-curve-mesh-generation">Commands for 3d curve mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-segment">The command <em>segment</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id11">The command <em>buildmesh</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id12">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id13">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id14">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id15">The command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#tottototototot">tottototototot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
@@ -250,13 +267,13 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id20">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id21">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id28">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id22">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id30">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -1889,9 +1906,9 @@
 	<div style="display: none">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4: new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-features.html">Version 4.5: new features</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-binaries-package">Using binaries package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-binary-package">Using binary package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compiling-source-code">Compiling source code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#freefem-continuous-integration"><strong>FreeFEM</strong> continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#environment-variables-and-init-file">Environment variables and init file</a></li>
@@ -1921,14 +1938,14 @@
 		
    <div class="section" id="installation-guide">
 <h1>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline"> </a></h1>
-<p>To use FreeFEM, two installation methods are available: user access (binarie package) and access developers (from the source code).
+<p>To use FreeFEM, two installation methods are available: user access (binary package) and access developers (from the source code).
 Follow the section corresponding to your type of installation.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-<div class="section" id="using-binaries-package">
-<h2>Using binaries package<a class="headerlink" href="#using-binaries-package" title="Permalink to this headline"> </a></h2>
+<div class="section" id="using-binary-package">
+<h2>Using binary package<a class="headerlink" href="#using-binary-package" title="Permalink to this headline"> </a></h2>
 <p>First, open the following web page <a class="reference internal" href="download.html#download"><span class="std std-ref">download page</span></a> and choose your platform: Linux, MacOS or Windows.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1937,6 +1954,10 @@ Follow the section corresponding to your type of installation.</p>
 <p>Install <strong>FreeFEM</strong> by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="kp">bin</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">freefem</span><span class="o">++</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ff</span><span class="o">++</span></code></p>
 <div class="section" id="windows-installation">
 <h3>Windows installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline"> </a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The windows package is build for Window 7 64bits</p>
+</div>
 <p>First download the windows installation executable, then double click to install <strong>FreeFEM</strong>.</p>
 <p>In most cases just answer yes (or type return) to all questions.</p>
 <p>Otherwise in the Additional Task windows, check the box “Add application directory to your system path.” This is required otherwise the program <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code> will not be found.</p>
@@ -1950,21 +1971,26 @@ Follow the section corresponding to your type of installation.</p>
 </div>
 <div class="section" id="macos-x-installation">
 <h3>macOS X installation<a class="headerlink" href="#macos-x-installation" title="Permalink to this headline"> </a></h3>
-<p>Download the MacOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span><span class="p">.</span><span class="n">app</span></code> application in the <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">Applications</span></code> directory.</p>
+<p>Download the macOS X binary version file, extract all the files by double clicking on the icon of the file, go the the directory and put the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span><span class="p">.</span><span class="n">app</span></code> application in the <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">Applications</span></code> directory.</p>
 <p>If you want terminal access to <strong>FreeFEM</strong> just copy the file <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span></code> in a directory of your <code class="code bash docutils literal highlight highlight-bash"><span></span><span class="nv">$PATH</span></code> shell environment variable.</p>
 </div>
-<div class="section" id="ubuntu-binary-installation">
-<h3>Ubuntu binary installation<a class="headerlink" href="#ubuntu-binary-installation" title="Permalink to this headline"> </a></h3>
+<div class="section" id="ubuntu-installation">
+<h3>Ubuntu installation<a class="headerlink" href="#ubuntu-installation" title="Permalink to this headline"> </a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The Debian package is build for Ubuntu 18.04</p>
+<p class="last">The Debian package is built for Ubuntu 16.04</p>
 </div>
 <p>Beforehand, install the following dependances libraries using the apt tool:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get install libhdf5-dev libsuitesparse-dev libarpack2-dev
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get install libgsl-dev libhdf5-dev
+             liblapack-dev libopenmpi-dev freeglut3-dev
 </pre></div>
 </td></tr></table></div>
-<p>Download the package FreeFEM .deb, install it by double clicking on the icon of the file.
-FreeFEM is directly available in your terminal by the command “FreeFem++”.</p>
+<p>Download the package FreeFEM .deb, install it by the command</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>dpkg -i FreeFEM_VERSION_Ubuntu_withPETSc_amd64.deb
+</pre></div>
+</td></tr></table></div>
+<p>FreeFEM is directly available in your terminal by the command “FreeFem++”.</p>
 </div>
 <div class="section" id="arch-aur-package">
 <h3>Arch AUR package<a class="headerlink" href="#arch-aur-package" title="Permalink to this headline"> </a></h3>
@@ -1993,50 +2019,57 @@ makepkg -si
 <ol class="arabic">
 <li><p class="first">Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the <a class="reference external" href="https://developer.apple.com/download/more/">Apple website</a></p>
 </li>
-<li><p class="first">Install gcc and gfortran from Homebrew</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> brew install gcc
+<li><p class="first">Install gfortran from Homebrew</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> brew install gfortran
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">To use <strong>FreeFEM</strong> parallel version, install the <a class="reference external" href="https://www.open-mpi.org/software/ompi/v4.0/">openmpi</a> source code</p>
+<li><p class="first">To use <strong>FreeFEM</strong> parallel version, install <a class="reference external" href="https://www.open-mpi.org/software/ompi/v4.0/">openmpi</a>  or  <a class="reference external" href="http://www.mpich.org/downloads/">mpich</a></p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> curl -L https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz --output openmpi-4.0.1.tar.gz
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># to install openmpi</span>
+ curl -L https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz --output openmpi-4.0.1.tar.gz
  tar xf openmpi-4.0.1
  <span class="nb">cd</span> openmpi-4.0.1/
+ <span class="c1"># to install mpich</span>
+ curl -L http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz --output mpich-3.3.2.tar.gz
+ tar xf mpich-3.3.2
+ <span class="nb">cd</span> mpich-3.3.2
 </pre></div>
 </td></tr></table></div>
-<ul class="simple">
-<li>with brew gcc gfortran compilers</li>
-</ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4</pre></div></td><td class="code"><div class="highlight"><pre><span></span> ./configure <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">FC</span><span class="o">=</span>gfortran-9 <span class="nv">F77</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/usr/local
-</pre></div>
-</td></tr></table></div>
-<ul class="simple">
-<li>with LLVM gcc and brew gfortran compilers</li>
-</ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 <span class="nv">F77</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/usr/local
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># with brew gcc gfortran compilers</span>
+ ./configure <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">FC</span><span class="o">=</span>gfortran-9 <span class="nv">F77</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
+
+ <span class="c1"># with LLVM gcc and brew gfortran compilers</span>
+ ./configure <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 <span class="nv">F77</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span> make
- sudo make install
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span> make -j&lt;nbProcs&gt;
+ make -j&lt;nbProcs&gt; install
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Install the required libraries for <strong>FreeFEM</strong></p>
+<li><p class="first">Install the minimal libraries for <strong>FreeFEM</strong></p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install m4 git flex bison
 </pre></div>
 </td></tr></table></div>
 </li>
 <li><p class="first">If you want build your own configure according your system, install autoconf and automake from Homebrew (optional, see note in step 10)</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install autoconf
-brew install automake
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install autoconf automake
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">To use <strong>FreeFEM</strong> with its plugins, install rom Homebrew suitesparse, hdf5, cmake, wget</p>
+<li><p class="first">To use <strong>FreeFEM</strong> with its plugins, install from Homebrew suitesparse, hdf5, cmake, wget</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew install suitesparse hdf5 cmake wget
 </pre></div>
 </td></tr></table></div>
@@ -2051,8 +2084,8 @@ brew install automake
 tar zxvf gsl-2.5.tar.gz
 <span class="nb">cd</span> gsl-2.5
 ./configure
-make
-sudo make install
+make -j&lt;nbProcs&gt;
+make -j&lt;nbProcs&gt; install --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2074,13 +2107,15 @@ sudo make install
 <ul class="simple">
 <li>with LLVM gcc and brew gfortran compilers</li>
 </ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9
-</pre></div>
-</td></tr></table></div>
-<ul class="simple">
-<li>with brew gcc and brew gfortran compilers</li>
-</ul>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9 <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    // with brew gcc gfortran compilers
+./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
+
+// with LLVM gcc and brew gfortran compilers
+./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2097,14 +2132,14 @@ sudo make install
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="11">
-<li>If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</li>
+<li>If you want use PETSc/SLEPc and <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods)</li>
 </ol>
 <blockquote>
 <div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
-make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
+make petsc-slepc // add <span class="nv">SUDO</span><span class="o">=</span>sudo <span class="k">if</span> your installation directory is the default /usr/local
 <span class="nb">cd</span> -
 ./reconfigure
 </pre></div>
@@ -2119,7 +2154,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
-make check
+make -j&lt;nbProcs&gt; check
 
     .. note:: <span class="sb">``</span>make check<span class="sb">``</span> is optionnally, but advise to check the validity of your **FreeFEM** building
 </pre></div>
@@ -2128,11 +2163,11 @@ make check
 <ol class="arabic" start="13">
 <li><dl class="first docutils">
 <dt>Install the <strong>FreeFEM</strong> apllication</dt>
-<dd><p class="first">sudo make install</p>
+<dd><p class="first">make install</p>
 <blockquote class="last">
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To install FreeFEM, it is recommanded to change the user ID of your installation directory instead of using SUDO.</p>
+<p class="last">it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your_installation/src/nw/FreeFem++ and mpi executable here your_installation/src/mpi/ff-mpirun</p>
 </div>
 </div></blockquote>
 </dd>
@@ -2144,25 +2179,21 @@ make check
 <div class="section" id="compilation-on-ubuntu">
 <h3>Compilation on Ubuntu<a class="headerlink" href="#compilation-on-ubuntu" title="Permalink to this headline"> </a></h3>
 <ol class="arabic">
-<li><p class="first">Install the following packages on you system</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
+<li><p class="first">Install the following packages on your system</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get upgrade
 sudo apt-get install cpp freeglut3-dev g++ gcc gfortran <span class="se">\</span>
     m4 make patch pkg-config wget python unzip <span class="se">\</span>
-    libopenblas-dev liblapack-dev libhdf5-dev libgsl-dev <span class="se">\</span>
-    libscotch-dev libfftw3-dev libarpack2-dev libsuitesparse-dev <span class="se">\</span>
-    libmumps-seq-dev libnlopt-dev coinor-libipopt-dev libgmm++-dev libtet1.5-dev <span class="se">\</span>
-    gnuplot-qt autoconf automake autotools-dev bison flex gdb valgrind git cmake
+    liblapack-dev libhdf5-dev libgsl-dev <span class="se">\</span>
+    autoconf automake autotools-dev bison flex gdb git cmake
 
-<span class="c1"># mpich is required for the FreeFem parallel computing version</span>
+<span class="c1"># mpich is required for the FreeFEM parallel computing version</span>
 sudo apt-get install mpich
 </pre></div>
 </td></tr></table></div>
@@ -2188,7 +2219,7 @@ autoreconf -i
 </div>
 </li>
 <li><p class="first">Configure</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2205,12 +2236,12 @@ autoreconf -i
 <p class="last">All the third party packages have their own licence</p>
 </div>
 </li>
-<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
+<li><p class="first">If you want use PETSc/SLEPc and <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
-make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
+make petsc-slepc // add <span class="nv">SUDO</span><span class="o">=</span>sudo <span class="k">if</span> your installation directory is the default /usr/local
 <span class="nb">cd</span> -
 ./reconfigure
 </pre></div>
@@ -2219,7 +2250,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <li><p class="first">Build your <strong>FreeFEM</strong> library and executable</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
-make check
+make -j&lt;nbProcs&gt; check
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2227,12 +2258,14 @@ make check
 <p class="last"><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">check</span></code> is optionnally, but advise to check the validity of your <strong>FreeFEM</strong> building</p>
 </div>
 </li>
-</ol>
-<ol class="arabic" start="9">
 <li><p class="first">Install the executable</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>sudo make install
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make install
 </pre></div>
 </td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your_installation/src/nw/FreeFem++ and mpi executable here your_installation/src/mpi/ff-mpirun</p>
+</div>
 </li>
 </ol>
 </div>
@@ -2292,17 +2325,14 @@ autoreconf -i
 <p class="last">All the third party packages have their own licence</p>
 </div>
 </li>
-<li><p class="first">Compile petsc &amp; slepc</p>
+<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
 make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 <span class="nb">cd</span> -
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./reconfigure
+./reconfigure
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2338,20 +2368,7 @@ make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
 We assume your development machine is 64-bit, and you want your compiler to target 64-bit windows by default.</p>
 </div>
 <ol class="arabic simple">
-<li>Install the <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=49926">Microsoft MPI v7.0 (archived)</a> (msmpisdk.msi and MSMpiSetup.exe)</li>
-</ol>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<dl class="last docutils">
-<dt>2019/07/07</dt>
-<dd><ul class="first last simple">
-<li>Microsoft MPI v10.0 isn’t usable in MSYS/mingw64 with gfortran <a class="reference external" href="https://github.com/Microsoft/Microsoft-MPI/issues/7">more information here</a></li>
-<li>Microsoft MPI v9: mpiexec.exe doesn’t run</li>
-</ul>
-</dd>
-</dl>
-</div>
-<ol class="arabic simple" start="2">
+<li>Install the <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=100593">Microsoft MPI v10.1.2 (archived)</a> (msmpisdk.msi and MSMpiSetup.exe)</li>
 <li>Download <a class="reference external" href="http://repo.msys2.org/distrib/msys2-x86_64-latest.exe">msys2-x86_64-latest.exe</a> (x86_64 version) and run it.</li>
 <li>Install the version control system <a class="reference external" href="https://git-scm.com/download/win">Git</a> for Windows</li>
 </ol>
@@ -2413,31 +2430,47 @@ Repeatedly run the following command until it says there are no further updates.
 </td></tr></table></div>
 </li>
 <li><p class="first">Open a <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW64</span> <span class="n">terminal</span></code> (or <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">MingW32</span></code> for old 32 bit <strong>FreeFEM</strong> version) and compile the <strong>FreeFEM</strong> source</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
 ./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
   --enable-download --enable-maintainer-mode <span class="se">\</span>
   <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
   <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
-./3rdparty/getall -a
-make -j4
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">If you want use <a class="reference external" href="https://github.com/hpddm/hpddm">HPDDM</a> (High Performance Domain Decomposition Methods) for massively parallel computing, install PETSc/SLEPc</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> 3rdparty/ff-petsc
+make petsc-slepc <span class="nv">SUDO</span><span class="o">=</span>sudo
+<span class="nb">cd</span> -
+./reconfigure
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Download the 3rd party packages and build your <strong>FreeFEM</strong> library and executable</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./3rdparty/getall -a
+make
 make check
 make install
 </pre></div>
 </td></tr></table></div>
-<p>The <strong>FreeFEM</strong> executable (and some other like <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffmedit</span></code>, …)
-are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys64\mingw64\bin</code> (or <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys32\mingw32\bin</code>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <strong>FreeFEM</strong> executable (and some other like <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffmedit</span></code>, …) are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys64\mingw64\bin</code> (or <code class="docutils literal highlight highlight-freefem"><span></span>C:\msys32\mingw32\bin</code>).</p>
+</div>
 </li>
 </ol>
 </div>
@@ -2453,7 +2486,7 @@ are in <code class="docutils literal highlight highlight-freefem"><span></span>C
 <col width="16%" />
 <col width="16%" />
 <col width="16%" />
-<col width="16%" />
+<col width="17%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Branch</th>
@@ -2473,13 +2506,21 @@ are in <code class="docutils literal highlight highlight-freefem"><span></span>C
 <td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7-job3/"><img alt="Build Status05" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7-job3" /></a></td>
 </tr>
 <tr class="row-odd"><td>Develop
-<em>compiles in DEBUG
-runs MPI &amp; PETSc/SLEPS</em></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job5/"><img alt="Build Status06" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job5/"><img alt="Build Status07" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job5/"><img alt="Build Status08" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job5/"><img alt="Build Status09" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job5" /></a></td>
-<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7-job5"><img alt="Build Status10" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7-job5" /></a></td>
+mpich and PETSc/SLEPc</td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job5/_mpich/"><img alt="Build Status06" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job5_mpich/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job5/_mpich/"><img alt="Build Status07" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job5_mpich/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job5/_mpich/"><img alt="Build Status08" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job5_mpich/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job5/_mpich/"><img alt="Build Status09" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job5_mpich/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-windows7-job5"><img alt="Build Status10" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-windows7-job5" /></a>
+MSMPI V10.1.2</td>
+</tr>
+<tr class="row-even"><td>Develop
+openmpi and PETSc/SLEPc</td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1604-job5/_openmpi/"><img alt="Build Status11" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1604-job5_openmpi/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-ubuntu1804-job5/_openmpi/"><img alt="Build Status12" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-ubuntu1804-job5_openmpi/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1010-job5/_openmpi/"><img alt="Build Status13" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1010-job5_openmpi/" /></a></td>
+<td><a class="reference external" href="https://ci.inria.fr/freefem-dev/job/FreeFEM-sources-macos1013-job5/_openmpi/"><img alt="Build Status14" src="https://ci.inria.fr/freefem-dev/buildStatus/icon?job=FreeFEM-sources-macos1013-job5_openmpi/" /></a></td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -2603,7 +2644,7 @@ freefem++.pref
 
 
 		<div class="content-nav-buttons" role="navigation">
-			<a href="new-features.html" class="btn-neutral" title="previous topic" rel="previous"><span class="fa fa-arrow-circle-left"></span> Previous topic: Version 4: new features</a>
+			<a href="new-features.html" class="btn-neutral" title="previous topic" rel="previous"><span class="fa fa-arrow-circle-left"></span> Previous topic: Version 4.5: new features</a>
 			<a href="download.html" class="btn-neutral" title="next topic" rel="next">Next topic: Download <span class="fa fa-arrow-circle-right"></span></a>
 		</div>
 	</div>
@@ -2613,10 +2654,10 @@ freefem++.pref
 		<b>Table of content</b>
 		<ul>
 <li><a class="reference internal" href="#">Installation guide</a><ul>
-<li><a class="reference internal" href="#using-binaries-package">Using binaries package</a><ul>
+<li><a class="reference internal" href="#using-binary-package">Using binary package</a><ul>
 <li><a class="reference internal" href="#windows-installation">Windows installation</a></li>
 <li><a class="reference internal" href="#macos-x-installation">macOS X installation</a></li>
-<li><a class="reference internal" href="#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li><a class="reference internal" href="#ubuntu-installation">Ubuntu installation</a></li>
 <li><a class="reference internal" href="#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>

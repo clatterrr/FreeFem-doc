@@ -4,7 +4,7 @@
 
 <head>
 	  <meta charset="UTF-8">
-  <title>Version 4: new features</title>
+  <title>Version 4.5: new features</title>
   <link rel="icon" href="../_static/img/Symbol.png" />
 
   <!--Let browser know website is optimized for mobile-->
@@ -55,17 +55,17 @@
 	<div style="display: none;">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 4: new features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cmake">CMake</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 4.5: new features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="installation.html#using-binaries-package">Using binaries package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#using-binary-package">Using binary package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#windows-installation">Windows installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#macos-x-installation">macOS X installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="installation.html#ubuntu-binary-installation">Ubuntu binary installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#ubuntu-installation">Ubuntu installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="installation.html#arch-aur-package">Arch AUR package</a></li>
 </ul>
 </li>
@@ -211,7 +211,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id3">Remeshing</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id4">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#meshgenerationtrunc">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh3">The command <em>movemesh3</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id6">The command <em>movemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-extract">The command <em>extract</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildsurface">The command <em>buildSurface</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemesh23">The command <em>movemesh23</em></a></li>
@@ -227,17 +227,34 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#d-mesh-generators-combined-with-movemesh23">2D mesh generators combined with  <em>movemesh23</em></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id6">Remeshing</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id7">The command <em>trunc</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-movemeshs">The command <em>movemeshS</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>change</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id7">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id8">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id10">The command <em>change</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#link-with-a-mesh3">Link with a mesh3</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-gamma">The command <em>Gamma</em></a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id9">The command <em>buildSurface</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-buildbdmesh">The command <em>buildBdMesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-savesurfacemesh">The command <em>savesurfacemesh</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#glue-of-meshs-meshes">Glue of meshS meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../documentation/mesh-generation.html#the-type-meshl-in-3-dimension"><strong>The type meshL in 3 dimension</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#commands-for-3d-curve-mesh-generation">Commands for 3d curve mesh generation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-command-segment">The command <em>segment</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id11">The command <em>buildmesh</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id12">Remeshing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id13">The command <em>trunc</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id14">The command <em>movemesh</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id15">The command <em>change</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#tottototototot">tottototototot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#tetgen-a-tetrahedral-mesh-generator">TetGen: A tetrahedral mesh generator</a></li>
@@ -250,13 +267,13 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id20">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id21">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id28">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id22">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id30">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -1889,10 +1906,10 @@
 	<div style="display: none">
 		<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"><strong>Introduction</strong></a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 4: new features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hash-matrix">Hash Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#surface-finite-element">Surface Finite Element</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cmake">CMake</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 4.5: new features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-binaries-packages">Release, binaries packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation guide</a></li>
@@ -1917,69 +1934,58 @@
 	
 	<div id="content">
 		
-   <div class="section" id="version-4-new-features">
-<h1>Version 4: new features<a class="headerlink" href="#version-4-new-features" title="Permalink to this headline"> </a></h1>
+   <div class="section" id="version-4-5-new-features">
+<h1>Version 4.5: new features<a class="headerlink" href="#version-4-5-new-features" title="Permalink to this headline"> </a></h1>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-<div class="section" id="hash-matrix">
-<h2>Hash Matrix<a class="headerlink" href="#hash-matrix" title="Permalink to this headline"> </a></h2>
-<p>A new internal managment of matrix inside the FreeFEM core has been introduced in FreeFEM 4.0, for better performance.</p>
+<div class="section" id="release-binaries-packages">
+<h2>Release, binaries packages<a class="headerlink" href="#release-binaries-packages" title="Permalink to this headline"> </a></h2>
+<ul class="simple">
+<li>Since the version 4.5, the FreeFEM binary packages provides with a compiled PETSc library.</li>
+<li>FreeFEM is now interfaced with ParMmg.</li>
+</ul>
 </div>
+<div class="section" id="new-meshes-and-fem-border">
+<h2>New meshes and FEM border<a class="headerlink" href="#new-meshes-and-fem-border" title="Permalink to this headline"> </a></h2>
+<p>After Surface FEM, Line FEM is possible with a new mesh type <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P2</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1dc</span></code> FE, basic FEM, mesh generation
+This new development allows to treat a 1d problem, such as a problem described on a 3d curve.</p>
 <hr class="docutils" />
-<div class="section" id="surface-finite-element">
-<h2>Surface Finite Element<a class="headerlink" href="#surface-finite-element" title="Permalink to this headline"> </a></h2>
-<p>The surface finite element method is available since FreeFEM V4.2.1. Some examples are given  in examples/3dSurf.</p>
-<p>Abstract about Surface FEM in FreeFEM.</p>
+<p>Abstract about Line FEM in FreeFEM.</p>
 <ul>
-<li><p class="first">new <strong>meshS</strong> type, refer to the section <a class="reference internal" href="../documentation/mesh-generation.html#meshstype"><span class="std std-ref">The type meshS in 3 dimension</span></a></p>
+<li><p class="first">new <strong>meshL</strong> type, refer to the section <a class="reference internal" href="../documentation/mesh-generation.html#meshstype"><span class="std std-ref">The type meshL in 3 dimension</span></a></p>
 <ul>
-<li><p class="first">new type of surface mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code></p>
+<li><p class="first">new type of surface mesh: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code></p>
 </li>
-<li><p class="first">the functionalities on the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type, it is necessary to load the plugin ”msh3”.</p>
+<li><p class="first">the functionalities on the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> type, it is necessary to load the plugin ”msh3”.</p>
 </li>
-<li><p class="first">generator of meshS <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">square3</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">sphere</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ellipsoide</span></code> or from a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh</span></code> using the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">movemesh23</span></code>.</p>
+<li><p class="first">generator of meshL <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">segment</span></code>, define multi <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">border</span></code> and <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildmesh</span></code> function.</p>
 </li>
-<li><p class="first">the old surface <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> object is removed and replaced by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type</p>
-</li>
-<li><p class="first">two possibilities to define a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> :</p>
-<blockquote>
-<div><ul class="simple">
-<li>the considered domain is a 3D surface, so naturally the FreeFEM type is a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code></li>
-<li>let Th3 be a volume mesh (<code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code>) and its border <span class="math notranslate nohighlight">\(\Gamma\)</span>. FreeFEM allows to define the volume part with a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> type, and can extract and generate the entire border surface domain with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span> <span class="n">ThS</span><span class="o">=</span><span class="n">Th3</span><span class="p">.</span><span class="nf">Gamma</span></code> or specific borders with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span> <span class="n">ThS</span><span class="o">=</span><span class="nf">extract</span><span class="p">(</span><span class="n">Th3</span><span class="p">,</span><span class="kr">label</span><span class="o">=</span><span class="n">llabs</span><span class="p">)</span></code>.</li>
-</ul>
-</div></blockquote>
-<p>It is possible to build the underlying <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> from a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> with the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildSurface</span></code>: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">Th3</span><span class="o">=</span><span class="nf">buildSurface</span><span class="p">(</span><span class="n">Th3</span><span class="p">)</span></code> builds the surface domain associated to the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> Th3.</p>
-</li>
-<li><p class="first">link with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> type</p>
-<ul class="simple">
-<li>by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> ThS=Th3. <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code></li>
-<li>operator on <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type such as <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">movemeshS</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">trunc</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code>…</li>
-<li>operator in relation <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> / <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> such as <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">extract</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildSurface</span></code>, gluing of meshS with the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code></li>
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">tetg</span></code> allows to tetrahedralize the interior of the surface mesh with tetgen</li>
-</ul>
+<li><p class="first">basic transformation are avalaible: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">movemesh</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">trunc</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">extract</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">checkmesh</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">change</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">AddLayers</span></code>, glue of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>.</p>
+<p>It is possible to build the underlying <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> from a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> with the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">buildBdMesh</span></code>: <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">ThS</span><span class="o">=</span><span class="nf">buildBdMesh</span><span class="p">(</span><span class="n">ThS</span><span class="p">)</span></code> builds the boundary domain associated to the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> ThS and extract it by the command <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> ThL=ThS. <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">Gamma</span></code>.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">new FESpace with surface finite element type, see the section <a class="reference internal" href="../documentation/finite-element.html#surfacepklagrange"><span class="std std-ref">surface Lagrangian Finite Elements</span></a></p>
+<li><p class="first">new FESpace with curve finite element type</p>
 </li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">FESpace</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P2</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1b</span></code> Lagrange finite elements</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">FESpace</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P2</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1dc</span></code> Lagrange finite elements and possible to add a custumed finite element with the classical method (like a plugin).</li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li>as in the standard 2d or 3d case, the variational problem associated to surface PDE can be defined by using the keywords<ul>
+<li>as in the standard 2d, 3d, surface 3d case, the variational problem associated to surface PDE can be defined by using the keywords<ul>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">problem</span></code></li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">varf</span></code> to access to matrix and RHS vector</li>
-<li>available operators are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int1d</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int2d</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">on</span></code></li>
+<li>available operators are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int1d</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">on</span></code> and the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">int0d</span></code> to defien a Neumann boundary condition</li>
 </ul>
 </li>
 <li>visualisation tools<ul>
-<li>plot with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span></code> of ffglut, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> meshes meshS and surface solutions</li>
-<li>loading, saving of meshes and solution at freefem’s format<ul>
+<li>plot with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span></code> of ffglut, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> meshes meshL and solutions</li>
+<li>2d or 3d view, with in 3d the option to visualize the elememt Normal (touch ‘T’) and the deformed domain according to it (touch ‘2’).</li>
+<li>loading, saving of meshes and solution at FreeFEM’s format<ul>
 <li>“.mesh”  mesh format file of Medit (P. Frey LJLL)</li>
 <li>“.msh” for mesh and “.sol” data solution at freefem format</li>
 <li>“.msh” data file of Gmsh (Mesh generator) (load  “gmsh”)</li>
@@ -1989,15 +1995,12 @@
 </ul>
 </li>
 </ul>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Since the release 4.2.1, the surface <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> object (list of vertices and border elements, without tetahedra elements) is remplaced by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code> type.  For a FreeFEM V3 script working with surface meshes, try to change <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">mesh3</span></code> by <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshS</span></code>.</p>
-</div>
 </div>
 <hr class="docutils" />
-<div class="section" id="cmake">
-<h2>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline"> </a></h2>
-<p>A compilation process using CMake is under development</p>
+<div class="section" id="boundary-element-method">
+<h2>Boundary Element Method<a class="headerlink" href="#boundary-element-method" title="Permalink to this headline"> </a></h2>
+<p>Allows to define and solve a 2d/3d BEM formulation and rebuild the associated potential.
+The document is in construction.</p>
 </div>
 </div>
 
@@ -2012,10 +2015,10 @@
 	<div>
 		<b>Table of content</b>
 		<ul>
-<li><a class="reference internal" href="#">Version 4: new features</a><ul>
-<li><a class="reference internal" href="#hash-matrix">Hash Matrix</a></li>
-<li><a class="reference internal" href="#surface-finite-element">Surface Finite Element</a></li>
-<li><a class="reference internal" href="#cmake">CMake</a></li>
+<li><a class="reference internal" href="#">Version 4.5: new features</a><ul>
+<li><a class="reference internal" href="#release-binaries-packages">Release, binaries packages</a></li>
+<li><a class="reference internal" href="#new-meshes-and-fem-border">New meshes and FEM border</a></li>
+<li><a class="reference internal" href="#boundary-element-method">Boundary Element Method</a></li>
 </ul>
 </li>
 </ul>
