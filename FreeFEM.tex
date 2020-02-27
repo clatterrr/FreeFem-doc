@@ -9074,10 +9074,9 @@ With this function, the constructed border mesh contains the full geometric desc
 \end{sphinxVerbatim}
 
 
-\paragraph{tottototototot}
-\label{\detokenize{documentation/mesh-generation:tottototototot}}
-An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the operator \sphinxcode{\sphinxupquote{+}}.
-The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the right orientation at the merged interfaces. Here, the function :freefem:{\color{red}\bfseries{}{}`}checkMesh{}`can be called.
+\paragraph{Glue of meshL meshes}
+\label{\detokenize{documentation/mesh-generation:glue-of-meshl-meshes}}
+An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the operator \sphinxcode{\sphinxupquote{+}}. The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the right orientation at the merged interfaces. Here, the function :freefem:{\color{red}\bfseries{}{}`}checkMesh{}`can be called.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
  \PYG{k+kt}{int} \PYG{k+kr}{n}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{;}
@@ -9087,7 +9086,7 @@ The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the rig
  \PYG{k+kt}{meshL} \PYG{n}{Th4} \PYG{o}{=} \PYG{n+nf}{segment}\PYG{p}{(}\PYG{k+kr}{n}\PYG{p}{,}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k+kr}{x}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 
  \PYG{k+kt}{meshL} \PYG{n}{Th} \PYG{o}{=} \PYG{n}{Th1}\PYG{o}{+}\PYG{n}{Th2}\PYG{o}{+}\PYG{n}{Th3}\PYG{o}{+}\PYG{n}{Th4}\PYG{p}{;}
- \PYG{n}{Th}\PYG{o}{=}\PYG{n}{rebuildBorder}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n}{ridgeangledetection}\PYG{o}{=}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mf}{2.}\PYG{o}{+}\PYG{l+m+mf}{0.0001}\PYG{p}{)}\PYG{p}{;}
+ \PYG{n}{Th}\PYG{o}{=}\PYG{n}{rebuildBorder}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{k+kp}{ridgeangledetection}\PYG{o}{=}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mf}{2.}\PYG{o}{+}\PYG{l+m+mf}{0.0001}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{warning}{Warning:}
