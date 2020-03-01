@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Feb 27, 2020}
+\date{Mar 01, 2020}
 \release{4.5}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -443,7 +443,7 @@ Follow the section corresponding to your type of installation.
 First, open the following web page {\hyperref[\detokenize{introduction/download:download}]{\sphinxcrossref{\DUrole{std,std-ref}{download page}}}} and choose your platform: Linux, MacOS or Windows.
 
 \begin{sphinxadmonition}{note}{Note:}
-Binary packages are available for Microsoft Windows, MacOS and some Linux distributions.
+Binary packages are available for Microsoft Windows, MacOS and some Linux distributions. Since the release 4.5, FreeFEM binaries provide with the current version of PETSc.
 \end{sphinxadmonition}
 
 Install \sphinxstylestrong{FreeFEM} by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following \sphinxcode{\sphinxupquote{/usr/local/bin}}, \sphinxcode{\sphinxupquote{/usr/local/share/freefem++}}, \sphinxcode{\sphinxupquote{/usr/local/lib/ff++}}
@@ -452,7 +452,7 @@ Install \sphinxstylestrong{FreeFEM} by double-clicking on the appropriate file. 
 \subsubsection{Windows installation}
 \label{\detokenize{introduction/installation:windows-installation}}
 \begin{sphinxadmonition}{note}{Note:}
-The windows package is build for Window 7 64bits
+The windows package is build for Window 7 64bits. The support ended for all releases under Windows 32 bits since the V4.
 \end{sphinxadmonition}
 
 First download the windows installation executable, then double click to install \sphinxstylestrong{FreeFEM}.
@@ -471,9 +471,26 @@ By now you should have two new icons on your desktop:
 
 \end{itemize}
 
-where \sphinxcode{\sphinxupquote{(VERSION)}} is the version of the files (for example 3.59).
+where \sphinxcode{\sphinxupquote{(VERSION)}} is the version of the files (for example 4.5).
 
 By default, the installed files are in \sphinxcode{\sphinxupquote{C:\textbackslash{}Programs Files\textbackslash{}FreeFem++}}. In this directory, you have all the \sphinxcode{\sphinxupquote{.dll}} files and other applications: \sphinxcode{\sphinxupquote{FreeFem++-nw.exe}}, \sphinxcode{\sphinxupquote{ffglut.exe}}, … The syntax for the command-line tools are the same as those of \sphinxcode{\sphinxupquote{FreeFem.exe}}.
+
+To use FreeFEM binaries under Windows, two methods are possible:
+* Use the launch Windows FreeFEM program (launchff++.exe)
+Warning: if you launch freefem++ without filename script by double clip, your get a error due (it is bug of usage GetOpenFileName in win64 ).
+\begin{itemize}
+\item {} 
+In shell terminal (cmd, powershell, bash, … ):
+\begin{itemize}
+\item {} 
+To launch sequential version: runs the command: C:\textgreater{}”Program Files (x86)FreeFem++FreeFem++.exe” \textless{}mySequentialScript.edp\textgreater{}
+
+\item {} 
+To launch parallel version: First install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe. Runs the command: C:\textgreater{}”Program FilesMicrosoft MPIBinmpiexec.exe” -n \textless{}nbProcs\textgreater{} C:\textgreater{}”Program Files (x86)FreeFem++FreeFem++-mpi.exe” \textless{}myParallelScript.edp\textgreater{}
+
+\end{itemize}
+
+\end{itemize}
 
 
 \subsubsection{macOS X installation}
@@ -630,7 +647,7 @@ with LLVM gcc and brew gfortran compilers
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
-    // with brew gcc gfortran compilers
+// with brew gcc gfortran compilers
 ./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 
 // with LLVM gcc and brew gfortran compilers
