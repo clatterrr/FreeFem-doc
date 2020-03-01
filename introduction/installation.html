@@ -1950,14 +1950,14 @@ Follow the section corresponding to your type of installation.</p>
 <p>First, open the following web page <a class="reference internal" href="download.html#download"><span class="std std-ref">download page</span></a> and choose your platform: Linux, MacOS or Windows.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Binary packages are available for Microsoft Windows, MacOS and some Linux distributions.</p>
+<p class="last">Binary packages are available for Microsoft Windows, MacOS and some Linux distributions. Since the release 4.5, FreeFEM binaries provide with the current version of PETSc.</p>
 </div>
 <p>Install <strong>FreeFEM</strong> by double-clicking on the appropriate file. Under Linux and MacOS the install directory is one of the following <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="kp">bin</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">freefem</span><span class="o">++</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ff</span><span class="o">++</span></code></p>
 <div class="section" id="windows-installation">
 <h3>Windows installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline"> </a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The windows package is build for Window 7 64bits</p>
+<p class="last">The windows package is build for Window 7 64bits. The support ended for all releases under Windows 32 bits since the V4.</p>
 </div>
 <p>First download the windows installation executable, then double click to install <strong>FreeFEM</strong>.</p>
 <p>In most cases just answer yes (or type return) to all questions.</p>
@@ -1967,8 +1967,18 @@ Follow the section corresponding to your type of installation.</p>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span> <span class="p">(</span><span class="n">VERSION</span><span class="p">).</span><span class="n">exe</span></code>, the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span><span class="o">++</span></code> application.</li>
 <li><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++</span> <span class="p">(</span><span class="n">VERSION</span><span class="p">)</span> <span class="n">Examples</span></code>, a link to the <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">freefem</span><span class="o">++</span></code> examples folder.</li>
 </ul>
-<p>where <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span></code> is the version of the files (for example 3.59).</p>
+<p>where <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span></code> is the version of the files (for example 4.5).</p>
 <p>By default, the installed files are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\Programs Files\FreeFem++</code>. In this directory, you have all the <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="n">dll</span></code> files and other applications: <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++-</span><span class="n">nw</span><span class="p">.</span><span class="n">exe</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code>, … The syntax for the command-line tools are the same as those of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="p">.</span><span class="n">exe</span></code>.</p>
+<p>To use FreeFEM binaries under Windows, two methods are possible:
+* Use the launch Windows FreeFEM program (launchff++.exe)
+Warning: if you launch freefem++ without filename script by double clip, your get a error due (it is bug of usage GetOpenFileName in win64 ).</p>
+<ul class="simple">
+<li>In shell terminal (cmd, powershell, bash, … ):<ul>
+<li>To launch sequential version: runs the command: C:&gt;”Program Files (x86)FreeFem++FreeFem++.exe” &lt;mySequentialScript.edp&gt;</li>
+<li>To launch parallel version: First install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe. Runs the command: C:&gt;”Program FilesMicrosoft MPIBinmpiexec.exe” -n &lt;nbProcs&gt; C:&gt;”Program Files (x86)FreeFem++FreeFem++-mpi.exe” &lt;myParallelScript.edp&gt;</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="macos-x-installation">
 <h3>macOS X installation<a class="headerlink" href="#macos-x-installation" title="Permalink to this headline"> </a></h3>
@@ -2112,7 +2122,7 @@ make -j&lt;nbProcs&gt; install --prefix<span class="o">=</span>/where/you/want/t
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    // with brew gcc gfortran compilers
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// with brew gcc gfortran compilers
 ./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 
 // with LLVM gcc and brew gfortran compilers
