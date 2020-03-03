@@ -1941,6 +1941,10 @@
 <h1>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline"> </a></h1>
 <p>To use FreeFEM, two installation methods are available: user access (binary package) and access developers (from the source code).
 Follow the section corresponding to your type of installation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since the version 4.5, FreeFEM relese provides with the last version of PETSc.</p>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -1959,7 +1963,8 @@ Follow the section corresponding to your type of installation.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">The windows package is build for Window 7 64bits. The support ended for all releases under Windows 32 bits since the V4.</p>
 </div>
-<p>First download the windows installation executable, then double click to install <strong>FreeFEM</strong>.</p>
+<p>First download the windows installation executable, then double click to install <strong>FreeFEM</strong>.
+Install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe.</p>
 <p>In most cases just answer yes (or type return) to all questions.</p>
 <p>Otherwise in the Additional Task windows, check the box “Add application directory to your system path.” This is required otherwise the program <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code> will not be found.</p>
 <p>By now you should have two new icons on your desktop:</p>
@@ -1969,14 +1974,25 @@ Follow the section corresponding to your type of installation.</p>
 </ul>
 <p>where <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span></code> is the version of the files (for example 4.5).</p>
 <p>By default, the installed files are in <code class="docutils literal highlight highlight-freefem"><span></span>C:\Programs Files\FreeFem++</code>. In this directory, you have all the <code class="docutils literal highlight highlight-freefem"><span></span><span class="p">.</span><span class="n">dll</span></code> files and other applications: <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="o">++-</span><span class="n">nw</span><span class="p">.</span><span class="n">exe</span></code>, <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">ffglut</span><span class="p">.</span><span class="n">exe</span></code>, … The syntax for the command-line tools are the same as those of <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">FreeFem</span><span class="p">.</span><span class="n">exe</span></code>.</p>
-<p>To use FreeFEM binaries under Windows, two methods are possible:
-* Use the launch Windows FreeFEM program (launchff++.exe)
-Warning: if you launch freefem++ without filename script by double clip, your get a error due (it is bug of usage GetOpenFileName in win64 ).</p>
+<p>To use FreeFEM binaries under Windows, two methods are possible:</p>
 <ul class="simple">
-<li>In shell terminal (cmd, powershell, bash, … ):<ul>
-<li>To launch sequential version: runs the command: C:&gt;”Program Files (x86)FreeFem++FreeFem++.exe” &lt;mySequentialScript.edp&gt;</li>
-<li>To launch parallel version: First install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe. Runs the command: C:&gt;”Program FilesMicrosoft MPIBinmpiexec.exe” -n &lt;nbProcs&gt; C:&gt;”Program Files (x86)FreeFem++FreeFem++-mpi.exe” &lt;myParallelScript.edp&gt;</li>
+<li>Use the FreeFEM launcher (launchff++.exe)</li>
 </ul>
+<p>Warning: if you launch FreeFEM without filename script by double-clicking, your get a error due (it is bug of usage GetOpenFileName in win64).</p>
+<ul>
+<li><p class="first">In shell terminal (cmd, powershell, bash, … ):</p>
+<ul class="simple">
+<li>To launch sequential version:</li>
+</ul>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>C:<span class="se">\&gt;</span><span class="s2">&quot;Program Files (x86)\FreeFem++\FreeFem++.exe&quot;</span> &lt;mySequentialScript.edp&gt;
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>To launch parallel version:</li>
+</ul>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>C:<span class="se">\&gt;</span><span class="s2">&quot;Program Files\Microsoft MPI\Bin\mpiexec.exe&quot;</span> -n &lt;nbProcs&gt; C:<span class="se">\&gt;</span><span class="s2">&quot;Program Files (x86)\FreeFem++\FreeFem++-mpi.exe&quot;</span> &lt;myParallelScript.edp&gt;
+</pre></div>
+</td></tr></table></div>
 </li>
 </ul>
 </div>
@@ -2022,9 +2038,20 @@ makepkg -si
 </div>
 <div class="section" id="compiling-source-code">
 <h2>Compiling source code<a class="headerlink" href="#compiling-source-code" title="Permalink to this headline"> </a></h2>
-<blockquote>
-<div>2 worked versions of FreeFEM are possible: minimal and full - 1/ sequential and without plugins (contains in 3rdparty) 2/ full: parallel with plugins.
-.. note:: We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible <a class="reference external" href="https://brew.sh">here</a></div></blockquote>
+<dl class="docutils">
+<dt>Various versions of FreeFEM are possible:</dt>
+<dd><ul class="first simple">
+<li>sequential and without plugins (contains in 3rdparty)</li>
+<li>parallel with plugins (and with PETSc).</li>
+</ul>
+<blockquote class="last">
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible <a class="reference external" href="https://brew.sh">here</a></p>
+</div>
+</div></blockquote>
+</dd>
+</dl>
 <div class="section" id="compilation-on-osx-10-13">
 <h3>Compilation on OSX (&gt;=10.13)<a class="headerlink" href="#compilation-on-osx-10-13" title="Permalink to this headline"> </a></h3>
 <ol class="arabic">
@@ -2116,17 +2143,21 @@ make -j&lt;nbProcs&gt; install --prefix<span class="o">=</span>/where/you/want/t
 <p class="last">if your autoreconf version is too old, do <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">AutoGeneratedFile</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span></code></p>
 </div>
 <ul class="simple">
-<li>with LLVM gcc and brew gfortran compilers</li>
+<li>following your compilers</li>
 </ul>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// with brew gcc gfortran compilers
-./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>// with brew gcc gfortran compilers
+./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9
+    <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 
 // with LLVM gcc and brew gfortran compilers
-./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9 <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
+./configure --enable-download <span class="nv">CC</span><span class="o">=</span>clang <span class="nv">CXX</span><span class="o">=</span>clang++ <span class="nv">F77</span><span class="o">=</span>gfortran-9
+    <span class="nv">FC</span><span class="o">=</span>gfortran-9 --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -2160,31 +2191,28 @@ make petsc-slepc // add <span class="nv">SUDO</span><span class="o">=</span>sudo
 <li>Build your <strong>FreeFEM</strong> library and executable</li>
 </ol>
 <blockquote>
-<div><blockquote>
 <div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>make -j&lt;nbProcs&gt;
 make -j&lt;nbProcs&gt; check
-
-    .. note:: <span class="sb">``</span>make check<span class="sb">``</span> is optionnally, but advise to check the validity of your **FreeFEM** building
 </pre></div>
 </td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal highlight highlight-freefem"><span></span><span class="n">make</span> <span class="n">check</span></code> is optionnally, but advise to check the validity of your <strong>FreeFEM</strong> building</p>
+</div>
 </div></blockquote>
-<ol class="arabic" start="13">
+<ol class="arabic simple" start="13">
 <li><dl class="first docutils">
 <dt>Install the <strong>FreeFEM</strong> apllication</dt>
-<dd><p class="first">make install</p>
-<blockquote class="last">
+<dd>make install</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your_installation/src/nw/FreeFem++ and mpi executable here your_installation/src/mpi/ff-mpirun</p>
 </div>
-</div></blockquote>
-</dd>
-</dl>
-</li>
-</ol>
 </div></blockquote>
 </div>
 <div class="section" id="compilation-on-ubuntu">
@@ -2230,7 +2258,9 @@ autoreconf -i
 </div>
 </li>
 <li><p class="first">Configure</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./configure --enable-download --enable-optim
+    --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 <div class="admonition note">
@@ -2386,7 +2416,7 @@ We assume your development machine is 64-bit, and you want your compiler to targ
 <p>4. In the MSYS2 shell, execute the following.
 Hint: if you right click the title bar, go to Options -&gt; Keys and tick “Ctrl+Shift+letter shortcuts” you can use Ctrl+Shift+V to paste in the MSYS shell.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    pacman -Syuu
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syuu
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -2395,7 +2425,7 @@ They can respectively be launched from C:devmsys64msys2.exe, C:devmsys64mingw32.
 Reopen MSYS2 (doesn’t matter which version, since we’re merely installing packages).
 Repeatedly run the following command until it says there are no further updates. You might have to restart your shell again.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    pacman -Syuu
+<div><div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pacman -Syuu
 </pre></div>
 </td></tr></table></div>
 </div></blockquote>
@@ -2447,13 +2477,15 @@ Repeatedly run the following command until it says there are no further updates.
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
 ./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
   --enable-download --enable-maintainer-mode <span class="se">\</span>
   <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
   <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
+          --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
 </li>

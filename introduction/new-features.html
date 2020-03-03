@@ -1950,7 +1950,7 @@
 </div>
 <div class="section" id="new-meshes-and-fem-border">
 <h2>New meshes and FEM border<a class="headerlink" href="#new-meshes-and-fem-border" title="Permalink to this headline"> </a></h2>
-<p>After Surface FEM, Line FEM is possible with a new mesh type <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P2</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1dc</span></code> FE, basic FEM, mesh generation
+<p>After Surface FEM, Line FEM is possible with a new mesh type <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P0</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P2</span></code> <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nc">P1dc</span></code> FE, basic FEM, mesh generation.
 This new development allows to treat a 1d problem, such as a problem described on a 3d curve.</p>
 <hr class="docutils" />
 <p>Abstract about Line FEM in FreeFEM.</p>
@@ -1968,7 +1968,7 @@ This new development allows to treat a 1d problem, such as a problem described o
 </li>
 </ul>
 </li>
-<li><p class="first">new FESpace with curve finite element type</p>
+<li><p class="first">new finite element space with curve finite element type</p>
 </li>
 </ul>
 <blockquote>
@@ -1980,17 +1980,17 @@ This new development allows to treat a 1d problem, such as a problem described o
 <li>as in the standard 2d, 3d, surface 3d case, the variational problem associated to surface PDE can be defined by using the keywords<ul>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">problem</span></code></li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">varf</span></code> to access to matrix and RHS vector</li>
-<li>available operators are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int1d</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">on</span></code> and the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int0d</span></code> to defien a Neumann boundary condition</li>
+<li>available operators are <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int1d</span></code>, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">on</span></code> and the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">int0d</span></code> to define a Neumann boundary condition</li>
 </ul>
 </li>
 <li>visualisation tools<ul>
 <li>plot with <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">plot</span></code> of ffglut, <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">medit</span></code> meshes meshL and solutions</li>
-<li>2d or 3d view, with in 3d the option to visualize the elememt Normal (touch ‘T’) and the deformed domain according to it (touch ‘2’).</li>
+<li>2d or 3d view, with in 3d the option to visualize the elememt Normals at element (touch ‘T’) and the deformed domain according to it (touch ‘2’).</li>
 <li>loading, saving of meshes and solution at FreeFEM’s format<ul>
 <li>“.mesh”  mesh format file of Medit (P. Frey LJLL)</li>
 <li>“.msh” for mesh and “.sol” data solution at freefem format</li>
 <li>“.msh” data file of Gmsh (Mesh generator) (load  “gmsh”)</li>
-<li>vtk format for meshes and solutions (load “iovtk”)</li>
+<li>vtk format for meshes and solutions (load “iovtk” and use the “.vtu” extension)</li>
 </ul>
 </li>
 </ul>
