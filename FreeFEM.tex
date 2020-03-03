@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Mar 01, 2020}
+\date{Mar 03, 2020}
 \release{4.5}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -334,7 +334,7 @@ FreeFEM is now interfaced with ParMmg.
 
 \subsection{New meshes and FEM border}
 \label{\detokenize{introduction/new-features:new-meshes-and-fem-border}}
-After Surface FEM, Line FEM is possible with a new mesh type \sphinxcode{\sphinxupquote{meshL}}, \sphinxcode{\sphinxupquote{P0}} \sphinxcode{\sphinxupquote{P1}} \sphinxcode{\sphinxupquote{P2}} \sphinxcode{\sphinxupquote{P1dc}} FE, basic FEM, mesh generation
+After Surface FEM, Line FEM is possible with a new mesh type \sphinxcode{\sphinxupquote{meshL}}, \sphinxcode{\sphinxupquote{P0}} \sphinxcode{\sphinxupquote{P1}} \sphinxcode{\sphinxupquote{P2}} \sphinxcode{\sphinxupquote{P1dc}} FE, basic FEM, mesh generation.
 This new development allows to treat a 1d problem, such as a problem described on a 3d curve.
 
 
@@ -363,7 +363,7 @@ It is possible to build the underlying \sphinxcode{\sphinxupquote{meshL}} from a
 \end{itemize}
 
 \item {} 
-new FESpace with curve finite element type
+new finite element space with curve finite element type
 
 \end{itemize}
 \begin{itemize}
@@ -382,7 +382,7 @@ as in the standard 2d, 3d, surface 3d case, the variational problem associated t
 \sphinxcode{\sphinxupquote{varf}} to access to matrix and RHS vector
 
 \item {} 
-available operators are \sphinxcode{\sphinxupquote{int1d}}, \sphinxcode{\sphinxupquote{on}} and the operator \sphinxcode{\sphinxupquote{int0d}} to defien a Neumann boundary condition
+available operators are \sphinxcode{\sphinxupquote{int1d}}, \sphinxcode{\sphinxupquote{on}} and the operator \sphinxcode{\sphinxupquote{int0d}} to define a Neumann boundary condition
 
 \end{itemize}
 
@@ -393,7 +393,7 @@ visualisation tools
 plot with \sphinxcode{\sphinxupquote{plot}} of ffglut, \sphinxcode{\sphinxupquote{medit}} meshes meshL and solutions
 
 \item {} 
-2d or 3d view, with in 3d the option to visualize the elememt Normal (touch ‘T’) and the deformed domain according to it (touch ‘2’).
+2d or 3d view, with in 3d the option to visualize the elememt Normals at element (touch ‘T’) and the deformed domain according to it (touch ‘2’).
 
 \item {} 
 loading, saving of meshes and solution at FreeFEM’s format
@@ -408,7 +408,7 @@ loading, saving of meshes and solution at FreeFEM’s format
 “.msh” data file of Gmsh (Mesh generator) (load  “gmsh”)
 
 \item {} 
-vtk format for meshes and solutions (load “iovtk”)
+vtk format for meshes and solutions (load “iovtk” and use the “.vtu” extension)
 
 \end{itemize}
 
@@ -431,6 +431,10 @@ The document is in construction.
 \label{\detokenize{introduction/installation:installation-guide}}\label{\detokenize{introduction/installation::doc}}
 To use FreeFEM, two installation methods are available: user access (binary package) and access developers (from the source code).
 Follow the section corresponding to your type of installation.
+
+\begin{sphinxadmonition}{note}{Note:}
+Since the version 4.5, FreeFEM relese provides with the last version of PETSc.
+\end{sphinxadmonition}
 
 \begin{DUlineblock}{0em}
 \item[] 
@@ -456,6 +460,7 @@ The windows package is build for Window 7 64bits. The support ended for all rele
 \end{sphinxadmonition}
 
 First download the windows installation executable, then double click to install \sphinxstylestrong{FreeFEM}.
+Install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe.
 
 In most cases just answer yes (or type return) to all questions.
 
@@ -476,19 +481,34 @@ where \sphinxcode{\sphinxupquote{(VERSION)}} is the version of the files (for ex
 By default, the installed files are in \sphinxcode{\sphinxupquote{C:\textbackslash{}Programs Files\textbackslash{}FreeFem++}}. In this directory, you have all the \sphinxcode{\sphinxupquote{.dll}} files and other applications: \sphinxcode{\sphinxupquote{FreeFem++-nw.exe}}, \sphinxcode{\sphinxupquote{ffglut.exe}}, … The syntax for the command-line tools are the same as those of \sphinxcode{\sphinxupquote{FreeFem.exe}}.
 
 To use FreeFEM binaries under Windows, two methods are possible:
-* Use the launch Windows FreeFEM program (launchff++.exe)
-Warning: if you launch freefem++ without filename script by double clip, your get a error due (it is bug of usage GetOpenFileName in win64 ).
+\begin{itemize}
+\item {} 
+Use the FreeFEM launcher (launchff++.exe)
+
+\end{itemize}
+
+Warning: if you launch FreeFEM without filename script by double-clicking, your get a error due (it is bug of usage GetOpenFileName in win64).
 \begin{itemize}
 \item {} 
 In shell terminal (cmd, powershell, bash, … ):
 \begin{itemize}
 \item {} 
-To launch sequential version: runs the command: C:\textgreater{}”Program Files (x86)FreeFem++FreeFem++.exe” \textless{}mySequentialScript.edp\textgreater{}
-
-\item {} 
-To launch parallel version: First install MSMPI for parallel version under window64 MS MPI V10.1.2, and install both msmpisdk.msi and MSMpiSetup.exe. Runs the command: C:\textgreater{}”Program FilesMicrosoft MPIBinmpiexec.exe” -n \textless{}nbProcs\textgreater{} C:\textgreater{}”Program Files (x86)FreeFem++FreeFem++-mpi.exe” \textless{}myParallelScript.edp\textgreater{}
+To launch sequential version:
 
 \end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+C:\PYG{l+s+se}{\PYGZbs{}\PYGZgt{}}\PYG{l+s+s2}{\PYGZdq{}Program Files (x86)\PYGZbs{}FreeFem++\PYGZbs{}FreeFem++.exe\PYGZdq{}} \PYGZlt{}mySequentialScript.edp\PYGZgt{}
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+To launch parallel version:
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+C:\PYG{l+s+se}{\PYGZbs{}\PYGZgt{}}\PYG{l+s+s2}{\PYGZdq{}Program Files\PYGZbs{}Microsoft MPI\PYGZbs{}Bin\PYGZbs{}mpiexec.exe\PYGZdq{}} \PYGZhy{}n \PYGZlt{}nbProcs\PYGZgt{} C:\PYG{l+s+se}{\PYGZbs{}\PYGZgt{}}\PYG{l+s+s2}{\PYGZdq{}Program Files (x86)\PYGZbs{}FreeFem++\PYGZbs{}FreeFem++\PYGZhy{}mpi.exe\PYGZdq{}} \PYGZlt{}myParallelScript.edp\PYGZgt{}
+\end{sphinxVerbatim}
 
 \end{itemize}
 
@@ -540,11 +560,23 @@ Thanks to \sphinxhref{https://github.com/stefanhusmann}{Stephan Husmann}
 
 
 \subsection{Compiling source code}
-\label{\detokenize{introduction/installation:compiling-source-code}}\begin{quote}
+\label{\detokenize{introduction/installation:compiling-source-code}}\begin{description}
+\item[{Various versions of FreeFEM are possible:}] \leavevmode\begin{itemize}
+\item {} 
+sequential and without plugins (contains in 3rdparty)
 
-2 worked versions of FreeFEM are possible: minimal and full - 1/ sequential and without plugins (contains in 3rdparty) 2/ full: parallel with plugins.
-.. note:: We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible \sphinxhref{https://brew.sh}{here}
+\item {} 
+parallel with plugins (and with PETSc).
+
+\end{itemize}
+\begin{quote}
+
+\begin{sphinxadmonition}{note}{Note:}
+We advise you to use the package manager for macOS Homebrew to get the different packages required avalaible \sphinxhref{https://brew.sh}{here}
+\end{sphinxadmonition}
 \end{quote}
+
+\end{description}
 
 
 \subsubsection{Compilation on OSX (\textgreater{}=10.13)}
@@ -642,16 +674,18 @@ if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf Au
 \end{sphinxadmonition}
 \begin{itemize}
 \item {} 
-with LLVM gcc and brew gfortran compilers
+following your compilers
 
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=3,stepnumber=1]
 // with brew gcc gfortran compilers
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9
+    \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 
 // with LLVM gcc and brew gfortran compilers
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9 \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYG{n+nv}{CC}\PYG{o}{=}clang \PYG{n+nv}{CXX}\PYG{o}{=}clang++ \PYG{n+nv}{F77}\PYG{o}{=}gfortran\PYGZhy{}9
+    \PYG{n+nv}{FC}\PYG{o}{=}gfortran\PYGZhy{}9 \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \item {} 
@@ -696,14 +730,15 @@ Build your \sphinxstylestrong{FreeFEM} library and executable
 
 \end{enumerate}
 \begin{quote}
-\begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
 make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
-
-    .. note:: \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}make check\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`} is optionnally, but advise to check the validity of your **FreeFEM** building
 \end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+\sphinxcode{\sphinxupquote{make check}} is optionnally, but advise to check the validity of your \sphinxstylestrong{FreeFEM} building
+\end{sphinxadmonition}
 \end{quote}
 \begin{enumerate}
 \def\theenumi{\arabic{enumi}}
@@ -713,16 +748,15 @@ make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
 \item {} \begin{description}
 \item[{Install the \sphinxstylestrong{FreeFEM} apllication}] \leavevmode
 make install
+
+\end{description}
+
+\end{enumerate}
 \begin{quote}
 
 \begin{sphinxadmonition}{note}{Note:}
 it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your\_installation/src/nw/FreeFem++ and mpi executable here your\_installation/src/mpi/ff-mpirun
 \end{sphinxadmonition}
-\end{quote}
-
-\end{description}
-
-\end{enumerate}
 \end{quote}
 
 
@@ -772,7 +806,8 @@ if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf Au
 Configure
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim
+    \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
@@ -954,7 +989,7 @@ Hint: if you right click the title bar, go to Options -\textgreater{} Keys and t
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-    pacman \PYGZhy{}Syuu
+pacman \PYGZhy{}Syuu
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -965,7 +1000,7 @@ Repeatedly run the following command until it says there are no further updates.
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-    pacman \PYGZhy{}Syuu
+pacman \PYGZhy{}Syuu
 \end{sphinxVerbatim}
 \end{quote}
 \begin{enumerate}
@@ -1018,6 +1053,7 @@ autoreconf \PYGZhy{}i
   \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}maintainer\PYGZhy{}mode \PYG{l+s+se}{\PYGZbs{}}
   \PYG{n+nv}{CXXFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{n+nv}{CFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic \PYG{l+s+se}{\PYGZbs{}}
   \PYG{n+nv}{FFLAGS}\PYG{o}{=}\PYGZhy{}mtune\PYG{o}{=}generic\PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}disable\PYGZhy{}hips
+          \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
 \end{sphinxVerbatim}
 
 \item {} 
