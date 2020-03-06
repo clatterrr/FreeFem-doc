@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Mar 03, 2020}
+\date{Mar 06, 2020}
 \release{4.5}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -19403,14 +19403,6 @@ Computing an exact Schur complement
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/block-PETSc.edp}{block-PETSc.edp}
 &\\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/heat-io-2d.edp}{heat-io-2d.edp}
-&
-Automatic ParaView animation output
-\\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/stokes-io-3d.edp}{stokes-io-3d.edp}
-&\\
-\hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/buildRecursive.edp}{buildRecursive.edp}
 &
 Recursive mesh partitioning (for geometric multigrid)
@@ -19426,9 +19418,19 @@ Connectivity construction with a user-supplied partitioning
 Creation of different partitions of unity using the same DD
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/dump-load-Dmesh.edp}{dump-load-Dmesh.edp}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/save-load-Dmesh.edp}{save-load-Dmesh.edp}
 &
-Dumping and loading a distributed mesh for restarting a computation
+Saving and loading a distributed mesh for restarting a computation
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/transfer.edp}{transfer.edp}
+&
+Parallel interpolation of finite element functions
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/reconstructDmesh.edp}{reconstructDmesh.edp}
+&
+Construction of a distributed mesh from sequential nonoverlapping meshes
 \\
 \hline
 \end{tabulary}
@@ -21036,7 +21038,7 @@ This example solves a Laplace problem in 2D in parallel with a two-level GenEO d
 To try this example, just copy and paste the script above in a file ‘test.edp’ and run it on 2 cores with
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{ff}\PYG{o}{\PYGZhy{}}\PYG{n}{mpirun} \PYG{o}{\PYGZhy{}}\PYG{n}{np} \PYG{l+m+mi}{2} \PYG{n}{test}\PYG{p}{.}\PYG{n}{edp} \PYG{o}{\PYGZhy{}}\PYG{n}{glut} \PYG{n}{ffglut}
+\PYG{n}{ff}\PYG{o}{\PYGZhy{}}\PYG{n}{mpirun} \PYG{o}{\PYGZhy{}}\PYG{n}{np} \PYG{l+m+mi}{2} \PYG{n}{test}\PYG{p}{.}\PYG{n}{edp} \PYG{o}{\PYGZhy{}}\PYG{n}{wg}
 \end{sphinxVerbatim}
 
 
