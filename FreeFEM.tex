@@ -134,8 +134,8 @@
     
 
 \title{FreeFEM Documentation}
-\date{Mar 06, 2020}
-\release{4.5}
+\date{Apr 04, 2020}
+\release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -1017,12 +1017,12 @@ for 64 bit systems:
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
-pacman \PYGZhy{}S autoconf make automake\PYGZhy{}wrapper bison git cmake \PYG{l+s+se}{\PYGZbs{}}
+pacman \PYGZhy{}S autoconf make automake\PYGZhy{}wrapper bison git \PYG{l+s+se}{\PYGZbs{}}
   mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}freeglut mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}toolchain \PYG{l+s+se}{\PYGZbs{}}
   mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}openblas patch python perl pkg\PYGZhy{}config pkgfile \PYG{l+s+se}{\PYGZbs{}}
   rebase tar \PYG{n+nb}{time} tzcode unzip which mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}libmicroutils \PYG{l+s+se}{\PYGZbs{}}
   \PYGZhy{}\PYGZhy{}ignore mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gcc\PYGZhy{}ada \PYGZhy{}\PYGZhy{}ignore mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gcc\PYGZhy{}objc \PYG{l+s+se}{\PYGZbs{}}
-  \PYGZhy{}\PYGZhy{}ignore mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gdb \PYGZhy{}\PYGZhy{}noconfirm
+  \PYGZhy{}\PYGZhy{}ignore mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}gdb mingw\PYGZhy{}w64\PYGZhy{}x86\PYGZus{}64\PYGZhy{}cmake \PYGZhy{}\PYGZhy{}noconfirm
 \end{sphinxVerbatim}
 \begin{itemize}
 \item {} 
@@ -1208,7 +1208,7 @@ For emacs editor you can download \sphinxhref{https://github.com/rrgalvan/freefe
 
 \subsection{Latest binary packages}
 \label{\detokenize{introduction/download:latest-binary-packages}}
-FreeFEM v4.5 release runs under MacOS X, Ubuntu and Windows 64 bits.
+FreeFEM v4.6 runs under macOS, Ubuntu, and 64-bit Windows.
 
 
 \begin{savenotes}\sphinxattablestart
@@ -1225,7 +1225,7 @@ Size
 Date
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.5/FreeFem++-4.5-full-MacOS\_10.11.pkg}{MacOS 10.10.5 or higher}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.5/FreeFem++-4.5-full-MacOS\_10.11.pkg}{macOS 10.10.5 or higher}
 &
 \sphinxcode{\sphinxupquote{4.5}}
 &
@@ -1234,40 +1234,40 @@ Date
 Feb 11, 2020
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.5/FreeFEM\_4.5\_Ubuntu\_withPETSc\_amd64.deb}{Ubuntu 16.04 or higher}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.6/FreeFEM\_4.6\_Ubuntu\_withPETSc\_amd64.deb}{Ubuntu 16.04 or higher}
 &
-\sphinxcode{\sphinxupquote{4.5}}
+\sphinxcode{\sphinxupquote{4.6}}
 &
-210 MB
+212 MB
 &
-Feb 11, 2020
+Mar 02, 2020
 \\
-\hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.5/FreeFem++-4.5-win64.exe}{Windows 64 bits}
+\hline\sphinxstartmulticolumn{3}%
+\begin{varwidth}[t]{\sphinxcolwidth{3}{4}}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/releases/download/v4.6/FreeFEM-4.6-win7-64.exe}{64-bit Windows}             \textbar{} \sphinxcode{\sphinxupquote{4.6}}           \textbar{}  185 MB
+\par
+\vskip-\baselineskip\vbox{\hbox{\strut}}\end{varwidth}%
+\sphinxstopmulticolumn
 &
-\sphinxcode{\sphinxupquote{4.5}}
-&
-55 MB
-&
-Feb 11, 2020
+Mar 02, 2020
 \\
 \hline
 \sphinxhref{https://hub.docker.com/r/freefem/freefem}{Docker image}
 &
-\sphinxcode{\sphinxupquote{4.5}}
+\sphinxcode{\sphinxupquote{4.6}}
 &
-479 MB
+487 MB
 &
-Feb 11, 2020
+Mar 02, 2020
 \\
 \hline
-\sphinxhref{https://github.com/FreeFem/FreeFem-sources/archive/v4.5.tar.gz}{Source 4.5}
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/archive/v4.6.tar.gz}{Source 4.6}
 &
-\sphinxcode{\sphinxupquote{4.5}}
+\sphinxcode{\sphinxupquote{4.6}}
 &
-12.6 MB
+12.4 MB
 &
-Feb 11, 2020
+Mar 02, 2020
 \\
 \hline
 \sphinxhref{http://www3.freefem.org/ff++/ftp/}{previous releases}
@@ -6072,13 +6072,13 @@ Borders and mesh are respectively shown in \hyperref[\detokenize{documentation/m
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border1}.png}
-\caption{Multiple border ends intersect}\label{\detokenize{documentation/mesh-generation:id31}}\label{\detokenize{documentation/mesh-generation:figmultipleborder}}\end{subfigure}
+\caption{Multiple border ends intersect}\label{\detokenize{documentation/mesh-generation:id32}}\label{\detokenize{documentation/mesh-generation:figmultipleborder}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border2}.png}
-\caption{Generated mesh}\label{\detokenize{documentation/mesh-generation:id32}}\label{\detokenize{documentation/mesh-generation:figgeneratedmesh}}\end{subfigure}
+\caption{Generated mesh}\label{\detokenize{documentation/mesh-generation:id33}}\label{\detokenize{documentation/mesh-generation:figgeneratedmesh}}\end{subfigure}
 \caption{Border}\phantomsection\label{\detokenize{documentation/mesh-generation:MeshGeneration_Border}}
 
 \end{figure}
@@ -6139,13 +6139,13 @@ Notice that the orientation is changed by \sphinxcode{\sphinxupquote{b(-30)}} in
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border4}.png}
-\caption{Mesh without hole}\label{\detokenize{documentation/mesh-generation:id33}}\label{\detokenize{documentation/mesh-generation:figmeswithouthhole}}\end{subfigure}
+\caption{Mesh without hole}\label{\detokenize{documentation/mesh-generation:id34}}\label{\detokenize{documentation/mesh-generation:figmeswithouthhole}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Border5}.png}
-\caption{Mesh with hole}\label{\detokenize{documentation/mesh-generation:id34}}\label{\detokenize{documentation/mesh-generation:figmeshwithhole}}\end{subfigure}
+\caption{Mesh with hole}\label{\detokenize{documentation/mesh-generation:id35}}\label{\detokenize{documentation/mesh-generation:figmeshwithhole}}\end{subfigure}
 \caption{Mesh with a hole}\phantomsection\label{\detokenize{documentation/mesh-generation:MeshWithHole}}
 
 \end{figure}
@@ -6500,13 +6500,13 @@ The coordinates of the points and the value of the table function are defined se
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Triangulate1}.png}
-\caption{Delaunay mesh of the convex hull of point set in file xy}\label{\detokenize{documentation/mesh-generation:id35}}\label{\detokenize{documentation/mesh-generation:figdelaunaymesh}}\end{subfigure}
+\caption{Delaunay mesh of the convex hull of point set in file xy}\label{\detokenize{documentation/mesh-generation:id36}}\label{\detokenize{documentation/mesh-generation:figdelaunaymesh}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Triangulate2}.png}
-\caption{Isolvalue of table function}\label{\detokenize{documentation/mesh-generation:id36}}\label{\detokenize{documentation/mesh-generation:figisovalue}}\end{subfigure}
+\caption{Isolvalue of table function}\label{\detokenize{documentation/mesh-generation:id37}}\label{\detokenize{documentation/mesh-generation:figisovalue}}\end{subfigure}
 \caption{Triangulate}\phantomsection\label{\detokenize{documentation/mesh-generation:Triangulate}}
 
 \end{figure}
@@ -6597,13 +6597,13 @@ It is also possible to build an empty mesh of a pseudo subregion with \sphinxcod
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_EmptyMesh1}.png}
-\caption{The empty mesh with boundary}\label{\detokenize{documentation/mesh-generation:id37}}\label{\detokenize{documentation/mesh-generation:figemptymesh1}}\end{subfigure}
+\caption{The empty mesh with boundary}\label{\detokenize{documentation/mesh-generation:id38}}\label{\detokenize{documentation/mesh-generation:figemptymesh1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_EmptyMesh2}.png}
-\caption{An empty mesh defined from a pseudo region numbering of triangle}\label{\detokenize{documentation/mesh-generation:id38}}\label{\detokenize{documentation/mesh-generation:figemptymesh2}}\end{subfigure}
+\caption{An empty mesh defined from a pseudo region numbering of triangle}\label{\detokenize{documentation/mesh-generation:id39}}\label{\detokenize{documentation/mesh-generation:figemptymesh2}}\end{subfigure}
 \caption{Empty mesh}
 
 \end{figure}
@@ -6678,13 +6678,13 @@ for a big number \(k>1\).
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_MoveMesh1}.png}
-\caption{L-shape}\label{\detokenize{documentation/mesh-generation:id39}}\label{\detokenize{documentation/mesh-generation:figlshape}}\end{subfigure}
+\caption{L-shape}\label{\detokenize{documentation/mesh-generation:id40}}\label{\detokenize{documentation/mesh-generation:figlshape}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_MoveMesh2}.png}
-\caption{Moved L-shape}\label{\detokenize{documentation/mesh-generation:id40}}\label{\detokenize{documentation/mesh-generation:figmovedlshape}}\end{subfigure}
+\caption{Moved L-shape}\label{\detokenize{documentation/mesh-generation:id41}}\label{\detokenize{documentation/mesh-generation:figmovedlshape}}\end{subfigure}
 \caption{Move mesh}\phantomsection\label{\detokenize{documentation/mesh-generation:MoveMesh}}
 
 \end{figure}
@@ -6829,13 +6829,13 @@ Here we solve the {\hyperref[\detokenize{tutorials/poisson:tutorialpoisson}]{\sp
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh2}.png}
-\caption{L-shape domain and its boundary name}\label{\detokenize{documentation/mesh-generation:id41}}\label{\detokenize{documentation/mesh-generation:adaptmesh2}}\end{subfigure}
+\caption{L-shape domain and its boundary name}\label{\detokenize{documentation/mesh-generation:id42}}\label{\detokenize{documentation/mesh-generation:adaptmesh2}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh3}.png}
-\caption{Final solution after 4-times adaptation}\label{\detokenize{documentation/mesh-generation:id42}}\label{\detokenize{documentation/mesh-generation:adaptmesh3}}\end{subfigure}
+\caption{Final solution after 4-times adaptation}\label{\detokenize{documentation/mesh-generation:id43}}\label{\detokenize{documentation/mesh-generation:adaptmesh3}}\end{subfigure}
 \caption{Mesh adaptation}\phantomsection\label{\detokenize{documentation/mesh-generation:AdaptMesh}}
 
 \end{figure}
@@ -7082,19 +7082,19 @@ To build a mesh with a constant mesh size equal to \(\frac{1}{30}\) try:
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh4}.png}
-\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id43}}\label{\detokenize{documentation/mesh-generation:adaptmesh4}}\end{subfigure}
+\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id44}}\label{\detokenize{documentation/mesh-generation:adaptmesh4}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh5}.png}
-\caption{First iteration}\label{\detokenize{documentation/mesh-generation:id44}}\label{\detokenize{documentation/mesh-generation:adaptmesh5}}\end{subfigure}
+\caption{First iteration}\label{\detokenize{documentation/mesh-generation:id45}}\label{\detokenize{documentation/mesh-generation:adaptmesh5}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_AdaptMesh6}.png}
-\caption{Last iteration}\label{\detokenize{documentation/mesh-generation:id45}}\label{\detokenize{documentation/mesh-generation:adaptmesh6}}\end{subfigure}
+\caption{Last iteration}\label{\detokenize{documentation/mesh-generation:id46}}\label{\detokenize{documentation/mesh-generation:adaptmesh6}}\end{subfigure}
 \caption{Mesh adaptation}
 
 \end{figure}
@@ -7155,13 +7155,13 @@ The following example construct all “trunced” meshes to the support of the b
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.490\linewidth]{{MeshGeneration_Trunc1}.png}
-\caption{Mesh of support the function P1 number 0, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id46}}\label{\detokenize{documentation/mesh-generation:trunc1}}\end{subfigure}
+\caption{Mesh of support the function P1 number 0, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id47}}\label{\detokenize{documentation/mesh-generation:trunc1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.490\linewidth]{{MeshGeneration_Trunc1}.png}
-\caption{Mesh of support the function P1 number 6, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id47}}\label{\detokenize{documentation/mesh-generation:trunc6}}\end{subfigure}
+\caption{Mesh of support the function P1 number 6, split in \(5{\times}5\)}\label{\detokenize{documentation/mesh-generation:id48}}\label{\detokenize{documentation/mesh-generation:trunc6}}\end{subfigure}
 \caption{Trunc}
 
 \end{figure}
@@ -7256,13 +7256,13 @@ Another way to split mesh triangles is to use \sphinxcode{\sphinxupquote{splitme
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_SplitMesh1}.png}
-\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id48}}\label{\detokenize{documentation/mesh-generation:splitmesh1}}\end{subfigure}
+\caption{Initial mesh}\label{\detokenize{documentation/mesh-generation:id49}}\label{\detokenize{documentation/mesh-generation:splitmesh1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_SplitMesh2}.png}
-\caption{All left mesh triangle is split conformaly in \sphinxcode{\sphinxupquote{int(1+5*(square(x-0.5)+y*y)\textasciicircum{}2}} triangles}\label{\detokenize{documentation/mesh-generation:id49}}\label{\detokenize{documentation/mesh-generation:splitmesh2}}\end{subfigure}
+\caption{All left mesh triangle is split conformaly in \sphinxcode{\sphinxupquote{int(1+5*(square(x-0.5)+y*y)\textasciicircum{}2}} triangles}\label{\detokenize{documentation/mesh-generation:id50}}\label{\detokenize{documentation/mesh-generation:splitmesh2}}\end{subfigure}
 \caption{Split mesh}
 
 \end{figure}
@@ -8404,13 +8404,13 @@ Build a 3d mesh of a cube with a balloon
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_CubeSphere1}.png}
-\caption{The surface mesh of the hex with internal sphere}\label{\detokenize{documentation/mesh-generation:id50}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere1}}\end{subfigure}
+\caption{The surface mesh of the hex with internal sphere}\label{\detokenize{documentation/mesh-generation:id51}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_CubeSphere2}.png}
-\caption{The tetrahedral mesh of the cube with internal ball}\label{\detokenize{documentation/mesh-generation:id51}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere2}}\end{subfigure}
+\caption{The tetrahedral mesh of the cube with internal ball}\label{\detokenize{documentation/mesh-generation:id52}}\label{\detokenize{documentation/mesh-generation:meshgenerationcubesphere2}}\end{subfigure}
 \caption{Cube sphere}
 
 \end{figure}
@@ -8493,10 +8493,40 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
 \end{itemize}
 
 \item {} 
-\sphinxcode{\sphinxupquote{Sphere(R, h, L, orient)}}
+\sphinxcode{\sphinxupquote{Ellipsoide (RX, RY, RZ, OX, OY, OZ, h, L, orient)}}
 \begin{itemize}
 \item {} 
-where R is  the raduis of the sphere,
+h is the mesh size
+
+\item {} 
+L is the label
+
+\item {} 
+orient the global orientation of the surface 1 extern (-1 intern)
+
+\item {} 
+OX, OY, OZ are real numbers to give the Ellipsoide center ( optinal, by default is (0,0,0) )
+
+\item {} 
+where RX, RY, RZ are real numbers such as the parametric equations of the ellipsoid is:
+
+\item {} 
+returns a \sphinxcode{\sphinxupquote{meshS}} type
+
+\end{itemize}
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\forall u \in [- \frac{\pi}{2},\frac{\pi}{2}  [ \text{ and } v \in [0, 2 \pi], \vectthree{x=\text{Rx } cos(u)cos(v) + \text{Ox }}{y=\text{Ry } cos(u)sin(v) + \text{Oy }}{z = \text{Rz } sin(v)  + \text{Oz }    }\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxcode{\sphinxupquote{Sphere(R, OX, OY, OZ, h, L, orient)}}
+\begin{itemize}
+\item {} 
+where R is the raduis of the sphere,
+
+\item {} 
+OX, OY, OZ are real numbers to give the Ellipsoide center ( optinal, by default is (0,0,0) )
 
 \item {} 
 h is the mesh size  of  the shpere
@@ -8512,30 +8542,8 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
 
 \end{itemize}
 
-\item {} 
-\sphinxcode{\sphinxupquote{Ellipsoide (RX, RY, RZ, h, L, orient)}}
-\begin{itemize}
-\item {} 
-h is the mesh size
-
-\item {} 
-L is the label
-
-\item {} 
-orient the global orientation of the surface 1 extern (-1 intern)
-
-\item {} 
-where RX, RY, RZ are real numbers such as the parametric equations of the ellipsoid is:
-
-\item {} 
-returns a \sphinxcode{\sphinxupquote{meshS}} type
-
 \end{itemize}
-
-\end{itemize}
-\begin{equation*}
-\begin{split}\forall u \in [0,2 \pi[ \text{ and } v \in [0, \pi], \vectthree{x=\text{Rx } cos(u)sin(v)}{y=\text{Ry } sin(u)sin(v)}{     z = \text{Rz } cos(v)     }\end{split}
-\end{equation*}\end{quote}
+\end{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{SurfaceHex}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{k+kr}{N}\PYG{p}{,}\PYG{k+kt}{real}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{p}{]} \PYG{o}{\PYGZam{}}\PYG{k+kp}{B} \PYG{p}{,}\PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{p}{]} \PYG{o}{\PYGZam{}} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)}\PYG{p}{\PYGZob{}}
@@ -8661,7 +8669,7 @@ An example of how to call the function
 
 \paragraph{The command \sphinxstyleemphasis{movemesh}}
 \label{\detokenize{documentation/mesh-generation:id9}}
-Like 2d and 3d type meshes in \sphinxstylestrong{FreeFEM}, \sphinxcode{\sphinxupquote{meshS}} can be translated, rotated or deformated by an application \(\Phi 1\), \(\Phi 2\), \(\Phi 3\) {]}.
+Like 2d and 3d type meshes in \sphinxstylestrong{FreeFEM}, \sphinxcode{\sphinxupquote{meshS}} can be translated, rotated or deformated by an application {[}\(\Phi 1\), \(\Phi 2\), \(\Phi 3\){]}.
 The image \(T_{h}(\Omega)\) is obtained by the command \sphinxcode{\sphinxupquote{movemeshS}}.
 
 The parameters of movemeshS are:
@@ -9139,6 +9147,17 @@ An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the op
 \begin{sphinxadmonition}{warning}{Warning:}
 For the moment, the case of no manifold mesh are not considered in FreeFEM. To check if the meshL contains no manifold elements, the command \sphinxcode{\sphinxupquote{nbnomanifold}}.
 \end{sphinxadmonition}
+
+
+\paragraph{The command extract}
+\label{\detokenize{documentation/mesh-generation:id18}}
+This operator allows to extract a labeled piece or the entire border of a 2D mesh and project it in 3D. Optionally, a geometic transformation can be applied.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+     \PYG{k+kt}{mesh} \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{square}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{;}
+     \PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{ll}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{;}
+     \PYG{k+kt}{meshL} \PYG{n}{ThL} \PYG{o}{=} \PYG{n+nf}{extract}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,}\PYG{p}{[}\PYG{k+kr}{x}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{k+kr}{y}\PYG{o}{*}\PYG{l+m+mi}{5}\PYG{p}{]}\PYG{p}{,}\PYG{n}{refedge}\PYG{o}{=}\PYG{n}{ll}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
 
 
 \paragraph{The commands \sphinxstyleemphasis{rebuildBorder}}
@@ -9769,10 +9788,10 @@ the command \sphinxstyleemphasis{savegmsh}
 
 
 \subsubsection{3d case}
-\label{\detokenize{documentation/mesh-generation:id28}}
+\label{\detokenize{documentation/mesh-generation:id29}}
 
 \paragraph{format of  mesh data}
-\label{\detokenize{documentation/mesh-generation:id29}}
+\label{\detokenize{documentation/mesh-generation:id30}}
 In three dimensions, the file mesh format supported for input and output files by \sphinxstylestrong{FreeFEM} are the extension .msh and .mesh.
 These formats are described in the {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
 
@@ -9901,7 +9920,7 @@ the command \sphinxstyleemphasis{savegmsh}
 \label{\detokenize{documentation/mesh-generation:surface-3d-case}}
 
 \paragraph{format of  mesh data}
-\label{\detokenize{documentation/mesh-generation:id30}}
+\label{\detokenize{documentation/mesh-generation:id31}}
 Like 2d and 3d, the input and output format files supported by \sphinxstylestrong{FreeFEM} are the extension .msh and .mesh.
 These formats are described in the {\hyperref[\detokenize{documentation/developers:meshfiledatastructure}]{\sphinxcrossref{\DUrole{std,std-ref}{Mesh Format section}}}}.
 
@@ -11028,13 +11047,13 @@ Leman lake
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Isoline1}.jpg}
-\caption{The image of the Leman lake meshes}\label{\detokenize{documentation/mesh-generation:id52}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline1}}\end{subfigure}
+\caption{The image of the Leman lake meshes}\label{\detokenize{documentation/mesh-generation:id53}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline1}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{MeshGeneration_Isoline2}.png}
-\caption{The mesh of the lake}\label{\detokenize{documentation/mesh-generation:id53}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline2}}\end{subfigure}
+\caption{The mesh of the lake}\label{\detokenize{documentation/mesh-generation:id54}}\label{\detokenize{documentation/mesh-generation:meshgenerationisoline2}}\end{subfigure}
 \caption{Isoline}\phantomsection\label{\detokenize{documentation/mesh-generation:Isoline}}
 
 \end{figure}
@@ -19200,11 +19219,18 @@ Two-grid preconditioner
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-3d-surf-PETSc-complex.edp}{helmholtz-3d-surf-PETSc-complex.edp}
 &
-BEM with hierarchical matrices from Htool
+BEM with hierarchical matrices from Htool on surfaces
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-3d-line-PETSc-complex.edp}{helmholtz-3d-line-PETSc-complex.edp}
-&\\
+&
+BEM with hierarchical matrices from Htool on lines
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-coupled-2d-PETSc-complex.edp}{helmholtz-coupled-2d-PETSc-complex.edp}
+&
+FEM coupled with BEM in a MatNest using a block preconditioner (fieldsplit)
+\\
 \hline
 \end{tabulary}
 \par
@@ -19431,6 +19457,16 @@ Parallel interpolation of finite element functions
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/reconstructDmesh.edp}{reconstructDmesh.edp}
 &
 Construction of a distributed mesh from sequential nonoverlapping meshes
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/distributed-parmmg.edp}{distributed-parmmg.edp}
+&
+Distributed ParMmg interface for mesh adaptation
+\\
+\hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/redistributeDmesh.edp}{redistributeDmesh.edp}
+&
+Gather and scatter a Dmesh on different MPI communicators
 \\
 \hline
 \end{tabulary}
