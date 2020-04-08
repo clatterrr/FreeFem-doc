@@ -2428,12 +2428,12 @@ If <strong>eps</strong> <span class="math notranslate nohighlight">\(&lt; 0\)</s
 <strong>ffddm</strong> can then be viewed as a finite element interface for <strong>HPDDM</strong>.</p>
 <p>You can use <strong>HPDDM</strong> features unavailable in <strong>ffddm</strong> such as advanced Krylov subspace methods implementing block and recycling techniques.</p>
 <p>To switch to <strong>HPDDM</strong>, simply define the macro <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">withhpddm</span></code> before using <a class="reference internal" href="#ffddmdocumentationdefineproblemtosolve"><span class="std std-ref">ffddmsetupOperator</span></a>. You can then pass <strong>HPDDM</strong> options
-with command-line arguments or directly to the underlying <strong>HPDDM</strong> operator <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">hpddmOP</span></code>:</p>
+with command-line arguments or directly to the underlying <strong>HPDDM</strong> operator <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">hpddmOP</span></code>. Options need to be prefixed by the operator prefix:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">macro</span> <span class="nf">PBwithhpddm</span><span class="p">()</span><span class="mi">1</span> <span class="c1">// EOM</span>
 <span class="n">ffddmsetupOperator</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">FE</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
-<span class="nf">set</span><span class="p">(</span><span class="n">PBhpddmOP</span><span class="p">,</span><span class="kp">sparams</span><span class="o">=</span><span class="s">&quot;-hpddm_krylov_method gcrodr&quot;</span><span class="p">);</span>
+<span class="nf">set</span><span class="p">(</span><span class="n">PBhpddmOP</span><span class="p">,</span><span class="kp">sparams</span><span class="o">=</span><span class="s">&quot;-hpddm_PB_krylov_method gcrodr&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>You can also choose to replace only the Krylov solver, by defining the macro <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">pr</span><span class="o">#</span><span class="n">withhpddmkrylov</span></code> before using <a class="reference internal" href="#ffddmdocumentationdefineproblemtosolve"><span class="std std-ref">ffddmsetupOperator</span></a>.
