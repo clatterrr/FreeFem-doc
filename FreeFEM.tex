@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 04, 2020}
+\date{Apr 08, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -21818,12 +21818,12 @@ If \sphinxstylestrong{eps} \(< 0\), the residual norm itself is used instead.
 You can use \sphinxstylestrong{HPDDM} features unavailable in \sphinxstylestrong{ffddm} such as advanced Krylov subspace methods implementing block and recycling techniques.
 
 To switch to \sphinxstylestrong{HPDDM}, simply define the macro \sphinxcode{\sphinxupquote{pr\#withhpddm}} before using {\hyperref[\detokenize{documentation/ffddm/documentation:ffddmdocumentationdefineproblemtosolve}]{\sphinxcrossref{\DUrole{std,std-ref}{ffddmsetupOperator}}}}. You can then pass \sphinxstylestrong{HPDDM} options
-with command-line arguments or directly to the underlying \sphinxstylestrong{HPDDM} operator \sphinxcode{\sphinxupquote{pr\#hpddmOP}}:
+with command-line arguments or directly to the underlying \sphinxstylestrong{HPDDM} operator \sphinxcode{\sphinxupquote{pr\#hpddmOP}}. Options need to be prefixed by the operator prefix:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{macro} \PYG{n+nf}{PBwithhpddm}\PYG{p}{(}\PYG{p}{)}\PYG{l+m+mi}{1} \PYG{c+c1}{// EOM}
 \PYG{n}{ffddmsetupOperator}\PYG{p}{(} \PYG{n}{PB} \PYG{p}{,} \PYG{n}{FE} \PYG{p}{,} \PYG{n}{Varf} \PYG{p}{)}
-\PYG{n+nf}{set}\PYG{p}{(}\PYG{n}{PBhpddmOP}\PYG{p}{,}\PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}krylov\PYGZus{}method gcrodr}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{n+nf}{set}\PYG{p}{(}\PYG{n}{PBhpddmOP}\PYG{p}{,}\PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}PB\PYGZus{}krylov\PYGZus{}method gcrodr}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 You can also choose to replace only the Krylov solver, by defining the macro \sphinxcode{\sphinxupquote{pr\#withhpddmkrylov}} before using {\hyperref[\detokenize{documentation/ffddm/documentation:ffddmdocumentationdefineproblemtosolve}]{\sphinxcrossref{\DUrole{std,std-ref}{ffddmsetupOperator}}}}.
@@ -22670,12 +22670,12 @@ See {\hyperref[\detokenize{documentation/ffddm/documentation:ffddmdocumentationh
 You can use \sphinxstylestrong{HPDDM} features unavailable in \sphinxstylestrong{ffddm} such as advanced Krylov subspace methods implementing block and recycling techniques
 
 To switch to \sphinxstylestrong{HPDDM}, simply define the macro \sphinxtitleref{pr\#withhpddm} before using \sphinxtitleref{ffddmsetupOperator} ({\hyperref[\detokenize{documentation/ffddm/tutorial:ffddmtutorialdefineyourproblem}]{\sphinxcrossref{\DUrole{std,std-ref}{Step 3}}}}). You can then pass \sphinxstylestrong{HPDDM} options
-with command-line arguments or directly to the underlying \sphinxstylestrong{HPDDM} operator:
+with command-line arguments or directly to the underlying \sphinxstylestrong{HPDDM} operator. Options need to be prefixed by the operator prefix:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kt}{macro} \PYG{n+nf}{PBwithhpddm}\PYG{p}{(}\PYG{p}{)}\PYG{l+m+mi}{1} \PYG{c+c1}{// EOM}
 \PYG{n}{ffddmsetupOperator}\PYG{p}{(} \PYG{n}{PB} \PYG{p}{,} \PYG{n}{FE} \PYG{p}{,} \PYG{n}{Varf} \PYG{p}{)}
-\PYG{n+nf}{set}\PYG{p}{(}\PYG{n}{PBhpddmOP}\PYG{p}{,}\PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}krylov\PYGZus{}method gcrodr}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{n+nf}{set}\PYG{p}{(}\PYG{n}{PBhpddmOP}\PYG{p}{,}\PYG{k+kp}{sparams}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZhy{}hpddm\PYGZus{}PB\PYGZus{}krylov\PYGZus{}method gcrodr}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
 \end{sphinxVerbatim}
 
 Or, define \sphinxtitleref{pr\#withhpddmkrylov} to use \sphinxstylestrong{HPDDM} only for the Krylov method
