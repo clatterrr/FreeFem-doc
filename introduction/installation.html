@@ -2482,10 +2482,10 @@ Repeatedly run the following command until it says there are no further updates.
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/FreeFem/FreeFem-sources
 <span class="nb">cd</span> FreeFem-sources
 autoreconf -i
-./configure ./configure --enable-generic --enable-optim <span class="se">\</span>
+./configure --enable-generic --enable-optim <span class="se">\</span>
   --enable-download --enable-maintainer-mode <span class="se">\</span>
   <span class="nv">CXXFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="nv">CFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic <span class="se">\</span>
-  <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic--enable-download --disable-hips
+  <span class="nv">FFLAGS</span><span class="o">=</span>-mtune<span class="o">=</span>generic --enable-download --disable-hips
           --prefix<span class="o">=</span>/where/you/want/to/have/files/installed
 </pre></div>
 </td></tr></table></div>
