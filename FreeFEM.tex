@@ -21537,7 +21537,7 @@ The computation is equivalent to \(R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)\) and is
 In the sequential case, the global matrix \sphinxcode{\sphinxupquote{pr\#Aglobal}} is used instead.
 
 \item {} 
-\sphinxcode{\sphinxupquote{func prfe\#K{[}int{]} pr\#AT(prfe\#K{[}int{]} \&ui)}} Similarly to \sphinxcode{\sphinxupquote{pr\#A}}, The function \sphinxcode{\sphinxupquote{pr\#AT}} computes the action of \(A^T\), the transpose of the global operator \(A\), on \sphinxtitleref{u\_i}.
+\sphinxcode{\sphinxupquote{func prfe\#K{[}int{]} pr\#AT(prfe\#K{[}int{]} \&ui)}} Similarly to \sphinxcode{\sphinxupquote{pr\#A}}, The function \sphinxcode{\sphinxupquote{pr\#AT}} computes the action of \(A^T\), the transpose of the global operator \(A\), on \(u_i\).
 
 \item {} 
 \sphinxcode{\sphinxupquote{func prfe\#K{[}int{]} pr\#directsolve(prfe\#K{[}int{]}\& rhsi)}} The function \sphinxcode{\sphinxupquote{pr\#directsolve}} allows to solve the linear system \(A x = b\) in parallel using the parallel direct solver \sphinxstyleemphasis{MUMPS}.
