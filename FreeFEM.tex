@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Apr 21, 2020}
+\date{May 05, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -21537,11 +21537,26 @@ The computation is equivalent to \(R_i (\sum_{j=1}^N R_j^T D_j A_j u_j)\) and is
 In the sequential case, the global matrix \sphinxcode{\sphinxupquote{pr\#Aglobal}} is used instead.
 
 \item {} 
+\sphinxcode{\sphinxupquote{func prfe\#K{[}int{]} pr\#AT(prfe\#K{[}int{]} \&ui)}} Similarly to \sphinxcode{\sphinxupquote{pr\#A}}, The function \sphinxcode{\sphinxupquote{pr\#AT}} computes the action of \(A^T\), the transpose of the global operator \(A\), on \sphinxtitleref{u\_i}.
+
+\item {} 
 \sphinxcode{\sphinxupquote{func prfe\#K{[}int{]} pr\#directsolve(prfe\#K{[}int{]}\& rhsi)}} The function \sphinxcode{\sphinxupquote{pr\#directsolve}} allows to solve the linear system \(A x = b\) in parallel using the parallel direct solver \sphinxstyleemphasis{MUMPS}.
 The matrix is given to \sphinxstyleemphasis{MUMPS} in distributed form through the local matrices \sphinxcode{\sphinxupquote{pr\#aRd}}.
 The input \sphinxstyleemphasis{rhsi} is given as a distributed vector (\sphinxstyleemphasis{rhsi} is the restriction of the global right-hand side \(b\) to the subdomain of this mpi rank, see {\hyperref[\detokenize{documentation/ffddm/documentation:ffddmdocumentationbuildrhs}]{\sphinxcrossref{\DUrole{std,std-ref}{ffddmbuildrhs}}}}) and the returned vector is local as well.
 
 \end{itemize}
+
+\sphinxstylestrong{Remark: rectangular operators}
+
+It is possible to define a non-square distributed operator where the variational form takes two different finite element spaces of unknown and test functions. This is done through macro \sphinxstylestrong{ffddmsetupOperatorRect} which takes two FE prefixes (which must be defined on the same mesh prefix), see below:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kt}{macro} \PYG{n+nf}{myVarf}\PYG{p}{(}\PYG{n}{varfName}\PYG{p}{,} \PYG{n}{meshName}\PYG{p}{,} \PYG{n}{VhName}\PYG{p}{)}
+    \PYG{k+kt}{varf} \PYG{n}{varfName}\PYG{p}{(}\PYG{p}{[}\PYG{n}{u}\PYG{p}{,} \PYG{n}{uB}\PYG{p}{,} \PYG{n}{uC}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{n}{q}\PYG{p}{]}\PYG{p}{)} \PYG{o}{=} \PYG{n+nf}{int3d}\PYG{p}{(}\PYG{n}{meshName}\PYG{p}{)}\PYG{p}{(}\PYG{n}{div}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{*} \PYG{n}{q}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+c1}{// EOM}
+
+\PYG{n}{ffddmsetupOperatorRect}\PYG{p}{(}\PYG{n}{myprefix}\PYG{p}{,}\PYG{n}{myFEprefixV}\PYG{p}{,}\PYG{n}{myFEprefixP}\PYG{p}{,}\PYG{n}{myVarf}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
 
