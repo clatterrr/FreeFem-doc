@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{May 05, 2020}
+\date{May 07, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -21167,18 +21167,18 @@ Note also that the implementation relies on the knowledge of a partition of unit
 
 \paragraph{Update}
 \label{\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:update}}\label{\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmdocumentationupdate}}
-From a collection of local vectors \(({\mathbf U}_i)_{1\le i \le N}\), it is possible ensure consistency of the duplicated data and thus creating a distributed vector \(({\mathbf V}_i)_{1\le i \le N}\) by calling the function \sphinxcode{\sphinxupquote{pr\#update(Ui, TRUE)}} where \sphinxcode{\sphinxupquote{pr}} is a user defined prefix that refers to the domain decomposition.
+From a collection of local vectors \(({\mathbf U}_i)_{1\le i \le N}\), it is possible ensure consistency of the duplicated data by modifying the distributed vector \(({\mathbf U}_i)_{1\le i \le N}\) by calling the function \sphinxcode{\sphinxupquote{pr\#update(Ui, TRUE)}} where \sphinxcode{\sphinxupquote{pr}} is a user defined prefix that refers to the domain decomposition.
 This function performs the following operation for all \(1\le i \le N\):
 \begin{equation*}
-\begin{split}{\mathbf V}_i \leftarrow R_i\, \sum_{j=1}^N R_j^T D_j {\mathbf U}_j\end{split}
+\begin{split}{\mathbf U}_i \leftarrow R_i\, \sum_{j=1}^N R_j^T D_j {\mathbf U}_j\end{split}
 \end{equation*}
 \begin{sphinxadmonition}{note}{Note:}
 The implementation corresponds to
 \begin{equation*}
-\begin{split}{\mathbf V}_i := R_i \sum_{j=1}^N R_j^T D_j {\mathbf U}_j = D_i {\mathbf U}_i + \sum_{j\in \mathcal{O}(i)} R_i\,R_j^T\,D_j {\mathbf U}_j\end{split}
+\begin{split}{\mathbf U}_i \leftarrow R_i \sum_{j=1}^N R_j^T D_j {\mathbf U}_j = D_i {\mathbf U}_i + \sum_{j\in \mathcal{O}(i)} R_i\,R_j^T\,D_j {\mathbf U}_j\end{split}
 \end{equation*}
 where \(\mathcal{O}(i)\) is the set of neighbors of subdomain \(i\).
-Therefore, the matrix vector product is computed in three steps: - concurrent computing of \(D_j {\mathbf U}_j\) for all \(1\le j\le N\); - neighbor to neighbor MPI-communications (\(R_i\,R_j^T\)) ; - concurrent sum of neighbor contributions.
+Therefore, the matrix vector product is computed in three steps: - concurrent computing of \(D_j {\mathbf U}_j\) for all \(1\le j\le N\); - neighbor to neighbor MPI-communications from subdomain \(j\) to subdomain math:\sphinxtitleref{i}  (\(R_i\,R_j^T\)) ; - concurrent sum of neighbor contributions.
 \end{sphinxadmonition}
 
 
@@ -21186,7 +21186,7 @@ Therefore, the matrix vector product is computed in three steps: - concurrent co
 \label{\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:distributed-matrix-and-vector-resulting-from-a-variational-formulation}}
 The discretization of a variational formulation on the global mesh \(Th\) yields a global matrix \(A\) and a global right hand side \(\mathbf{RHS}\).
 Thanks to the sparsity of finite element matrices for partial differential equations and thanks to the overlap between subdomains, the knowledge of the local matrix \(R_i A R_i^T\) on each subdomain \(1\le i\le N\) is sufficient to perform the matrix-vector product \(A\times \mathbf{U}\) for any global vector \(\mathbf{U}\).
-Once the problem has been set up by a call to \sphinxcode{\sphinxupquote{ffddmsetupOperator(myprefix, myFEprefix, myVarf)}}, the matrix-vector product is performed by calling the function \sphinxcode{\sphinxupquote{pr\#A(Ui)}} where \sphinxcode{\sphinxupquote{pr}} is a user defined prefix that refers to the problem at hand which itself implicitly refers to the triplet (domain decomposition, finite element, variational formulation).
+Once the problem has been set up by a call to \sphinxcode{\sphinxupquote{ffddmsetupOperator(myprefix, myFEprefix, myVarf)}}, the matrix-vector product is performed by calling the function \sphinxcode{\sphinxupquote{myprefix\#A(Ui)}} where \sphinxcode{\sphinxupquote{myprefix}} is a user defined prefix that refers to the problem at hand which itself implicitly refers to the triplet (domain decomposition, finite element, variational formulation).
 See more on problem defintion in this {\hyperref[\detokenize{documentation/ffddm/documentation:ffddmdocumentationdefineproblemtosolve}]{\sphinxcrossref{\DUrole{std,std-ref}{documentation}}}} and more on distributed linear algebra in chapter 8 of \sphinxhref{http://bookstore.siam.org/ot144/}{“An Introduction to Domain Decomposition Methods: algorithms, theory and parallel implementation” SIAM 2015}.
 
 
@@ -21196,7 +21196,7 @@ In many cases, we are interested in the solution of the problem in terms of the 
 \begin{equation*}
 \begin{split}A\, \mathbf{X} = \mathbf{RHS}\,.\end{split}
 \end{equation*}
-\sphinxcode{\sphinxupquote{ffddm}} offers two parallel solvers: {\hyperref[\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmintroductiondisitributeddirectsolvers}]{\sphinxcrossref{\DUrole{std,std-ref}{direct factorization}}}} and {\hyperref[\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmintroductionschwarzmethods}]{\sphinxcrossref{\DUrole{std,std-ref}{Schwarz}}}} domain decomposition methods.
+\sphinxcode{\sphinxupquote{ffddm}} offers two parallel solvers: {\hyperref[\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmintroductiondisitributeddirectsolvers}]{\sphinxcrossref{\DUrole{std,std-ref}{direct factorization}}}} and iterative preconditioned solvers via {\hyperref[\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmintroductionschwarzmethods}]{\sphinxcrossref{\DUrole{std,std-ref}{Schwarz}}}} domain decomposition methods.
 
 
 \paragraph{Distributed Direct Solvers}
@@ -21206,12 +21206,28 @@ A frontal solver builds a \(LU\) or Cholesky decomposition of a sparse matrix gi
 This subset is called the \sphinxstyleemphasis{front} and it is essentially the transition region between the part of the system already finished and the part not touched yet.
 These methods are basically sequential since the unknowns are processed the one after another or one front after another.
 In order to benefit from multicore processors, a \sphinxhref{https://en.wikipedia.org/wiki/Multifrontal\_method}{multifrontal solver} is an improvement of the frontal solver that uses several independent fronts at the same time.
-The fronts can be worked on by different processors, which enables parallel computing. \sphinxcode{\sphinxupquote{ffddm}} provides an interface to the parallel sparse direct solver \sphinxhref{http://mumps.enseeiht.fr/}{MUMPS}.
+The fronts can be worked on by different processors, which enables parallel computing. \sphinxcode{\sphinxupquote{ffddm}} provides an interface to the parallel sparse direct solver \sphinxhref{http://mumps.enseeiht.fr/}{MUMPS}. These methods have the advantage to be very robust and to have a predictable cost. The main drawback is the memory requirement which can be prohibitive especially for three-dimensional problems.
 
 
 \paragraph{Schwarz methods}
 \label{\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:schwarz-methods}}\label{\detokenize{documentation/ffddm/introduction-to-the-domain-decomposition-method:ffddmintroductionschwarzmethods}}
-We consider the solve of the equation \(A\, \mathbf{X} = \mathbf{RHS}\) by a flexible GMRES method preconditioned by domain decomposition methods.
+These methods are part of the large family of preconditioned iterative solvers. When considering the solve of the equation \(A\, \mathbf{X} = \mathbf{RHS}\), a preconditioner is a linear operator that approximtes the inverse of :math:{\color{red}\bfseries{}{}`}A{}` and whose cost of the associated matrix-vector product is much cheaper than solving the original linear system. It enables to accelerate the solve of the latter with Krylov type methods such as the conjugate gradient gradient (in the symmetric positive definite case), GMRES or BiCGSTAB in the general case. Two options are possible.
+
+Left preconditioning: the preconditioner is applied to the left of the equation
+\begin{equation*}
+\begin{split}M^{-1}  A\, \mathbf{X} =  M^{-1} \mathbf{RHS}\,.\end{split}
+\end{equation*}
+and the Krylov method is applied to the left preconditioned system with a residual that is preconditioner dependant.
+
+Right preconditioning: the preconditioner is inserted on the right of the operator:
+\begin{equation*}
+\begin{split}A\, M^{-1}  \mathbf{Y} =  \mathbf{RHS}\, \text{ where } \mathbf{X} =  M^{-1}  \mathbf{Y}.\end{split}
+\end{equation*}
+and the Krylov method is applied to the right preconditioned system with a residual that is preconditioner independant.
+
+In both cases, if the preconditioner is efficient the number of iterations to get a converged solution is much smaller than the number of iterations of the Krylov method applied to the original equation \(A\, \mathbf{X} = \mathbf{RHS}\).  Although right preconditioning seems more intricate, it is much safer to use since the convergence is checked on a residual that does not depend on the preconditioner.
+
+In the sequel, we consider the solve of the equation \(A\, \mathbf{X} = \mathbf{RHS}\) preconditioned by domain decomposition methods and with a \sphinxstylestrong{flexible GMRES} Krylov method which is thus necessarily right preconditioned.
 
 
 \subparagraph{Restricted Additive Schwarz (RAS)}
@@ -21220,8 +21236,7 @@ The RAS preconditioner reads:
 \begin{equation*}
 \begin{split}M^{-1}_{RAS} := \sum_{j=1}^N R_j^T D_j (R_j\, A\,R_j^T)^{-1} R_j\,.\end{split}
 \end{equation*}
-Let \(A_{i}\) denote the local matrix \((R_i\, A\,R_i^T)\).
-The application of the operator \(M^{-1}_{RAS}\) to a distributed right hand side \((\mathbf{RHS}_i)_{i=1}^N\) consists in computing:
+where for each subdomain \(j\) the restriction matrix \(R_j\) and  the partition of unity matrix \(D_j\) to a global right hand side \(\mathbf{RHS}\) is detailed below. Recall this global vector is distributed among processes via the local vectors \((\mathbf{RHS}_i)_{i=1}^N\). Let \(A_{j}\) denote the local matrix \((R_j\, A\,R_j^T)\). The local vector in subdomain \(i\) of the matrix vector product \(M^{-1}_{RAS}\, \mathbf{RHS}\) consists in computing:
 \begin{equation*}
 \begin{split}R_i\, \sum_{j=1}^N R_j^T\,D_j\, A_{j}^{-1}\,\, \mathbf{ RHS}_j
 = D_i\, A_{i}^{-1}\, \mathbf{ RHS}_i + \sum_{j\in \mathcal{O}(i)} (R_i\,R_j^T)\,D_j\, A_{j}^{-1}\, \mathbf{ RHS}_j\,.\end{split}
