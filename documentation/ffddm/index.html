@@ -1992,28 +1992,28 @@ For more details on how to use HPDDM within <code class="docutils literal highli
 <span class="cp">include</span> <span class="s">&quot;ffddm.idp&quot;</span>
 <span class="kt">mesh</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">square</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>    <span class="c1">// global mesh</span>
 <span class="c1">// Step 1: Decompose the mesh</span>
-<span class="n">ffddmbuildDmesh</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="n">Th</span> <span class="p">,</span> <span class="kr">mpiCommWorld</span> <span class="p">)</span>
+<span class="n">ffddmbuildDmesh</span><span class="p">(</span> <span class="n">M</span> <span class="p">,</span> <span class="n">Th</span> <span class="p">,</span> <span class="kr">mpiCommWorld</span> <span class="p">)</span>
 <span class="c1">// Step 2: Define your finite element</span>
 <span class="kt">macro</span> <span class="n">def</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>  <span class="n">u</span> <span class="c1">// EOM</span>
 <span class="kt">macro</span> <span class="kp">init</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="n">u</span> <span class="c1">// EOM</span>
-<span class="n">ffddmbuildDfespace</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="kr">P</span> <span class="p">,</span> <span class="kt">real</span> <span class="p">,</span> <span class="n">def</span> <span class="p">,</span> <span class="kp">init</span> <span class="p">,</span> <span class="nc">P2</span> <span class="p">)</span>
+<span class="n">ffddmbuildDfespace</span><span class="p">(</span> <span class="n">FE</span> <span class="p">,</span> <span class="n">M</span> <span class="p">,</span> <span class="kt">real</span> <span class="p">,</span> <span class="n">def</span> <span class="p">,</span> <span class="kp">init</span> <span class="p">,</span> <span class="nc">P2</span> <span class="p">)</span>
 <span class="c1">// Step 3: Define your problem</span>
 <span class="kt">macro</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="p">[</span><span class="nf">dx</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="nf">dy</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span> <span class="c1">// EOM</span>
 <span class="kt">macro</span> <span class="n">Varf</span><span class="p">(</span><span class="n">varfName</span><span class="p">,</span> <span class="n">meshName</span><span class="p">,</span> <span class="n">VhName</span><span class="p">)</span>
     <span class="kt">varf</span> <span class="n">varfName</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">meshName</span><span class="p">)(</span><span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">&#39;*</span> <span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">+</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">meshName</span><span class="p">)(</span><span class="mi">1</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
                        <span class="o">+</span> <span class="nf">on</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// EOM</span>
-<span class="n">ffddmsetupOperator</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="kr">P</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
-<span class="n">PVhi</span> <span class="n">ui</span><span class="p">,</span> <span class="n">bi</span><span class="p">;</span>
-<span class="n">ffddmbuildrhs</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">,</span> <span class="n">bi</span><span class="p">[]</span> <span class="p">)</span>
+<span class="n">ffddmsetupOperator</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">FE</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
+<span class="n">FEVhi</span> <span class="n">ui</span><span class="p">,</span> <span class="n">bi</span><span class="p">;</span>
+<span class="n">ffddmbuildrhs</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">,</span> <span class="n">bi</span><span class="p">[]</span> <span class="p">)</span>
 <span class="c1">// Step 4: Define the one level DD preconditioner</span>
-<span class="n">ffddmsetupPrecond</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
+<span class="n">ffddmsetupPrecond</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
 <span class="c1">// Step 5: Define the two-level GenEO Coarse Space</span>
-<span class="n">ffddmgeneosetup</span><span class="p">(</span> <span class="kr">P</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
+<span class="n">ffddmgeneosetup</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
 <span class="c1">// Step 6: Solve the linear system with GMRES</span>
-<span class="n">PVhi</span> <span class="n">x0i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">ui</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PfGMRES</span><span class="p">(</span><span class="n">x0i</span><span class="p">[],</span> <span class="n">bi</span><span class="p">[],</span> <span class="mf">1.e-6</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">);</span>
-<span class="n">ffddmplot</span><span class="p">(</span><span class="kr">P</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
-<span class="n">Pwritesummary</span>
+<span class="n">FEVhi</span> <span class="n">x0i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">ui</span><span class="p">[]</span> <span class="o">=</span> <span class="n">PBfGMRES</span><span class="p">(</span><span class="n">x0i</span><span class="p">[],</span> <span class="n">bi</span><span class="p">[],</span> <span class="mf">1.e-6</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">);</span>
+<span class="n">ffddmplot</span><span class="p">(</span><span class="n">FE</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="s">&quot;u&quot;</span><span class="p">)</span>
+<span class="n">PBwritesummary</span>
 </pre></div>
 </td></tr></table></div>
 <p>This example solves a Laplace problem in 2D in parallel with a two-level GenEO domain decomposition method.

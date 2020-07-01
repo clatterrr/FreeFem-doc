@@ -2574,7 +2574,7 @@ with command-line arguments or directly to the underlying <strong>HPDDM</strong>
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">macro</span> <span class="nf">PBwithhpddm</span><span class="p">()</span><span class="mi">1</span> <span class="c1">// EOM</span>
 <span class="n">ffddmsetupOperator</span><span class="p">(</span> <span class="n">PB</span> <span class="p">,</span> <span class="n">FE</span> <span class="p">,</span> <span class="n">Varf</span> <span class="p">)</span>
-<span class="nf">set</span><span class="p">(</span><span class="n">PBhpddmOP</span><span class="p">,</span><span class="kp">sparams</span><span class="o">=</span><span class="s">&quot;-hpddm_PB_krylov_method gcrodr&quot;</span><span class="p">);</span>
+<span class="nf">set</span><span class="p">(</span><span class="n">PBhpddmOP</span><span class="p">,</span><span class="kp">sparams</span><span class="o">=</span><span class="s">&quot;-hpddm_PB_krylov_method gcrodr -hpddm_PB_recycle 10&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Or, define <cite>pr#withhpddmkrylov</cite> to use <strong>HPDDM</strong> only for the Krylov method</p>
