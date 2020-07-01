@@ -284,37 +284,37 @@
 \contentsline {subsubsection}{Two level preconditioners}{320}{subsubsection*.358}
 \contentsline {paragraph}{Building the GenEO coarse space}{321}{paragraph*.359}
 \contentsline {paragraph}{Building the coarse space from a coarse mesh}{321}{paragraph*.360}
-\contentsline {subsubsection}{Solving the linear system}{322}{subsubsection*.361}
+\contentsline {subsubsection}{Solving the linear system}{323}{subsubsection*.361}
 \contentsline {subsubsection}{Using \sphinxstyleemphasis {HPDDM} within \sphinxstyleemphasis {ffddm}}{323}{subsubsection*.362}
 \contentsline {subsubsection}{Advanced use}{323}{subsubsection*.363}
 \contentsline {paragraph}{Local finite element spaces for non Lagrange finite elements}{323}{paragraph*.364}
-\contentsline {paragraph}{Inexact coarse solves for two level methods}{323}{paragraph*.365}
+\contentsline {paragraph}{Inexact coarse solves for two level methods}{324}{paragraph*.365}
 \contentsline {subparagraph}{Coarse mesh and inexact coarse solve}{324}{subparagraph*.366}
 \contentsline {subsection}{\numberline {3.10.3}Parameters}{325}{subsection.3.10.3}
 \contentsline {subsubsection}{Command-line arguments}{325}{subsubsection*.367}
 \contentsline {subsubsection}{Global parameters}{326}{subsubsection*.368}
 \contentsline {subsection}{\numberline {3.10.4}Tutorial}{327}{subsection.3.10.4}
 \contentsline {subsubsection}{What is \sphinxstylestrong {ffddm} ?}{327}{subsubsection*.369}
-\contentsline {subsubsection}{Why Domain Decomposition Methods ?}{327}{subsubsection*.370}
+\contentsline {subsubsection}{Why Domain Decomposition Methods ?}{328}{subsubsection*.370}
 \contentsline {paragraph}{Step 1: Decompose the mesh}{328}{paragraph*.371}
-\contentsline {paragraph}{Step 2: Define your finite element}{328}{paragraph*.372}
-\contentsline {subparagraph}{Distributed vectors and restriction operators}{329}{subparagraph*.373}
+\contentsline {paragraph}{Step 2: Define your finite element}{329}{paragraph*.372}
+\contentsline {subparagraph}{Distributed vectors and restriction operators}{330}{subparagraph*.373}
 \contentsline {subparagraph}{Partition of unity}{330}{subparagraph*.374}
-\contentsline {subparagraph}{Data exchange between neighbors}{330}{subparagraph*.375}
-\contentsline {paragraph}{Step 3: Define your problem}{331}{paragraph*.376}
-\contentsline {subsubsection}{Summary so far: translating your sequential \sphinxstyleemphasis {FreeFEM} script}{332}{subsubsection*.377}
-\contentsline {paragraph}{Step 1: Decompose the mesh}{332}{paragraph*.378}
+\contentsline {subparagraph}{Data exchange between neighbors}{331}{subparagraph*.375}
+\contentsline {paragraph}{Step 3: Define your problem}{332}{paragraph*.376}
+\contentsline {subsubsection}{Summary so far: translating your sequential \sphinxstyleemphasis {FreeFEM} script}{333}{subsubsection*.377}
+\contentsline {paragraph}{Step 1: Decompose the mesh}{333}{paragraph*.378}
 \contentsline {paragraph}{Solve the linear system}{333}{paragraph*.379}
 \contentsline {paragraph}{Solve the linear system with the parallel direct solver \sphinxstyleemphasis {MUMPS}}{333}{paragraph*.380}
-\contentsline {paragraph}{Step 4: Define the one level DD preconditioner}{333}{paragraph*.381}
-\contentsline {paragraph}{Step 5: Solve the linear system with preconditioned GMRES}{333}{paragraph*.382}
-\contentsline {subsubsection}{Define a two level DD preconditioner}{334}{subsubsection*.383}
+\contentsline {paragraph}{Step 4: Define the one level DD preconditioner}{334}{paragraph*.381}
+\contentsline {paragraph}{Step 5: Solve the linear system with preconditioned GMRES}{334}{paragraph*.382}
+\contentsline {subsubsection}{Define a two level DD preconditioner}{335}{subsubsection*.383}
 \contentsline {subsubsection}{Build the GenEO coarse space}{335}{subsubsection*.384}
 \contentsline {subsubsection}{Build the coarse space from a coarse mesh}{336}{subsubsection*.385}
-\contentsline {subsubsection}{Use \sphinxstylestrong {HPDDM} within \sphinxstylestrong {ffddm}}{336}{subsubsection*.386}
+\contentsline {subsubsection}{Use \sphinxstylestrong {HPDDM} within \sphinxstylestrong {ffddm}}{337}{subsubsection*.386}
 \contentsline {subsubsection}{Some results: Heterogeneous 3D elasticity with GenEO}{337}{subsubsection*.387}
-\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{337}{subsubsection*.388}
-\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{338}{subsubsection*.389}
+\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{338}{subsubsection*.388}
+\contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{339}{subsubsection*.389}
 \contentsline {subsection}{\numberline {3.10.5}Examples}{339}{subsection.3.10.5}
 \contentsline {chapter}{\numberline {4}Language references}{341}{chapter.4}
 \contentsline {section}{\numberline {4.1}Types}{342}{section.4.1}
