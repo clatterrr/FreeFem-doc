@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Jul 14, 2020}
+\date{Aug 19, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -19103,9 +19103,7 @@ Combining the power and flexibility of PETSc with the ease-of-use of FreeFEM may
 \subsubsection{Linear problems}
 \label{\detokenize{documentation/petsc/examples:linear-problems}}
 
-\begin{savenotes}\sphinxattablestart
-\centering
-\begin{tabulary}{\linewidth}[t]{|T|T|}
+\begin{savenotes}\sphinxatlongtablestart\begin{longtable}{|l|l|}
 \hline
 \sphinxstyletheadfamily 
 Filename
@@ -19113,6 +19111,25 @@ Filename
 Comments (preconditioners, numerical schemes)
 \\
 \hline
+\endfirsthead
+
+\multicolumn{2}{c}%
+{\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} -- continued from previous page}}}\\
+\hline
+\sphinxstyletheadfamily 
+Filename
+&\sphinxstyletheadfamily 
+Comments (preconditioners, numerical schemes)
+\\
+\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\makebox[0pt][r]{\sphinxtablecontinued{Continued on next page}}}\\
+\endfoot
+
+\endlastfoot
+
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-2d-PETSc.edp}{diffusion-2d-PETSc.edp}
 &
 Distributed LU/Cholesky, domain decomposition and multigrid methods
@@ -19146,9 +19163,14 @@ Balancing Domain Decomposition with Constraints
 Three-dimensional problem, domain decomposition and multigrid methods
 \\
 \hline
+\sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-mg-2d-PETSc.edp}{diffusion-mg-2d-PETSc.edp}
+&
+Geometric non-nested multigrid methods
+\\
+\hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/diffusion-mg-3d-PETSc.edp}{diffusion-mg-3d-PETSc.edp}
 &
-Geometric multigrid methods
+Geometric nested multigrid methods
 \\
 \hline
 \sphinxhref{https://github.com/FreeFem/FreeFem-sources/tree/develop/examples/hpddm/helmholtz-2d-PETSc-complex.edp}{helmholtz-2d-PETSc-complex.edp}
@@ -19250,9 +19272,7 @@ Parallel interpolation on non-matching grids + P’ A P operation
 Coupled problems with one being defined on a restriction of the mesh of the other
 \\
 \hline
-\end{tabulary}
-\par
-\sphinxattableend\end{savenotes}
+\end{longtable}\sphinxatlongtableend\end{savenotes}
 
 
 \subsubsection{Nonlinear problems}
