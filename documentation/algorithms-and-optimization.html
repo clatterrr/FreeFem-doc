@@ -254,7 +254,7 @@
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id15">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#glue-of-meshl-meshes">Glue of meshL meshes</a></li>
-<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id18">The command extract</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id16">The command extract</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
@@ -269,13 +269,13 @@
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="mesh-generation.html#id29">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id30">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh-generation.html#id27">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id28">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id31">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -2272,7 +2272,7 @@ IPOPT is a software library for large scale, non-linear, constrained optimizatio
 It implements a primal-dual interior point method along with filter method based line searches.</p>
 <p>IPOPT needs a direct sparse symmetric linear solver.
 If your version of <strong>FreeFEM</strong> has been compiled with the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">downlad</span></code> tag, it will automatically be linked with a sequential version of MUMPS.
-An alternative to MUMPS would be to download the HSL subroutines (see <a class="reference external" href="https://www.coin-or.org/Ipopt/documentation/node16.html">Compiling and Installing the Java Interface JIPOPT</a>) and place them in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">ipopt</span><span class="o">/</span><span class="n">Ipopt</span><span class="o">-</span><span class="mf">3.10.2</span><span class="o">/</span><span class="n">ThirdParty</span><span class="o">/</span><span class="n">HSL</span></code> directory of the <strong>FreeFEM</strong> downloads folder before compiling.</p>
+An alternative to MUMPS would be to download the HSL subroutines (see <a class="reference external" href="https://projects.coin-or.org/Ipopt/wiki/JavaInterface">Compiling and Installing the Java Interface JIPOPT</a>) and place them in the <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">/</span><span class="n">ipopt</span><span class="o">/</span><span class="n">Ipopt</span><span class="o">-</span><span class="mf">3.10.2</span><span class="o">/</span><span class="n">ThirdParty</span><span class="o">/</span><span class="n">HSL</span></code> directory of the <strong>FreeFEM</strong> downloads folder before compiling.</p>
 <div class="section" id="short-description-of-the-algorithm">
 <h3>Short description of the algorithm<a class="headerlink" href="#short-description-of-the-algorithm" title="Permalink to this headline"> </a></h3>
 <p>In this section, we give a very brief glimpse at the underlying mathematics of IPOPT.
@@ -2557,7 +2557,7 @@ The <a class="reference external" href="https://projects.coin-or.org/Ipopt/brows
 </tbody>
 </table>
 <p><strong>Named Parameters :</strong> The available named parameters in this interface are those we thought to be the most subject to variations from one optimization to another, plus a few that are interface specific.
-Though, as one could see at <a class="reference external" href="https://www.coin-or.org/Ipopt/documentation/node59.html">IPOPT Linear solver</a>, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior.
+Though, as one could see at <a class="reference external" href="https://coin-or.github.io/Ipopt/OPTIONS.html#OPT_MA97_Linear_Solver">IPOPT Linear solver</a>, there are many parameters that can be changed within IPOPT, affecting the algorithm behavior.
 These parameters can still be controlled by placing an option file in the execution directory.
 Note that <a class="reference external" href="https://projects.coin-or.org/Ipopt/browser/stable/3.10/Ipopt/doc/documentation.pdf?format=raw">IPOPT’s pdf documentation</a> may provides more information than the previously mentioned online version for certain parameters.
 The in-script available parameters are:</p>

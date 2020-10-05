@@ -254,7 +254,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id15">The command <em>change</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-buildbdmesh-and-gamma">The commands <em>buildBdMesh</em> and <em>Gamma</em></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#glue-of-meshl-meshes">Glue of meshL meshes</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id18">The command extract</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id16">The command extract</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#the-commands-rebuildborder">The commands <em>rebuildBorder</em></a></li>
 </ul>
 </li>
@@ -269,13 +269,13 @@
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh">Input/output for a mesh</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id29">3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id30">format of  mesh data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#id27">3d case</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id28">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-mesh3">Input/output for a mesh3</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../documentation/mesh-generation.html#surface-3d-case">Surface 3d case</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id31">format of  mesh data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#id29">format of  mesh data</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../documentation/mesh-generation.html#input-output-for-a-meshs">Input/output for a meshS</a></li>
 </ul>
 </li>
@@ -2059,10 +2059,16 @@ makepkg -si
 <li><p class="first">Install Xcode, Xcode Command Line tools and Xcode Additional Tools from the <a class="reference external" href="https://developer.apple.com/download/more/">Apple website</a></p>
 </li>
 <li><p class="first">Install gfortran from Homebrew</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> brew install gfortran
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> brew cask install gfortran
 </pre></div>
 </td></tr></table></div>
 </li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have installed gcc via brew, gfortran comes with it and you do not need this line</p>
+</div>
+<ol class="arabic" start="3">
 <li><p class="first">To use <strong>FreeFEM</strong> parallel version, install <a class="reference external" href="https://www.open-mpi.org/software/ompi/v4.0/">openmpi</a>  or  <a class="reference external" href="http://www.mpich.org/downloads/">mpich</a></p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -2205,14 +2211,14 @@ make -j&lt;nbProcs&gt; check
 <ol class="arabic simple" start="13">
 <li><dl class="first docutils">
 <dt>Install the <strong>FreeFEM</strong> apllication</dt>
-<dd>make install</dd>
+<dd>make install // add SUDO=sudo might be necessary</dd>
 </dl>
 </li>
 </ol>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your_installation/src/nw/FreeFem++ and mpi executable here your_installation/src/mpi/ff-mpirun</p>
+<p class="last">it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your_installation/src/nw/FreeFem++ and mpi executable here your_installation/src/mpi/ff-mpirun.</p>
 </div>
 </div></blockquote>
 </div>
