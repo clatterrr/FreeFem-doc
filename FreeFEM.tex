@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Oct 05, 2020}
+\date{Oct 13, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -12829,9 +12829,7 @@ An “on” scalar form (for Dirichlet) : \sphinxcode{\sphinxupquote{on(1, u=g)}
 
 Used for all degrees of freedom \(i\) of the boundary referred by “1”, the diagonal term of the matrix \(a_{ii}= tgv\) with the \sphinxstyleemphasis{terrible giant value} \sphinxcode{\sphinxupquote{tgv}} (= \(10^{30}\) by default), and the right hand side \(b[i] = "(\Pi_h g)[i]" \times tgv\), where the \("(\Pi_h g)g[i]"\) is the boundary node value given by the interpolation of \(g\).
 
-\begin{sphinxadmonition}{note}{Note:}
-if \(\mathrm{tgv} < 0\) then we put to \(0\) all term of the line \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\).
-\end{sphinxadmonition}
+if \(\mathrm{tgv} == -2 \) all term of the line and colomn  \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\) and else if \(\mathrm{tgv} < 0\) then we put to \(0\) all term of the line \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\).
 \end{quote}
 
 \item {} 
