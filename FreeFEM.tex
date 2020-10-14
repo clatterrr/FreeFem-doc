@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Oct 13, 2020}
+\date{Oct 14, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -12753,11 +12753,9 @@ Bilinear part for 2D meshes \sphinxcode{\sphinxupquote{Th}}
 \item {} 
 They contribute to the sparse matrix of type \sphinxcode{\sphinxupquote{matrix}} which, whether declared explicitly or not, is constructed by \sphinxstylestrong{FreeFEM}.
 
-\end{itemize}
-
 \item {} 
 The right hand-side of the Partial Differential Equation in 3D, the terms of the linear form: for given functions \(K,\, f\):
-\begin{itemize}
+
 \item {} 
 \sphinxcode{\sphinxupquote{int3d(Th)(K*w) =}} \(\displaystyle\sum_{T\in\mathtt{Th}}\int_{T} K\,w\)
 
@@ -12821,24 +12819,14 @@ a vector of type \sphinxcode{\sphinxupquote{real{[}int{]}}}
 
 \item {} 
 The boundary condition terms:
-\begin{quote}
 \begin{itemize}
 \item {} 
 An “on” scalar form (for Dirichlet) : \sphinxcode{\sphinxupquote{on(1, u=g)}}
 \begin{quote}
 
 Used for all degrees of freedom \(i\) of the boundary referred by “1”, the diagonal term of the matrix \(a_{ii}= tgv\) with the \sphinxstyleemphasis{terrible giant value} \sphinxcode{\sphinxupquote{tgv}} (= \(10^{30}\) by default), and the right hand side \(b[i] = "(\Pi_h g)[i]" \times tgv\), where the \("(\Pi_h g)g[i]"\) is the boundary node value given by the interpolation of \(g\).
-
-if \(\mathrm{tgv} == -2 \) all term of the line and colomn  \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\) and else if \(\mathrm{tgv} < 0\) then we put to \(0\) all term of the line \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\).
 \end{quote}
 
-\item {} 
-An “on” vectorial form (for Dirichlet): \sphinxcode{\sphinxupquote{on(1, u1=g1, u2=g2)}}
-
-\end{itemize}
-
-If you have vectorial finite element like \sphinxcode{\sphinxupquote{RT0}}, the 2 components are coupled, and so you have : \(b[i] = "(\Pi_h (g1,g2))[i]" \times tgv\), where \(\Pi_h\) is the vectorial finite element interpolant.
-\begin{itemize}
 \item {} 
 A linear form on \(\Gamma\) (for Neumann in 2d) \sphinxcode{\sphinxupquote{-int1d(Th)(f*w)}} or \sphinxcode{\sphinxupquote{-int1d(Th, 3)(f*w)}}
 
@@ -12852,19 +12840,45 @@ A linear form on \(\Gamma\) (for Neumann in 3d) \sphinxcode{\sphinxupquote{-int2
 A bilinear form on \(\Gamma\) or \(\Gamma_{2}\) (for Robin in 3d) \sphinxcode{\sphinxupquote{int2d(Th)(K*v*w)}} or \sphinxcode{\sphinxupquote{int2d(Th,2)(K*v*w)}}
 
 \end{itemize}
-\end{quote}
 
 \end{itemize}
 
 \begin{sphinxadmonition}{note}{Note:}\begin{itemize}
 \item {} 
+An “on” vectorial form (for Dirichlet): \sphinxcode{\sphinxupquote{on(1, u1=g1, u2=g2)}}
+
+\end{itemize}
+
+If you have vectorial finite element like \sphinxcode{\sphinxupquote{RT0}}, the 2 components are coupled, and so you have : \(b[i] = "(\Pi_h (g1,g2))[i]" \times tgv\), where \(\Pi_h\) is the vectorial finite element interpolant.
+\begin{itemize}
+\item {} 
+An “on” vectorial form (for Dirichlet):   \sphinxcode{\sphinxupquote{on(u=g, tgv= none positive value  )}} ,
+
+\end{itemize}
+\begin{quote}
+
+if the value is equal to -2 (i.e \sphinxcode{\sphinxupquote{tgv == -2 {}`) then   we put to :math:{}`0}} all term of the line and colomn  \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\)
+else if the value is equal to  -20 (i.e \sphinxcode{\sphinxupquote{tgv == -20 {}`) then   we put to :math:{}`0}} all term of the line and colomn  \(i\) in the matrix, and \(b[i] = "(\Pi_h g)[i]"\)
+
+else if the value is equal to -10 (i.e \sphinxcode{\sphinxupquote{tgv == -10 {}`) then   we put to :math:{}`0}} all term of the line the matrix, and \(b[i] = "(\Pi_h g)[i]"\)
+
+else  (i.e \sphinxcode{\sphinxupquote{tgv == -1 {}`) we put to :math:{}`0}} all term of the line \(i\) in the matrix, except diagonal term \(a_{ii}=1\), and \(b[i] = "(\Pi_h g)[i]"\).
+\end{quote}
+\begin{itemize}
+\item {} 
 If needed, the different kind of terms in the sum can appear more than once.
 
 \item {} 
-The integral mesh and the mesh associated to test functions or unknown functions can be different in the case of linear form.
+The integral mesh and the mesh associated to test functions or unknown functions can be different in the case of \sphinxcode{\sphinxupquote{varf}} form.
 
 \item {} 
 \sphinxcode{\sphinxupquote{N.x}}, \sphinxcode{\sphinxupquote{N.y}} and \sphinxcode{\sphinxupquote{N.z}} are the normal’s components.
+
+\item {} 
+\sphinxcode{\sphinxupquote{Ns.x}}, \sphinxcode{\sphinxupquote{Ns.y}} and \sphinxcode{\sphinxupquote{Ns.z}} are the normal’s components of the suface in case of \sphinxcode{\sphinxupquote{meshS}} integral
+
+\item {} 
+\sphinxcode{\sphinxupquote{Tl.x}}, \sphinxcode{\sphinxupquote{Tl.y}} and \sphinxcode{\sphinxupquote{Tl.z}} are the tangent’s components of the line  in case of \sphinxcode{\sphinxupquote{meshL}} integral
 
 \end{itemize}
 \end{sphinxadmonition}
