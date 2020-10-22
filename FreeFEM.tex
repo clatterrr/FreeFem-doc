@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Oct 14, 2020}
+\date{Oct 22, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -8506,7 +8506,7 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
 \end{itemize}
 
 \item {} 
-\sphinxcode{\sphinxupquote{Ellipsoide (RX, RY, RZ, OX, OY, OZ, h, L, orient)}}
+\sphinxcode{\sphinxupquote{Ellipsoide (RX, RY, RZ, h, L, OX, OY, OZ, orient)}}
 \begin{itemize}
 \item {} 
 h is the mesh size
@@ -8533,7 +8533,7 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
 \begin{split}\forall u \in [- \frac{\pi}{2},\frac{\pi}{2}  [ \text{ and } v \in [0, 2 \pi], \vectthree{x=\text{Rx } cos(u)cos(v) + \text{Ox }}{y=\text{Ry } cos(u)sin(v) + \text{Oy }}{z = \text{Rz } sin(v)  + \text{Oz }    }\end{split}
 \end{equation*}\begin{itemize}
 \item {} 
-\sphinxcode{\sphinxupquote{Sphere(R, OX, OY, OZ, h, L, orient)}}
+\sphinxcode{\sphinxupquote{Sphere(R, h, L, OX, OY, OZ, orient)}}
 \begin{itemize}
 \item {} 
 where R is the raduis of the sphere,
@@ -8585,11 +8585,7 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
  \PYG{k}{return} \PYG{n}{Th}\PYG{p}{;}
  \PYG{p}{\PYGZcb{}}
 
- \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Sphere}\PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{R}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-    \PYG{k}{return} \PYG{n}{Ellipsoide}\PYG{p}{(}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{h}\PYG{p}{,}\PYG{n}{L}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{p}{)}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-
-\PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Ellipsoide} \PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{RX}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{RY}\PYG{p}{,} \PYG{k+kt}{real} \PYG{n}{RZ}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+ \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Ellipsoide} \PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{RX}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{RY}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{RZ}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Ox}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Oy}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Oz}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
     \PYG{k+kt}{mesh}  \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{square}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{,}\PYG{p}{[}\PYG{k+kr}{x}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{o}{\PYGZhy{}}\PYG{k+kr}{pi}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{k+kr}{y}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}  \PYG{c+c1}{//  \PYGZdl{}]\PYGZbs{}frac\PYGZob{}\PYGZhy{}pi\PYGZcb{}\PYGZob{}2\PYGZcb{},frac\PYGZob{}\PYGZhy{}pi\PYGZcb{}\PYGZob{}2\PYGZcb{}[\PYGZbs{}times]0,2\PYGZbs{}pi[ \PYGZdl{}}
     \PYG{c+c1}{//  a parametrization of a sphere}
     \PYG{k+kt}{func} \PYG{n}{f1} \PYG{o}{=}\PYG{n}{RX}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kr}{y}\PYG{p}{)}\PYG{p}{;}
@@ -8615,9 +8611,18 @@ returns a \sphinxcode{\sphinxupquote{meshS}} type
     \PYG{n}{Th}\PYG{o}{=}\PYG{n+nf}{adaptmesh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,}\PYG{n}{m11}\PYG{o}{*}\PYG{n}{vv}\PYG{p}{,}\PYG{n}{m21}\PYG{o}{*}\PYG{n}{vv}\PYG{p}{,}\PYG{n}{m22}\PYG{o}{*}\PYG{n}{vv}\PYG{p}{,}\PYG{k+kp}{IsMetric}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{k+kp}{periodic}\PYG{o}{=}\PYG{n}{perio}\PYG{p}{)}\PYG{p}{;}
     \PYG{k+kt}{int}\PYG{p}{[}\PYG{k+kt}{int}\PYG{p}{]} \PYG{n}{ref}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{L}\PYG{p}{]}\PYG{p}{;}
     \PYG{k+kt}{meshS} \PYG{n}{ThS}\PYG{o}{=}\PYG{n+nf}{movemesh23}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,}\PYG{k+kp}{transfo}\PYG{o}{=}\PYG{p}{[}\PYG{n}{f1}\PYG{p}{,}\PYG{n}{f2}\PYG{p}{,}\PYG{n}{f3}\PYG{p}{]}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{o}{=}\PYG{k+kp}{orientation}\PYG{p}{,}\PYG{n}{refface}\PYG{o}{=}\PYG{n}{ref}\PYG{p}{)}\PYG{p}{;}
-    \PYG{n}{ThS}\PYG{o}{=}\PYG{n+nf}{freeyams}\PYG{p}{(}\PYG{n}{ThS}\PYG{p}{,}\PYG{k+kp}{hmin}\PYG{o}{=}\PYG{n}{h}\PYG{p}{,}\PYG{k+kp}{hmax}\PYG{o}{=}\PYG{n}{h}\PYG{p}{,}\PYG{k+kp}{gradation}\PYG{o}{=}\PYG{l+m+mf}{2.}\PYG{p}{,}\PYG{k+kr}{verbosity}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{k+kp}{mem}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,}\PYG{k+kp}{option}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}
+    \PYG{n}{ThS}\PYG{o}{=}\PYG{n}{mmgs}\PYG{p}{(}\PYG{n}{ThS}\PYG{p}{,}\PYG{k+kp}{hmin}\PYG{o}{=}\PYG{n}{h}\PYG{p}{,}\PYG{k+kp}{hmax}\PYG{o}{=}\PYG{n}{h}\PYG{p}{,}\PYG{n}{hgrad}\PYG{o}{=}\PYG{l+m+mf}{2.}\PYG{p}{)}\PYG{p}{;}
+  \PYG{k}{return} \PYG{n}{ThS}\PYG{p}{;}
+ \PYG{p}{\PYGZcb{}}
 
-   \PYG{k}{return} \PYG{n}{ThS}\PYG{p}{;}
+ \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Ellipsoide} \PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{RX}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{RY}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{RZ}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{Ellipsoide} \PYG{p}{(}\PYG{n}{RX}\PYG{p}{,}\PYG{n}{RY}\PYG{p}{,}\PYG{n}{RZ}\PYG{p}{,}\PYG{n}{h}\PYG{p}{,}\PYG{n}{L}\PYG{p}{,}\PYG{l+m+mf}{0.}\PYG{p}{,}\PYG{l+m+mf}{0.}\PYG{p}{,}\PYG{l+m+mf}{0.}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{p}{)}\PYG{p}{;}
+ \PYG{p}{\PYGZcb{}}
+ \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Sphere}\PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{R}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{Ellipsoide}\PYG{p}{(}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{h}\PYG{p}{,}\PYG{n}{L}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{p}{)}\PYG{p}{;}
+ \PYG{p}{\PYGZcb{}}
+ \PYG{k+kt}{func} \PYG{k+kt}{meshS} \PYG{n+nf}{Sphere}\PYG{p}{(}\PYG{k+kt}{real} \PYG{n}{R}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{h}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{L}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Ox}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Oy}\PYG{p}{,}\PYG{k+kt}{real} \PYG{n}{Oz}\PYG{p}{,}\PYG{k+kt}{int} \PYG{k+kp}{orientation}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n}{Ellipsoide}\PYG{p}{(}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{R}\PYG{p}{,}\PYG{n}{h}\PYG{p}{,}\PYG{n}{L}\PYG{p}{,}\PYG{n}{Ox}\PYG{p}{,}\PYG{n}{Oy}\PYG{p}{,}\PYG{n}{Oz}\PYG{p}{,}\PYG{k+kp}{orientation}\PYG{p}{)}\PYG{p}{;}
  \PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
 
