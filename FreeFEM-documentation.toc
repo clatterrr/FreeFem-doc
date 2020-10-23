@@ -232,90 +232,90 @@
 \contentsline {section}{\numberline {3.7}PETSc and SLEPc}{283}{section.3.7}
 \contentsline {subsection}{\numberline {3.7.1}Examples}{284}{subsection.3.7.1}
 \contentsline {subsubsection}{Linear problems}{284}{subsubsection*.318}
-\contentsline {subsubsection}{Nonlinear problems}{284}{subsubsection*.319}
+\contentsline {subsubsection}{Nonlinear problems}{285}{subsubsection*.319}
 \contentsline {subsubsection}{Time steppers and optimizers}{285}{subsubsection*.320}
-\contentsline {subsubsection}{Eigenvalue problems}{285}{subsubsection*.321}
+\contentsline {subsubsection}{Eigenvalue problems}{286}{subsubsection*.321}
 \contentsline {subsubsection}{Miscellaneous}{286}{subsubsection*.322}
-\contentsline {subsubsection}{Reproducible science}{286}{subsubsection*.323}
-\contentsline {section}{\numberline {3.8}Plugins}{286}{section.3.8}
-\contentsline {subsection}{\numberline {3.8.1}gsl}{286}{subsection.3.8.1}
-\contentsline {subsection}{\numberline {3.8.2}ffrandom}{287}{subsection.3.8.2}
+\contentsline {subsubsection}{Reproducible science}{287}{subsubsection*.323}
+\contentsline {section}{\numberline {3.8}Plugins}{287}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}gsl}{287}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}ffrandom}{288}{subsection.3.8.2}
 \contentsline {subsection}{\numberline {3.8.3}mmap / semaphore}{288}{subsection.3.8.3}
-\contentsline {section}{\numberline {3.9}Developers}{292}{section.3.9}
-\contentsline {subsection}{\numberline {3.9.1}File formats}{292}{subsection.3.9.1}
-\contentsline {subsubsection}{Mesh file data structure}{292}{subsubsection*.324}
+\contentsline {section}{\numberline {3.9}Developers}{293}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}File formats}{293}{subsection.3.9.1}
+\contentsline {subsubsection}{Mesh file data structure}{293}{subsubsection*.324}
 \contentsline {subsubsection}{bb file type to Store Solutions}{294}{subsubsection*.325}
-\contentsline {subsubsection}{BB file type to store solutions}{294}{subsubsection*.326}
+\contentsline {subsubsection}{BB file type to store solutions}{295}{subsubsection*.326}
 \contentsline {subsubsection}{Metric file}{295}{subsubsection*.327}
-\contentsline {subsubsection}{List of AM\_FMT, AMDBA Meshes}{295}{subsubsection*.328}
+\contentsline {subsubsection}{List of AM\_FMT, AMDBA Meshes}{296}{subsubsection*.328}
 \contentsline {subsubsection}{sol and solb files}{297}{subsubsection*.329}
-\contentsline {subsection}{\numberline {3.9.2}Adding a new finite element}{298}{subsection.3.9.2}
-\contentsline {subsubsection}{Some notations}{298}{subsubsection*.330}
-\contentsline {subsubsection}{Which class to add?}{299}{subsubsection*.331}
-\contentsline {subsection}{\numberline {3.9.3}Dynamical link}{303}{subsection.3.9.3}
+\contentsline {subsection}{\numberline {3.9.2}Adding a new finite element}{299}{subsection.3.9.2}
+\contentsline {subsubsection}{Some notations}{299}{subsubsection*.330}
+\contentsline {subsubsection}{Which class to add?}{300}{subsubsection*.331}
+\contentsline {subsection}{\numberline {3.9.3}Dynamical link}{304}{subsection.3.9.3}
 \contentsline {subsubsection}{A first example myfunction.cpp}{304}{subsubsection*.332}
 \contentsline {subsubsection}{Example: Discrete Fast Fourier Transform}{306}{subsubsection*.333}
-\contentsline {subsubsection}{Load Module for Dervieux P0-P1 Finite Volume Method}{306}{subsubsection*.334}
+\contentsline {subsubsection}{Load Module for Dervieux P0-P1 Finite Volume Method}{307}{subsubsection*.334}
 \contentsline {subsubsection}{More on Adding a new finite element}{307}{subsubsection*.335}
 \contentsline {paragraph}{The Bernardi-Raugel Element}{307}{paragraph*.336}
-\contentsline {paragraph}{The Morley Element}{308}{paragraph*.337}
-\contentsline {section}{\numberline {3.10}ffddm}{308}{section.3.10}
-\contentsline {subsection}{\numberline {3.10.1}Domain Decomposition (DD)}{309}{subsection.3.10.1}
-\contentsline {subsubsection}{Mesh Decomposition}{309}{subsubsection*.338}
+\contentsline {paragraph}{The Morley Element}{309}{paragraph*.337}
+\contentsline {section}{\numberline {3.10}ffddm}{309}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Domain Decomposition (DD)}{310}{subsection.3.10.1}
+\contentsline {subsubsection}{Mesh Decomposition}{310}{subsubsection*.338}
 \contentsline {subsubsection}{Distributed Linear Algebra}{310}{subsubsection*.339}
-\contentsline {subsubsection}{Partition of Unity Matrices (POUM)}{310}{subsubsection*.340}
-\contentsline {paragraph}{Distributed scalar product}{310}{paragraph*.341}
+\contentsline {subsubsection}{Partition of Unity Matrices (POUM)}{311}{subsubsection*.340}
+\contentsline {paragraph}{Distributed scalar product}{311}{paragraph*.341}
 \contentsline {paragraph}{Update}{311}{paragraph*.342}
-\contentsline {subsubsection}{Distributed Matrix and Vector resulting from a variational formulation}{311}{subsubsection*.343}
-\contentsline {subsubsection}{Distributed Linear Solvers}{311}{subsubsection*.344}
-\contentsline {paragraph}{Distributed Direct Solvers}{311}{paragraph*.345}
+\contentsline {subsubsection}{Distributed Matrix and Vector resulting from a variational formulation}{312}{subsubsection*.343}
+\contentsline {subsubsection}{Distributed Linear Solvers}{312}{subsubsection*.344}
+\contentsline {paragraph}{Distributed Direct Solvers}{312}{paragraph*.345}
 \contentsline {paragraph}{Schwarz methods}{312}{paragraph*.346}
-\contentsline {subparagraph}{Restricted Additive Schwarz (RAS)}{312}{subparagraph*.347}
+\contentsline {subparagraph}{Restricted Additive Schwarz (RAS)}{313}{subparagraph*.347}
 \contentsline {subparagraph}{Optimized Restricted Additive Schwarz (ORAS)}{313}{subparagraph*.348}
-\contentsline {subparagraph}{Two level methods}{313}{subparagraph*.349}
-\contentsline {subparagraph}{Coarse Mesh}{313}{subparagraph*.350}
-\contentsline {subparagraph}{GenEO}{313}{subparagraph*.351}
-\contentsline {subsection}{\numberline {3.10.2}ffddm documentation}{314}{subsection.3.10.2}
-\contentsline {subsubsection}{Minimal example}{314}{subsubsection*.352}
+\contentsline {subparagraph}{Two level methods}{314}{subparagraph*.349}
+\contentsline {subparagraph}{Coarse Mesh}{314}{subparagraph*.350}
+\contentsline {subparagraph}{GenEO}{314}{subparagraph*.351}
+\contentsline {subsection}{\numberline {3.10.2}ffddm documentation}{315}{subsection.3.10.2}
+\contentsline {subsubsection}{Minimal example}{315}{subsubsection*.352}
 \contentsline {subsubsection}{Overlapping mesh decomposition}{315}{subsubsection*.353}
 \contentsline {subsubsection}{Local finite element spaces}{316}{subsubsection*.354}
-\contentsline {subsubsection}{Define the problem to solve}{317}{subsubsection*.355}
+\contentsline {subsubsection}{Define the problem to solve}{318}{subsubsection*.355}
 \contentsline {subsubsection}{One level preconditioners}{319}{subsubsection*.357}
 \contentsline {subsubsection}{Two level preconditioners}{320}{subsubsection*.358}
 \contentsline {paragraph}{Building the GenEO coarse space}{321}{paragraph*.359}
-\contentsline {paragraph}{Building the coarse space from a coarse mesh}{321}{paragraph*.360}
+\contentsline {paragraph}{Building the coarse space from a coarse mesh}{322}{paragraph*.360}
 \contentsline {subsubsection}{Solving the linear system}{323}{subsubsection*.361}
 \contentsline {subsubsection}{Using \sphinxstyleemphasis {HPDDM} within \sphinxstyleemphasis {ffddm}}{323}{subsubsection*.362}
-\contentsline {subsubsection}{Advanced use}{323}{subsubsection*.363}
-\contentsline {paragraph}{Local finite element spaces for non Lagrange finite elements}{323}{paragraph*.364}
+\contentsline {subsubsection}{Advanced use}{324}{subsubsection*.363}
+\contentsline {paragraph}{Local finite element spaces for non Lagrange finite elements}{324}{paragraph*.364}
 \contentsline {paragraph}{Inexact coarse solves for two level methods}{324}{paragraph*.365}
-\contentsline {subparagraph}{Coarse mesh and inexact coarse solve}{324}{subparagraph*.366}
-\contentsline {subsection}{\numberline {3.10.3}Parameters}{325}{subsection.3.10.3}
-\contentsline {subsubsection}{Command-line arguments}{325}{subsubsection*.367}
-\contentsline {subsubsection}{Global parameters}{326}{subsubsection*.368}
-\contentsline {subsection}{\numberline {3.10.4}Tutorial}{327}{subsection.3.10.4}
-\contentsline {subsubsection}{What is \sphinxstylestrong {ffddm} ?}{327}{subsubsection*.369}
+\contentsline {subparagraph}{Coarse mesh and inexact coarse solve}{325}{subparagraph*.366}
+\contentsline {subsection}{\numberline {3.10.3}Parameters}{326}{subsection.3.10.3}
+\contentsline {subsubsection}{Command-line arguments}{326}{subsubsection*.367}
+\contentsline {subsubsection}{Global parameters}{327}{subsubsection*.368}
+\contentsline {subsection}{\numberline {3.10.4}Tutorial}{328}{subsection.3.10.4}
+\contentsline {subsubsection}{What is \sphinxstylestrong {ffddm} ?}{328}{subsubsection*.369}
 \contentsline {subsubsection}{Why Domain Decomposition Methods ?}{328}{subsubsection*.370}
 \contentsline {paragraph}{Step 1: Decompose the mesh}{328}{paragraph*.371}
 \contentsline {paragraph}{Step 2: Define your finite element}{329}{paragraph*.372}
 \contentsline {subparagraph}{Distributed vectors and restriction operators}{330}{subparagraph*.373}
-\contentsline {subparagraph}{Partition of unity}{330}{subparagraph*.374}
+\contentsline {subparagraph}{Partition of unity}{331}{subparagraph*.374}
 \contentsline {subparagraph}{Data exchange between neighbors}{331}{subparagraph*.375}
 \contentsline {paragraph}{Step 3: Define your problem}{332}{paragraph*.376}
 \contentsline {subsubsection}{Summary so far: translating your sequential \sphinxstyleemphasis {FreeFEM} script}{333}{subsubsection*.377}
 \contentsline {paragraph}{Step 1: Decompose the mesh}{333}{paragraph*.378}
-\contentsline {paragraph}{Solve the linear system}{333}{paragraph*.379}
-\contentsline {paragraph}{Solve the linear system with the parallel direct solver \sphinxstyleemphasis {MUMPS}}{333}{paragraph*.380}
+\contentsline {paragraph}{Solve the linear system}{334}{paragraph*.379}
+\contentsline {paragraph}{Solve the linear system with the parallel direct solver \sphinxstyleemphasis {MUMPS}}{334}{paragraph*.380}
 \contentsline {paragraph}{Step 4: Define the one level DD preconditioner}{334}{paragraph*.381}
 \contentsline {paragraph}{Step 5: Solve the linear system with preconditioned GMRES}{334}{paragraph*.382}
 \contentsline {subsubsection}{Define a two level DD preconditioner}{335}{subsubsection*.383}
-\contentsline {subsubsection}{Build the GenEO coarse space}{335}{subsubsection*.384}
-\contentsline {subsubsection}{Build the coarse space from a coarse mesh}{336}{subsubsection*.385}
+\contentsline {subsubsection}{Build the GenEO coarse space}{336}{subsubsection*.384}
+\contentsline {subsubsection}{Build the coarse space from a coarse mesh}{337}{subsubsection*.385}
 \contentsline {subsubsection}{Use \sphinxstylestrong {HPDDM} within \sphinxstylestrong {ffddm}}{337}{subsubsection*.386}
-\contentsline {subsubsection}{Some results: Heterogeneous 3D elasticity with GenEO}{337}{subsubsection*.387}
+\contentsline {subsubsection}{Some results: Heterogeneous 3D elasticity with GenEO}{338}{subsubsection*.387}
 \contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{338}{subsubsection*.388}
 \contentsline {subsubsection}{Some results: 2-level DD for Maxwell equations, scattering from the COBRA cavity}{339}{subsubsection*.389}
-\contentsline {subsection}{\numberline {3.10.5}Examples}{339}{subsection.3.10.5}
+\contentsline {subsection}{\numberline {3.10.5}Examples}{340}{subsection.3.10.5}
 \contentsline {chapter}{\numberline {4}Language references}{341}{chapter.4}
 \contentsline {section}{\numberline {4.1}Types}{342}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Standard types}{342}{subsection.4.1.1}
