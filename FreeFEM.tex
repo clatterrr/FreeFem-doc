@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{Nov 13, 2020}
+\date{Nov 21, 2020}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -9149,7 +9149,7 @@ With this function, the constructed border mesh contains the full geometric desc
 
 \paragraph{Glue of meshL meshes}
 \label{\detokenize{documentation/mesh-generation:glue-of-meshl-meshes}}
-An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the operator \sphinxcode{\sphinxupquote{+}}. The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the right orientation at the merged interfaces. Here, the function \sphinxcode{\sphinxupquote{checkMesh}} can be called.
+An assembling of \sphinxcode{\sphinxupquote{meshL}} is possible thanks to the operator \sphinxcode{\sphinxupquote{+}}. The result returns a \sphinxcode{\sphinxupquote{meshL}}, with caution of the right orientation at the merged interfaces. Here, the function \sphinxcode{\sphinxupquote{checkmesh}} can be called.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
  \PYG{k+kt}{int} \PYG{k+kr}{n}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{;}
@@ -9188,13 +9188,16 @@ This operator, used in the last example, allows to reconstruted the border eleme
 This function is avalaible for all 3D meshes. It checkes and validates the a given mesh, allows to remove duplicate vertices and/or elements and border elements. The possible arguments are
 \begin{itemize}
 \item {} \begin{description}
-\item[{\sphinxcode{\sphinxupquote{precismesh}} this parameter is the criteria to define two merging points.}] \leavevmode
+\item[{\sphinxcode{\sphinxupquote{precismesh=}} this parameter is the criteria to define two merging points.}] \leavevmode
 By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of \(\Omega\)
 
 \end{description}
 
 \item {} 
 \sphinxcode{\sphinxupquote{removeduplicate=}} is a boolean, allowing remove the duplicated elements and border elements
+
+\item {} 
+\sphinxcode{\sphinxupquote{rebuildboundary=}} is a boolean, allowing rebuild the border elements (in case of incomplete list given by the mesh)
 
 \end{itemize}
 
