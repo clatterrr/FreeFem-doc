@@ -5731,7 +5731,7 @@ With this function, the constructed border mesh contains the full geometric desc
 </div>
 <div class="section" id="glue-of-meshl-meshes">
 <h4>Glue of meshL meshes<a class="headerlink" href="#glue-of-meshl-meshes" title="Permalink to this headline"> </a></h4>
-<p>An assembling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> is possible thanks to the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code>. The result returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, with caution of the right orientation at the merged interfaces. Here, the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">checkMesh</span></code> can be called.</p>
+<p>An assembling of <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code> is possible thanks to the operator <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="o">+</span></code>. The result returns a <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kt">meshL</span></code>, with caution of the right orientation at the merged interfaces. Here, the function <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="nf">checkmesh</span></code> can be called.</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -5775,11 +5775,12 @@ With this function, the constructed border mesh contains the full geometric desc
 <p>This function is avalaible for all 3D meshes. It checkes and validates the a given mesh, allows to remove duplicate vertices and/or elements and border elements. The possible arguments are</p>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span></code> this parameter is the criteria to define two merging points.</dt>
+<dt><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">precismesh</span><span class="o">=</span></code> this parameter is the criteria to define two merging points.</dt>
 <dd>By default, it value is 1e-7 and define the smallest axis parallel boxes containing the discretion domain of <span class="math notranslate nohighlight">\(\Omega\)</span></dd>
 </dl>
 </li>
 <li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">removeduplicate</span><span class="o">=</span></code> is a boolean, allowing remove the duplicated elements and border elements</li>
+<li><code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="n">rebuildboundary</span><span class="o">=</span></code> is a boolean, allowing rebuild the border elements (in case of incomplete list given by the mesh)</li>
 </ul>
 <p>Example:</p>
 <div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">checkmesh</span><span class="p">(</span><span class="n">Th</span><span class="p">);</span>
