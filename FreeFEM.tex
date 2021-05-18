@@ -3258,13 +3258,13 @@ A zoom of the streamlines are shown on \hyperref[\detokenize{tutorials/fanBlade:
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{potential}.png}
 \caption{Zoom around the NACA0012 airfoil showing the streamlines (curve \(\psi=\) constant).
-To obtain such a plot use the interactive graphic command: “+” and p.}\label{\detokenize{tutorials/fanBlade:id3}}\label{\detokenize{tutorials/fanBlade:figfanpotential}}\end{subfigure}
+To obtain such a plot use the interactive graphic command: “+” and p.}\label{\detokenize{tutorials/fanBlade:id1}}\label{\detokenize{tutorials/fanBlade:figfanpotential}}\end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[width=0.900\linewidth]{{potential_heat}.png}
-\caption{Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).}\label{\detokenize{tutorials/fanBlade:id4}}\label{\detokenize{tutorials/fanBlade:figfantemperature}}\end{subfigure}
+\caption{Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).}\label{\detokenize{tutorials/fanBlade:id2}}\label{\detokenize{tutorials/fanBlade:figfantemperature}}\end{subfigure}
 \caption{The NACA0012 Airfoil}
 
 \end{figure}
@@ -3284,81 +3284,62 @@ Furthermore there is convection of heat by the flow, hence the term \(u\cdot\nab
 Consider the following, to be plugged at the end of the previous program:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{c+c1}{// Corrected by F. Hecht may 2021}
+\PYG{c+c1}{// Parameters}
+\PYG{k+kt}{real} \PYG{n}{S} \PYG{o}{=} \PYG{l+m+mi}{99}\PYG{p}{;}
 
+\PYG{k+kt}{border} \PYG{n+nf}{C}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{k+kr}{pi}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n+nf}{cos}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n+nf}{sin}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)}\PYG{p}{;}\PYG{p}{\PYGZcb{}} \PYG{c+c1}{// Label 1,2}
+\PYG{k+kt}{border} \PYG{n+nf}{Splus}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mf}{0.17735}\PYG{o}{*}\PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.075597}\PYG{o}{*}\PYG{k+kp}{t} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.212836}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{0.17363}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.06254}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{;} \PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{S}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{border} \PYG{n+nf}{Sminus}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mf}{0.17735}\PYG{o}{*}\PYG{n+nf}{sqrt}\PYG{p}{(}\PYG{k+kp}{t}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.075597}\PYG{o}{*}\PYG{k+kp}{t} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.212836}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{0.17363}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.06254}\PYG{o}{*}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{\PYGZca{}}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;} \PYG{k+kr}{label}\PYG{o}{=}\PYG{n}{S}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{mesh} \PYG{n}{Th} \PYG{o}{=} \PYG{n+nf}{buildmesh}\PYG{p}{(}\PYG{n}{C}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{)} \PYG{o}{+} \PYG{n}{Splus}\PYG{p}{(}\PYG{l+m+mi}{70}\PYG{p}{)} \PYG{o}{+} \PYG{n}{Sminus}\PYG{p}{(}\PYG{l+m+mi}{70}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+c1}{// Fespace}
+\PYG{k+kt}{fespace} \PYG{n+nf}{Vh}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{,} \PYG{n+nc}{P2}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Vh} \PYG{n}{psi}\PYG{p}{,} \PYG{n}{w}\PYG{p}{;}
+
+\PYG{c+c1}{// Problem}
+\PYG{k+kt}{solve} \PYG{n+nf}{potential}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{,} \PYG{n}{w}\PYG{p}{)}
+\PYG{o}{=} \PYG{n+nf}{int2d}\PYG{p}{(}\PYG{n}{Th}\PYG{p}{)}\PYG{p}{(}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}\PYG{o}{+}\PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}\PYG{p}{)}
+     \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{n}{C}\PYG{p}{,} \PYG{n}{psi} \PYG{o}{=} \PYG{k+kr}{y}\PYG{p}{)}
+     \PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,} \PYG{n}{psi}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{c+c1}{// Plot}
+\PYG{n+nf}{plot}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{,} \PYG{k+kp}{wait}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{c+c1}{/// Thermic}
+\PYG{c+c1}{// Parameters}
+\PYG{k+kt}{real} \PYG{n}{dt} \PYG{o}{=} \PYG{l+m+mf}{0.005}\PYG{p}{,} \PYG{n}{nbT} \PYG{o}{=} \PYG{l+m+mi}{50}\PYG{p}{;}
+
+\PYG{c+c1}{// Mesh}
+\PYG{k+kt}{border} \PYG{n+nf}{D}\PYG{p}{(}\PYG{k+kp}{t}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{k+kr}{x}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{k+kp}{t}\PYG{p}{;} \PYG{k+kr}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{mesh} \PYG{n}{Sh} \PYG{o}{=} \PYG{n+nf}{buildmesh}\PYG{p}{(}\PYG{n}{C}\PYG{p}{(}\PYG{l+m+mi}{25}\PYG{p}{)} \PYG{o}{+} \PYG{n}{Splus}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{90}\PYG{p}{)} \PYG{o}{+} \PYG{n}{Sminus}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{90}\PYG{p}{)} \PYG{o}{+} \PYG{n}{D}\PYG{p}{(}\PYG{l+m+mi}{200}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{steel} \PYG{o}{=} \PYG{n}{Sh}\PYG{p}{(}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{.}\PYG{k+kr}{region}\PYG{p}{,} \PYG{n}{air} \PYG{o}{=} \PYG{n}{Sh}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{.}\PYG{k+kr}{region}\PYG{p}{;}
+\PYG{c+c1}{// Change label to put BC on In flow}
+\PYG{c+c1}{// Fespace}
+\PYG{k+kt}{fespace} \PYG{n+nf}{Wh}\PYG{p}{(}\PYG{n}{Sh}\PYG{p}{,} \PYG{n+nc}{P1}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Wh}  \PYG{n}{vv}\PYG{p}{;}
+
+\PYG{k+kt}{fespace} \PYG{n+nf}{W0}\PYG{p}{(}\PYG{n}{Sh}\PYG{p}{,} \PYG{n+nc}{P0}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{W0} \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mf}{0.01}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{region} \PYG{o}{=}\PYG{o}{=} \PYG{n}{air}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mf}{0.1}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{region} \PYG{o}{=}\PYG{o}{=} \PYG{n}{steel}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{W0} \PYG{n}{u1} \PYG{o}{=} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{region} \PYG{o}{=}\PYG{o}{=} \PYG{n}{air}\PYG{p}{)}\PYG{p}{,} \PYG{n}{u2} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{psi}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{region} \PYG{o}{=}\PYG{o}{=} \PYG{n}{air}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{Wh} \PYG{n}{v} \PYG{o}{=} \PYG{l+m+mi}{120}\PYG{o}{*}\PYG{p}{(}\PYG{k+kr}{region} \PYG{o}{=}\PYG{o}{=} \PYG{n}{steel}\PYG{p}{)}\PYG{p}{,} \PYG{n}{vold}\PYG{p}{;}
+\PYG{c+c1}{// set the label to 10 on inflow boundary to inforce the temperature.}
+\PYG{n}{Sh} \PYG{o}{=} \PYG{n+nf}{change}\PYG{p}{(}\PYG{n}{Sh}\PYG{p}{,}\PYG{k+kp}{flabel} \PYG{o}{=} \PYG{p}{(}\PYG{k+kr}{label} \PYG{o}{=}\PYG{o}{=} \PYG{n}{C} \PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}  \PYG{p}{[}\PYG{n}{u1}\PYG{p}{,}\PYG{n}{u2}\PYG{p}{]}\PYG{o}{\PYGZsq{}}\PYG{o}{*}\PYG{k+kr}{N}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{?} \PYG{l+m+mi}{10} \PYG{o}{:} \PYG{k+kr}{label}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{i}\PYG{p}{;}
+\PYG{k+kt}{problem} \PYG{n+nf}{thermic}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{vv}\PYG{p}{,} \PYG{k+kp}{init}\PYG{o}{=}\PYG{n}{i}\PYG{p}{,} \PYG{k+kp}{solver}\PYG{o}{=}\PYG{k+kr}{LU}\PYG{p}{)}
+\PYG{o}{=} \PYG{n+nf}{int2d}\PYG{p}{(}\PYG{n}{Sh}\PYG{p}{)}\PYG{p}{(}
+              \PYG{n}{v}\PYG{o}{*}\PYG{n}{vv}\PYG{o}{/}\PYG{n}{dt} \PYG{o}{+} \PYG{n}{k}\PYG{o}{*}\PYG{p}{(}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{vv}\PYG{p}{)} \PYG{o}{+} \PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{o}{*}\PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{vv}\PYG{p}{)}\PYG{p}{)}
+            \PYG{o}{+} \PYG{l+m+mi}{10}\PYG{o}{*}\PYG{p}{(}\PYG{n}{u1}\PYG{o}{*}\PYG{n+nf}{dx}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)} \PYG{o}{+} \PYG{n}{u2}\PYG{o}{*}\PYG{n+nf}{dy}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{n}{vv}
+           \PYG{p}{)}
+\PYG{o}{\PYGZhy{}} \PYG{n+nf}{int2d}\PYG{p}{(}\PYG{n}{Sh}\PYG{p}{)}\PYG{p}{(}\PYG{n}{vold}\PYG{o}{*}\PYG{n}{vv}\PYG{o}{/}\PYG{n}{dt}\PYG{p}{)}
+\PYG{o}{+} \PYG{n+nf}{on}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{v}\PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}
+
+
+\PYG{k}{for}\PYG{p}{(}\PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{nbT}\PYG{p}{;} \PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{vold}\PYG{p}{[}\PYG{p}{]}\PYG{o}{=} \PYG{n}{v}\PYG{p}{[}\PYG{p}{]}\PYG{p}{;}
+  \PYG{n}{thermic}\PYG{p}{;}
+  \PYG{n+nf}{plot}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
 \end{sphinxVerbatim}
-
-// Corrected by F. Hecht may 2021
-// Parameters
-real S = 99;
-
-border C(t=0, 2*pi)\{x=3*cos(t); y=3*sin(t);\} // Label 1,2
-border Splus(t=0, 1)\{x=t; y=0.17735*sqrt(t) - 0.075597*t - 0.212836*(t\textasciicircum{}2) + 0.17363*(t\textasciicircum{}3) - 0.06254*(t\textasciicircum{}4); label=S;\}
-border Sminus(t=1, 0)\{x=t; y=-(0.17735*sqrt(t) - 0.075597*t - 0.212836*(t\textasciicircum{}2) + 0.17363*(t\textasciicircum{}3) - 0.06254*(t\textasciicircum{}4)); label=S;\}
-mesh Th = buildmesh(C(50) + Splus(70) + Sminus(70));
-// Fespace
-fespace Vh(Th, P2);
-Vh psi, w;
-
-// Problem
-solve potential(psi, w)
-\begin{quote}
-
-= int2d(Th)(dx(psi)*dx(w)+dy(psi)*dy(w))
-+ on(C, psi = y)
-+ on(S, psi=0);
-\end{quote}
-
-// Plot
-plot(psi, wait=1);
-
-/// Thermic
-// Parameters
-real dt = 0.005, nbT = 50;
-
-// Mesh
-border D(t=0, 2)\{x=1+t; y=0;\}
-mesh Sh = buildmesh(C(25) + Splus(-90) + Sminus(-90) + D(200));
-int steel = Sh(0.5, 0).region, air = Sh(-1, 0).region;
-// Change label to put BC on In flow
-// Fespace
-fespace Wh(Sh, P1);
-Wh  vv;
-
-fespace W0(Sh, P0);
-W0 k = 0.01*(region == air) + 0.1*(region == steel);
-W0 u1 = dy(psi)*(region == air), u2 = -dx(psi)*(region == air);
-Wh v = 120*(region == steel), vold;
-// set the label to 10 on inflow boundary to inforce the temperature.
-Sh = change(Sh,flabel = (label == C \&\&  {[}u1,u2{]}’{\color{red}\bfseries{}*}N\textless{}0) ? 10 : label);
-int i;
-problem thermic(v, vv, init=i, solver=LU)
-\begin{quote}
-\begin{description}
-\item[{= int2d(Sh)(}] \leavevmode\begin{quote}
-
-v*vv/dt + k*(dx(v)*dx(vv) + dy(v)*dy(vv))
-\end{quote}
-\begin{itemize}
-\item {} 
-10*(u1*dx(v) + u2*dy(v))*vv
-
-\end{itemize}
-
-\end{description}
-
-)
-- int2d(Sh)(vold*vv/dt)
-+ on(10, v= 0);
-\end{quote}
-\begin{description}
-\item[{for(i = 0; i \textless{} nbT; i++) \{}] \leavevmode
-vold{[}{]}= v{[}{]};
-thermic;
-plot(v);
-
-\end{description}
-
-\}
 
 \begin{sphinxadmonition}{note}{Note:}
 How steel and air are identified by the mesh parameter region which is defined when buildmesh is called and takes an integer value corresponding to each connected component of \(\Omega\);
