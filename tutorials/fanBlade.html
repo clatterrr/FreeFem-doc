@@ -2032,12 +2032,12 @@ Infinity will be represented by a large circle <span class="math notranslate noh
 </td></tr></table></div>
 <p>A zoom of the streamlines are shown on <a class="reference internal" href="#figfanpotential"><span class="std std-numref">Fig. 15</span></a>.</p>
 <div class="figure compound align-center" id="Potential">
-<div style="width: 49%" class="subfigure" id="id1">
+<div style="width: 49%" class="subfigure" id="id3">
 <span id="figfanpotential"></span><a class="reference internal image-reference" href="../_images/potential.png"><img alt="Potential" src="../_images/potential.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Zoom around the NACA0012 airfoil showing the streamlines (curve <span class="math notranslate nohighlight">\(\psi=\)</span> constant).
 To obtain such a plot use the interactive graphic command: “+” and p.</span></p>
 </div>
-<div style="width: 49%" class="subfigure" id="id2">
+<div style="width: 49%" class="subfigure" id="id4">
 <span id="figfantemperature"></span><a class="reference internal image-reference" href="../_images/potential_heat.png"><img alt="PotentialHeat" src="../_images/potential_heat.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Temperature distribution at time T=25 (now the maximum is at 90 instead of 120).</span></p>
 </div>
@@ -2047,92 +2047,78 @@ To obtain such a plot use the interactive graphic command: “+” and p.</span>
 <p>Now let us assume that the airfoil is hot and that air is there to cool it.
 Much like in the previous section the heat equation for the temperature <span class="math notranslate nohighlight">\(v\)</span> is</p>
 <div class="math notranslate nohighlight">
-\[\partial_t v -\nabla\cdot(\kappa\nabla v) + u\cdot\nabla v =0,~~v(t=0)=v_0, ~~\frac{\partial v}{\partial\boldsymbol{n}}|_C=0\]</div>
+\[\partial_t v -\nabla\cdot(\kappa\nabla v) + u\cdot\nabla v =0,~~v(t=0)=v_0, ~~\frac{\partial v}{\partial\boldsymbol{n}}|_{C,u\cdot n&gt;0}=0, v|_{C,u\cdot n&lt;0}=0\]</div>
 <p>But now the domain is outside AND inside <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(\kappa\)</span> takes a different value in air and in steel.
 Furthermore there is convection of heat by the flow, hence the term <span class="math notranslate nohighlight">\(u\cdot\nabla v\)</span> above.</p>
 <p>Consider the following, to be plugged at the end of the previous program:</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Parameters</span>
-<span class="kt">real</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">;</span>
-<span class="kt">real</span> <span class="n">nbT</span><span class="o">=</span><span class="mi">50</span><span class="p">;</span>
-
-<span class="c1">// Mesh</span>
-<span class="kt">border</span> <span class="nf">D</span><span class="p">(</span><span class="kp">t</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">){</span><span class="kr">x</span><span class="o">=</span><span class="mf">1.</span><span class="o">+</span><span class="nf">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;</span> <span class="kr">y</span><span class="o">=+</span><span class="nf">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="kp">t</span><span class="p">;}</span> <span class="c1">// Added to have a fine mesh at trail</span>
-<span class="kt">mesh</span> <span class="n">Sh</span> <span class="o">=</span> <span class="nf">buildmesh</span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="o">+</span> <span class="n">Splus</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">Sminus</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">D</span><span class="p">(</span><span class="mi">200</span><span class="p">));</span>
-<span class="kt">int</span> <span class="n">steel</span><span class="o">=</span><span class="n">Sh</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="kr">region</span><span class="p">,</span> <span class="n">air</span><span class="o">=</span><span class="n">Sh</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="kr">region</span><span class="p">;</span>
-
-<span class="c1">// Fespaces</span>
-<span class="kt">fespace</span> <span class="nf">Vh</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="nc">P2</span><span class="p">);</span>
-
-
-<span class="kt">fespace</span> <span class="nf">Wh</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span> <span class="nc">P1</span><span class="p">);</span>
-<span class="n">Wh</span> <span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
-
-<span class="kt">fespace</span> <span class="nf">W0</span><span class="p">(</span><span class="n">Sh</span><span class="p">,</span><span class="nc">P0</span><span class="p">);</span>
-<span class="n">W0</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">air</span><span class="p">)</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">steel</span><span class="p">);</span>
-<span class="n">W0</span> <span class="n">u1</span><span class="o">=</span><span class="nf">dy</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">air</span><span class="p">),</span> <span class="n">u2</span><span class="o">=-</span><span class="nf">dx</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">air</span><span class="p">);</span>
-<span class="n">Wh</span> <span class="n">vold</span> <span class="o">=</span> <span class="mi">120</span><span class="o">*</span><span class="p">(</span><span class="kr">region</span><span class="o">==</span><span class="n">steel</span><span class="p">);</span>
-
-<span class="c1">// Problem</span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-<span class="kt">problem</span> <span class="nf">thermic</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="kp">init</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="kp">solver</span><span class="o">=</span><span class="kr">LU</span><span class="p">)</span>
-   <span class="o">=</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Sh</span><span class="p">)(</span>
-        <span class="n">v</span><span class="o">*</span><span class="n">vv</span><span class="o">/</span><span class="n">dt</span>
-      <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">&#39;*</span><span class="n">grad</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
-      <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="nf">dx</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="n">u2</span><span class="o">*</span><span class="nf">dy</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">*</span><span class="n">vv</span>
-   <span class="p">)</span>
-   <span class="o">-</span> <span class="nf">int2d</span><span class="p">(</span><span class="n">Sh</span><span class="p">)(</span>
-        <span class="n">vold</span><span class="o">*</span><span class="n">vv</span><span class="o">/</span><span class="n">dt</span>
-   <span class="p">)</span>
-   <span class="p">;</span>
-
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nbT</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-   <span class="n">v</span> <span class="o">=</span> <span class="n">vold</span><span class="p">;</span>
-   <span class="n">thermic</span><span class="p">;</span>
-   <span class="nf">plot</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>
 </pre></div>
 </td></tr></table></div>
+<p>// Corrected by F. Hecht may 2021
+// Parameters
+real S = 99;</p>
+<p>border C(t=0, 2*pi){x=3*cos(t); y=3*sin(t);} // Label 1,2
+border Splus(t=0, 1){x=t; y=0.17735*sqrt(t) - 0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4); label=S;}
+border Sminus(t=1, 0){x=t; y=-(0.17735*sqrt(t) - 0.075597*t - 0.212836*(t^2) + 0.17363*(t^3) - 0.06254*(t^4)); label=S;}
+mesh Th = buildmesh(C(50) + Splus(70) + Sminus(70));
+// Fespace
+fespace Vh(Th, P2);
+Vh psi, w;</p>
+<p>// Problem
+solve potential(psi, w)</p>
+<blockquote>
+<div>= int2d(Th)(dx(psi)*dx(w)+dy(psi)*dy(w))
++ on(C, psi = y)
++ on(S, psi=0);</div></blockquote>
+<p>// Plot
+plot(psi, wait=1);</p>
+<p>/// Thermic
+// Parameters
+real dt = 0.005, nbT = 50;</p>
+<p>// Mesh
+border D(t=0, 2){x=1+t; y=0;}
+mesh Sh = buildmesh(C(25) + Splus(-90) + Sminus(-90) + D(200));
+int steel = Sh(0.5, 0).region, air = Sh(-1, 0).region;
+// Change label to put BC on In flow
+// Fespace
+fespace Wh(Sh, P1);
+Wh  vv;</p>
+<p>fespace W0(Sh, P0);
+W0 k = 0.01*(region == air) + 0.1*(region == steel);
+W0 u1 = dy(psi)*(region == air), u2 = -dx(psi)*(region == air);
+Wh v = 120*(region == steel), vold;
+// set the label to 10 on inflow boundary to inforce the temperature.
+Sh = change(Sh,flabel = (label == C &amp;&amp;  [u1,u2]’<a href="#id1"><span class="problematic" id="id2">*</span></a>N&lt;0) ? 10 : label);
+int i;
+problem thermic(v, vv, init=i, solver=LU)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>= int2d(Sh)(</dt>
+<dd><blockquote class="first">
+<div>v*vv/dt + k*(dx(v)*dx(vv) + dy(v)*dy(vv))</div></blockquote>
+<ul class="last simple">
+<li>10*(u1*dx(v) + u2*dy(v))*vv</li>
+</ul>
+</dd>
+</dl>
+<p>)
+- int2d(Sh)(vold*vv/dt)
++ on(10, v= 0);</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>for(i = 0; i &lt; nbT; i++) {</dt>
+<dd>vold[]= v[];
+thermic;
+plot(v);</dd>
+</dl>
+<p>}</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>How steel and air are identified by the mesh parameter region which is defined when buildmesh is called and takes an integer value corresponding to each connected component of <span class="math notranslate nohighlight">\(\Omega\)</span>;</p>
+<p class="last">How steel and air are identified by the mesh parameter region which is defined when buildmesh is called and takes an integer value corresponding to each connected component of <span class="math notranslate nohighlight">\(\Omega\)</span>;</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>We use the change function to put label 10 on inflow boundary, remark the trick to chanhe only label C <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">flabel</span> <span class="o">=</span> <span class="p">(</span><span class="kr">label</span> <span class="o">==</span> <span class="n">C</span> <span class="o">&amp;&amp;</span>  <span class="p">[</span><span class="n">u1</span><span class="p">,</span><span class="n">u2</span><span class="p">]</span><span class="o">&#39;*</span><span class="kr">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">10</span> <span class="o">:</span> <span class="kr">label</span></code></p>
 <p>How the convection terms are added without upwinding.
 Upwinding is necessary when the Pecley number <span class="math notranslate nohighlight">\(|u|L/\kappa\)</span> is large (here is a typical length scale), The factor 10 in front of the convection terms is a quick way of multiplying the velocity by 10 (else it is too slow to see something).</p>
 <p class="last">The solver is Gauss’ LU factorization and when <code class="code freefem docutils literal highlight highlight-freefem"><span></span><span class="kp">init</span></code> <span class="math notranslate nohighlight">\(\neq 0\)</span> the LU decomposition is reused so it is much faster after the first iteration.</p>
