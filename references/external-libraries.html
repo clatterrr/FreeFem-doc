@@ -5173,7 +5173,7 @@
 <div class="section" id="gmsh">
 <h2>gmsh<a class="headerlink" href="#gmsh" title="Permalink to this headline"> </a></h2>
 <p>Need</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;gsmh&quot;</span>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">load</span> <span class="s">&quot;gmsh&quot;</span>
 </pre></div>
 </td></tr></table></div>
 <p>The <code class="docutils literal highlight highlight-freefem"><span></span><span class="n">gmsh</span></code> software is available <a class="reference external" href="http://gmsh.info/">here</a></p>
@@ -5197,7 +5197,7 @@
 <div class="section" id="gmshload3">
 <h3>gmshload3<a class="headerlink" href="#gmshload3" title="Permalink to this headline"> </a></h3>
 <p>Load a 3D mesh build with Gmsh.</p>
-<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">gmshload</span><span class="p">(</span><span class="n">MeshFile</span><span class="p">,</span> <span class="p">[</span><span class="kp">reftet</span><span class="o">=</span><span class="n">RefTet</span><span class="p">],</span> <span class="p">[</span><span class="n">renum</span><span class="o">=</span><span class="n">Renum</span><span class="p">]);</span>
+<div class="highlight-freefem notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">mesh3</span> <span class="n">Th</span> <span class="o">=</span> <span class="nf">gmshload3</span><span class="p">(</span><span class="n">MeshFile</span><span class="p">,</span> <span class="p">[</span><span class="kp">reftet</span><span class="o">=</span><span class="n">RefTet</span><span class="p">],</span> <span class="p">[</span><span class="n">renum</span><span class="o">=</span><span class="n">Renum</span><span class="p">]);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Parameters:</p>
