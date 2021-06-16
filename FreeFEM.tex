@@ -134,7 +134,7 @@
     
 
 \title{FreeFEM Documentation}
-\date{May 18, 2021}
+\date{Jun 16, 2021}
 \release{4.6}
 \author{Frederic Hecht}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -562,6 +562,43 @@ Thanks to \sphinxhref{https://github.com/stefanhusmann}{Stephan Husmann}
 \end{sphinxadmonition}
 
 
+\subsubsection{Fedora installation}
+\label{\detokenize{introduction/installation:fedora-installation}}
+Packages are available in the
+\sphinxhref{https://src.fedoraproject.org/rpms/freefem++}{Fedora Repositories},
+and they are managed by the
+\sphinxhref{https://fedoraproject.org/wiki/SIGs/SciTech/PackageList}{Fedora SciTech special interest group}.
+The packages are usually recent builds, but may not be the latest released version.
+
+You can install them using the dnf tool, for both the serial and parallel (MPI)
+versions. :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo dnf install freefem++
+sudo dnf install freefem++\PYGZhy{}openmpi
+sudo dnf install freefem++\PYGZhy{}mpich
+\end{sphinxVerbatim}
+
+FreeFEM is directly available in your terminal by the command “FreeFem++”.
+To use the OpenMPI version, in your terminal first load the OpenMPI module,
+for example using
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+module load mpi/openmpi\PYGZhy{}x86\PYGZus{}64
+\end{sphinxVerbatim}
+
+and then the command “FreeFem++-mpi\_openmpi” will be available in your
+terminal. To use the MPICH version, in your terminal first load the MPICH
+module using
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+module load mpi/mpich\PYGZhy{}x86\PYGZus{}64
+\end{sphinxVerbatim}
+
+and then the command “FreeFem++-mpi\_mpich” will be available in your
+terminal.
+
+
 \subsection{Compiling source code}
 \label{\detokenize{introduction/installation:compiling-source-code}}\begin{description}
 \item[{Various versions of FreeFEM are possible:}] \leavevmode\begin{itemize}
@@ -750,7 +787,7 @@ make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-\sphinxcode{\sphinxupquote{make check}} is optionnally, but advise to check the validity of your \sphinxstylestrong{FreeFEM} building
+\sphinxcode{\sphinxupquote{make check}} is optional, but advised to check the validity of your \sphinxstylestrong{FreeFEM} build
 \end{sphinxadmonition}
 \end{quote}
 \begin{enumerate}
@@ -793,7 +830,7 @@ sudo apt\PYGZhy{}get install mpich
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{warning}{Warning:}
-In the oldest distribution of Ubuntu, \sphinxcode{\sphinxupquote{libgsl-dev}} does not exists, use \sphinxcode{\sphinxupquote{libgsl2-dev}} instead
+In the oldest distribution of Ubuntu, \sphinxcode{\sphinxupquote{libgsl-dev}} does not exist, use \sphinxcode{\sphinxupquote{libgsl2-dev}} instead
 \end{sphinxadmonition}
 
 \item {} 
@@ -857,7 +894,7 @@ make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-\sphinxcode{\sphinxupquote{make check}} is optionnally, but advise to check the validity of your \sphinxstylestrong{FreeFEM} building
+\sphinxcode{\sphinxupquote{make check}} is optional, but advised to check the validity of your \sphinxstylestrong{FreeFEM} build
 \end{sphinxadmonition}
 
 \item {} 
@@ -958,7 +995,7 @@ If your computer has many threads, you can run \sphinxcode{\sphinxupquote{make}}
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}{Note:}
-Optionnally, check the compilation with \sphinxcode{\sphinxupquote{make check}}
+Optionally, check the compilation with \sphinxcode{\sphinxupquote{make check}}
 \end{sphinxadmonition}
 
 \item {} 
@@ -967,6 +1004,109 @@ Install the \sphinxstylestrong{FreeFEM} application
 \begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 sudo make install
 \end{sphinxVerbatim}
+
+\end{enumerate}
+
+
+\subsubsection{Compilation on Fedora}
+\label{\detokenize{introduction/installation:compilation-on-fedora}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Install the following packages on your system
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+sudo dnf update
+sudo dnf install freeglut\PYGZhy{}devel gcc\PYGZhy{}gfortran gcc\PYGZhy{}c++ gcc \PYG{l+s+se}{\PYGZbs{}}
+                  m4 make wget python2 python3 unzip \PYG{l+s+se}{\PYGZbs{}}
+                  lapack\PYGZhy{}devel hdf5\PYGZhy{}devel gsl gsl\PYGZhy{}devel \PYG{l+s+se}{\PYGZbs{}}
+                  autoconf automake bison flex gdb git cmake
+
+\PYG{c+c1}{\PYGZsh{} MPICH or OpenMPI is required for the FreeFEM parallel computing version}
+sudo dnf install mpich\PYGZhy{}devel
+sudo dnf install openmpi\PYGZhy{}devel
+
+\PYG{c+c1}{\PYGZsh{} Then load one of the modules, for example}
+module load mpi/mpich\PYGZhy{}x86\PYGZus{}64
+\PYG{c+c1}{\PYGZsh{} or}
+module load mpi/openmpi\PYGZhy{}x86\PYGZus{}64
+\end{sphinxVerbatim}
+
+\item {} 
+Download \sphinxstylestrong{FreeFEM} source from the repository
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+git clone https://github.com/FreeFem/FreeFem\PYGZhy{}sources.git
+\end{sphinxVerbatim}
+
+\item {} 
+Autoconf
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} FreeFem\PYGZhy{}sources
+autoreconf \PYGZhy{}i
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+if your autoreconf version is too old, do \sphinxcode{\sphinxupquote{tar zxvf AutoGeneratedFile.tar.gz}}
+\end{sphinxadmonition}
+
+\item {} 
+Configure
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+./configure \PYGZhy{}\PYGZhy{}enable\PYGZhy{}download \PYGZhy{}\PYGZhy{}enable\PYGZhy{}optim
+    \PYGZhy{}\PYGZhy{}prefix\PYG{o}{=}/where/you/want/to/have/files/installed
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+To see all the options, type \sphinxcode{\sphinxupquote{./configure -{-}help}}
+\end{sphinxadmonition}
+
+\item {} 
+Download the 3rd party packages
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+./3rdparty/getall \PYGZhy{}a
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+All the third party packages have their own licence
+\end{sphinxadmonition}
+
+\item {} 
+If you want use PETSc/SLEPc and \sphinxhref{https://github.com/hpddm/hpddm}{HPDDM} (High Performance Domain Decomposition Methods) for massively parallel computing
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{n+nb}{cd} 3rdparty/ff\PYGZhy{}petsc
+make petsc\PYGZhy{}slepc // add \PYG{n+nv}{SUDO}\PYG{o}{=}sudo \PYG{k}{if} your installation directory is the default /usr/local
+\PYG{n+nb}{cd} \PYGZhy{}
+./reconfigure
+\end{sphinxVerbatim}
+
+\item {} 
+Build your \sphinxstylestrong{FreeFEM} library and executable
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{}
+make \PYGZhy{}j\PYGZlt{}nbProcs\PYGZgt{} check
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+\sphinxcode{\sphinxupquote{make check}} is optional, but advised to check the validity of your \sphinxstylestrong{FreeFEM} build
+\end{sphinxadmonition}
+
+\item {} 
+Install the executable
+
+\begin{sphinxVerbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+make install
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+it isn’t necessary to execute this last command, FreeFEM executable is avalaible here your\_installation/src/nw/FreeFem++ and mpi executable here your\_installation/src/mpi/ff-mpirun
+\end{sphinxadmonition}
 
 \end{enumerate}
 
